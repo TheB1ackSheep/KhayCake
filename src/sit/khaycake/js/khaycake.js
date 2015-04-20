@@ -87,6 +87,7 @@ var KhayCake = KhayCake || {
                 modal.style.height = size.height+"px";
                 modal.style.width = size.width+"px";
                 modal.style.backgroundColor = "#3E2723";
+                modal.style.transition = "top 250ms,right 250ms,bottom 250ms,left 250ms,width 250ms,height 250ms";
 
                 (function(){
                     setTimeout(function() {
@@ -105,9 +106,9 @@ var KhayCake = KhayCake || {
                                     el.classList.remove("hide");
                                 });
 
-                            },350);
+                            },100);
                         })();
-                    },350);
+                    },100);
                 })();
 
             }
@@ -138,6 +139,8 @@ var KhayCake = KhayCake || {
                     cakes = K.getBrownieCake();
                 else if(param == ("party-cake"))
                     cakes = K.getPartyCake();
+                else if(param == ("cart"))
+                    cakes = K.getCheckout();
 
                 if(cakes!=null){
                     var container = document.querySelector(".modal.shop .tab .row");
@@ -191,55 +194,64 @@ var KhayCake = KhayCake || {
             },500);
         },
         getCupcake : function(){
-            return '<div class="box cup-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Crushed Peanut</div><div class="price">&#3647;56</div><button class="add-cart">Add to Cart</button></div>' +
-                ' <div class="box cup-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Crushed Peanut</div><div class="price">&#3647;56</div><button class="add-cart">Add to Cart</button></div>' +
-                ' <div class="box cup-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Crushed Peanut</div><div class="price">&#3647;56</div><button class="add-cart">Add to Cart</button></div>' +
-                ' <div class="box cup-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Crushed Peanut</div><div class="price">&#3647;56</div><button class="add-cart">Add to Cart</button></div>' +
-                ' <div class="box cup-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Crushed Peanut</div><div class="price">&#3647;56</div><button class="add-cart">Add to Cart</button></div>';
+            return '<div class="box cake-box cup-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Crushed Peanut</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>' +
+                ' <div class="box cake-box cup-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Crushed Peanut</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>' +
+                ' <div class="box cake-box cup-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Crushed Peanut</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>' +
+                ' <div class="box cake-box cup-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Crushed Peanut</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>' +
+                ' <div class="box cake-box cup-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Crushed Peanut</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>';
         },
         getCrapeCake : function(){
-            return '<div class="box crape-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Crape Cake</div><div class="price">&#3647;56</div><button class="add-cart">Add to Cart</button></div>' +
-                '<div class="box crape-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Crape Cake</div><div class="price">&#3647;56</div><button class="add-cart">Add to Cart</button></div>' +
-                '<div class="box crape-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Crape Cake</div><div class="price">&#3647;56</div><button class="add-cart">Add to Cart</button></div>' +
-                '<div class="box crape-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Crape Cake</div><div class="price">&#3647;56</div><button class="add-cart">Add to Cart</button></div>' +
-                '<div class="box crape-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Crape Cake</div><div class="price">&#3647;56</div><button class="add-cart">Add to Cart</button></div>';
+            return '<div class="box cake-box crape-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Crape Cake</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>' +
+                '<div class="box cake-box crape-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Crape Cake</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>' +
+                '<div class="box cake-box crape-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Crape Cake</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>' +
+                '<div class="box cake-box crape-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Crape Cake</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>' +
+                '<div class="box cake-box crape-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Crape Cake</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>';
         },
         getBrownieCake : function(){
-            return '<div class="box brownie-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Brownie Cake</div><div class="price">&#3647;56</div><button class="add-cart">Add to Cart</button></div>' +
-                '<div class="box brownie-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Brownie Cake</div><div class="price">&#3647;56</div><button class="add-cart">Add to Cart</button></div>' +
-                '<div class="box brownie-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Brownie Cake</div><div class="price">&#3647;56</div><button class="add-cart">Add to Cart</button></div>' +
-                '<div class="box brownie-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Brownie Cake</div><div class="price">&#3647;56</div><button class="add-cart">Add to Cart</button></div>' +
-                '<div class="box brownie-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Brownie Cake</div><div class="price">&#3647;56</div><button class="add-cart">Add to Cart</button></div>';
+            return '<div class="box cake-box brownie-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Brownie Cake</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>' +
+                '<div class="box cake-box brownie-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Brownie Cake</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>' +
+                '<div class="box cake-box brownie-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Brownie Cake</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>' +
+                '<div class="box cake-box brownie-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Brownie Cake</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>' +
+                '<div class="box cake-box brownie-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Brownie Cake</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>';
         },
         getPartyCake : function(){
-            return '<div class="box party-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Party Cake</div><div class="price">&#3647;56</div><button class="add-cart">Add to Cart</button></div>' +
-                '<div class="box party-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Party Cake</div><div class="price">&#3647;56</div><button class="add-cart">Add to Cart</button></div>' +
-                '<div class="box party-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Party Cake</div><div class="price">&#3647;56</div><button class="add-cart">Add to Cart</button></div>' +
-                '<div class="box party-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Party Cake</div><div class="price">&#3647;56</div><button class="add-cart">Add to Cart</button></div>' +
-                '<div class="box party-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Party Cake</div><div class="price">&#3647;56</div><button class="add-cart">Add to Cart</button></div>';
+            return '<div class="box cake-box party-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Party Cake</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>' +
+                '<div class="box cake-box party-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Party Cake</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>' +
+                '<div class="box cake-box party-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Party Cake</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>' +
+                '<div class="box cake-box party-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Party Cake</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>' +
+                '<div class="box cake-box party-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Party Cake</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>';
+        },
+        getCheckout : function(){
+            return '<div class="box checkout_box hide"><table><thead><tr><th></th><th>Your order</th><th>Price</th></tr></thead><tbody><tr><th>1x</th><td>Crushed Peanut</td><td>$56</td></tr><tr><th>2x</th><td>Your order</td><td>Price</td></tr><tr><th>1x</th><td>Your order</td><td>Price</td></tr></tbody><tfoot><tr><th></th><th class="text-right">Total</th><th class="text-right">$56</th></tr></tfoot></table></div>';
         }
 
     };
 
 var K = KhayCake;
 
-document.addEventListener("DOMContentLoaded",function(){
+document.addEventListener("DOMContentLoaded",function() {
 
-    window.addEventListener("hashchange",function(){
+    window.addEventListener("hashchange", function () {
         K.doAjax();
     });
 
-    if(window.location.hash) {
+    if (window.location.hash) {
         K.doAjax();
     }
 
-    [].forEach.call(document.querySelectorAll(".box .btn"),function(el){
+    [].forEach.call(document.querySelectorAll(".box .btn"), function (el) {
         el.addEventListener("click", function () {
-            K.setParameter("buyBtn",this);
+            K.setParameter("buyBtn", this);
         });
     });
 
+    document.querySelector(".checkout").addEventListener("click",function(){
+       this.classList.toggle("active");
+    });
+
 });
+
+
 
 
 

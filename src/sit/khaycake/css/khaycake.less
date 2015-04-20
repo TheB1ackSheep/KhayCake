@@ -11,11 +11,12 @@
 }
 
 .transition(@tran){
-  -webkit-transition: @tran;
-  -moz-transition: @tran;
-  -ms-transition: @tran;
-  -o-transition: @tran;
-  transition: @tran;
+  @normalized: ~"@{tran}" ;
+  -webkit-transition: @normalized;
+  -moz-transition: @normalized;
+  -ms-transition: @normalized;
+  -o-transition: @normalized;
+  transition: @normalized;
 }
 
 .transition-delay(@delay){
@@ -89,8 +90,8 @@
 }
 
 * {
-  -webkit-box-sizing: border-box; /* Safari 3.0 - 5.0, Chrome 1 - 9, Android 2.1 - 3.x */
-  -moz-box-sizing: border-box; /* Firefox 1 - 28 */
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -303,20 +304,11 @@ section.full-width {
 }
 
 section.slider {
-  margin: 2px 0 0 0;
+  margin: 2px auto;
   width: 100%;
   justify-content: center;
   min-width: 140px;
   transition: 500ms ease-in-out all;
-  .slide {
-    position: relative;
-    right: -50%;
-    display: inline-block;
-    img {
-      position: relative;
-      left: -50%;
-    }
-  }
 }
 
 section#cakes .row {
@@ -412,7 +404,6 @@ section#map {
 .modal {
   z-index: 999;
   position: fixed;
-  .transition(all 350ms);
   overflow: auto;
   h1, h2, h3, h4 {
     color: @A100;
@@ -443,16 +434,13 @@ section#map {
         position: relative;
         top: 0;
         opacity: 1;
-        .transition(all 200ms);
+        .transition("top 200ms,opacity 100ms");
       }
       a.hide {
         top: -100px;
         opacity: 0;
       }
-      a.active {
-        color: @A200;
-      }
-      a:not(.active):hover {
+      a.active,a:hover {
         color: @A200;
       }
 
@@ -461,6 +449,9 @@ section#map {
         text-align: right;
         .transform(rotate(180deg));
       }
+
+
+
     }
     li:nth-child(1) a{
       .transition-delay(300ms);
@@ -481,6 +472,17 @@ section#map {
     li:nth-child(5) a{
       .transition-delay(700ms);
     }
+
+    li:nth-child(6) a{
+      .transition-delay(800ms);
+    }
+
+    li.checkout{
+      float: right;
+      path{
+        fill: @A400;
+      }
+    }
   }
   .row {
     display: flex;
@@ -490,7 +492,11 @@ section#map {
     margin: 0 auto;
     text-align: center;
 
-    .box {
+    .box{
+      .transition(all 350ms);
+    }
+
+    .cake-box {
       overflow: hidden;
       margin: 20px 0 0 20px;
       width: 18%;
@@ -498,7 +504,6 @@ section#map {
       background-color: #4F3632;
       .box-shadow(1px 1px 7px #351F1C);
       .border-radius(3px);
-      transition: all 350ms;
 
       img {
         width: 100%;
@@ -506,15 +511,12 @@ section#map {
       .title {
         font-family: 'Open Sans', sans-serif;
         color: @A100;
-        padding: 10px 10px 0 10px;
+        padding: 10px;
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
       }
-      .price {
-        padding: 0 10px 5px 10px;
-        color: @A100;
-      }
+
       .add-cart {
         width: 100%;
         border-top: 1px solid #5d413d;
@@ -522,25 +524,90 @@ section#map {
         border-bottom: none;
         border-left: none;
         margin: 0;
-        padding: 10px;
         color: @A100;
         cursor: pointer;
         background-color: #4F3632;
         outline: 0;
         height: 40px;
+        font-size: 14px;
+        overflow: hidden;
+        position: relative;
+
+        .price {
+          color: @A100;
+        }
+
+        div{
+          padding: 10px;
+          position: absolute;
+          text-align: center;
+          width: 100%;
+          top: 0;
+          .transition(top 350ms);
+        }
+        div+div{
+          top: 40px;
+        }
       }
+
       .add-cart:hover {
         background-color: #5d413d;
+        div{
+          top: -40px;
+        }
+        div+div{
+          top: 0;
+        }
       }
 
     }
-    .box.hide {
+    .cake-box.hide {
       width: 0;
       margin: 0;
     }
 
   }
+  .checkout_box.hide{
+    top: -100px;
+    opacity: 0;
+  }
+  .checkout_box{
+    position: relative;
+    top:0px;
+    opacity: 1;
+    max-width: 50vw;
+    width: 100%;
+    margin: 20px auto;
+    padding: 20px;
+    table{
+      text-align: left;
+      margin: 0 auto;
+      font-size: 15px;
+      color: #ddd;
+      th{
+        color: #6B534F;
+        font-size: 18px;
+      }
+      th,td{
+        padding: 0 10px;
+      }
+      thead th,tfoot th{
+        padding: 10px;
+      }
+      tbody th{
+        font-size: 15px;
+        padding-right:0 ;
+      }
+      tbody td:nth-child(2){
+        padding-left:0 ;
+      }
+      tbody td:nth-child(3){
+        text-align: right;
+      }
+    }
+  }
 }
+
 
 footer {
   background-color: @A700;
@@ -578,7 +645,13 @@ footer {
         a {
           font-size: 24px;
         }
+
       }
+
+      li.checkout{
+        float: none;
+      }
+
     }
     .row {
       .box {
