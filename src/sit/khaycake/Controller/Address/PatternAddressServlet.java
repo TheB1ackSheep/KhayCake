@@ -45,6 +45,32 @@ public class PatternAddressServlet extends HttpServlet {
             } catch (Exception e) {
                 response.sendError(HttpServletResponse.SC_NOT_FOUND);
             }
+        }else if(resource.indexOf("district") >= 0) {
+            resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
+            try {
+                Address address = (Address)SQL.findById(Address.class, Integer.parseInt(resource));
+                if (address !=null) {
+                    Gson gson = new Gson();
+                    response.getWriter().print(gson.toJson(address.getSubDistrict().getDistrict()));
+                }else{
+                    response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                }
+            } catch (Exception e) {
+                response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            }
+        }else if(resource.indexOf("province") >= 0) {
+            resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
+            try {
+                Address address = (Address)SQL.findById(Address.class, Integer.parseInt(resource));
+                if (address !=null) {
+                    Gson gson = new Gson();
+                    response.getWriter().print(gson.toJson(address.getSubDistrict().getDistrict().getProvince()));
+                }else{
+                    response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                }
+            } catch (Exception e) {
+                response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            }
         }else{
             Address address = null;
             try {
