@@ -16,7 +16,7 @@ import sit.khaycake.database.*;
  */
 public class Customer implements ORM, CanFindByKeyword {
     private int id;
-    private Address address;
+    private List<Address> addresses;
     private String fname;
     private String lname;
     private String email;
@@ -28,7 +28,7 @@ public class Customer implements ORM, CanFindByKeyword {
 
     public static final String TABLE_NAME = "CUSTOMER";
     public static final Column COLUMN_ID = ORM.column(TABLE_NAME, "CUS_ID");
-    public static final Column COLUMN_ADDR_ID = ORM.column(TABLE_NAME, "ADDR_ID");
+    //public static final Column COLUMN_ADDR_ID = ORM.column(TABLE_NAME, "ADDR_ID");
     public static final Column COLUMN_FNAME = ORM.column(TABLE_NAME, "FNAME");
     public static final Column COLUMN_LNAME = ORM.column(TABLE_NAME, "LNAME");
     public static final Column COLUMN_EMAIL = ORM.column(TABLE_NAME, "EMAIL");
@@ -47,12 +47,12 @@ public class Customer implements ORM, CanFindByKeyword {
         this.id = id;
     }
 
-    public Address getAddress() {
-        return address;
+    public List<Address> getAddresses() {
+        return addresses;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setAddress(List<Address> addresses) {
+        this.addresses = addresses;
     }
 
     public String getFname() {
@@ -121,7 +121,7 @@ public class Customer implements ORM, CanFindByKeyword {
 
     public void orm(ResultSet rs) throws Exception {
         this.setId(rs.getInt(COLUMN_ID.getColumnName()));
-        this.setAddress((Address) SQL.findById(Address.class, rs.getInt(COLUMN_ADDR_ID.getColumnName())));
+        //this.setAddress((Address) SQL.findById(Address.class, rs.getInt(COLUMN_ADDR_ID.getColumnName())));
         this.setVatId(rs.getString(COLUMN_VAT_ID.getColumnName()));
         this.setFname(rs.getString(COLUMN_FNAME.getColumnName()));
         this.setLname(rs.getString(COLUMN_LNAME.getColumnName()));

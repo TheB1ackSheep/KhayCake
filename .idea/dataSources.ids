@@ -1,29 +1,246 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
   <data-source name="MySQL - khaycake@falook.me" uuid="a64b6e35-0bc4-461d-8ebe-dd6c25f3926d">
-    <database-info product="MySQL" version="5.5.41-0ubuntu0.14.04.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
+    <database-info product="MySQL" version="5.5.41-0ubuntu0.14.04.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>
     <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
     <schema name="" catalog="khaycake"/>
-    <table name="BANKS" schema="" catalog="khaycake" type="TABLE">
+    <table name="addresses" schema="" catalog="khaycake" type="TABLE">
+      <column name="ADDR_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="SUDT_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ADDR_NO" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="STREET" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ADDR_ADD" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="ADDR_ID"/>
+      <foreign-key name="addresses_ibfk_1" columns="SUDT_ID" ref-table="sub_districts" ref-schema="" ref-catalog="khaycake" ref-columns="SUDT_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="customers_ibfk_1" table="customers" schema="" catalog="khaycake" columns="ADDR_ID"/>
+      <exported-key name="merchant_info_ibfk_1" table="merchant_info" schema="" catalog="khaycake" columns="ADDR_ID"/>
+      <index name="addresses_ibfk_1" unique="false" columns="SUDT_ID"/>
+    </table>
+    <table name="bank_account_types" schema="" catalog="khaycake" type="TABLE">
+      <column name="BAAT_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="NAME" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="BAAT_ID"/>
+      <exported-key name="bank_accounts_ibfk_1" table="bank_accounts" schema="" catalog="khaycake" columns="BAAT_ID"/>
+    </table>
+    <table name="bank_accounts" schema="" catalog="khaycake" type="TABLE">
+      <column name="BAAC_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="BABR_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ACC_NO" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ACC_NAME" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="BAAT_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="BAAC_ID"/>
+      <foreign-key name="bank_accounts_ibfk_1" columns="BAAT_ID" ref-table="bank_account_types" ref-schema="" ref-catalog="khaycake" ref-columns="BAAT_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="bank_accounts_ibfk_2" columns="BABR_ID" ref-table="bank_branches" ref-schema="" ref-catalog="khaycake" ref-columns="BABR_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="payments_ibfk_1" table="payments" schema="" catalog="khaycake" columns="BAAC_ID"/>
+      <index name="bank_accounts_ibfk_1" unique="false" columns="BAAT_ID"/>
+      <index name="bank_accounts_ibfk_2" unique="false" columns="BABR_ID"/>
+    </table>
+    <table name="bank_branches" schema="" catalog="khaycake" type="TABLE">
+      <column name="BABR_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="BANK_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="NAME_TH" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <column name="NAME_EN" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="BABR_ID,BANK_ID"/>
+      <foreign-key name="BABR_BANK_ID_FK" columns="BANK_ID" ref-table="banks" ref-schema="" ref-catalog="khaycake" ref-columns="BANK_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="bank_accounts_ibfk_2" table="bank_accounts" schema="" catalog="khaycake" columns="BABR_ID"/>
+      <index name="BABR_BANK_ID_FK_idx" unique="false" columns="BANK_ID"/>
+    </table>
+    <table name="banks" schema="" catalog="khaycake" type="TABLE">
       <column name="BANK_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="NAME_TH" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
       <column name="NAME_EN" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="BANK_ID"/>
-      <exported-key name="BABR_BANK_ID_FK" table="BANK_BRANCHES" schema="" catalog="khaycake" columns="BANK_ID"/>
+      <exported-key name="BABR_BANK_ID_FK" table="bank_branches" schema="" catalog="khaycake" columns="BANK_ID"/>
       <index name="NAME_EN_UNIQUE" unique="true" columns="NAME_EN"/>
       <index name="NAME_UNIQUE" unique="true" columns="NAME_TH"/>
     </table>
-    <table name="BANK_BRANCHES" schema="" catalog="khaycake" type="TABLE">
-      <column name="BABR_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="BANK_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="NAME_TH" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
-      <column name="NAME_EN" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="BABR_ID"/>
-      <foreign-key name="BABR_BANK_ID_FK" columns="BANK_ID" ref-table="BANKS" ref-schema="" ref-catalog="khaycake" ref-columns="BANK_ID" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="BABR_BANK_ID_FK_idx" unique="false" columns="BANK_ID"/>
+    <table name="customers" schema="" catalog="khaycake" type="TABLE">
+      <column name="CUST_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="FNAME" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="LNAME" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="EMAIL" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="PHONE" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="SEX" sqlType="VARCHAR" precision="1" scale="0" nullable="true" jdbcType="12"/>
+      <column name="BOD" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="PWD" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12"/>
+      <column name="VAT_ID" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ADDR_ID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="CUST_ID"/>
+      <foreign-key name="customers_ibfk_1" columns="ADDR_ID" ref-table="addresses" ref-schema="" ref-catalog="khaycake" ref-columns="ADDR_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="orders_ibfk_1" table="orders" schema="" catalog="khaycake" columns="CUST_ID"/>
+    </table>
+    <table name="district" schema="" catalog="khaycake" type="TABLE">
+      <column name="DIST_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="PROV_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="NAME" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="DIST_ID"/>
+      <foreign-key name="district_ibfk_1" columns="PROV_ID" ref-table="provinces" ref-schema="" ref-catalog="khaycake" ref-columns="PROV_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="sub_districts_ibfk_1" table="sub_districts" schema="" catalog="khaycake" columns="DIST_ID"/>
+    </table>
+    <table name="invoices" schema="" catalog="khaycake" type="TABLE">
+      <column name="INVO_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="DATE" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="SUB_TOTAL" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="VAT" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="QRAND_TOTAL" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="QRAND_TOTAL_TEXT" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="PATM_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="MEIF_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="INVO_ID"/>
+      <foreign-key name="invoices_ibfk_1" columns="MEIF_ID" ref-table="merchant_info" ref-schema="" ref-catalog="khaycake" ref-columns="MEIN_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="invoices_ibfk_2" columns="PATM_ID" ref-table="payments" ref-schema="" ref-catalog="khaycake" ref-columns="PATM_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="invoices_ibfk_1" unique="false" columns="MEIF_ID"/>
+      <index name="invoices_ibfk_2" unique="false" columns="PATM_ID"/>
+    </table>
+    <table name="merchant_info" schema="" catalog="khaycake" type="TABLE">
+      <column name="MEIN_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="ADDR_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="NAME" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="PHONE" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="FAX" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="VAT_ID" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="VAT_VALUE" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <primary-key name="PRIMARY" columns="MEIN_ID"/>
+      <foreign-key name="merchant_info_ibfk_1" columns="ADDR_ID" ref-table="addresses" ref-schema="" ref-catalog="khaycake" ref-columns="ADDR_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="invoices_ibfk_1" table="invoices" schema="" catalog="khaycake" columns="MEIF_ID"/>
+      <index name="merchant_info_ibfk_1" unique="false" columns="ADDR_ID"/>
+    </table>
+    <table name="order_items" schema="" catalog="khaycake" type="TABLE">
+      <column name="ORIT_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="PRSA_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ORDER_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="QTY" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="PRICE_UNIT" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="AMOUNT" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <primary-key name="PRIMARY" columns="ORIT_ID"/>
+      <foreign-key name="order_items_ibfk_1" columns="ORDER_ID" ref-table="orders" ref-schema="" ref-catalog="khaycake" ref-columns="ORDER_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="order_items_ibfk_2" columns="PRSA_ID" ref-table="product_sales" ref-schema="" ref-catalog="khaycake" ref-columns="PRSA_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="order_items_ibfk_1" unique="false" columns="ORDER_ID"/>
+      <index name="order_items_ibfk_2" unique="false" columns="PRSA_ID"/>
+    </table>
+    <table name="order_status" schema="" catalog="khaycake" type="TABLE">
+      <column name="ORST_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="NAME" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="ORST_ID"/>
+      <exported-key name="orders_ibfk_2" table="orders" schema="" catalog="khaycake" columns="ORST_ID"/>
+    </table>
+    <table name="orders" schema="" catalog="khaycake" type="TABLE">
+      <column name="ORDER_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="ORDER_DATE" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="TOTAL_QTY" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="TOTAL_PRICE" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="ORST_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="SHME_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="SHTR_ID" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="CUST_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="ORDER_ID"/>
+      <foreign-key name="orders_ibfk_1" columns="CUST_ID" ref-table="customers" ref-schema="" ref-catalog="khaycake" ref-columns="CUST_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="orders_ibfk_2" columns="ORST_ID" ref-table="order_status" ref-schema="" ref-catalog="khaycake" ref-columns="ORST_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="orders_ibfk_3" columns="SHME_ID" ref-table="shipment_methods" ref-schema="" ref-catalog="khaycake" ref-columns="SHME_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="order_items_ibfk_1" table="order_items" schema="" catalog="khaycake" columns="ORDER_ID"/>
+      <exported-key name="payments_ibfk_2" table="payments" schema="" catalog="khaycake" columns="ORDER_ID"/>
+      <index name="orders_ibfk_1" unique="false" columns="CUST_ID"/>
+      <index name="orders_ibfk_2" unique="false" columns="ORST_ID"/>
+      <index name="orders_ibfk_3" unique="false" columns="SHME_ID"/>
+    </table>
+    <table name="payment_status" schema="" catalog="khaycake" type="TABLE">
+      <column name="PAST_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="NAME" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="PAST_ID"/>
+      <exported-key name="payments_ibfk_3" table="payments" schema="" catalog="khaycake" columns="PAST_ID"/>
+    </table>
+    <table name="payments" schema="" catalog="khaycake" type="TABLE">
+      <column name="PATM_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="ORDER_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="BAAC_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="PAST_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="DATETIME" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="AMOUNT" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <primary-key name="PRIMARY" columns="PATM_ID"/>
+      <foreign-key name="payments_ibfk_1" columns="BAAC_ID" ref-table="bank_accounts" ref-schema="" ref-catalog="khaycake" ref-columns="BAAC_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="payments_ibfk_2" columns="ORDER_ID" ref-table="orders" ref-schema="" ref-catalog="khaycake" ref-columns="ORDER_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="payments_ibfk_3" columns="PAST_ID" ref-table="payment_status" ref-schema="" ref-catalog="khaycake" ref-columns="PAST_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="invoices_ibfk_2" table="invoices" schema="" catalog="khaycake" columns="PATM_ID"/>
+      <index name="payments_ibfk_1" unique="false" columns="BAAC_ID"/>
+      <index name="payments_ibfk_2" unique="false" columns="ORDER_ID"/>
+      <index name="payments_ibfk_3" unique="false" columns="PAST_ID"/>
+    </table>
+    <table name="product_meta" schema="" catalog="khaycake" type="TABLE">
+      <column name="PROD_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="PRMN_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="PROD_ID,PRMN_ID"/>
+      <foreign-key name="product_meta_ibfk_1" columns="PROD_ID" ref-table="products" ref-schema="" ref-catalog="khaycake" ref-columns="PROD_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="product_meta_ibfk_2" columns="PRMN_ID" ref-table="product_meta_name" ref-schema="" ref-catalog="khaycake" ref-columns="PRMN_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="product_meta_name" schema="" catalog="khaycake" type="TABLE">
+      <column name="PRMN_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="NAME" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="PRMN_ID"/>
+      <exported-key name="product_meta_ibfk_2" table="product_meta" schema="" catalog="khaycake" columns="PRMN_ID"/>
+      <exported-key name="product_meta_value_ibfk_1" table="product_meta_value" schema="" catalog="khaycake" columns="PRMN_ID"/>
+    </table>
+    <table name="product_meta_value" schema="" catalog="khaycake" type="TABLE">
+      <column name="PRMV_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="VALUE" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="PRICE" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="PRMN_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="PRMV_ID"/>
+      <foreign-key name="product_meta_value_ibfk_1" columns="PRMN_ID" ref-table="product_meta_name" ref-schema="" ref-catalog="khaycake" ref-columns="PRMN_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="product_meta_value_ibfk_1" unique="false" columns="PRMN_ID"/>
+    </table>
+    <table name="product_sales" schema="" catalog="khaycake" type="TABLE">
+      <column name="PRSA_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="QTY" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="PRICE" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="PROD_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="UNIT_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="PRSA_ID"/>
+      <foreign-key name="product_sales_ibfk_1" columns="PROD_ID" ref-table="products" ref-schema="" ref-catalog="khaycake" ref-columns="PROD_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="product_sales_ibfk_2" columns="UNIT_ID" ref-table="units" ref-schema="" ref-catalog="khaycake" ref-columns="UNIT_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="order_items_ibfk_2" table="order_items" schema="" catalog="khaycake" columns="PRSA_ID"/>
+      <index name="product_sales_ibfk_1" unique="false" columns="PROD_ID"/>
+      <index name="product_sales_ibfk_2" unique="false" columns="UNIT_ID"/>
+    </table>
+    <table name="products" schema="" catalog="khaycake" type="TABLE">
+      <column name="PROD_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="NAME" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="DETAIL" sqlType="VARCHAR" precision="1000" scale="0" nullable="false" jdbcType="12"/>
+      <column name="COST" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <primary-key name="PRIMARY" columns="PROD_ID"/>
+      <exported-key name="product_meta_ibfk_1" table="product_meta" schema="" catalog="khaycake" columns="PROD_ID"/>
+      <exported-key name="product_sales_ibfk_1" table="product_sales" schema="" catalog="khaycake" columns="PROD_ID"/>
+    </table>
+    <table name="provinces" schema="" catalog="khaycake" type="TABLE">
+      <column name="PROV_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="NAME" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="PROV_ID"/>
+      <exported-key name="district_ibfk_1" table="district" schema="" catalog="khaycake" columns="PROV_ID"/>
+    </table>
+    <table name="shipment_methods" schema="" catalog="khaycake" type="TABLE">
+      <column name="SHME_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="NAME" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="PRICE" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <primary-key name="PRIMARY" columns="SHME_ID"/>
+      <exported-key name="orders_ibfk_3" table="orders" schema="" catalog="khaycake" columns="SHME_ID"/>
+    </table>
+    <table name="sub_districts" schema="" catalog="khaycake" type="TABLE">
+      <column name="SUDT_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="DIST_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="NAME" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ZIPCODE" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="SUDT_ID"/>
+      <foreign-key name="sub_districts_ibfk_1" columns="DIST_ID" ref-table="district" ref-schema="" ref-catalog="khaycake" ref-columns="DIST_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="addresses_ibfk_1" table="addresses" schema="" catalog="khaycake" columns="SUDT_ID"/>
+      <index name="sub_districts_ibfk_1" unique="false" columns="DIST_ID"/>
+    </table>
+    <table name="units" schema="" catalog="khaycake" type="TABLE">
+      <column name="UNIT_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="NAME" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="UNIT_ID"/>
+      <exported-key name="product_sales_ibfk_2" table="product_sales" schema="" catalog="khaycake" columns="UNIT_ID"/>
     </table>
   </data-source>
   <data-source name="MySQL - novice_charigo@localhost" uuid="29af4f9b-0174-4d68-8c79-df3f24eb1158">

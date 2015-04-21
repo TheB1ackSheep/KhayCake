@@ -22,12 +22,14 @@ public class Product {
     private String name;
     private String detail;
     private double cost;
-    
+    private int catId;
+
     public static final String TABLE_NAME = "PRODUCT";
     public static final Column COLUMN_ID = ORM.column(TABLE_NAME, "PROD_ID");
     public static final Column COLUMN_NAME = ORM.column(TABLE_NAME, "NAME");
     public static final Column COLUMN_DETAIL = ORM.column(TABLE_NAME, "DETAIL");
     public static final Column COLUMN_COST = ORM.column(TABLE_NAME, "COST");
+    public static final Column COLUMN_CAT_ID = ORM.column(TABLE_NAME, "CAT_ID");
     public static final List<Column> PRIMARY_KEY = ORM.columns(COLUMN_ID);
 
     public int getId() {
@@ -61,6 +63,10 @@ public class Product {
     public void setCost(double cost) {
         this.cost = cost;
     }
+
+    public int getCatId() { return catId;}
+
+    public void setCatId(int catId) { this.catId = catId;}
     
      public void orm(ResultSet rs) throws SQLException {
         
@@ -68,7 +74,6 @@ public class Product {
         this.setName(rs.getString(COLUMN_NAME.getColumnName()));
         this.setDetail(rs.getString(COLUMN_DETAIL.getColumnName()));
         this.setCost(rs.getDouble(COLUMN_COST.getColumnName()));
-        
         
     }
 }
