@@ -3,6 +3,7 @@ package sit.khaycake.Controller.Address;
 import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
 import sit.khaycake.model.Address;
+import sit.khaycake.model.SubDistrict;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -34,19 +35,12 @@ public class AddressServlet extends HttpServlet {
         try {
             SQL sql = new SQL();
             Address address = new Address();
-            address.setAddrNo(request.getParameter("addrNo"));
-            address.setAddrAdd(request.getParameter("addrAdd"));
-            address.setStreet(request.getParameter("street"));
-
-            int addId = sql
-                    .insert()
-                    .into(Address.TABLE_NAME, Address.COLUMN_ADDR_ADD, Address.COLUMN_ADDR_NO, Address.COLUMN_STREET,
-                            Address.COLUMN_SUB_DISTRICT_ID)
-                    .values(address.getAddrAdd(), address.getAddrNo(), address.getStreet(),
-                            Integer.parseInt(request.getParameter("subDistrictId")))
-                    .exec();
-            sql.clear();
-            address.setId(addId);
+            address.setAddrNo(request.getParameter("ADDR_NO"));
+            address.setAddrAdd(request.getParameter("ADDR_ADD"));
+            address.setStreet(request.getParameter("STREET"));
+            address.setSubDistrict((SubDistrict)
+                    SQL.findById(SubDistrict.class, request.getParameter("SUDT_ID")));
+            address.save();
 
             Gson gson = new Gson();
             response.getWriter().print(gson.toJson(address));

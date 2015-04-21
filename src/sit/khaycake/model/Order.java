@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import sit.khaycake.database.CanFindByKeyword;
 import sit.khaycake.database.Column;
 import sit.khaycake.database.ORM;
 
@@ -17,7 +18,7 @@ import sit.khaycake.database.ORM;
  *
  * @author -milk
  */
-public class Order {
+public class Order implements ORM, CanFindByKeyword{
     
     private int orderId;
     private Date orderDate;

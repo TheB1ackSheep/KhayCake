@@ -78,4 +78,37 @@ public class Address implements ORM{
         this.setStreet(rs.getString(COLUMN_STREET.getColumnName()));
         this.setAddrAdd(rs.getString(COLUMN_ADDR_ADD.getColumnName()));
     }
+
+    public void save() throws Exception{
+        SQL sql = new SQL();
+        int addId = sql
+                .insert()
+                .into(Address.TABLE_NAME, Address.COLUMN_ADDR_ADD, Address.COLUMN_ADDR_NO, Address.COLUMN_STREET,
+                        Address.COLUMN_SUB_DISTRICT_ID)
+                .values(this.getAddrAdd(), this.getAddrNo(), this.getStreet(), this.subDistrict.getId())
+                .exec();
+        sql.clear();
+        this.setId(addId);
+    }
+
+    public void update() throws Exception{
+        SQL sql = new SQL();
+            sql
+                    .update(Address.TABLE_NAME)
+                    .set(Address.COLUMN_ADDR_NO, this.getAddrNo())
+                    .set(Address.COLUMN_ADDR_ADD, this.getAddrAdd())
+                    .set(Address.COLUMN_STREET, this.getStreet())
+                    .set(Address.COLUMN_SUB_DISTRICT_ID,this.getSubDistrict().getId())
+                    .where(Address.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getId())
+                    .exec();
+    }
+
+    public static int delete(int ADDR_ID) throws Exception{
+        SQL sql = new SQL();
+            int a = sql
+                    .delete(Address.TABLE_NAME)
+                    .where(Address.COLUMN_ID, SQL.WhereClause.Operator.EQ, ADDR_ID)
+                    .exec();
+        return a;
+    }
 }

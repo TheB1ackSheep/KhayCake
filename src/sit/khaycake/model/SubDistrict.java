@@ -8,6 +8,7 @@ package sit.khaycake.model;
 import java.sql.ResultSet;
 import java.util.List;
 
+import sit.khaycake.database.CanFindByKeyword;
 import sit.khaycake.database.Column;
 import sit.khaycake.database.ORM;
 import sit.khaycake.database.SQL;
@@ -16,7 +17,7 @@ import sit.khaycake.database.SQL;
  *
  * @author -milk
  */
-public class SubDistrict implements ORM {
+public class SubDistrict implements ORM, CanFindByKeyword {
     private int id;
     private District district;
     private String name;
