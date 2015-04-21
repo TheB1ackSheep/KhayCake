@@ -15,7 +15,7 @@
       <column name="ADDR_ADD" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="ADDR_ID"/>
       <foreign-key name="addresses_ibfk_1" columns="SUDT_ID" ref-table="sub_districts" ref-schema="" ref-catalog="khaycake" ref-columns="SUDT_ID" update-rule="3" delete-rule="3" deferrability="2"/>
-      <exported-key name="customers_ibfk_1" table="customers" schema="" catalog="khaycake" columns="ADDR_ID"/>
+      <exported-key name="cust_addresses_ibfk_2" table="cust_addresses" schema="" catalog="khaycake" columns="ADDR_ID"/>
       <exported-key name="merchant_info_ibfk_1" table="merchant_info" schema="" catalog="khaycake" columns="ADDR_ID"/>
       <index name="addresses_ibfk_1" unique="false" columns="SUDT_ID"/>
     </table>
@@ -57,6 +57,22 @@
       <index name="NAME_EN_UNIQUE" unique="true" columns="NAME_EN"/>
       <index name="NAME_UNIQUE" unique="true" columns="NAME_TH"/>
     </table>
+    <table name="categories" schema="" catalog="khaycake" type="TABLE">
+      <column name="CAT_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="NAME" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="CAT_PARENT_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="CAT_ID"/>
+      <foreign-key name="categories_ibfk_1" columns="CAT_PARENT_ID" ref-table="categories" ref-schema="" ref-catalog="khaycake" ref-columns="CAT_ID" update-rule="0" delete-rule="0" deferrability="2"/>
+      <exported-key name="categories_ibfk_1" table="categories" schema="" catalog="khaycake" columns="CAT_PARENT_ID"/>
+      <exported-key name="products_ibfk_1" table="products" schema="" catalog="khaycake" columns="CAT_ID"/>
+    </table>
+    <table name="cust_addresses" schema="" catalog="khaycake" type="TABLE">
+      <column name="CUST_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ADDR_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="CUST_ID,ADDR_ID"/>
+      <foreign-key name="cust_addresses_ibfk_2" columns="ADDR_ID" ref-table="addresses" ref-schema="" ref-catalog="khaycake" ref-columns="ADDR_ID" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="cust_addresses_ibfk_1" columns="CUST_ID" ref-table="customers" ref-schema="" ref-catalog="khaycake" ref-columns="CUST_ID" update-rule="0" delete-rule="0" deferrability="2"/>
+    </table>
     <table name="customers" schema="" catalog="khaycake" type="TABLE">
       <column name="CUST_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="FNAME" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
@@ -67,9 +83,8 @@
       <column name="BOD" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
       <column name="PWD" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12"/>
       <column name="VAT_ID" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
-      <column name="ADDR_ID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="CUST_ID"/>
-      <foreign-key name="customers_ibfk_1" columns="ADDR_ID" ref-table="addresses" ref-schema="" ref-catalog="khaycake" ref-columns="ADDR_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="cust_addresses_ibfk_1" table="cust_addresses" schema="" catalog="khaycake" columns="CUST_ID"/>
       <exported-key name="orders_ibfk_1" table="orders" schema="" catalog="khaycake" columns="CUST_ID"/>
     </table>
     <table name="district" schema="" catalog="khaycake" type="TABLE">
@@ -168,6 +183,19 @@
       <index name="payments_ibfk_2" unique="false" columns="ORDER_ID"/>
       <index name="payments_ibfk_3" unique="false" columns="PAST_ID"/>
     </table>
+    <table name="pic_product" schema="" catalog="khaycake" type="TABLE">
+      <column name="PROD_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="PIC_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="PROD_ID,PIC_ID"/>
+      <foreign-key name="pic_product_ibfk_2" columns="PIC_ID" ref-table="picture" ref-schema="" ref-catalog="khaycake" ref-columns="PIC_ID" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="pic_product_ibfk_1" columns="PROD_ID" ref-table="products" ref-schema="" ref-catalog="khaycake" ref-columns="PROD_ID" update-rule="0" delete-rule="0" deferrability="2"/>
+    </table>
+    <table name="picture" schema="" catalog="khaycake" type="TABLE">
+      <column name="PIC_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="PATH" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="PIC_ID"/>
+      <exported-key name="pic_product_ibfk_2" table="pic_product" schema="" catalog="khaycake" columns="PIC_ID"/>
+    </table>
     <table name="product_meta" schema="" catalog="khaycake" type="TABLE">
       <column name="PROD_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="PRMN_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
@@ -209,7 +237,10 @@
       <column name="NAME" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
       <column name="DETAIL" sqlType="VARCHAR" precision="1000" scale="0" nullable="false" jdbcType="12"/>
       <column name="COST" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="CAT_ID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="PROD_ID"/>
+      <foreign-key name="products_ibfk_1" columns="CAT_ID" ref-table="categories" ref-schema="" ref-catalog="khaycake" ref-columns="CAT_ID" update-rule="0" delete-rule="0" deferrability="2"/>
+      <exported-key name="pic_product_ibfk_1" table="pic_product" schema="" catalog="khaycake" columns="PROD_ID"/>
       <exported-key name="product_meta_ibfk_1" table="product_meta" schema="" catalog="khaycake" columns="PROD_ID"/>
       <exported-key name="product_sales_ibfk_1" table="product_sales" schema="" catalog="khaycake" columns="PROD_ID"/>
     </table>
