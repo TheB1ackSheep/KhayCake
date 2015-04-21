@@ -47,7 +47,7 @@
       <driver-ref>derby.embedded</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.apache.derby.jdbc.EmbeddedDriver</jdbc-driver>
-      <jdbc-url>jdbc:derby:$USER_HOME$/Downloads/dev/cakeDB/cake;user=cake;password=cake1234</jdbc-url>
+      <jdbc-url>jdbc:derby:$PROJECT_DIR$/../../dev/cakeDB/cake;user=cake;password=cake1234</jdbc-url>
       <libraries />
     </data-source>
   </component>
