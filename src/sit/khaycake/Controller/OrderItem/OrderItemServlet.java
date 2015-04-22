@@ -32,23 +32,13 @@ public class OrderItemServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            SQL sql = new SQL();
             OrderItem orderItem = new OrderItem();
             orderItem.setAmount(Double.parseDouble(request.getParameter("amount")));
             orderItem.setOrderId(Integer.parseInt(request.getParameter("odrerId")));
             orderItem.setPriceUnit(Double.parseDouble(request.getParameter("priceUnit")));
             orderItem.setPrsaId(Integer.parseInt(request.getParameter("prsaId")));
             orderItem.setQty(Integer.parseInt(request.getParameter("qty")));
-
-
-            int addId = sql
-                    .insert()
-                    .into(OrderItem.TABLE_NAME, OrderItem.COLUMN_AMOUNT, OrderItem.COLUMN_ORDER_ID, OrderItem.COLUMN_PRICE_UNIT,
-                            OrderItem.COLUMN_PRSA_ID, OrderItem.COLUMN_QTY)
-                    .values(orderItem.getAmount(), orderItem.getOrderId(), orderItem.getPriceUnit(), orderItem.getPrsaId(), orderItem.getQty())
-                    .exec();
-            sql.clear();
-            orderItem.setOritId(addId);
+            orderItem.save();
 
             Gson gson = new Gson();
             response.getWriter().print(gson.toJson(orderItem));

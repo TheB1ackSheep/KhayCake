@@ -11,6 +11,7 @@ import java.util.List;
 
 import sit.khaycake.database.Column;
 import sit.khaycake.database.ORM;
+import sit.khaycake.database.SQL;
 
 /**
  * @author -milk
@@ -45,4 +46,32 @@ public class BankAccountType implements ORM {
         this.setId(rs.getInt(COLUMN_ID.getColumnName()));
         this.setName(rs.getString(COLUMN_NAME.getColumnName()));
     }
+
+    /*public void save() throws Exception {
+        SQL sql = new SQL();
+        int Id = sql
+                .insert()
+                .into(BankAccountType.TABLE_NAME, BankAccountType.COLUMN_NAME)
+                .values(this.getName())
+                .exec();
+        this.setId(id);
+    }
+
+    public void update() throws Exception{
+        SQL sql = new SQL();
+            sql
+                    .update(BankAccountType.TABLE_NAME)
+                    .set(BankAccountType.COLUMN_NAME, this.getName())
+                    .where(BankAccountType.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getId())
+                    .exec();
+    }
+
+    public static int delete(int BAAC_ID) throws Exception{
+        SQL sql = new SQL();
+        int a = sql
+                .delete(BankAccountType.TABLE_NAME)
+                .where(BankAccountType.COLUMN_ID, SQL.WhereClause.Operator.EQ, BAAC_ID)
+                .exec();
+        return a;
+    }*/
 }

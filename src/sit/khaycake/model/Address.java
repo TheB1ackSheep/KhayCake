@@ -87,7 +87,6 @@ public class Address implements ORM{
                         Address.COLUMN_SUB_DISTRICT_ID)
                 .values(this.getAddrAdd(), this.getAddrNo(), this.getStreet(), this.subDistrict.getId())
                 .exec();
-        sql.clear();
         this.setId(addId);
     }
 

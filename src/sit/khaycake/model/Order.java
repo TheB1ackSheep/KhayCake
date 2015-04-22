@@ -13,12 +13,13 @@ import java.util.List;
 import sit.khaycake.database.CanFindByKeyword;
 import sit.khaycake.database.Column;
 import sit.khaycake.database.ORM;
+import sit.khaycake.database.SQL;
 
 /**
  *
  * @author -milk
  */
-public class Order implements ORM, CanFindByKeyword{
+public class Order implements ORM{
     
     private int orderId;
     private Date orderDate;
@@ -117,7 +118,43 @@ public class Order implements ORM, CanFindByKeyword{
         
              
     }
-    
+
+    public void save() throws Exception {
+        SQL sql = new SQL();
+        int id = sql
+                .insert()
+                .into(Order.TABLE_NAME, Order.COLUMN_CUST_ID, Order.COLUMN_ORDER_DATE, Order.COLUMN_ORST_ID, Order.COLUMN_SHME_ID,
+                        Order.COLUMN_SHTR_ID, Order.COLUMN_TOTAL_PRICE, Order.COLUMN_TOTAL_QTY)
+                .values(this.getCustId(), this.getOrderDate(), this.getOrstId(), this.getShmeId(), this.getShtrId(),
+                        this.getTotalPrice(), this.getTotalQty())
+                .exec();
+        this.setOrderId(id);
+    }
+
+    public void update() throws Exception{
+        SQL sql = new SQL();
+            sql
+                    .update(Order.TABLE_NAME)
+                    .set(Order.COLUMN_CUST_ID, this.getCustId())
+                    .set(Order.COLUMN_ORDER_DATE, this.getOrderDate())
+                    .set(Order.COLUMN_ORST_ID, this.getOrstId())
+                    .set(Order.COLUMN_SHME_ID, this.getShmeId())
+                    .set(Order.COLUMN_SHTR_ID, this.getShmeId())
+                    .set(Order.COLUMN_TOTAL_PRICE, this.getTotalPrice())
+                    .set(Order.COLUMN_TOTAL_QTY, this.getTotalQty())
+                    .where(Order.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getOrderId())
+                    .exec();
+
+    }
+
+    public static int delete(int ORDER_ID) throws Exception{
+        SQL sql = new SQL();
+        int a = sql
+                .delete(Order.TABLE_NAME)
+                .where(Order.COLUMN_ID, SQL.WhereClause.Operator.EQ, ORDER_ID)
+                .exec();
+        return a;
+    }
     
     
     

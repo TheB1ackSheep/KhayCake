@@ -32,17 +32,9 @@ public class BankServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            SQL sql = new SQL();
             Bank bank = new Bank();
-            bank.setName(request.getParameter("nameEn"));
-
-            int addId = sql
-                    .insert()
-                    .into(Bank.TABLE_NAME, Bank.COLUMN_NAME_EN, Bank.COLUMN_NAME_TH)
-                    .values(bank.getName(), request.getParameter("nameTh"))
-                    .exec();
-            sql.clear();
-            bank.setId(addId);
+            bank.setName(request.getParameter("NAME_TH"));
+            bank.save();
 
             Gson gson = new Gson();
             response.getWriter().print(gson.toJson(bank));

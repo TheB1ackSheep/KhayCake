@@ -32,18 +32,9 @@ public class OrderStatusServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            SQL sql = new SQL();
             OrderStatus orderStatus = new OrderStatus();
             orderStatus.setName(request.getParameter("name"));
-
-
-            int addId = sql
-                    .insert()
-                    .into(OrderStatus.TABLE_NAME, OrderStatus.COLUMN_NAME)
-                    .values(orderStatus.getName())
-                    .exec();
-            sql.clear();
-            orderStatus.setId(addId);
+            orderStatus.save();
 
             Gson gson = new Gson();
             response.getWriter().print(gson.toJson(orderStatus));

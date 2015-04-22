@@ -27,7 +27,7 @@ public class Customer implements ORM, CanFindByKeyword {
     private String vatId;
 
     public static final String TABLE_NAME = "CUSTOMER";
-    public static final Column COLUMN_ID = ORM.column(TABLE_NAME, "CUS_ID");
+    public static final Column COLUMN_ID = ORM.column(TABLE_NAME, "CUST_ID");
     //public static final Column COLUMN_ADDR_ID = ORM.column(TABLE_NAME, "ADDR_ID");
     public static final Column COLUMN_FNAME = ORM.column(TABLE_NAME, "FNAME");
     public static final Column COLUMN_LNAME = ORM.column(TABLE_NAME, "LNAME");
@@ -130,6 +130,44 @@ public class Customer implements ORM, CanFindByKeyword {
         this.setSex(rs.getString(COLUMN_SEX.getColumnName()));
         this.setBirthday(rs.getDate(COLUMN_BOD.getColumnName()));
         this.setPwd(rs.getString(COLUMN_PWD.getColumnName()));
+    }
+
+    public void save() throws Exception{
+        SQL sql = new SQL();
+        int id = sql
+                .insert()
+                .into(Customer.TABLE_NAME, Customer.COLUMN_FNAME, Customer.COLUMN_LNAME, Customer.COLUMN_SEX,
+                        Customer.COLUMN_BOD, Customer.COLUMN_PHONE, Customer.COLUMN_EMAIL, Customer.COLUMN_VAT_ID,
+                        Customer.COLUMN_PWD)
+                .values(this.getFname(), this.getLname(), this.getSex(), this.getBirthday(), this.getPhone(),
+                        this.getEmail(), this.getVatId(), this.getPwd())
+                .exec();
+        this.setId(id);
+    }
+
+    public void update() throws Exception {
+        SQL sql = new SQL();
+        sql
+                .update(Customer.TABLE_NAME)
+                .set(Customer.COLUMN_FNAME, this.getFname())
+                .set(Customer.COLUMN_LNAME, this.getLname())
+                .set(Customer.COLUMN_SEX, this.getSex())
+                .set(Customer.COLUMN_BOD, this.getBirthday())
+                .set(Customer.COLUMN_PHONE, this.getPhone())
+                .set(Customer.COLUMN_EMAIL, this.getEmail())
+                .set(Customer.COLUMN_VAT_ID, this.getVatId())
+                .where(Customer.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getId())
+                .exec();
+    }
+
+
+    public static int delete(int CUST_ID) throws Exception{
+        SQL sql = new SQL();
+            int a = sql
+                    .delete(Customer.TABLE_NAME)
+                    .where(Customer.COLUMN_ID, SQL.WhereClause.Operator.EQ, CUST_ID)
+                    .exec();
+        return a;
     }
 
 

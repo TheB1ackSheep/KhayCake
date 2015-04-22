@@ -63,6 +63,34 @@ public class District implements ORM {
     public List<SubDistrict> getSubDistrictList(){
         return null;
     }
-    
+
+
+    /*public void save() throws Exception {
+        SQL sql = new SQL();
+        int id = sql
+                .insert()
+                .into(District.TABLE_NAME, District.COLUMN_NAME, District.COLUMN_PROV_ID)
+                .values(this.getName(), this.getProvince().getId())
+                .exec();
+        this.setId(id);
+    }
+
+    public void update() throws Exception{
+        SQL sql = new SQL();
+        sql
+                .update(BankAccountType.TABLE_NAME)
+                .set(BankAccountType.COLUMN_NAME, this.getName())
+                .where(BankAccountType.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getId())
+                .exec();
+    }
+
+    public static int delete(int BAAC_ID) throws Exception{
+        SQL sql = new SQL();
+        int a = sql
+                .delete(BankAccountType.TABLE_NAME)
+                .where(BankAccountType.COLUMN_ID, SQL.WhereClause.Operator.EQ, BAAC_ID)
+                .exec();
+        return a;
+    }*/
     
 }

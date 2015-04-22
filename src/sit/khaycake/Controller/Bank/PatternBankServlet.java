@@ -21,12 +21,8 @@ public class PatternBankServlet extends HttpServlet {
 
         if (resource.indexOf("delete") >= 0) {
             resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
-            SQL sql = new SQL();
             try {
-                int a = sql
-                        .delete(Bank.TABLE_NAME)
-                        .where(Bank.COLUMN_ID, SQL.WhereClause.Operator.EQ, resource)
-                        .exec();
+                int a = Bank.delete(Integer.parseInt(resource));
                 if (a < 0) {
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
@@ -58,28 +54,18 @@ public class PatternBankServlet extends HttpServlet {
         Bank bank = null;
         try {
             bank = (Bank) SQL.findById(Bank.class, Integer.parseInt(resource));
-        } catch (Exception e) {
+
+            if (bank != null) {
+                bank.setName(request.getParameter("NAME_TH"));
+                bank.update();
+            } else {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
-        if (bank != null) {
-            bank.setName(request.getParameter("nameEn"));
-
-            SQL sql = new SQL();
-            try {
-                sql
-                        .update(Bank.TABLE_NAME)
-                        .set(Bank.COLUMN_NAME_EN, bank.getName())
-                        .set(Bank.COLUMN_NAME_TH, request.getParameter("nameTh"))
-                        .where(Bank.COLUMN_ID, SQL.WhereClause.Operator.EQ, bank.getId())
-                        .exec();
-
-            } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            }
-
-        } else {
+        }catch (Exception e) {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
+
+
     }
 
 }

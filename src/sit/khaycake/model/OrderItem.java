@@ -11,12 +11,13 @@ import java.util.List;
 
 import sit.khaycake.database.Column;
 import sit.khaycake.database.ORM;
+import sit.khaycake.database.SQL;
 
 /**
  *
  * @author -milk
  */
-public class OrderItem {
+public class OrderItem implements ORM {
     
     private int oritId;
     private int prsaId;
@@ -93,5 +94,38 @@ public class OrderItem {
         
              
     }
-    
+
+    public void save() throws Exception {
+        SQL sql = new SQL();
+        int id = sql
+                .insert()
+                .into(OrderItem.TABLE_NAME, OrderItem.COLUMN_AMOUNT, OrderItem.COLUMN_ORDER_ID, OrderItem.COLUMN_PRICE_UNIT,
+                        OrderItem.COLUMN_PRSA_ID, OrderItem.COLUMN_QTY)
+                .values(this.getAmount(), this.getOrderId(), this.getPriceUnit(), this.getPrsaId(), this.getQty())
+                .exec();
+        this.setOrderId(id);
+    }
+
+    public void update() throws Exception{
+        SQL sql = new SQL();
+            sql
+                    .update(OrderItem.TABLE_NAME)
+                    .set(OrderItem.COLUMN_AMOUNT, this.getAmount())
+                    .set(OrderItem.COLUMN_ORDER_ID, this.getOrderId())
+                    .set(OrderItem.COLUMN_PRICE_UNIT, this.getPriceUnit())
+                    .set(OrderItem.COLUMN_PRSA_ID, this.getPrsaId())
+                    .set(OrderItem.COLUMN_QTY, this.getQty())
+                    .where(OrderItem.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getOritId())
+                    .exec();
+
+    }
+
+    public static int delete(int ORIT_ID) throws Exception{
+        SQL sql = new SQL();
+        int a = sql
+                .delete(OrderItem.TABLE_NAME)
+                .where(OrderItem.COLUMN_ID, SQL.WhereClause.Operator.EQ, ORIT_ID)
+                .exec();
+        return a;
+    }
 }

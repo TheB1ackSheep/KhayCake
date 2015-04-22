@@ -23,10 +23,7 @@ public class PatternOrderStatusServlet extends HttpServlet {
             resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
             SQL sql = new SQL();
             try {
-                int a = sql
-                        .delete(OrderStatus.TABLE_NAME)
-                        .where(OrderStatus.COLUMN_ID, SQL.WhereClause.Operator.EQ, resource)
-                        .exec();
+                int a = OrderStatus.delete(Integer.parseInt(resource));
                 if (a < 0) {
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
@@ -62,16 +59,9 @@ public class PatternOrderStatusServlet extends HttpServlet {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
         if (orderStatus != null) {
-            orderStatus.setName(request.getParameter("name"));
-
-
-            SQL sql = new SQL();
-            try {
-                sql
-                        .update(OrderStatus.TABLE_NAME)
-                        .set(OrderStatus.COLUMN_NAME, orderStatus.getName())
-                        .where(OrderStatus.COLUMN_ID, SQL.WhereClause.Operator.EQ, orderStatus.getId())
-                        .exec();
+            try{
+                orderStatus.setName(request.getParameter("name"));
+                orderStatus.update();
 
             } catch (Exception e) {
                 response.sendError(HttpServletResponse.SC_NOT_FOUND);

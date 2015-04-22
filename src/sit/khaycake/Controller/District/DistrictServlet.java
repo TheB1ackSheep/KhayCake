@@ -28,21 +28,14 @@ public class DistrictServlet extends HttpServlet {
 
     }
 
-    @Override
+    /*@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
             SQL sql = new SQL();
             District district = new District();
             district.setName(request.getParameter("name"));
-
-            int addId = sql
-                    .insert()
-                    .into(District.TABLE_NAME, District.COLUMN_NAME, District.COLUMN_PROV_ID)
-                    .values(district.getName(), Integer.parseInt(request.getParameter("provinceId")))
-                    .exec();
-            sql.clear();
-            district.setId(addId);
+            district.save();
 
             Gson gson = new Gson();
             response.getWriter().print(gson.toJson(district));
@@ -51,5 +44,5 @@ public class DistrictServlet extends HttpServlet {
             return;
         }
 
-    }
+    }*/
 }

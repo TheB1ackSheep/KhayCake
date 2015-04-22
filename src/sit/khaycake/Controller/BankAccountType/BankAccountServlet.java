@@ -2,7 +2,6 @@ package sit.khaycake.Controller.BankAccountType;
 
 import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
-import sit.khaycake.model.Assis.AssisDateTime;
 import sit.khaycake.model.BankAccountType;
 
 import javax.servlet.ServletException;
@@ -29,22 +28,13 @@ public class BankAccountServlet extends HttpServlet {
 
     }
 
-    @Override
+    /*@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            SQL sql = new SQL();
             BankAccountType bankAccountType = new BankAccountType();
             bankAccountType.setName(request.getParameter("name"));
-
-
-            int addId = sql
-                    .insert()
-                    .into(BankAccountType.TABLE_NAME, BankAccountType.COLUMN_NAME)
-                    .values(bankAccountType.getName())
-                    .exec();
-            sql.clear();
-            bankAccountType.setId(addId);
+            bankAccountType.save();
 
             Gson gson = new Gson();
             response.getWriter().print(gson.toJson(bankAccountType));
@@ -52,5 +42,5 @@ public class BankAccountServlet extends HttpServlet {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
 
-    }
+    }*/
 }

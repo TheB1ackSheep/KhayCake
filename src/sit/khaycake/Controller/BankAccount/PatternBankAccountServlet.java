@@ -22,12 +22,8 @@ public class PatternBankAccountServlet extends HttpServlet {
 
         if (resource.indexOf("delete") >= 0) {
             resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
-            SQL sql = new SQL();
             try {
-                int a = sql
-                        .delete(BankAccount.TABLE_NAME)
-                        .where(BankAccount.COLUMN_ID, SQL.WhereClause.Operator.EQ, resource)
-                        .exec();
+                int a = BankAccount.delete(Integer.parseInt(resource));
                 if (a < 0) {
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
@@ -63,20 +59,12 @@ public class PatternBankAccountServlet extends HttpServlet {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
         if (bankAccount != null) {
-            bankAccount.setAccName(request.getParameter("accName"));
-            bankAccount.setAccNo(request.getParameter("accNo"));
-
-            SQL sql = new SQL();
             try {
-                sql
-                        .update(BankAccount.TABLE_NAME)
-                        .set(BankAccount.COLUMN_ACC_NAME, bankAccount.getAccName())
-                        .set(BankAccount.COLUMN_ACC_NO, bankAccount.getAccNo())
-                        .set(BankAccount.COLUMN_BABR_ID, Integer.parseInt(request.getParameter("babrId")))
-                        .set(BankAccount.COLUMN_BAAT_ID, Integer.parseInt(request.getParameter("baatId")))
-                        .where(Bank.COLUMN_ID, SQL.WhereClause.Operator.EQ, bankAccount.getId())
-                        .exec();
-
+                bankAccount.setAccName(request.getParameter("accName"));
+                bankAccount.setAccNo(request.getParameter("accNo"));
+                bankAccount.setBranch((Bank.Branch) SQL.findById(Bank.Branch.class, Integer.parseInt(request.getParameter("babrId"))));
+                bankAccount.setType(BankAccount.Type.getType(Integer.parseInt(request.getParameter("BAAT_ID"))));
+                bankAccount.update();
             } catch (Exception e) {
                 response.sendError(HttpServletResponse.SC_NOT_FOUND);
             }

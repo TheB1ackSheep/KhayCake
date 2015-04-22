@@ -29,7 +29,7 @@ public class MerchantInfoServlet extends HttpServlet {
 
     }
 
-    @Override
+    /*@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
@@ -56,5 +56,5 @@ public class MerchantInfoServlet extends HttpServlet {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
 
-    }
+    }*/
 }

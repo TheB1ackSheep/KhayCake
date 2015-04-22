@@ -2,8 +2,8 @@ package sit.khaycake.Controller.Cutomer;
 
 import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
-import sit.khaycake.model.Assis.AssisDateTime;
-import sit.khaycake.model.Assis.Encryption;
+import sit.khaycake.util.AssisDateTime;
+import sit.khaycake.util.Encryption;
 import sit.khaycake.model.Customer;
 
 import javax.servlet.ServletException;
@@ -23,12 +23,8 @@ public class PatternCutomerServlet extends HttpServlet {
 
         if (resource.indexOf("delete") >= 0) {
             resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
-            SQL sql = new SQL();
             try {
-                int a = sql
-                        .delete(Customer.TABLE_NAME)
-                        .where(Customer.COLUMN_ID, SQL.WhereClause.Operator.EQ, resource)
-                        .exec();
+                int a = Customer.delete(Integer.parseInt(resource));
                 if (a < 0) {
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
@@ -64,30 +60,16 @@ public class PatternCutomerServlet extends HttpServlet {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
         if (customer != null) {
-            customer.setFname(request.getParameter("fname"));
-            customer.setLname(request.getParameter("lname"));
-            customer.setSex(request.getParameter("sex"));
-            customer.setBirthday(AssisDateTime.Date("birthday"));
-            customer.setPhone(request.getParameter("phone"));
-            customer.setEmail(request.getParameter("email"));
-            customer.setVatId(request.getParameter("vatId"));
-            customer.setPwd(Encryption.md5("pwd"));
-
-            SQL sql = new SQL();
-            try {
-                sql
-                        .update(Customer.TABLE_NAME)
-                        .set(Customer.COLUMN_FNAME, customer.getFname())
-                        .set(Customer.COLUMN_LNAME, customer.getLname())
-                        .set(Customer.COLUMN_SEX, customer.getSex())
-                        .set(Customer.COLUMN_BOD, customer.getBirthday())
-                        .set(Customer.COLUMN_PHONE, customer.getPhone())
-                        .set(Customer.COLUMN_EMAIL, customer.getEmail())
-                        .set(Customer.COLUMN_VAT_ID, customer.getVatId())
-                        .set(Customer.COLUMN_ADDR_ID, request.getParameter("addrId"))
-                        .where(Customer.COLUMN_ID, SQL.WhereClause.Operator.EQ, customer.getId())
-                        .exec();
-
+            try{
+                customer.setFname(request.getParameter("fname"));
+                customer.setLname(request.getParameter("lname"));
+                customer.setSex(request.getParameter("sex"));
+                customer.setBirthday(AssisDateTime.Date("birthday"));
+                customer.setPhone(request.getParameter("phone"));
+                customer.setEmail(request.getParameter("email"));
+                customer.setVatId(request.getParameter("vatId"));
+                customer.setPwd(Encryption.md5("pwd"));
+                customer.update();
             } catch (Exception e) {
                 response.sendError(HttpServletResponse.SC_NOT_FOUND);
             }

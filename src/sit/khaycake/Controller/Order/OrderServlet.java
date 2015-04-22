@@ -2,7 +2,7 @@ package sit.khaycake.Controller.Order;
 
 import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
-import sit.khaycake.model.Assis.AssisDateTime;
+import sit.khaycake.util.AssisDateTime;
 import sit.khaycake.model.Order;
 
 import javax.servlet.ServletException;
@@ -42,22 +42,12 @@ public class OrderServlet extends HttpServlet {
             order.setShtrId(request.getParameter("shtrId"));
             order.setTotalPrice(Double.parseDouble(request.getParameter("totalPrice")));
             order.setTotalQty(Integer.parseInt(request.getParameter("totalQty")));
-
-
-            int addId = sql
-                    .insert()
-                    .into(Order.TABLE_NAME, Order.COLUMN_CUST_ID, Order.COLUMN_ORDER_DATE, Order.COLUMN_ORST_ID, Order.COLUMN_SHME_ID,
-                            Order.COLUMN_SHTR_ID, Order.COLUMN_TOTAL_PRICE, Order.COLUMN_TOTAL_QTY)
-                    .values(order.getCustId(), order.getOrderDate(), order.getOrstId(), order.getShmeId(), order.getShtrId(),
-                            order.getTotalPrice(), order.getTotalQty())
-                    .exec();
-            sql.clear();
-            order.setOrderId(addId);
+            order.save();
 
             Gson gson = new Gson();
             response.getWriter().print(gson.toJson(order));
         } catch (Exception ex) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
 
     }

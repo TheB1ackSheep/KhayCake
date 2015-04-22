@@ -32,27 +32,15 @@ public class BankAccountServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            SQL sql = new SQL();
             BankAccount bankAccount = new BankAccount();
             bankAccount.setAccName(request.getParameter("accName"));
             bankAccount.setAccNo(request.getParameter("accNo"));
-
-
-            int addId = sql
-                    .insert()
-                    .into(BankAccount.TABLE_NAME, BankAccount.COLUMN_ACC_NAME, BankAccount.COLUMN_ACC_NO,
-                            BankAccount.COLUMN_BABR_ID, BankAccount.COLUMN_BAAT_ID)
-                    .values(bankAccount.getAccName(), bankAccount.getAccNo(), Integer.parseInt(request.getParameter("babrId")),
-                            Integer.parseInt(request.getParameter("baatId")))
-                    .exec();
-            sql.clear();
-            bankAccount.setId(addId);
+            bankAccount.save();
 
             Gson gson = new Gson();
             response.getWriter().print(gson.toJson(bankAccount));
         } catch (Exception ex) {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            return;
         }
 
     }
