@@ -1,8 +1,7 @@
-package sit.khaycake.Controller.Cutomer;
+package sit.khaycake.Controller.Customer;
 
 import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
-import sit.khaycake.model.Address;
 import sit.khaycake.util.AssisDateTime;
 import sit.khaycake.util.Encryption;
 import sit.khaycake.model.Customer;

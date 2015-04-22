@@ -1,4 +1,4 @@
-package sit.khaycake.Controller.Cutomer;
+package sit.khaycake.Controller.Customer;
 
 import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
@@ -15,7 +15,7 @@ import java.io.IOException;
 /**
  * Created by Pasuth on 19/4/2558.
  */
-public class PatternCutomerServlet extends HttpServlet {
+public class PatternCustomerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

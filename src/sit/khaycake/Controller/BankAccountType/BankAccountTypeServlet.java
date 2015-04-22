@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by Pasuth on 19/4/2558.
  */
-public class BankAccountServlet extends HttpServlet {
+public class BankAccountTypeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
