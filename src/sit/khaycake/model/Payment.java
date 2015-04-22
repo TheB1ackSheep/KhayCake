@@ -31,10 +31,14 @@ public class Payment implements ORM {
         private int id;
         private String name;
 
-        Status(int id) throws Exception {
-            this.id = id;
-            PaymentStatus stt = (PaymentStatus)SQL.findById(PaymentStatus.class,id);
-            this.name = (stt==null)?null:stt.getName();
+        Status(int id) {
+            try {
+                this.id = id;
+                PaymentStatus stt = (PaymentStatus) SQL.findById(PaymentStatus.class, id);
+                this.name = (stt == null) ? null : stt.getName();
+            }catch (Exception e){
+                //must be caught or dec;ared to be thrown
+            }
         }
 
         public static Status getStatus(int id){

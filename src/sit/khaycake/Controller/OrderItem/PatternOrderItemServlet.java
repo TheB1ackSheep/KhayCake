@@ -17,10 +17,10 @@ public class PatternOrderItemServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1));
+        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1)+1);
 
         if (resource.indexOf("delete") >= 0) {
-            resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
+            resource = resource.substring(0,resource.indexOf("/", 1));
             SQL sql = new SQL();
             try {
                 int a = OrderItem.delete(Integer.parseInt(resource));
@@ -51,7 +51,7 @@ public class PatternOrderItemServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1));
+        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1)+1);
         OrderItem orderItem = null;
         try {
             orderItem = (OrderItem) SQL.findById(OrderItem.class, Integer.parseInt(resource));

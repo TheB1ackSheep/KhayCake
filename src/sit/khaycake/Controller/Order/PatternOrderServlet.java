@@ -18,10 +18,10 @@ public class PatternOrderServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1));
+        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1)+1);
 
         if (resource.indexOf("delete") >= 0) {
-            resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
+            resource = resource.substring(0,resource.indexOf("/", 1));
             try {
                 int a = Order.delete(Integer.parseInt(resource));
                 if (a < 0) {
@@ -51,7 +51,7 @@ public class PatternOrderServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1));
+        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1)+1);
         Order order = null;
         try {
             order = (Order) SQL.findById(Order.class, Integer.parseInt(resource));

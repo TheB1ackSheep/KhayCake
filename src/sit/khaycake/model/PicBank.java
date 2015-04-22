@@ -12,22 +12,22 @@ import java.util.List;
 /**
  * Created by Pasuth on 22/4/2558.
  */
-public class PicProduct implements ORM, CanFindByKeyword {
-    private int prodId;
+public class PicBank implements ORM, CanFindByKeyword {
+    private int bankId;
     private Picture picture;
 
 
     public static final String TABLE_NAME = "PIC_PRODUCT";
-    public static final Column COLUMN_PROD_ID = ORM.column(TABLE_NAME, "PROD_ID");
     public static final Column COLUMN_PIC_ID = ORM.column(TABLE_NAME, "PIC_ID");
-    public static final List<Column> COLUMN_KEYWORD = ORM.columns(COLUMN_PROD_ID);
+    public static final Column COLUMN_BANK_ID = ORM.column(TABLE_NAME, "BANK_ID");
+    public static final List<Column> COLUMN_KEYWORD = ORM.columns(COLUMN_BANK_ID);
 
-    public int getProdId() {
-        return prodId;
+    public int getBankId() {
+        return bankId;
     }
 
-    public void setProdId(int prodId) {
-        this.prodId = prodId;
+    public void setBankId(int prodId) {
+        this.bankId = bankId;
     }
 
     public Picture getPicture() {
@@ -40,13 +40,13 @@ public class PicProduct implements ORM, CanFindByKeyword {
 
 
     public void orm(ResultSet rs) throws Exception {
-        this.setProdId(rs.getInt(COLUMN_PROD_ID.getColumnName()));
+        this.setBankId(rs.getInt(COLUMN_BANK_ID.getColumnName()));
         this.setPicture((Picture) SQL.findById(Picture.class, rs.getInt(COLUMN_PIC_ID.getColumnName())));
     }
 
-    public static List<Picture> getPictures (List<PicProduct> PicProducts){
+    public static List<Picture> getPicture (List<PicBank> PicProducts){
         List<Picture> pictures = new ArrayList<>();
-        for(PicProduct pp : PicProducts) {
+        for(PicBank pp : PicProducts) {
             pictures.add(pp.getPicture());
         }
         return null;
@@ -56,27 +56,27 @@ public class PicProduct implements ORM, CanFindByKeyword {
         SQL sql = new SQL();
         sql
                 .insert()
-                .into(PicProduct.TABLE_NAME, PicProduct.COLUMN_PROD_ID, PicProduct.COLUMN_PIC_ID)
-                .values(this.getProdId(), this.getPicture().getId())
+                .into(PicBank.TABLE_NAME, PicBank.COLUMN_BANK_ID, PicBank.COLUMN_PIC_ID)
+                .values(this.getBankId(), this.getPicture().getId())
                 .exec();
     }
 
 
-    public static int delete(int PROD_ID, int PIC_ID) throws Exception{
+    public static int delete(int BANK_ID, int PIC_ID) throws Exception{
         SQL sql = new SQL();
         int a = sql
-                .delete(PicProduct.TABLE_NAME)
-                .where(PicProduct.COLUMN_PROD_ID, SQL.WhereClause.Operator.EQ, PROD_ID)
-                .where(PicProduct.COLUMN_PIC_ID, SQL.WhereClause.Operator.EQ, PIC_ID)
+                .delete(PicBank.TABLE_NAME)
+                .where(PicBank.COLUMN_BANK_ID, SQL.WhereClause.Operator.EQ, BANK_ID)
+                .where(PicBank.COLUMN_PIC_ID, SQL.WhereClause.Operator.EQ, PIC_ID)
                 .exec();
         return a;
     }
 
-    public static int delete(int PROD_ID) throws Exception{
+    public static int delete(int BANK_ID) throws Exception{
         SQL sql = new SQL();
         int a = sql
-                .delete(PicProduct.TABLE_NAME)
-                .where(PicProduct.COLUMN_PROD_ID, SQL.WhereClause.Operator.EQ, PROD_ID)
+                .delete(PicBank.TABLE_NAME)
+                .where(PicBank.COLUMN_BANK_ID, SQL.WhereClause.Operator.EQ, BANK_ID)
                 .exec();
         return a;
     }

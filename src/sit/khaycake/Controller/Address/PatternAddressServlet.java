@@ -18,10 +18,10 @@ public class PatternAddressServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1));
+        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1)+1);
 
         if (resource.indexOf("delete") >= 0) {
-            resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
+            resource = resource.substring(0,resource.indexOf("/", 1));
 
             try {
                 int result = Address.delete(Integer.parseInt(resource));
@@ -52,7 +52,7 @@ public class PatternAddressServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1));
+        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1)+1);
         Address address = null;
         try {
             address = (Address) SQL.findById(Address.class, Integer.parseInt(resource));

@@ -26,6 +26,7 @@ public class Product implements ORM, CanFindByKeyword {
     private double cost;
     private Category category;
     private double price;
+    private List<Picture> picture;
 
     public static final String TABLE_NAME = "PRODUCT";
     public static final Column COLUMN_ID = ORM.column(TABLE_NAME, "PROD_ID");
@@ -75,6 +76,10 @@ public class Product implements ORM, CanFindByKeyword {
     public double setPrice() { return price;}
 
     public void setPrice(double price) { this.price = price; }
+
+    public List<Picture> getPicture(){ return picture; }
+
+    public void setPicture(List<Picture> picture) { this.picture = picture; }
     
      public void orm(ResultSet rs) throws Exception {
         
@@ -86,9 +91,21 @@ public class Product implements ORM, CanFindByKeyword {
                 SQL.findById(Category.class, rs.getInt(COLUMN_CAT_ID.getColumnName())));
         this.setPrice(((ProductSale)
                 SQL.findById(Product.class, rs.getInt(COLUMN_ID.getColumnName()))).getPriceN());
+        this.setPicture(PicProduct.getPictures((List<PicProduct>)SQL.findByKeyword(PicProduct.class,
+                rs.getString(COLUMN_ID.getColumnName()))));
     }
 
-    public void save() throws Exception {
+    public static List<Product> findByCategory(int CAT_ID) throws Exception{
+        SQL sql = new SQL();
+        sql
+                .select()
+                .from(Product.TABLE_NAME)
+                .where(Product.COLUMN_CAT_ID, SQL.WhereClause.Operator.EQ,CAT_ID);
+        return (List<Product>)sql;
+
+    }
+
+    /*public void save() throws Exception {
         SQL sql = new SQL();
         int id = sql
                 .insert()
@@ -118,5 +135,5 @@ public class Product implements ORM, CanFindByKeyword {
                 .where(Product.COLUMN_ID, SQL.WhereClause.Operator.EQ, PROD_ID)
                 .exec();
         return a;
-    }
+    }*/
 }

@@ -21,10 +21,10 @@ public class PatternProductServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1));
+        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1)+1);
 
         if (resource.indexOf("delete") >= 0) {
-            resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
+            /*resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
             SQL sql = new SQL();
             try {
                 int a = Product.delete(Integer.parseInt(resource));
@@ -33,7 +33,7 @@ public class PatternProductServlet extends HttpServlet {
                 }
             } catch (Exception e) {
                 response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            }
+            }*/
 
         } else {
             Gson gson = new Gson();
@@ -67,7 +67,7 @@ public class PatternProductServlet extends HttpServlet {
         }
     }
 
-    @Override
+    /*@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1));
@@ -93,6 +93,6 @@ public class PatternProductServlet extends HttpServlet {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
 
-    }
+    }*/
 
 }

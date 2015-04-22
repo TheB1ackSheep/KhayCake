@@ -2,10 +2,8 @@ package sit.khaycake.Controller.Payment;
 
 import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
-import sit.khaycake.model.BankAccount;
-import sit.khaycake.model.Order;
+import sit.khaycake.model.*;
 import sit.khaycake.util.AssisDateTime;
-import sit.khaycake.model.Payment;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,10 +18,10 @@ public class PatternPaymentServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1));
+        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1)+1);
 
         if (resource.indexOf("delete") >= 0) {
-            resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
+            /*resource = resource.substring(0,resource.indexOf("/", 1));
             SQL sql = new SQL();
             try {
                 int a = Payment.delete(Integer.parseInt(resource));
@@ -32,7 +30,7 @@ public class PatternPaymentServlet extends HttpServlet {
                 }
             } catch (Exception e) {
                 response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            }
+            }*/
 
         } else {
             Payment payment = null;
@@ -51,7 +49,7 @@ public class PatternPaymentServlet extends HttpServlet {
         }
     }
 
-    @Override
+    /*@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1));
@@ -67,16 +65,16 @@ public class PatternPaymentServlet extends HttpServlet {
                 payment.setAmount(Double.parseDouble(request.getParameter("amount")));
                 payment.setBaac((BankAccount)SQL.findById(BankAccount.class,Integer.parseInt(request.getParameter("baccId"))));
                 payment.setDateTime(AssisDateTime.DateTime(request.getParameter("dateTime")));
-                payment.setPastId(Integer.parseInt(request.getParameter("pastId")));
+                payment.setPast(Payment.Status.getStatus(Integer.parseInt(request.getParameter("pastId"))));
                 payment.update();
 
             } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             }
         } else {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
 
-    }
+    }*/
 
 }

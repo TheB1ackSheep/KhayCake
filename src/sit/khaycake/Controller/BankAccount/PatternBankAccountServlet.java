@@ -18,14 +18,14 @@ public class PatternBankAccountServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1));
+        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1)+1);
 
         if (resource.indexOf("delete") >= 0) {
-            resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
+            resource = resource.substring(0,resource.indexOf("/", 1));
             try {
                 int a = BankAccount.delete(Integer.parseInt(resource));
                 if (a < 0) {
-                    response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                    response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
                 }
             } catch (Exception e) {
                 response.sendError(HttpServletResponse.SC_NOT_FOUND);
@@ -37,7 +37,7 @@ public class PatternBankAccountServlet extends HttpServlet {
                 bankAccount = (BankAccount) SQL.findById(BankAccount.class, Integer.parseInt(resource));
 
             } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             }
             if (bankAccount != null) {
                 Gson gson = new Gson();
@@ -51,7 +51,7 @@ public class PatternBankAccountServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1));
+        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1)+1);
         BankAccount bankAccount = null;
         try {
             bankAccount = (BankAccount) SQL.findById(BankAccount.class, Integer.parseInt(resource));

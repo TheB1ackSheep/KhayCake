@@ -17,7 +17,7 @@ public class PatternBankAccountTypeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1));
+        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1)+1);
 
         if (resource.indexOf("delete") >= 0) {
             /*resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
@@ -36,7 +36,7 @@ public class PatternBankAccountTypeServlet extends HttpServlet {
                 bankAccountType = (BankAccountType) SQL.findById(BankAccountType.class, Integer.parseInt(resource));
 
             } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             }
             if (bankAccountType != null) {
                 Gson gson = new Gson();
