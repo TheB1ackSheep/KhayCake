@@ -3,6 +3,18 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+
+    <filter>
+        <filter-name>jsonFilter</filter-name>
+        <filter-class>sit.khaycake.Filter.jsonFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>jsonFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+
     <servlet>
         <servlet-name>AddressServler</servlet-name>
         <servlet-class>sit.khaycake.Controller.Address.AddressServlet</servlet-class>
