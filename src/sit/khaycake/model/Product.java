@@ -12,6 +12,7 @@ import java.util.List;
 import sit.khaycake.database.CanFindByKeyword;
 import sit.khaycake.database.Column;
 import sit.khaycake.database.ORM;
+import sit.khaycake.database.SQL;
 
 /**
  *
@@ -23,7 +24,8 @@ public class Product implements ORM, CanFindByKeyword {
     private String name;
     private String detail;
     private double cost;
-    private int catId;
+    private Category category;
+    private double price;
 
     public static final String TABLE_NAME = "PRODUCT";
     public static final Column COLUMN_ID = ORM.column(TABLE_NAME, "PROD_ID");
@@ -32,6 +34,7 @@ public class Product implements ORM, CanFindByKeyword {
     public static final Column COLUMN_COST = ORM.column(TABLE_NAME, "COST");
     public static final Column COLUMN_CAT_ID = ORM.column(TABLE_NAME, "CAT_ID");
     public static final List<Column> PRIMARY_KEY = ORM.columns(COLUMN_ID);
+    public static final List<Column> COLUMN_KEYWORD = ORM.columns(COLUMN_NAME);
 
     public int getId() {
         return id;
@@ -65,16 +68,55 @@ public class Product implements ORM, CanFindByKeyword {
         this.cost = cost;
     }
 
-    public int getCatId() { return catId;}
+    public Category getCategory() { return category;}
 
-    public void setCatId(int catId) { this.catId = catId;}
+    public void setCategory(Category category) { this.category = category;}
+
+    public double setPrice() { return price;}
+
+    public void setPrice(double price) { this.price = price; }
     
-     public void orm(ResultSet rs) throws SQLException {
+     public void orm(ResultSet rs) throws Exception {
         
         this.setId(rs.getInt(COLUMN_ID.getColumnName()));
         this.setName(rs.getString(COLUMN_NAME.getColumnName()));
         this.setDetail(rs.getString(COLUMN_DETAIL.getColumnName()));
         this.setCost(rs.getDouble(COLUMN_COST.getColumnName()));
-        
+        this.setCategory((Category)
+                SQL.findById(Category.class, rs.getInt(COLUMN_CAT_ID.getColumnName())));
+        this.setPrice(((ProductSale)
+                SQL.findById(Product.class, rs.getInt(COLUMN_ID.getColumnName()))).getPriceN());
+    }
+
+    public void save() throws Exception {
+        SQL sql = new SQL();
+        int id = sql
+                .insert()
+                .into(Product.TABLE_NAME, Product.COLUMN_NAME, Product.COLUMN_DETAIL, Product.COLUMN_COST,
+                        Product.COLUMN_CAT_ID)
+                .values(this.getName(), this.getDetail(), this.getCost(), this.getCategory().getId())
+                .exec();
+        this.setId(id);
+    }
+
+    public void update() throws Exception{
+        SQL sql = new SQL();
+        sql
+                .update(Product.TABLE_NAME)
+                .set(Product.COLUMN_NAME, this.getName())
+                .set(Product.COLUMN_DETAIL, this.getDetail())
+                .set(Product.COLUMN_COST, this.getCost())
+                .set(Product.COLUMN_CAT_ID, this.getCategory().getId())
+                .where(Product.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getId())
+                .exec();
+    }
+
+    public static int delete(int PROD_ID) throws Exception{
+        SQL sql = new SQL();
+        int a = sql
+                .delete(Product.TABLE_NAME)
+                .where(Product.COLUMN_ID, SQL.WhereClause.Operator.EQ, PROD_ID)
+                .exec();
+        return a;
     }
 }

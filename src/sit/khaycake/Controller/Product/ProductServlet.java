@@ -34,23 +34,15 @@ public class ProductServlet extends HttpServlet {
         try {
             SQL sql = new SQL();
             Product product = new Product();
-            product.setName(request.getParameter("name"));
-            product.setDetail(request.getParameter("detail"));
-            product.setCost(Double.parseDouble(request.getParameter("cost")));
-
-
-            int addId = sql
-                    .insert()
-                    .into(Product.TABLE_NAME, Product.COLUMN_NAME, Product.COLUMN_DETAIL, Product.COLUMN_COST)
-                    .values(product.getName(), product.getDetail(), product.getCost())
-                    .exec();
-            sql.clear();
-            product.setId(addId);
+            product.setName(request.getParameter("NAME"));
+            product.setDetail(request.getParameter("DETAIL"));
+            product.setCost(Double.parseDouble(request.getParameter("COST")));
+            product.save();
 
             Gson gson = new Gson();
             response.getWriter().print(gson.toJson(product));
         } catch (Exception ex) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
 
     }

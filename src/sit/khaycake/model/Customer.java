@@ -121,7 +121,9 @@ public class Customer implements ORM, CanFindByKeyword {
 
     public void orm(ResultSet rs) throws Exception {
         this.setId(rs.getInt(COLUMN_ID.getColumnName()));
-        //this.setAddress((Address) SQL.findById(Address.class, rs.getInt(COLUMN_ADDR_ID.getColumnName())));
+        this.setAddress(CustAddress.getAddresses(
+                (List<CustAddress>) SQL.findByKeyword(CustAddress.class,
+                        rs.getString(COLUMN_ID.getColumnName()))));
         this.setVatId(rs.getString(COLUMN_VAT_ID.getColumnName()));
         this.setFname(rs.getString(COLUMN_FNAME.getColumnName()));
         this.setLname(rs.getString(COLUMN_LNAME.getColumnName()));

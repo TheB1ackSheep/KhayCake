@@ -22,12 +22,38 @@ public class Payment implements ORM {
 
     public enum Status{
 
+        COMPLETED(1),
+        CANCELED(2),
+        PENDING(3),
+        FAILED(4);
+
+        private BankAccountType type;
+        private int id;
+        private String name;
+
+        Status(int id) throws Exception {
+            this.id = id;
+            PaymentStatus stt = (PaymentStatus)SQL.findById(PaymentStatus.class,id);
+            this.name = (stt==null)?null:stt.getName();
+        }
+
+        public static Status getStatus(int id){
+            switch (id)
+            {
+                case 1: return COMPLETED;
+                case 2: return CANCELED;
+                case 3: return PENDING;
+                case 4: return FAILED;
+                default:return PENDING;
+            }
+        }
+        public int getId(){return this.id;}
     }
 
     private int id;
     private Order order;
     private BankAccount baac;
-    private int pastId;
+    private Status past;
     private Date dateTime;
     private double amount;
     
@@ -64,12 +90,12 @@ public class Payment implements ORM {
         this.baac = baac;
     }
 
-    public int getPastId() {
-        return pastId;
+    public Status getPast() {
+        return past;
     }
 
-    public void setPastId(int pastId) {
-        this.pastId = pastId;
+    public void setPast(Status past) {
+        this.past = past;
     }
 
     public Date getDateTime() {
@@ -93,7 +119,7 @@ public class Payment implements ORM {
         this.setId(rs.getInt(COLUMN_ID.getColumnName()));
         this.setOrder((Order)SQL.findById(Order.class, rs.getInt(COLUMN_ORDER_ID.getColumnName())));
         this.setBaac((BankAccount)SQL.findById(BankAccount.class,rs.getInt(COLUMN_BAAC_ID.getColumnName())));
-        this.setPastId(rs.getInt(COLUMN_PAST_ID.getColumnName()));
+        this.setPast(Status.getStatus(rs.getInt(COLUMN_PAST_ID.getColumnName())));
         this.setDateTime(rs.getDate(COLUMN_DATE_TIME.getColumnName()));
         this.setAmount(rs.getDouble(COLUMN_AMOUNT.getColumnName()));
         
@@ -105,7 +131,7 @@ public class Payment implements ORM {
                 .insert()
                 .into(Payment.TABLE_NAME, Payment.COLUMN_ORDER_ID, Payment.COLUMN_AMOUNT, Payment.COLUMN_BAAC_ID,
                         Payment.COLUMN_DATE_TIME, Payment.COLUMN_PAST_ID)
-                .values(this.getOrder(), this.getAmount(), this.getBaac(), this.getDateTime(), this.getPastId())
+                .values(this.getOrder(), this.getAmount(), this.getBaac(), this.getDateTime(), this.getPast().getId())
                 .exec();
         this.setId(id);
     }
@@ -118,7 +144,7 @@ public class Payment implements ORM {
                     .set(Payment.COLUMN_AMOUNT, this.getAmount())
                     .set(Payment.COLUMN_BAAC_ID, this.getBaac())
                     .set(Payment.COLUMN_DATE_TIME, this.getDateTime())
-                    .set(Payment.COLUMN_PAST_ID, this.getPastId())
+                    .set(Payment.COLUMN_PAST_ID, this.getPast().getId())
                     .where(Payment.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getId())
                     .exec();
     }

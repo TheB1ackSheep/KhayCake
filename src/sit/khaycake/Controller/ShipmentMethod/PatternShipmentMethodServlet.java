@@ -23,10 +23,7 @@ public class PatternShipmentMethodServlet extends HttpServlet {
             resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
             SQL sql = new SQL();
             try {
-                int a = sql
-                        .delete(ShipmentMethod.TABLE_NAME)
-                        .where(ShipmentMethod.COLUMN_ID, SQL.WhereClause.Operator.EQ, resource)
-                        .exec();
+                int a = ShipmentMethod.delete(Integer.parseInt(resource));
                 if (a < 0) {
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }

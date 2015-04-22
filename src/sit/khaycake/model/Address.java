@@ -23,7 +23,7 @@ public class Address implements ORM{
     private String addrAdd;
     private String addrNo;
 
-    public static final String TABLE_NAME = "addresses";
+    public static final String TABLE_NAME = "ADDRESSES";
     public static final Column COLUMN_ID = ORM.column(TABLE_NAME, "ADDR_ID");
     public static final Column COLUMN_SUB_DISTRICT_ID = ORM.column(TABLE_NAME, "SUDT_ID");
     public static final Column COLUMN_ADDR_NO = ORM.column(TABLE_NAME, "ADDR_NO");
