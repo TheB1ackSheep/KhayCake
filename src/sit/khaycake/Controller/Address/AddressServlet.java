@@ -24,7 +24,7 @@ public class AddressServlet extends HttpServlet {
             String result = gson.toJson(addresses, Address.class);
             response.getWriter().print(result);
         } catch (Exception ex) {
-
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
 
     }
@@ -45,8 +45,7 @@ public class AddressServlet extends HttpServlet {
             Gson gson = new Gson();
             response.getWriter().print(gson.toJson(address));
         } catch (Exception ex) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            return;
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
 
     }

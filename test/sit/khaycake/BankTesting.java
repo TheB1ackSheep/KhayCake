@@ -1,12 +1,14 @@
 package sit.khaycake;
 
 
+import sit.khaycake.database.ORM;
 import sit.khaycake.database.SQL;
 import sit.khaycake.database.SQL.*;
 import sit.khaycake.database.exception.ColumnValueMismatchException;
 import sit.khaycake.database.exception.InsertMultiTableException;
-import sit.khaycake.model.Bank;
-import sit.khaycake.model.District;
+import sit.khaycake.model.*;
+
+import java.util.List;
 
 
 /**
@@ -71,12 +73,23 @@ public class BankTesting {
         District dis = (District)SQL.findById(District.class,1);
 
         System.out.println(dis.getProvince().getName());*/
-        String resource = "/category/1/delete";
+        /*String resource = "/category/1/delete";
         resource = resource.substring(resource.indexOf("/", 1)+1);
         System.out.println(resource);
         System.out.println(resource.substring(0,resource.indexOf("/", 1)));
         System.out.println(resource.substring(resource.indexOf("/", 0)+1));
-        System.out.println(resource.indexOf("product"));
+        System.out.println(resource.indexOf("product"));*/
+        //List add = SQL.findAll(Product.class);
+        //System.out.println(add);
 
+        /*SQL sql = new SQL();
+        List<ORM> result = sql
+                .select()
+                .from(PicProduct.TABLE_NAME)
+                .where(PicProduct.COLUMN_PROD_ID, SQL.WhereClause.Operator.EQ, 1)
+                .fetch(PicProduct.class);*/
+
+
+        System.out.println(PicProduct.findByProdId(11));
     }
 }

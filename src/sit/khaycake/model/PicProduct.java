@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by Pasuth on 22/4/2558.
  */
-public class PicProduct implements ORM, CanFindByKeyword {
+public class PicProduct implements ORM{
     private int prodId;
     private Picture picture;
 
@@ -20,7 +20,7 @@ public class PicProduct implements ORM, CanFindByKeyword {
     public static final String TABLE_NAME = "PIC_PRODUCT";
     public static final Column COLUMN_PROD_ID = ORM.column(TABLE_NAME, "PROD_ID");
     public static final Column COLUMN_PIC_ID = ORM.column(TABLE_NAME, "PIC_ID");
-    public static final List<Column> COLUMN_KEYWORD = ORM.columns(COLUMN_PROD_ID);
+    //public static final List<Column> COLUMN_KEYWORD = ORM.columns(COLUMN_PROD_ID);
 
     public int getProdId() {
         return prodId;
@@ -50,6 +50,16 @@ public class PicProduct implements ORM, CanFindByKeyword {
             pictures.add(pp.getPicture());
         }
         return null;
+    }
+
+    public static List<PicProduct> findByProdId(int PROD_ID) throws Exception{
+        SQL sql = new SQL();
+        List<PicProduct> result = sql
+                .select()
+                .from(PicProduct.TABLE_NAME)
+                .where(PicProduct.COLUMN_PROD_ID, SQL.WhereClause.Operator.EQ, PROD_ID)
+                .fetch(PicProduct.class);
+        return result;
     }
 
     public void save() throws Exception{

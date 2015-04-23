@@ -18,7 +18,7 @@ public class PatternAddressServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1)+1);
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 1)+1);
 
         if (resource.indexOf("delete") >= 0) {
             resource = resource.substring(0,resource.indexOf("/", 1));
@@ -32,7 +32,7 @@ public class PatternAddressServlet extends HttpServlet {
                 response.sendError(HttpServletResponse.SC_NOT_FOUND);
             }
 
-        } else{
+        } else {
             Address address = null;
             try {
                 address = (Address) SQL.findById(Address.class, Integer.parseInt(resource));
@@ -52,12 +52,12 @@ public class PatternAddressServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1)+1);
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 1)+1);
         Address address = null;
         try {
             address = (Address) SQL.findById(Address.class, Integer.parseInt(resource));
         } catch (Exception e) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
         if (address != null) {
             try {
@@ -68,7 +68,7 @@ public class PatternAddressServlet extends HttpServlet {
                         SQL.findById(SubDistrict.class,request.getParameter("SUDT_ID")));
                 address.update();
             }catch (Exception ex){
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             }
 
         } else {

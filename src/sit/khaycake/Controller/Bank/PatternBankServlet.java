@@ -17,10 +17,10 @@ public class PatternBankServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getRequestURI();
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 1)+1);
 
         if (resource.indexOf("delete") >= 0) {
-            resource = request.getRequestURI().substring(resource.indexOf("/", 1)+1,resource.indexOf("/", 2) + 2);
+            resource = resource.substring(0, resource.indexOf("/", 1));
             try {
                 int a = Bank.delete(Integer.parseInt(resource));
                 if (a < 0) {
@@ -50,7 +50,7 @@ public class PatternBankServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1)+1);
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 1)+1);
         Bank bank = null;
         try {
             bank = (Bank) SQL.findById(Bank.class, Integer.parseInt(resource));

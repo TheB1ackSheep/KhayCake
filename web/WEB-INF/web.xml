@@ -21,7 +21,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>AddressServler</servlet-name>
-        <url-pattern>/Address</url-pattern>
+        <url-pattern>/address</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -30,7 +30,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>PatternAddressServler</servlet-name>
-        <url-pattern>/Address/*</url-pattern>
+        <url-pattern>/address/*</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -39,7 +39,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>BankServler</servlet-name>
-        <url-pattern>/Bank</url-pattern>
+        <url-pattern>/bank</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -48,7 +48,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>PatternBankServler</servlet-name>
-        <url-pattern>/Bank/*</url-pattern>
+        <url-pattern>/bank/*</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -57,7 +57,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>BankAccountServler</servlet-name>
-        <url-pattern>/BankAccount</url-pattern>
+        <url-pattern>/bankaccount</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -66,7 +66,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>PatternBankAccountServler</servlet-name>
-        <url-pattern>/BankAccount/*</url-pattern>
+        <url-pattern>/bankaccount/*</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -75,7 +75,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>BankAccountTypeServler</servlet-name>
-        <url-pattern>/BankAccountType</url-pattern>
+        <url-pattern>/bankaccounttype</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -84,7 +84,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>PatternBankAccountTypeServler</servlet-name>
-        <url-pattern>/BankAccountType/*</url-pattern>
+        <url-pattern>/bankaccounttype/*</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -93,7 +93,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>CategoryServler</servlet-name>
-        <url-pattern>/Category</url-pattern>
+        <url-pattern>/category</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -102,7 +102,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>PatternCategoryServler</servlet-name>
-        <url-pattern>/Category/*</url-pattern>
+        <url-pattern>/category/*</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -111,7 +111,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>CustomerServler</servlet-name>
-        <url-pattern>/Customer</url-pattern>
+        <url-pattern>/customer</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -120,7 +120,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>PatternCustomerServler</servlet-name>
-        <url-pattern>/Customer/*</url-pattern>
+        <url-pattern>/customer/*</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -129,7 +129,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>DistrictServler</servlet-name>
-        <url-pattern>/District</url-pattern>
+        <url-pattern>/district</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -138,7 +138,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>PatternDistrictServler</servlet-name>
-        <url-pattern>/District/*</url-pattern>
+        <url-pattern>/district/*</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -147,7 +147,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>InvoiceServler</servlet-name>
-        <url-pattern>/Invoice</url-pattern>
+        <url-pattern>/invoice</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -156,7 +156,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>PatternInvoiceServler</servlet-name>
-        <url-pattern>/Invoice/*</url-pattern>
+        <url-pattern>/invoice/*</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -165,7 +165,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>MerchantInfoServler</servlet-name>
-        <url-pattern>/MerchantInfo</url-pattern>
+        <url-pattern>/merchantinfo</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -174,7 +174,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>PatternMerchantInfoServler</servlet-name>
-        <url-pattern>/MerchantInfo/*</url-pattern>
+        <url-pattern>/merchantinfo/*</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -183,7 +183,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>OrderServler</servlet-name>
-        <url-pattern>/Order</url-pattern>
+        <url-pattern>/order</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -192,7 +192,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>PatternOrderServler</servlet-name>
-        <url-pattern>/Order/*</url-pattern>
+        <url-pattern>/order/*</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -201,7 +201,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>OrderItemServler</servlet-name>
-        <url-pattern>/OrderItem</url-pattern>
+        <url-pattern>/orderitem</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -210,7 +210,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>PatternOrderItemServler</servlet-name>
-        <url-pattern>/OrderItem/*</url-pattern>
+        <url-pattern>/orderttem/*</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -219,7 +219,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>OrderStatusServler</servlet-name>
-        <url-pattern>/OrderStatus</url-pattern>
+        <url-pattern>/orderstatus</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -228,7 +228,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>PatternOrderStatusServler</servlet-name>
-        <url-pattern>/OrderStatus/*</url-pattern>
+        <url-pattern>/orderstatus/*</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -237,7 +237,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>PaymentServler</servlet-name>
-        <url-pattern>/Payment</url-pattern>
+        <url-pattern>/payment</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -246,7 +246,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>PatternPaymentServler</servlet-name>
-        <url-pattern>/Payment/*</url-pattern>
+        <url-pattern>/payment/*</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -255,7 +255,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>PictureServler</servlet-name>
-        <url-pattern>/Picture</url-pattern>
+        <url-pattern>/picture</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -264,7 +264,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>PatternPictureServler</servlet-name>
-        <url-pattern>/Picture/*</url-pattern>
+        <url-pattern>/picture/*</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -273,7 +273,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>ProductServler</servlet-name>
-        <url-pattern>/Product</url-pattern>
+        <url-pattern>/product</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -282,7 +282,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>PatternProductServler</servlet-name>
-        <url-pattern>/Product/*</url-pattern>
+        <url-pattern>/product/*</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -291,7 +291,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>ProductMetaServler</servlet-name>
-        <url-pattern>/ProductMeta</url-pattern>
+        <url-pattern>/productmeta</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -300,7 +300,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>PatternProductMetaServler</servlet-name>
-        <url-pattern>/ProductMeta/*</url-pattern>
+        <url-pattern>/productmeta/*</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -309,7 +309,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>ProductMetaNameServler</servlet-name>
-        <url-pattern>/ProductMetaName</url-pattern>
+        <url-pattern>/productmetaname</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -318,7 +318,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>PatternProductMetaNameServler</servlet-name>
-        <url-pattern>/ProductMetaName/*</url-pattern>
+        <url-pattern>/productmetaName/*</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -327,7 +327,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>ProductMetaNameValueServler</servlet-name>
-        <url-pattern>/ProductMetaNameValue</url-pattern>
+        <url-pattern>/productmetanamevalue</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -336,7 +336,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>PatternProductMetaNameValueServler</servlet-name>
-        <url-pattern>/ProductMetaNameValue/*</url-pattern>
+        <url-pattern>/productmetanamevalue/*</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -345,7 +345,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>ProductSaleServler</servlet-name>
-        <url-pattern>/ProductSale</url-pattern>
+        <url-pattern>/productSale</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -354,7 +354,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>PatternProductSaleServler</servlet-name>
-        <url-pattern>/ProductSale/*</url-pattern>
+        <url-pattern>/productSale/*</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -363,7 +363,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>ProvinceServler</servlet-name>
-        <url-pattern>/Province</url-pattern>
+        <url-pattern>/province</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -372,7 +372,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>PatternProvinceServler</servlet-name>
-        <url-pattern>/Province/*</url-pattern>
+        <url-pattern>/province/*</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -381,7 +381,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>ShipmentMethodServler</servlet-name>
-        <url-pattern>/ShipmentMethod</url-pattern>
+        <url-pattern>/shipmentmethod</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -390,7 +390,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>PatternShipmentMethodServler</servlet-name>
-        <url-pattern>/ShipmentMethod/*</url-pattern>
+        <url-pattern>/shipmentmethod/*</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -399,7 +399,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>SubDistrictServler</servlet-name>
-        <url-pattern>/SubDistrict</url-pattern>
+        <url-pattern>/subdistrict</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -408,7 +408,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>PatternSubDistrictServler</servlet-name>
-        <url-pattern>/SubDistrict/*</url-pattern>
+        <url-pattern>/subdistrict/*</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -417,7 +417,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>UnitServler</servlet-name>
-        <url-pattern>/Unit</url-pattern>
+        <url-pattern>/unit</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -426,7 +426,25 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>PatternUnitServler</servlet-name>
-        <url-pattern>/Unit/*</url-pattern>
+        <url-pattern>/unit/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CartServler</servlet-name>
+        <servlet-class>sit.khaycake.Controller.Cart.CartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CartServler</servlet-name>
+        <url-pattern>/cart</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PatternCartServler</servlet-name>
+        <servlet-class>sit.khaycake.Controller.Cart.PatternCartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PatternCartServler</servlet-name>
+        <url-pattern>/cart/*</url-pattern>
     </servlet-mapping>
 
 </web-app>

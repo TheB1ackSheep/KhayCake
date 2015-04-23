@@ -23,14 +23,14 @@ public class PatternCategoryServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1) + 1);
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 1)+1);
 
 
         if (resource.indexOf("product") >= 0) {
             resource = resource.substring(0,resource.indexOf("/", 1));
             List<Product> product = new ArrayList<>();
             try {
-                product = Product.findByCategory(Integer.parseInt(resource));
+                product = (List<Product>)SQL.findByKeyword(Product.class,resource);
 
             } catch (Exception e) {
                 response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);

@@ -18,7 +18,7 @@ import sit.khaycake.database.SQL;
  *
  * @author -milk
  */
-public class Product implements ORM, CanFindByKeyword {
+public class Product implements ORM, CanFindByKeyword{
     
     private int id;
     private String name;
@@ -28,7 +28,7 @@ public class Product implements ORM, CanFindByKeyword {
     private double price;
     private List<Picture> picture;
 
-    public static final String TABLE_NAME = "PRODUCT";
+    public static final String TABLE_NAME = "PRODUCTS";
     public static final Column COLUMN_ID = ORM.column(TABLE_NAME, "PROD_ID");
     public static final Column COLUMN_NAME = ORM.column(TABLE_NAME, "NAME");
     public static final Column COLUMN_DETAIL = ORM.column(TABLE_NAME, "DETAIL");
@@ -90,20 +90,36 @@ public class Product implements ORM, CanFindByKeyword {
         this.setCategory((Category)
                 SQL.findById(Category.class, rs.getInt(COLUMN_CAT_ID.getColumnName())));
         this.setPrice(((ProductSale)
-                SQL.findById(Product.class, rs.getInt(COLUMN_ID.getColumnName()))).getPriceN());
-        this.setPicture(PicProduct.getPictures((List<PicProduct>)SQL.findByKeyword(PicProduct.class,
-                rs.getString(COLUMN_ID.getColumnName()))));
+                SQL.findById(ProductSale.class, rs.getInt(COLUMN_ID.getColumnName()))).getPrice());
+        /*this.setPicture(PicProduct.getPictures(PicProduct.findByProdId(rs.getInt(COLUMN_ID.getColumnName()))));*/
     }
 
     public static List<Product> findByCategory(int CAT_ID) throws Exception{
         SQL sql = new SQL();
-        sql
+        List<Product> result = sql
                 .select()
                 .from(Product.TABLE_NAME)
-                .where(Product.COLUMN_CAT_ID, SQL.WhereClause.Operator.EQ,CAT_ID);
-        return (List<Product>)sql;
+                .where(Product.COLUMN_CAT_ID, SQL.WhereClause.Operator.EQ, CAT_ID)
+                .fetch(Product.class);
+        return result;
 
     }
+
+
+    @Override
+    public boolean equals(Object object)
+    {
+        boolean result = false;
+
+        if (object != null && object instanceof Product)
+        {
+            result = this.getId() == ((Product) object).getId();
+        }
+
+        return result;
+    }
+
+
 
     /*public void save() throws Exception {
         SQL sql = new SQL();

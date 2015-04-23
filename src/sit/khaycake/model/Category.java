@@ -5,6 +5,7 @@ import sit.khaycake.database.Column;
 import sit.khaycake.database.ORM;
 
 import java.sql.ResultSet;
+import java.util.List;
 
 /**
  * Created by Pasuth on 21/4/2558.
@@ -18,6 +19,8 @@ public class Category implements ORM, CanFindByKeyword {
     public static final Column COLUMN_ID = ORM.column(TABLE_NAME, "CAT_ID");
     public static final Column COLUMN_NAME = ORM.column(TABLE_NAME, "NAME");
     public static final Column COLUMN_CAT_PART_ID = ORM.column(TABLE_NAME,"CAT_PARENT_ID");
+    public static final List<Column> PRIMARY_KEY = ORM.columns(COLUMN_ID);
+    public static final List<Column> COLUMN_KEYWORD = ORM.columns(COLUMN_NAME);
 
     public int getId() {
         return id;

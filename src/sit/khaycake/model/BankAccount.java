@@ -57,7 +57,7 @@ public class BankAccount implements ORM, CanFindByKeyword{
     private String accNo;
     private String accName;
 
-    public static final String TABLE_NAME = "BANKACCOUNTS";
+    public static final String TABLE_NAME = "BANK_ACCOUNTS";
     public static final Column COLUMN_ID = ORM.column(TABLE_NAME, "BAAC_ID");
     public static final Column COLUMN_BABR_ID = ORM.column(TABLE_NAME, "BABR_ID");
     public static final Column COLUMN_BAAT_ID = ORM.column(TABLE_NAME, "BAAT_ID");

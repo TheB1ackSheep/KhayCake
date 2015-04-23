@@ -77,7 +77,7 @@ public class SQL{
         }
     }
 
-    private static final String HOST = "localhost";
+    private static final String HOST = "falook.me";
     private static final String PORT = "3306";
     private static final String DATABASE = "khaycake";
     private static final String USERNAME = "falook";
