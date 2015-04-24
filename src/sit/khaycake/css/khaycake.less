@@ -1,93 +1,8 @@
+@import "mixin";
+
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800);
 @import url(http://fonts.googleapis.com/earlyaccess/notosansthai.css);
 @import url(http://fonts.googleapis.com/css?family=Lily+Script+One);
-
-.transform(@transform) {
-  -webkit-transform: @transform;
-  -moz-transform: @transform;
-  -ms-transform: @transform;
-  -o-transform: @transform;
-  transform: @transform;
-}
-
-.transition(@tran){
-  @normalized: ~"@{tran}" ;
-  -webkit-transition: @normalized;
-  -moz-transition: @normalized;
-  -ms-transition: @normalized;
-  -o-transition: @normalized;
-  transition: @normalized;
-}
-
-.transition-delay(@delay){
-  -webkit-transition-delay: @delay;
-  -moz-transition-delay: @delay;
-  -o-transition-delay: @delay;
-  transition-delay: @delay;
-}
-
-.border-radius(@radius) {
-  -webkit-border-radius: @radius;
-  -moz-border-radius: @radius;
-  border-radius: @radius;
-}
-
-.border-top-left-radius(@radius) {
-  -webkit-border-top-left-radius: @radius;
-  -moz-border-top-left-radius: @radius;
-  border-top-left-radius: @radius;
-}
-
-.border-top-right-radius(@radius) {
-  -webkit-border-top-right-radius: @radius;
-  -moz-border-top-right-radius: @radius;
-  border-top-right-radius: @radius;
-}
-
-.box-shadow(@shadow) {
-  -webkit-box-shadow: @shadow;
-  -moz-box-shadow: @shadow;
-  box-shadow: @shadow;
-}
-
-.animation(@anim) {
-  -webkit-animation: @anim;
-  -o-animation: @anim;
-  animation: @anim;
-}
-
-.keyframes(@name; @arguments) {
-  @-moz-keyframes @name { @arguments();
-  }
-  @-webkit-keyframes @name { @arguments();
-  }
-  @keyframes @name { @arguments();
-  }
-}
-
-@A100: #eae1de;
-@A200: #9e7773;
-@A400: #61433f;
-@A700: #3E2723;
-
-.base-text() {
-  color: #000;
-}
-
-.primary-text() {
-  .base-text;
-  opacity: 0.87;
-}
-
-.secondary-text() {
-  .base-text;
-  opacity: 0.54;
-}
-
-.hint-text() {
-  .base-text;
-  opacity: 0.26;
-}
 
 * {
   -webkit-box-sizing: border-box;
@@ -105,94 +20,10 @@ html, body {
 
 body {
   font-family: 'Open Sans', sans-serif;
-}
-
-.primary {
   .primary-text;
 }
 
-.secondary {
-  .secondary-text;
-}
 
-.hint {
-  .hint-text;
-}
-
-.text-right {
-  text-align: right;
-}
-
-.text-left {
-  text-align: left;
-}
-
-.text-center {
-  text-align: center;
-}
-
-@media only screen and (max-width: 480px) {
-  .col-3, .col-2, .col-1 {
-    margin: 1% 0 1% 0%;
-  }
-
-  .col-3, .col-2, .col-1 {
-    width: 100%;
-  }
-}
-
-.container {
-  width: 100%;
-  margin: 0 auto;
-}
-
-h1, h2, h3, h4 {
-  font-family: "Lily Script One";
-}
-
-h1 {
-  font-size: 48px;
-  color: @A700;
-  padding-bottom: 20px;
-  border-bottom: solid 2px @A100;
-}
-
-h2 {
-  font-size: 40px;
-  color: @A400;
-}
-
-h3 {
-  font-size: 32px;
-  color: @A200;
-}
-
-h4 {
-  font-size: 24px;
-  color: @A100;
-}
-
-h1:before {
-  content: '{';
-  color: @A400;
-  padding: 0 10px 0 0;
-}
-
-h1:after {
-  content: '}';
-  color: @A400;
-  padding: 0 0 0 10px;
-}
-
-body > .container {
-  height: 100%;
-  overflow: auto;
-  position: relative;
-  left: 0;
-  right: 0;
-  padding: 0;
-  height: 100%;
-}
 
 .loader {
   display: inline-block;
@@ -202,540 +33,309 @@ body > .container {
   border: 4px solid #Fff;
   margin: 10px auto;
   .animation(loader 2s infinite ease);
+
+  .loader-inner {
+    vertical-align: top;
+    display: inline-block;
+    width: 100%;
+    background-color: #fff;
+    .animation(loader-inner 2s infinite ease-in);
+  }
 }
 
-.loader-inner {
-  vertical-align: top;
-  display: inline-block;
+
+
+@import url(http://fonts.googleapis.com/css?family=Lily+Script+One);
+
+img{
   width: 100%;
-  background-color: #fff;
-  .animation(loader-inner 2s infinite ease-in);
 }
 
-.container > * {
-  max-width: 1366px;
-  margin: 0 auto;
-}
-
-nav {
-  text-align: center;
-  width: 100%;
-  padding: 10px 0;
-  border-bottom: solid rgba(234, 225, 222, 1);
-
-  ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-
-    li {
-      display: inline-flex;
-      a {
-        text-decoration: none;
-        font-size: 150%;
-        font-family: 'Lily Script One';
-        color: @A400;
-        padding: 0 20px;
-      }
-      a:hover {
-        color: @A700;
-      }
-    }
-  }
-}
-
-.logo {
-  width: 200px;
-  text-align: center;
-
-  img {
-    width: 68px;
-    margin-bottom: -4px;
-  }
-
-  .name {
-    margin: 0 auto;
-    font-size: 23px;
-    font-family: 'Lily Script One';
-    transition: 350ms all;
-    color: #3E2723;
-  }
-
-  .banner {
-    font-size: 75%;
-    color: #3E2723;
-    opacity: 0.54;
-  }
-}
-
-section {
-  .text-center;
-
-  .title {
-    margin-bottom: 24px;
-  }
-  article {
-    margin: 0 16%;
-    p, span {
-      .primary-text;
-      font-size: 12px;
-      line-height: 22px;
-    }
-    h1, h2, h3, h4 {
-      margin-bottom: 10px;
-    }
-  }
-}
-
-section.no-margin {
-  h1 {
-    margin-bottom: 0;
-  }
-  .box {
-    margin: 40px 20px 0 20px;
-  }
-}
-
-section.full-width {
-  overflow: hidden;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0;
-}
-
-section.slider {
-  margin: 2px auto;
-  width: 100%;
-  justify-content: center;
-  min-width: 140px;
-  transition: 500ms ease-in-out all;
-}
-
-section#cakes .row {
+.flex{
   display: flex;
   flex-wrap: wrap;
+}
+
+.flex.flex-center{
   align-content: center;
   justify-content: center;
-  overflow: hidden;
-  position: relative;
-  padding-bottom: 40px;
-  .box {
-    transition: top 350ms;
-    position: relative;
-    top: 0px;
-    padding: 30px 15px;
-    margin: 0 20px;
-    .box-shadow(0 0 24px rgba(97, 67, 63, 0.08));
-    flex: none;
-    flex-basis: 270px;
-    .sample {
-      width: 84px;
-      background-color: rgba(213, 193, 174, 1);
-      border-radius: 100%;
-      padding: 15px;
-      margin: 0 auto;
-      img {
-        width: 100%;
-      }
-    }
-    .cake-name {
-      font-family: 'Lily Script One';
-      font-size: 30px;
-      border-bottom: solid 1px rgba(234, 225, 222, 1);
-      color: @A700;
-    }
-    p {
-      font-family: 'Noto Sans Thai';
-      margin: 10px auto;
-      width: 70%;
-      font-size: 12px;
-      line-height: 22px;
-      .secondary-text;
-      height: 120px;
-    }
-    .btn {
-      text-decoration: none;
-      cursor: pointer;
-      display: inline-block;
-      font-family: 'Open Sans';
-      font-weight: 300;
-      font-size: 15px;
-      outline: 0;
-      border: none;
-      padding: 10px 30px;
-      background-color: @A400;
-      color: white;
-    }
-  }
-  .box.hide:hover {
-    top: 250px;
-  }
-  .box.hide {
-    top: 280px;
-  }
 }
 
-section#contact-us {
-  article {
-    .shop {
-      flex: none;
-      margin: 0 20px 0 0;
-      img {
-        width: 100px;
-      }
-    }
-    .address {
-      h3 {
-        margin-top: 5px;
-      }
-      flex: none;
-    }
-  }
-
+.font-lily{
+  font-family: 'Lily Script One',sans-serif;
 }
 
-section#map {
-  margin: 30px 0 0 0;
-  background-size: 100% auto;
-  background: url('../images/map.jpg') center center;
-  height: 300px;
+.btn{
+  outline: none;
 }
 
-.modal {
-  z-index: 999;
-  position: fixed;
-  overflow: auto;
-  h1, h2, h3, h4 {
-    color: @A100;
-  }
-  .container {
-    padding: 20px 40px;
-  }
+.btn-primary{
+  background: @A700;
+  border-color: @A600;
 }
 
-.modal.shop {
-  .container.hide {
-    display: none;
-  }
-  ul {
-    padding: 0 0 10px 0;
-    margin: 0;
-    list-style: none;
-    border-bottom: 1px solid @A400;
-    li {
-      display: inline-block;
+.btn-primary:hover,.btn-primary:active,.btn-primary:focus{
+  background: @A700;
+  border-color: @A600;
+  outline: none;
+  box-shadow: none;
+}
 
-      a {
-        font-family: 'Lily Script One';
-        text-decoration: none;
-        padding: 0 10px;
-        font-size: 30px;
-        color: @A400;
-        position: relative;
-        top: 0;
-        opacity: 1;
-        .transition("top 200ms,opacity 100ms");
-      }
-      a.hide {
-        top: -100px;
-        opacity: 0;
-      }
-      a.active,a:hover {
-        color: @A200;
-      }
+.border-left{
+  border-left: 1px solid #ddd;
+}
 
-      .back {
-        display: block;
-        text-align: right;
-        .transform(rotate(180deg));
-      }
+.border-right{
+  border-right: 1px solid #ddd;
+}
 
+.relative{
+  position: relative
+}
 
+/*******************************************************************************/
+/*HEADER
+/*******************************************************************************/
 
-    }
-    li:nth-child(1) a{
-      .transition-delay(300ms);
-    }
-
-    li:nth-child(2) a{
-      .transition-delay(400ms);
-    }
-
-    li:nth-child(3) a{
-      .transition-delay(500ms);
-    }
-
-    li:nth-child(4) a{
-      .transition-delay(600ms);
-    }
-
-    li:nth-child(5) a{
-      .transition-delay(700ms);
-    }
-
-    li:nth-child(6) a{
-      .transition-delay(800ms);
-    }
-
-    li.checkout{
-      float: right;
-      path{
-        fill: @A400;
-      }
-    }
-  }
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 1000px;
-    width: 100%;
-    margin: 0 auto;
+header{
+  margin: 10px auto;
+  .menu{
     text-align: center;
-
-    .box{
-      .transition(all 350ms);
+    .menu-item{
+      display: inline-block;
+      vertical-align: middle;
+      padding: 0 0.5%;
+      a{
+        font-size: 180%;
+        display: block;
+        min-width: 110px;
+        text-align: center;
+        outline: none;
+      }
+      a, a:active, a:hover{
+        text-decoration: none;
+        color: inherit;
+      }
     }
-
-    .cake-box {
-      overflow: hidden;
-      margin: 20px 0 0 20px;
-      width: 18%;
-      font-size: 18px;
-      background-color: #4F3632;
-      .box-shadow(1px 1px 7px #351F1C);
-      .border-radius(3px);
-
-      img {
-        width: 100%;
-      }
-      .title {
-        font-family: 'Open Sans', sans-serif;
-        color: @A100;
-        padding: 10px;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-      }
-
-      .add-cart {
-        width: 100%;
-        border-top: 1px solid #5d413d;
-        border-right: none;
-        border-bottom: none;
-        border-left: none;
-        margin: 0;
-        color: @A100;
-        cursor: pointer;
-        background-color: #4F3632;
-        outline: 0;
-        height: 40px;
-        font-size: 14px;
-        overflow: hidden;
-        position: relative;
-
-        .price {
-          color: @A100;
-        }
-
-        div{
-          padding: 10px;
-          position: absolute;
-          text-align: center;
-          width: 100%;
-          top: 0;
-          .transition(top 350ms);
-        }
-        div+div{
-          top: 40px;
-        }
-      }
-
-      .add-cart:hover {
-        background-color: #5d413d;
-        div{
-          top: -40px;
-        }
-        div+div{
-          top: 0;
-        }
-      }
-
-    }
-    .cake-box.hide {
-      width: 0;
-      margin: 0;
-    }
-
   }
-  .checkout_box.hide{
+
+  .logo {
+    text-align: center;
+    .logo-img {
+      width: 68px;
+      margin: 0 auto;
+    }
+    .logo-name {
+      margin: 0 auto;
+      font-size: 180%;
+      font-family: 'Lily Script One';
+      transition: 350ms all;
+    }
+    .logo-banner {
+      font-size: 80%;
+      .secondary-text;
+    }
+  }
+}
+
+/*******************************************************************************/
+/*ACTION BAR
+/*******************************************************************************/
+
+.action-bar{
+  .action-bar-left{
+    float:left;
+  }
+  .action-bar-center{
+    display: table;
+    margin: 0 auto;
+  }
+  .action-bar-right{
+    float:right;
+  }
+
+  .action-bar-left>* ,.action-bar-center>* ,.action-bar-right>*{
+    display:inline-block;
+  }
+}
+
+/*******************************************************************************/
+/*CAKE PRICE
+/*******************************************************************************/
+
+.cake{
+  display: table;
+  margin: 25px auto 50px auto;
+}
+
+.cake .cake-box{
+  display: inline-block;
+  width: 270px;
+  border-right: 1px solid #ddd;
+  padding: 30px 50px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.cake .cake-box:last-child{
+  border-right: none;
+}
+
+.cake .cake-box .cake-box-img{
+  width: 84px;
+  background-color: #d5c1ae;
+  border-radius: 100%;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.cake .cake-box .cake-box-name{
+  font-size: 210%;
+  border-bottom: solid 1px #eae1de;
+}
+
+.cake .cake-box .cake-box-detail{
+  margin: 10px auto;
+  height: 150px;
+  width: 80%;
+  line-height: 20px;
+  .secondary-text;
+}
+
+.cake .cake-box .cake-box-buy .btn{
+  padding: 10px 30px;
+  outline: none;
+  cursor: pointer;
+}
+
+/*******************************************************************************/
+/*CONTACT
+/*******************************************************************************/
+
+section article{
+  margin: 40px;
+  text-align: center;
+  p{
+    .secondary-text;
+  }
+}
+
+/*******************************************************************************/
+/*DIALOG
+/*******************************************************************************/
+
+.dialog{
+  position: absolute;
+  z-index: 999;
+  background-color: white;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  ul, .dialog-content{
+    .transition("top 350ms, opacity 350ms");
+    position: relative;
+  }
+  ul{
+    position: absolute;
+    z-index: 998;
+    opacity: 1;
+    top: 0;
+  }
+  ul.inactive{
     top: -100px;
     opacity: 0;
   }
-  .checkout_box{
-    position: relative;
-    top:0px;
+  .dialog-content{
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    position: absolute;
+    top: 42px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
     opacity: 1;
-    max-width: 50vw;
-    width: 100%;
-    margin: 20px auto;
-    padding: 20px;
-    table{
-      text-align: left;
-      margin: 0 auto;
-      font-size: 15px;
-      color: #ddd;
-      th{
-        color: #6B534F;
-        font-size: 18px;
+    .row{
+      padding: 0 0 20px 20px;
+      .box{
+        background-color: #F9F9F9;
+        border: 1px solid #ddd;
+        .border-top-left-radius(3px);
+        .border-top-right-radius(3px);
+        .transition("top 350ms, opacity 350ms");
+        overflow: hidden;
+        position: relative;
+        top: 0;
+        opacity: 1;
+        margin: 20px 0 0 0;
+        .box-name{
+          font-weight: bold;
+          text-align: center;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          padding: 10px;
+          border-bottom: 1px solid #EAEAEA;
+        }
+        .box-button{
+          overflow: hidden;
+          height: 28px;
+          position: relative;
+          font-size: 90%;
+          cursor: pointer;
+          .price, .cart{
+            position: absolute;
+            left: 0;
+            right: 0;
+            .transition(top 350ms);
+          }
+          .price{
+            text-align: center;
+            padding: 5px;
+            top: 0;
+          }
+          .cart{
+            top: 28px;
+            display: block;
+            width: 100%;
+            height: 100%;
+            outline: none;
+            background-color: transparent;
+            border: none;
+          }
+        }
+        .box-button:hover{
+          .price{
+            top:-28px;
+          }
+          .cart{
+            top:0px;
+          }
+        }
       }
-      th,td{
-        padding: 0 10px;
+      .box.inactive{
+        top:-100px;
+        opacity: 0;
       }
-      thead th,tfoot th{
-        padding: 10px;
-      }
-      tbody th{
-        font-size: 15px;
-        padding-right:0 ;
-      }
-      tbody td:nth-child(2){
-        padding-left:0 ;
-      }
-      tbody td:nth-child(3){
-        text-align: right;
-      }
+    }
+  }
+  .dialog-content.inactive{
+    top: 100%;
+    opacity: 0;
+  }
+  @media (max-width: 767px){
+    ul{
+      position: relative;
+    }
+    .dialog-content{
+      position: relative;
+      top: 0;
+      border:none;
     }
   }
 }
 
 
-footer {
-  background-color: @A700;
-  padding: 15px;
-  color: @A200;
-  font-size: 12px;
-  text-align: center;
-}
 
-@media only screen and (max-width: 767px) {
-  nav {
-    ul {
-      li:nth-child(1), li:nth-child(2), li:nth-child(4), li:nth-child(5) {
-        a {
-          font-size: 110%;
-          padding: 0 10px;
-        }
-      }
-      .logo {
-        width: 160px;
-      }
-    }
-  }
-
-  .slider {
-    img {
-      height: 400px;
-    }
-  }
-
-  .modal.shop {
-    ul {
-      li {
-        display: block;
-        a {
-          font-size: 24px;
-        }
-
-      }
-
-      li.checkout{
-        float: none;
-      }
-
-    }
-    .row {
-      .box {
-        width: 30%;
-        font-size: 14px;
-      }
-    }
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  h1 {
-    font-size: 32px;
-  }
-
-  h2 {
-    font-size: 24px;
-  }
-
-  h3 {
-    font-size: 20px;
-  }
-
-  h4 {
-    font-size: 18px;
-  }
-
-  nav {
-    ul {
-      li:nth-child(1), li:nth-child(2), li:nth-child(4), li:nth-child(5) {
-        a {
-          display: none;
-        }
-      }
-    }
-  }
-
-  .slider {
-    img {
-      height: 300px;
-    }
-  }
-
-  .modal.shop {
-    ul {
-      li {
-        display: block;
-        a {
-          font-size: 24px;
-        }
-      }
-    }
-    .row {
-      .box {
-        width: 100%;
-      }
-    }
-  }
-
-  section#map {
-    background-size: auto 300px;
-  }
-}
-
-.keyframes(loader, { 0% {
-  transform: rotate(0deg);
-} 25% {
-    transform: rotate(180deg);
-  } 50% {
-      transform: rotate(180deg);
-    } 75% {
-        transform: rotate(360deg);
-      } 100% {
-          transform: rotate(360deg);
-        } });
-
-.keyframes(loader-inner, { 0% {
-  height: 0%;
-} 25% {
-    height: 0%;
-  } 50% {
-      height: 100%;
-    } 75% {
-        height: 100%;
-      } 100% {
-          height: 0%;
-        } });

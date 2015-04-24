@@ -1,0 +1,189 @@
+@import url(http://fonts.googleapis.com/css?family=Lily+Script+One);
+
+img{
+	width: 100%;
+}
+
+.flex{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.flex-center{
+	align-content: center;
+	justify-content: center;
+}
+
+.font-lily{
+	font-family: 'Lily Script One',sans-serif;
+}
+
+.primary-text {
+    color: #3e2723;
+    opacity: .87
+}
+.secondary-text {
+    color: #3e2723;
+    opacity: .54
+}
+.hint-text {
+    color: #3e2723;
+    opacity: .26
+}
+
+.btn{
+	outline: none;
+}
+
+.btn-primary{
+	background: #3E2733 linear-gradient(to bottom, #3E2733 0, #3E2723 100%);
+	border-color: #3E2733;
+}
+
+.btn-primary:hover,.btn-primary:active,.btn-primary:focus{
+	background: #3E2733 linear-gradient(to bottom, #3E2733 0, #3E2723 100%);
+	border-color: #3E2733;
+	outline: none;
+	box-shadow: none;
+}
+
+.border-left{
+	border-left: 1px solid #ddd;
+}
+
+.border-right{
+	border-right: 1px solid #ddd;
+}
+
+.relative{
+	position: relative
+}
+
+body{
+	color: #3e2723;
+}
+
+/*******************************************************************************/
+/*HEADER
+/*******************************************************************************/
+
+header{
+	margin: 10px auto;
+}
+
+header .menu{
+	text-align: center;
+}
+
+header .menu .menu-item{
+	display: inline-block;
+	vertical-align: middle;
+	padding: 0 0.5%;
+}
+
+header .menu .menu-item a{
+	font-size: 180%;
+	display: block;
+	min-width: 110px;
+	text-align: center;
+	outline: none;
+}
+
+header .menu .menu-item a, header .menu .menu-item a:active, header .menu .menu-item a:hover{
+	text-decoration: none;
+	color: inherit;
+}
+
+header .logo {
+    text-align: center;
+}
+header .logo .logo-img {
+    width: 68px;
+    margin: 0 auto;
+}
+header .logo .logo-name {
+    margin: 0 auto;
+	font-size: 180%;
+    font-family: 'Lily Script One';
+    transition: 350ms all;
+    color: #3e2723
+}
+header .logo .logo-banner {
+    font-size: 75%;
+    color: #3e2723;
+    opacity: .54
+}
+
+/*******************************************************************************/
+/*CAKE PRICE
+/*******************************************************************************/
+
+.cake{
+	display: table;
+	margin: 25px auto 50px auto;
+}
+
+.cake .cake-box{
+	display: inline-block;
+	width: 270px;
+	border-right: 1px solid #ddd;
+	padding: 30px 50px;
+	margin-top: 20px;
+	text-align: center;
+}
+
+.cake .cake-box:last-child{
+	border-right: none;
+	margin-right: 0;
+}
+
+.cake .cake-box .cake-box-img{
+	width: 84px;
+	background-color: #d5c1ae;
+	border-radius: 100%;
+	padding: 15px;
+	margin: 0 auto;
+}
+
+.cake .cake-box .cake-box-name{
+	font-size: 210%;
+	border-bottom: solid 1px #eae1de;
+}
+
+.cake .cake-box .cake-box-detail{
+	margin: 10px auto;
+	height: 150px;
+	width: 80%;
+	line-height: 20px;
+}
+
+.cake .cake-box .cake-box-buy .btn{
+	padding: 10px 30px;
+	outline: none;
+	cursor: pointer;
+}
+
+/*******************************************************************************/
+/*CONTACT
+/*******************************************************************************/
+
+section article{
+	margin: 40px;
+	text-align: center;
+
+}
+
+/*******************************************************************************/
+/*DIALOG
+/*******************************************************************************/
+
+.dialog{
+	position: absolute;
+	z-index: 999;
+	background-color: white;
+	border: 1px solid #ddd;
+	top:50%;
+	left:50%;
+	width: 0;
+	height: 0;	
+}

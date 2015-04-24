@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+    <title>KhayCake Corp</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap.theme.css"/>
+    <link rel="stylesheet" href="css/khaycake.min.css"/>
+    <script src="js/khaycake.min.js"></script>
+
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="images/khaycake-logo.png"/>
+
+        <div class="name">Khay Cake</div>
+        <div class="banner">Sweet like a boos</div>
+    </div>
+</header>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-5 col-center">
+            <div class="panel ">
+
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form" method="POST" action="/auth/login">
+                        <input type="hidden" name="_token" value="6IUXMtyQroCgG5DlZ0qAU3YYX1xwBpQnHVJplyZB">
+
+
+                        <div class="form-group">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-6"><h3>ลงชื่อเข้าใช้</h3></div>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">E-Mail Address</label>
+
+                            <div class="col-md-6">
+                                <input type="email" class="form-control" name="email" value="">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Password</label>
+
+                            <div class="col-md-6">
+                                <input type="password" class="form-control" name="password">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary" style="margin-right: 15px;">
+                                    Login
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

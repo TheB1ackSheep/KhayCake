@@ -47,6 +47,36 @@ var KhayCake = KhayCake || {
         getParameter : function(name){
             return this.parameters[name];
         },
+        classList : function(el){
+          if(el && el.classList)
+            return function(){
+                this.add = function(c){el.classList.add(c);};
+                this.remove = function(c){el.classList.remove(c);};
+                this.toggle = function(c){el.classList.toggle(c);};
+            };
+          else if(el && el.className)
+              return function(){
+                  this.add = function(c){
+                      var className = el.className;
+                      if(!className.contains(c))
+                        el.setAttribute('class',className+" "+c)
+                  };
+                  this.remove = function(c){
+                      var className = el.className;
+                      if(className.contains(c))
+                          className.replace(c,' ');
+                      el.setAttribute('class',className)
+                  };
+                  this.toggle = function(c){
+                      var className = el.className;
+                      if(className.contains(c))
+                        this.remove(c);
+                      else
+                        this.add(c);
+                  };
+              };
+
+        },
         openShop : function(options){
             document.querySelector(".modal.shop .row").innerHTML = "";
 
@@ -89,27 +119,23 @@ var KhayCake = KhayCake || {
                 modal.style.backgroundColor = "#3E2723";
                 modal.style.transition = "top 250ms,right 250ms,bottom 250ms,left 250ms,width 250ms,height 250ms";
 
-                (function(){
-                    setTimeout(function() {
-                        modal.style.top = "0px";
-                        modal.style.right = "0px";
-                        modal.style.bottom = "0px";
-                        modal.style.left = "0px";
-                        modal.style.height = "100%";
-                        modal.style.width = "100%";
-                        modal.querySelector(".container").classList.remove("hide");
+                setTimeout(function() {
+                    modal.style.top = "0px";
+                    modal.style.right = "0px";
+                    modal.style.bottom = "0px";
+                    modal.style.left = "0px";
+                    modal.style.height = "100%";
+                    modal.style.width = "100%";
+                    modal.querySelector(".container").classList.remove("hide");
 
-                        (function(){
-                            setTimeout(function(){
+                    setTimeout(function(){
 
-                                K.forEach(modal.querySelectorAll(".tab a"),function(el){
-                                    el.classList.remove("hide");
-                                });
+                        K.forEach(modal.querySelectorAll(".tab a"),function(el){
+                            el.classList.remove("hide");
+                        });
 
-                            },100);
-                        })();
                     },100);
-                })();
+                },100);
 
             }
 
