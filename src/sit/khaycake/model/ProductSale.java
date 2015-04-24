@@ -23,18 +23,16 @@ public class ProductSale implements ORM,CanFindByKeyword {
     private int id;
     private int qty;
     private double price;
-    private Product prod;
+    private int prod;
     private int unitId;
     
     public static final String TABLE_NAME = "PRODUCT_SALES";
     public static final Column COLUMN_ID = ORM.column(TABLE_NAME, "PRSA_ID");
     public static final Column COLUMN_QTY = ORM.column(TABLE_NAME, "QTY");
-    //public static final Column COLUMN_PRICE_V = ORM.column(TABLE_NAME, "PRICE_V");
     public static final Column COLUMN_PRICE = ORM.column(TABLE_NAME, "PRICE");
     public static final Column COLUMN_PROD_ID = ORM.column(TABLE_NAME, "PROD_ID");
     public static final Column COLUMN_UNIT_ID = ORM.column(TABLE_NAME, "UNIT_ID");
-    public static final List<Column> PRIMARY_KEY = ORM.columns(COLUMN_PROD_ID);
-    public static final List<Column> COLUMN_KEYWORD = ORM.columns(COLUMN_PROD_ID);
+    public static final List<Column> PRIMARY_KEY = ORM.columns(COLUMN_ID);
 
     public int getId() {
         return id;
@@ -61,11 +59,11 @@ public class ProductSale implements ORM,CanFindByKeyword {
         this.price = priceN;
     }
 
-    public Product getProd() {
+    public int getProd() {
         return prod;
     }
 
-    public void setProd(Product prod) {
+    public void setProd(int prod) {
         this.prod = prod;
     }
 
@@ -82,10 +80,23 @@ public class ProductSale implements ORM,CanFindByKeyword {
         
         this.setId(rs.getInt(COLUMN_ID.getColumnName()));
         this.setQty(rs.getInt(COLUMN_QTY.getColumnName()));
-        //this.setPriceV(rs.getDouble(COLUMN_PRICE_V.getColumnName()));
         this.setPrice(rs.getDouble(COLUMN_PRICE.getColumnName()));
-        this.setProd((Product)SQL.findById(Product.class,rs.getInt(COLUMN_PROD_ID.getColumnName())));
-        this.setUnitId(rs.getInt(COLUMN_UNIT_ID.getColumnName()));
+        this.setProd(rs.getInt(COLUMN_PROD_ID.getColumnName()));//(Product)SQL.findById(Product.class,rs.getInt(COLUMN_PROD_ID.getColumnName())));
+         this.setUnitId(rs.getInt(COLUMN_UNIT_ID.getColumnName()));
+    }
+
+    public static List<ProductSale> findByProdId(int PROD_ID) throws Exception{
+        SQL sql = new SQL();
+        List<ProductSale> result = sql
+                .select()
+                .from(ProductSale.TABLE_NAME)
+                .where(ProductSale.COLUMN_PROD_ID, SQL.WhereClause.Operator.EQ, PROD_ID)
+                .fetch(ProductSale.class);
+        return result;
+    }
+
+    public static double getPrice(List<ProductSale> ps) throws Exception{
+        return ps.get(0).getPrice();
     }
 
     /*public void save() throws Exception {

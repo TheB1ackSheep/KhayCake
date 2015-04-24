@@ -89,9 +89,8 @@ public class Product implements ORM, CanFindByKeyword{
         this.setCost(rs.getDouble(COLUMN_COST.getColumnName()));
         this.setCategory((Category)
                 SQL.findById(Category.class, rs.getInt(COLUMN_CAT_ID.getColumnName())));
-        this.setPrice(((ProductSale)
-                SQL.findById(ProductSale.class, rs.getInt(COLUMN_ID.getColumnName()))).getPrice());
-        /*this.setPicture(PicProduct.getPictures(PicProduct.findByProdId(rs.getInt(COLUMN_ID.getColumnName()))));*/
+        this.setPrice(ProductSale.getPrice(ProductSale.findByProdId(rs.getInt(COLUMN_ID.getColumnName()))));
+        this.setPicture(PicProduct.getPictures(PicProduct.findByProdId(rs.getInt(COLUMN_ID.getColumnName()))));
     }
 
     public static List<Product> findByCategory(int CAT_ID) throws Exception{

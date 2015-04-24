@@ -20,6 +20,7 @@ public class PicProduct implements ORM{
     public static final String TABLE_NAME = "PIC_PRODUCT";
     public static final Column COLUMN_PROD_ID = ORM.column(TABLE_NAME, "PROD_ID");
     public static final Column COLUMN_PIC_ID = ORM.column(TABLE_NAME, "PIC_ID");
+    public static final List<Column> PRIMARY_KEY = ORM.columns(COLUMN_PROD_ID,COLUMN_PIC_ID);
     //public static final List<Column> COLUMN_KEYWORD = ORM.columns(COLUMN_PROD_ID);
 
     public int getProdId() {
@@ -58,7 +59,7 @@ public class PicProduct implements ORM{
                 .select()
                 .from(PicProduct.TABLE_NAME)
                 .where(PicProduct.COLUMN_PROD_ID, SQL.WhereClause.Operator.EQ, PROD_ID)
-                .fetch(PicProduct.class);
+                 .fetch(PicProduct.class);
         return result;
     }
 
@@ -91,4 +92,11 @@ public class PicProduct implements ORM{
         return a;
     }
 
+    @Override
+    public String toString() {
+        return "PicProduct{" +
+                "prodId=" + prodId +
+                ", picture=" + picture +
+                '}';
+    }
 }

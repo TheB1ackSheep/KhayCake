@@ -1,6 +1,7 @@
 package sit.khaycake;
 
 
+import com.google.gson.Gson;
 import sit.khaycake.database.ORM;
 import sit.khaycake.database.SQL;
 import sit.khaycake.database.SQL.*;
@@ -90,6 +91,12 @@ public class BankTesting {
                 .fetch(PicProduct.class);*/
 
 
-        System.out.println(PicProduct.findByProdId(11));
+        //System.out.println(PicProduct.findByProdId(11));
+        //System.out.println(PicProduct.findByProdId(12));
+        //System.out.println(PicProduct.findByProdId(13));
+        Gson gson = new Gson();
+        System.out.println(gson.toJson(SQL.findAll(Product.class)));
+
+        System.out.println("Yo");
     }
 }

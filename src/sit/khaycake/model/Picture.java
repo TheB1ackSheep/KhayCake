@@ -68,4 +68,11 @@ public class Picture implements ORM {
                 .exec();
         return a;
     }
+
+    @Override
+    public String toString() {
+        return "Picture{" +
+                "path='" + path + '\'' +
+                '}';
+    }
 }
