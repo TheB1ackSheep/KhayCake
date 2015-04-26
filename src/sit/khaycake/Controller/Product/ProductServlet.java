@@ -18,9 +18,8 @@ public class ProductServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            List products = SQL.findAll(Product.class);
             Gson gson = new Gson();
-            String result = gson.toJson(products, Product.class);
+            String result = gson.toJson(SQL.findAll(Product.class));
             response.getWriter().print(result);
         } catch (Exception ex) {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
