@@ -3,7 +3,7 @@
   <component name="dataSourceStorageLocal">
     <data-source name="MySQL - khaycake@falook.me" uuid="a64b6e35-0bc4-461d-8ebe-dd6c25f3926d">
       <secret-storage>master_key</secret-storage>
-      <user-name>cake</user-name>
+      <user-name>falook</user-name>
       <schema-pattern>khaycake.*</schema-pattern>
       <default-schemas>khaycake.*</default-schemas>
     </data-source>

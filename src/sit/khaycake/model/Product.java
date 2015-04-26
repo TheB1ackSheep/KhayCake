@@ -82,7 +82,7 @@ public class Product implements ORM, CanFindByKeyword{
     public void setPicture(List<Picture> picture) { this.picture = picture; }
     
      public void orm(ResultSet rs) throws Exception {
-        
+         System.out.println(rs.getInt(COLUMN_ID.getColumnName()));
         this.setId(rs.getInt(COLUMN_ID.getColumnName()));
         this.setName(rs.getString(COLUMN_NAME.getColumnName()));
         this.setDetail(rs.getString(COLUMN_DETAIL.getColumnName()));

@@ -16,7 +16,7 @@ public class Picture implements ORM {
 
     public static final String TABLE_NAME = "PICTURE";
     public static final Column COLUMN_ID = ORM.column(TABLE_NAME, "PIC_ID");
-    public static final Column COLUMN_PATH = ORM.column(TABLE_NAME, "PATH");
+    public static final Column COLUMN_PATH = ORM.column(TABLE_NAME, "FILENAME");
     public static final List<Column> PRIMARY_KEY = ORM.columns(COLUMN_ID);
 
     public int getId() {
@@ -72,7 +72,8 @@ public class Picture implements ORM {
     @Override
     public String toString() {
         return "Picture{" +
-                "path='" + path + '\'' +
+                "id=" + id +
+                ", path='" + path + '\'' +
                 '}';
     }
 }

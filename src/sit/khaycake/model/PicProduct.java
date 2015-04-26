@@ -50,7 +50,7 @@ public class PicProduct implements ORM{
         for(PicProduct pp : PicProducts) {
             pictures.add(pp.getPicture());
         }
-        return null;
+        return pictures;
     }
 
     public static List<PicProduct> findByProdId(int PROD_ID) throws Exception{

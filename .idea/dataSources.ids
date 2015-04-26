@@ -5,7 +5,7 @@
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>
-    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
     <schema name="" catalog="khaycake"/>
     <table name="addresses" schema="" catalog="khaycake" type="TABLE">
       <column name="ADDR_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
@@ -200,7 +200,8 @@
     </table>
     <table name="picture" schema="" catalog="khaycake" type="TABLE">
       <column name="PIC_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="PATH" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="TITLE" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="FILENAME" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="PIC_ID"/>
       <exported-key name="pic_bank_ibfk_2" table="pic_bank" schema="" catalog="khaycake" columns="PIC_ID"/>
       <exported-key name="pic_product_ibfk_2" table="pic_product" schema="" catalog="khaycake" columns="PIC_ID"/>
