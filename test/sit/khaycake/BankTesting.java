@@ -8,6 +8,7 @@ import sit.khaycake.database.SQL.*;
 import sit.khaycake.database.exception.ColumnValueMismatchException;
 import sit.khaycake.database.exception.InsertMultiTableException;
 import sit.khaycake.model.*;
+import sit.khaycake.util.Util;
 
 import java.util.List;
 
@@ -95,12 +96,7 @@ public class BankTesting {
         //System.out.println(PicProduct.findByProdId(12));
         //System.out.println(PicProduct.findByProdId(13));
         Gson gson = new Gson();
-        /*System.out.println(((Picture)SQL.findById(Picture.class,1)));
-        System.out.println(gson.toJson(ProductSale.findByProdId(10)));
-        System.out.println(PicProduct.findByProdId(10));
-        System.out.println(PicProduct.getPictures(PicProduct.findByProdId(10)));*/
-        System.out.println(gson.toJson(SQL.findAll(Product.class)));
+        System.out.println(gson.toJson(SQL.findById(District.class,"2")));
 
-        System.out.println("Yo");
     }
 }

@@ -19,9 +19,8 @@ public class MerchantInfoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            List merchantInfo = SQL.findAll(MerchantInfo.class);
             Gson gson = new Gson();
-            String result = gson.toJson(merchantInfo, MerchantInfo.class);
+            String result = gson.toJson(SQL.findAll(MerchantInfo.class));
             response.getWriter().print(result);
         } catch (Exception ex) {
 

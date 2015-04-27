@@ -19,9 +19,8 @@ public class OrderServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            List orders = SQL.findAll(Order.class);
             Gson gson = new Gson();
-            String result = gson.toJson(orders, Order.class);
+            String result = gson.toJson(SQL.findAll(Order.class));
             response.getWriter().print(result);
         } catch (Exception ex) {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
@@ -35,13 +34,13 @@ public class OrderServlet extends HttpServlet {
         try {
             SQL sql = new SQL();
             Order order = new Order();
-            order.setCustId(Integer.parseInt(request.getParameter("cusId")));
-            order.setOrderDate(AssisDateTime.Date(request.getParameter("orderDate")));
-            order.setOrstId(Integer.parseInt(request.getParameter("orstId")));
-            order.setShmeId(Integer.parseInt(request.getParameter("shmeId")));
-            order.setShtrId(request.getParameter("shtrId"));
-            order.setTotalPrice(Double.parseDouble(request.getParameter("totalPrice")));
-            order.setTotalQty(Integer.parseInt(request.getParameter("totalQty")));
+            order.setCustId(Integer.parseInt(request.getParameter("CUST_ID")));
+            order.setOrderDate(AssisDateTime.Date(request.getParameter("ORDER_DATE")));
+            order.setOrstId(Integer.parseInt(request.getParameter("ORST_ID")));
+            order.setShmeId(Integer.parseInt(request.getParameter("SHME_ID")));
+            order.setShtrId(request.getParameter("SHTR_ID"));
+            order.setTotalPrice(Double.parseDouble(request.getParameter("TOTAL_PRICE")));
+            order.setTotalQty(Integer.parseInt(request.getParameter("TOTAL_QTY")));
             order.save();
 
             Gson gson = new Gson();

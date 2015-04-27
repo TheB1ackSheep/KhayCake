@@ -19,7 +19,7 @@ public class PatternCustomerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 1)+1);
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
 
         if (resource.indexOf("delete") >= 0) {
             resource = resource.substring(0,resource.indexOf("/", 1));
@@ -52,7 +52,7 @@ public class PatternCustomerServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1)+1);
+        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 0)+1);
         Customer customer = null;
         try {
             customer = (Customer) SQL.findById(Customer.class, Integer.parseInt(resource));

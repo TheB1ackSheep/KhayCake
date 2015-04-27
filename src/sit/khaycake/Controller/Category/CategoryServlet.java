@@ -19,9 +19,8 @@ public class CategoryServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            List customers = SQL.findAll(Category.class);
             Gson gson = new Gson();
-            String result = gson.toJson(customers, Category.class);
+            String result = gson.toJson(SQL.findAll(Category.class));
             response.getWriter().print(result);
         } catch (Exception ex) {
 

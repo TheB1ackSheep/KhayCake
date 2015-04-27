@@ -21,12 +21,11 @@ public class CustomerServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            List customers = SQL.findAll(Customer.class);
             Gson gson = new Gson();
-            String result = gson.toJson(customers, Customer.class);
+            String result = gson.toJson(SQL.findAll(Customer.class));
             response.getWriter().print(result);
         } catch (Exception ex) {
-
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
 
     }

@@ -1,10 +1,6 @@
 package sit.khaycake.Controller.Cart;
 
-import com.google.gson.Gson;
-import sit.khaycake.database.SQL;
-import sit.khaycake.model.Address;
 import sit.khaycake.model.Cart;
-import sit.khaycake.model.Product;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

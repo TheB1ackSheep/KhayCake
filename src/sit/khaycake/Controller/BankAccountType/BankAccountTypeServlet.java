@@ -18,12 +18,11 @@ public class BankAccountTypeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            List bankAccountTypes = SQL.findAll(BankAccountType.class);
             Gson gson = new Gson();
-            String result = gson.toJson(bankAccountTypes, BankAccountType.class);
+            String result = gson.toJson(SQL.findAll(BankAccountType.class));
             response.getWriter().print(result);
         } catch (Exception ex) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
 
     }

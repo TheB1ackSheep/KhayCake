@@ -219,7 +219,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>OrderStatusServler</servlet-name>
-        <url-pattern>/orderstatus</url-pattern>
+        <url-pattern>/orderstatu</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -228,7 +228,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>PatternOrderStatusServler</servlet-name>
-        <url-pattern>/orderstatus/*</url-pattern>
+        <url-pattern>/orderstatu/*</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -345,7 +345,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>ProductSaleServler</servlet-name>
-        <url-pattern>/productSale</url-pattern>
+        <url-pattern>/productsale</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -354,7 +354,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>PatternProductSaleServler</servlet-name>
-        <url-pattern>/productSale/*</url-pattern>
+        <url-pattern>/productsale/*</url-pattern>
     </servlet-mapping>
 
     <servlet>

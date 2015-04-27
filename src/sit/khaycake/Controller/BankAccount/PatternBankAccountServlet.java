@@ -18,7 +18,7 @@ public class PatternBankAccountServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getRequestURI().substring(request.getPathInfo().indexOf("/", 1)+1);
+        String resource = request.getRequestURI().substring(request.getPathInfo().indexOf("/", 0)+1);
 
         if (resource.indexOf("delete") >= 0) {
             resource = resource.substring(0,resource.indexOf("/", 1));
@@ -51,7 +51,7 @@ public class PatternBankAccountServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 1)+1);
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
         BankAccount bankAccount = null;
         try {
             bankAccount = (BankAccount) SQL.findById(BankAccount.class, Integer.parseInt(resource));

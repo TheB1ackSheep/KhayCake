@@ -6,7 +6,6 @@
 package sit.khaycake.model;
 
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 import sit.khaycake.database.Column;
@@ -97,7 +96,7 @@ public class MerchantInfo implements ORM {
     public void orm(ResultSet rs) throws Exception {
         
         this.setId(rs.getInt(COLUMN_ID.getColumnName()));
-        this.setAddress((Address) SQL.findById(Address.class,rs.getInt(COLUMN_ADDR_ID.getColumnName())));
+        this.setAddress((Address) SQL.findById(Address.class, rs.getInt(COLUMN_ADDR_ID.getColumnName())));
         this.setName(rs.getString(COLUMN_NAME.getColumnName()));
         this.setPhone(rs.getString(COLUMN_PHONE.getColumnName()));
         this.setFax(rs.getString(COLUMN_FAX.getColumnName()));

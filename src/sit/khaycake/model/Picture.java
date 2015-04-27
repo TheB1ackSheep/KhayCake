@@ -14,7 +14,7 @@ public class Picture implements ORM {
     private int id;
     private String path;
 
-    public static final String TABLE_NAME = "PICTURE";
+    public static final String TABLE_NAME = "PICTURES";
     public static final Column COLUMN_ID = ORM.column(TABLE_NAME, "PIC_ID");
     public static final Column COLUMN_PATH = ORM.column(TABLE_NAME, "FILENAME");
     public static final List<Column> PRIMARY_KEY = ORM.columns(COLUMN_ID);

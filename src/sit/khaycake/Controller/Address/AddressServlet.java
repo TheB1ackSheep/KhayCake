@@ -19,10 +19,8 @@ public class AddressServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            List addresses = SQL.findAll(Address.class);
             Gson gson = new Gson();
-            String result = gson.toJson(addresses, Address.class);
-            response.getWriter().print(result);
+            response.getWriter().print(gson.toJson(SQL.findAll(Address.class)));
         } catch (Exception ex) {
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }

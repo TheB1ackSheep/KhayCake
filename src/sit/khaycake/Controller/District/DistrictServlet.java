@@ -18,9 +18,8 @@ public class DistrictServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            List districts = SQL.findAll(District.class);
             Gson gson = new Gson();
-            String result = gson.toJson(districts, District.class);
+            String result = gson.toJson(SQL.findAll(District.class));
             response.getWriter().print(result);
         } catch (Exception ex) {
 

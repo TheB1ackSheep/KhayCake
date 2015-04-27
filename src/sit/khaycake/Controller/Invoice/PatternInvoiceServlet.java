@@ -18,7 +18,7 @@ public class PatternInvoiceServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 1)+1);
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
 
         if (resource.indexOf("delete") >= 0) {
             /*resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
@@ -37,7 +37,7 @@ public class PatternInvoiceServlet extends HttpServlet {
                 invoice = (Invoice) SQL.findById(Invoice.class, Integer.parseInt(resource));
 
             } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             }
             if (invoice != null) {
                 Gson gson = new Gson();

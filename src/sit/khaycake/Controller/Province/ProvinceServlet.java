@@ -18,9 +18,8 @@ public class ProvinceServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            List provinces = SQL.findAll(Province.class);
             Gson gson = new Gson();
-            String result = gson.toJson(provinces, Province.class);
+            String result = gson.toJson(SQL.findAll(Province.class));
             response.getWriter().print(result);
         } catch (Exception ex) {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);

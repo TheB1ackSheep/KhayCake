@@ -26,7 +26,7 @@ public class Customer implements ORM, CanFindByKeyword {
     private String pwd;
     private String vatId;
 
-    public static final String TABLE_NAME = "CUSTOMER";
+    public static final String TABLE_NAME = "CUSTOMERS";
     public static final Column COLUMN_ID = ORM.column(TABLE_NAME, "CUST_ID");
     //public static final Column COLUMN_ADDR_ID = ORM.column(TABLE_NAME, "ADDR_ID");
     public static final Column COLUMN_FNAME = ORM.column(TABLE_NAME, "FNAME");

@@ -17,7 +17,7 @@ public class PatternProvinceServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 1)+1);
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
 
         if (resource.indexOf("delete") >= 0) {
             /*resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
@@ -33,6 +33,27 @@ public class PatternProvinceServlet extends HttpServlet {
             } catch (Exception e) {
                 response.sendError(HttpServletResponse.SC_NOT_FOUND);
             }*/
+
+        }else if(resource.indexOf("district") >= 0){
+            resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
+            Province province = null;
+            try {
+                province = (Province) SQL.findById(Province.class, Integer.parseInt(resource));
+
+
+            } catch (Exception e) {
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            }
+            if (province != null) {
+                Gson gson = new Gson();
+                try {
+                    response.getWriter().print(gson.toJson(province.getDistrictList()));
+                } catch (Exception e) {
+                    response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+                }
+            } else {
+                response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            }
 
         } else {
             Province province = null;

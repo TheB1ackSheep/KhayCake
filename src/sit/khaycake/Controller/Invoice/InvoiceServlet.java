@@ -19,9 +19,8 @@ public class InvoiceServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            List invoices = SQL.findAll(Invoice.class);
             Gson gson = new Gson();
-            String result = gson.toJson(invoices, Invoice.class);
+            String result = gson.toJson(SQL.findAll(Invoice.class));
             response.getWriter().print(result);
         } catch (Exception ex) {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);

@@ -189,16 +189,16 @@
       <column name="PIC_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="BANK_ID,PIC_ID"/>
       <foreign-key name="pic_bank_ibfk_1" columns="BANK_ID" ref-table="banks" ref-schema="" ref-catalog="khaycake" ref-columns="BANK_ID" update-rule="0" delete-rule="0" deferrability="2"/>
-      <foreign-key name="pic_bank_ibfk_2" columns="PIC_ID" ref-table="picture" ref-schema="" ref-catalog="khaycake" ref-columns="PIC_ID" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="pic_bank_ibfk_2" columns="PIC_ID" ref-table="pictures" ref-schema="" ref-catalog="khaycake" ref-columns="PIC_ID" update-rule="0" delete-rule="0" deferrability="2"/>
     </table>
     <table name="pic_product" schema="" catalog="khaycake" type="TABLE">
       <column name="PROD_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="PIC_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="PROD_ID,PIC_ID"/>
       <foreign-key name="pic_product_ibfk_1" columns="PROD_ID" ref-table="products" ref-schema="" ref-catalog="khaycake" ref-columns="PROD_ID" update-rule="0" delete-rule="0" deferrability="2"/>
-      <foreign-key name="pic_product_ibfk_2" columns="PIC_ID" ref-table="picture" ref-schema="" ref-catalog="khaycake" ref-columns="PIC_ID" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="pic_product_ibfk_2" columns="PIC_ID" ref-table="pictures" ref-schema="" ref-catalog="khaycake" ref-columns="PIC_ID" update-rule="0" delete-rule="0" deferrability="2"/>
     </table>
-    <table name="picture" schema="" catalog="khaycake" type="TABLE">
+    <table name="pictures" schema="" catalog="khaycake" type="TABLE">
       <column name="PIC_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="TITLE" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
       <column name="FILENAME" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>

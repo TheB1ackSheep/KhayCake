@@ -18,9 +18,8 @@ public class BankServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            List banks = SQL.findAll(Bank.class);
             Gson gson = new Gson();
-            String result = gson.toJson(banks, Bank.class);
+            String result = gson.toJson(SQL.findAll(Bank.class));
             response.getWriter().print(result);
         } catch (Exception ex) {
 
