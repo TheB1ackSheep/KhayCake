@@ -18,9 +18,8 @@ public class OrderStatusServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            List orderStatuses = SQL.findAll(OrderStatus.class);
             Gson gson = new Gson();
-            String result = gson.toJson(orderStatuses, OrderStatus.class);
+            String result = gson.toJson(SQL.findAll(OrderStatus.class));
             response.getWriter().print(result);
         } catch (Exception ex) {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);

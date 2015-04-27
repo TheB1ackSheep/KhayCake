@@ -18,17 +18,16 @@ public class UnitServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            List units = SQL.findAll(Unit.class);
             Gson gson = new Gson();
-            String result = gson.toJson(units, Unit.class);
+            String result = gson.toJson( SQL.findAll(Unit.class));
             response.getWriter().print(result);
         } catch (Exception ex) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
 
     }
 
-    @Override
+    /*@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
@@ -51,5 +50,5 @@ public class UnitServlet extends HttpServlet {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
 
-    }
+    }*/
 }

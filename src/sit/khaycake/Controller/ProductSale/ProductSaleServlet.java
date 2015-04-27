@@ -18,12 +18,11 @@ public class ProductSaleServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            List productSales = SQL.findAll(ProductSale.class);
             Gson gson = new Gson();
-            String result = gson.toJson(productSales, ProductSale.class);
+            String result = gson.toJson(SQL.findAll(ProductSale.class));
             response.getWriter().print(result);
         } catch (Exception ex) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
 
     }

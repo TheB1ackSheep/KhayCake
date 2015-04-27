@@ -18,12 +18,11 @@ public class ShipmentMethodServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            List shipmentMethods = SQL.findAll(ShipmentMethod.class);
             Gson gson = new Gson();
-            String result = gson.toJson(shipmentMethods, ShipmentMethod.class);
+            String result = gson.toJson(SQL.findAll(ShipmentMethod.class));
             response.getWriter().print(result);
         } catch (Exception ex) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
 
     }

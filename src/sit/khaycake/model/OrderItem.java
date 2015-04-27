@@ -20,8 +20,8 @@ import sit.khaycake.database.SQL;
 public class OrderItem implements ORM {
     
     private int oritId;
-    private int prsaId;
-    private int orderId;
+    private ProductSale productSale;
+    private Order order;
     private int qty;
     private double priceUnit;
     private double amount;
@@ -43,20 +43,20 @@ public class OrderItem implements ORM {
         this.oritId = oritId;
     }
 
-    public int getPrsaId() {
-        return prsaId;
+    public ProductSale getProductSale() {
+        return productSale;
     }
 
-    public void setPrsaId(int prsaId) {
-        this.prsaId = prsaId;
+    public void setProductSale(ProductSale productSale) {
+        this.productSale = productSale;
     }
 
-    public int getOrderId() {
-        return orderId;
+    public Order getOrder() {
+        return order;
     }
 
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
+    public void setOrder(Order order) {
+        this.order = order;
     }
 
     public int getQty() {
@@ -83,11 +83,11 @@ public class OrderItem implements ORM {
         this.amount = amount;
     }
     
-    public void orm(ResultSet rs) throws SQLException {
+    public void orm(ResultSet rs) throws Exception {
         
         this.setOritId(rs.getInt(COLUMN_ID.getColumnName()));
-        this.setPrsaId(rs.getInt(COLUMN_PRSA_ID.getColumnName()));
-        this.setOrderId(rs.getInt(COLUMN_ORDER_ID.getColumnName()));
+        this.setProductSale((ProductSale)SQL.findById(ProductSale.class,rs.getInt(COLUMN_PRSA_ID.getColumnName())));
+        this.setOrder((Order)SQL.findById(Order.class,rs.getInt(COLUMN_ORDER_ID.getColumnName())));
         this.setQty(rs.getInt(COLUMN_QTY.getColumnName()));        
         this.setPriceUnit(rs.getDouble(COLUMN_PRICE_UNIT.getColumnName()));
         this.setAmount(rs.getInt(COLUMN_AMOUNT.getColumnName()));
@@ -101,9 +101,9 @@ public class OrderItem implements ORM {
                 .insert()
                 .into(OrderItem.TABLE_NAME, OrderItem.COLUMN_AMOUNT, OrderItem.COLUMN_ORDER_ID, OrderItem.COLUMN_PRICE_UNIT,
                         OrderItem.COLUMN_PRSA_ID, OrderItem.COLUMN_QTY)
-                .values(this.getAmount(), this.getOrderId(), this.getPriceUnit(), this.getPrsaId(), this.getQty())
+                .values(this.getAmount(), this.getOrder().getOrderId(), this.getPriceUnit(), this.getProductSale().getId(), this.getQty())
                 .exec();
-        this.setOrderId(id);
+        this.setOritId(id);
     }
 
     public void update() throws Exception{
@@ -111,9 +111,9 @@ public class OrderItem implements ORM {
             sql
                     .update(OrderItem.TABLE_NAME)
                     .set(OrderItem.COLUMN_AMOUNT, this.getAmount())
-                    .set(OrderItem.COLUMN_ORDER_ID, this.getOrderId())
+                    .set(OrderItem.COLUMN_ORDER_ID, this.getOrder().getOrderId())
                     .set(OrderItem.COLUMN_PRICE_UNIT, this.getPriceUnit())
-                    .set(OrderItem.COLUMN_PRSA_ID, this.getPrsaId())
+                    .set(OrderItem.COLUMN_PRSA_ID, this.getProductSale().getId())
                     .set(OrderItem.COLUMN_QTY, this.getQty())
                     .where(OrderItem.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getOritId())
                     .exec();

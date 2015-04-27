@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import sit.khaycake.Controller.Order.OrderServlet;
 import sit.khaycake.database.CanFindByKeyword;
 import sit.khaycake.database.Column;
 import sit.khaycake.database.ORM;
@@ -25,11 +26,73 @@ public class Order implements ORM{
     private Date orderDate;
     private int totalQty;
     private double totalPrice;
-    private int orstId;
-    private int shmeId;
+    private Status status;
+    private ShipMethod shipMethod;
     private String shtrId;
-    private int custId;
-    
+    private Customer customer;
+
+    public enum Status{
+
+        SAVING(1),
+        CURRENT(2);
+
+        private OrderStatus status;
+        private int id;
+        private String name;
+
+        Status(int id) {
+            try {
+                this.id = id;
+                OrderStatus st = (OrderStatus) SQL.findById(OrderStatus.class, id);
+                this.name = (st == null) ? null : st.getName();
+            }catch (Exception e){
+                //must be caught or dec;ared to be thrown
+            }
+        }
+
+        public static Status getStatus(int id){
+            switch (id)
+            {
+                case 1: return SAVING;
+                case 2: return CURRENT;
+                default:return SAVING;
+            }
+        }
+        public int getId(){return this.id;}
+
+    }
+
+    public enum ShipMethod{
+
+        SAVING(1),
+        CURRENT(2);
+
+        private ShipmentMethod sm;
+        private int id;
+        private String name;
+
+        ShipMethod(int id) {
+            try {
+                this.id = id;
+                ShipmentMethod sm = (ShipmentMethod) SQL.findById(ShipmentMethod.class, id);
+                this.name = (sm == null) ? null : sm.getName();
+            }catch (Exception e){
+                //must be caught or dec;ared to be thrown
+            }
+        }
+
+        public static ShipMethod getShipMethod(int id){
+            switch (id)
+            {
+                case 1: return SAVING;
+                case 2: return CURRENT;
+                default:return SAVING;
+            }
+        }
+        public int getId(){return this.id;}
+
+    }
+
     public static final String TABLE_NAME = "ORDERS";
     public static final Column COLUMN_ID = ORM.column(TABLE_NAME,"ORDER_ID");
     public static final Column COLUMN_ORDER_DATE = ORM.column(TABLE_NAME, "ORDER_DATE");
@@ -73,20 +136,20 @@ public class Order implements ORM{
         this.totalPrice = totalPrice;
     }
 
-    public int getOrstId() {
-        return orstId;
+    public Status getStatus() {
+        return status;
     }
 
-    public void setOrstId(int orstId) {
-        this.orstId = orstId;
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
-    public int getShmeId() {
-        return shmeId;
+    public ShipMethod getShipMethod() {
+        return shipMethod;
     }
 
-    public void setShmeId(int shmeId) {
-        this.shmeId = shmeId;
+    public void setShipMethod(ShipMethod shipMethod) {
+        this.shipMethod = shipMethod;
     }
 
     public String getShtrId() {
@@ -97,24 +160,24 @@ public class Order implements ORM{
         this.shtrId = shtrId;
     }
 
-    public int getCustId() {
-        return custId;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setCustId(int custId) {
-        this.custId = custId;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
     
-     public void orm(ResultSet rs) throws SQLException {
+     public void orm(ResultSet rs) throws Exception {
         
         this.setOrderId(rs.getInt(COLUMN_ID.getColumnName()));
         this.setOrderDate(rs.getDate(COLUMN_ORDER_DATE.getColumnName()));
         this.setTotalQty(rs.getInt(COLUMN_TOTAL_QTY.getColumnName()));
         this.setTotalPrice(rs.getDouble(COLUMN_TOTAL_PRICE.getColumnName()));
-        this.setOrstId(rs.getInt(COLUMN_ORST_ID.getColumnName()));
-        this.setShmeId(rs.getInt(COLUMN_SHME_ID.getColumnName()));
+        this.setStatus(Status.getStatus(rs.getInt(COLUMN_ORST_ID.getColumnName())));
+        this.setShipMethod(ShipMethod.getShipMethod(rs.getInt(COLUMN_SHME_ID.getColumnName())));
         this.setShtrId(rs.getString(COLUMN_SHTR_ID.getColumnName()));
-        this.setCustId(rs.getInt(COLUMN_CUST_ID.getColumnName()));
+        this.setCustomer((Customer)SQL.findById(Customer.class,rs.getInt(COLUMN_CUST_ID.getColumnName())));
         
              
     }
@@ -125,7 +188,7 @@ public class Order implements ORM{
                 .insert()
                 .into(Order.TABLE_NAME, Order.COLUMN_CUST_ID, Order.COLUMN_ORDER_DATE, Order.COLUMN_ORST_ID, Order.COLUMN_SHME_ID,
                         Order.COLUMN_SHTR_ID, Order.COLUMN_TOTAL_PRICE, Order.COLUMN_TOTAL_QTY)
-                .values(this.getCustId(), this.getOrderDate(), this.getOrstId(), this.getShmeId(), this.getShtrId(),
+                .values(this.getCustomer().getId(), this.getOrderDate(), this.getStatus().getId(), this.getShipMethod().getId(), this.getShtrId(),
                         this.getTotalPrice(), this.getTotalQty())
                 .exec();
         this.setOrderId(id);
@@ -135,11 +198,11 @@ public class Order implements ORM{
         SQL sql = new SQL();
             sql
                     .update(Order.TABLE_NAME)
-                    .set(Order.COLUMN_CUST_ID, this.getCustId())
+                    .set(Order.COLUMN_CUST_ID, this.getCustomer().getId())
                     .set(Order.COLUMN_ORDER_DATE, this.getOrderDate())
-                    .set(Order.COLUMN_ORST_ID, this.getOrstId())
-                    .set(Order.COLUMN_SHME_ID, this.getShmeId())
-                    .set(Order.COLUMN_SHTR_ID, this.getShmeId())
+                    .set(Order.COLUMN_ORST_ID, this.getStatus().getId())
+                    .set(Order.COLUMN_SHME_ID, this.getShipMethod().getId())
+                    .set(Order.COLUMN_SHTR_ID, this.getShtrId())
                     .set(Order.COLUMN_TOTAL_PRICE, this.getTotalPrice())
                     .set(Order.COLUMN_TOTAL_QTY, this.getTotalQty())
                     .where(Order.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getOrderId())

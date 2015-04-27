@@ -2,6 +2,7 @@ package sit.khaycake.Controller.Order;
 
 import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
+import sit.khaycake.model.Customer;
 import sit.khaycake.util.AssisDateTime;
 import sit.khaycake.model.Order;
 
@@ -60,14 +61,15 @@ public class PatternOrderServlet extends HttpServlet {
         }
         if (order != null) {
             try{
-                order.setCustId(Integer.parseInt(request.getParameter("CUST_ID")));
+                order.setCustomer((Customer) SQL.findById(
+                        Customer.class, Integer.parseInt(request.getParameter("CUST_ID"))));
                 order.setOrderDate(AssisDateTime.Date(request.getParameter("ORDER_DATE")));
-                order.setOrstId(Integer.parseInt(request.getParameter("ORST_ID")));
-                order.setShmeId(Integer.parseInt(request.getParameter("SHME_ID")));
+                order.setStatus(Order.Status.getStatus(Integer.parseInt(request.getParameter("ORST_ID"))));
+                order.setShipMethod(Order.ShipMethod.getShipMethod(Integer.parseInt(request.getParameter("SHME_ID"))));
                 order.setShtrId(request.getParameter("SHTR_ID"));
                 order.setTotalPrice(Double.parseDouble(request.getParameter("TOTAL_PRICE")));
                 order.setTotalQty(Integer.parseInt(request.getParameter("TOTAL_QTY")));
-            order.update();
+                order.update();
 
             } catch (Exception e) {
                 response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);

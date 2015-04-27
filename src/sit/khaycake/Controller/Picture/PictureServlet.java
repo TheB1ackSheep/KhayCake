@@ -19,13 +19,11 @@ public class PictureServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            List pictures = SQL.findAll(Picture.class);
             Gson gson = new Gson();
-            String result = gson.toJson(pictures, Picture.class);
-            response.setContentType("application/json");// ทำ filter ด้วย
+            String result = gson.toJson(SQL.findAll(Picture.class));
             response.getWriter().print(result);
         } catch (Exception ex) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
 
     }

@@ -18,7 +18,7 @@ public class PatternProductSaleServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 1)+1);
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
 
         if (resource.indexOf("delete") >= 0) {
             /*resource = resource.substring(0,resource.indexOf("/", 1));
@@ -41,7 +41,7 @@ public class PatternProductSaleServlet extends HttpServlet {
                 productSale = (ProductSale) SQL.findById(ProductSale.class, Integer.parseInt(resource));
 
             } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             }
             if (productSale != null) {
                 Gson gson = new Gson();

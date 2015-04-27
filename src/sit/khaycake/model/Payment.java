@@ -27,15 +27,15 @@ public class Payment implements ORM {
         PENDING(3),
         FAILED(4);
 
-        private BankAccountType type;
+        private PaymentStatus paymentStatus;
         private int id;
         private String name;
 
         Status(int id) {
             try {
                 this.id = id;
-                PaymentStatus stt = (PaymentStatus) SQL.findById(PaymentStatus.class, id);
-                this.name = (stt == null) ? null : stt.getName();
+                paymentStatus = (PaymentStatus) SQL.findById(PaymentStatus.class, id);
+                this.name = (paymentStatus == null) ? null : paymentStatus.getName();
             }catch (Exception e){
                 //must be caught or dec;ared to be thrown
             }
@@ -57,7 +57,7 @@ public class Payment implements ORM {
     private int id;
     private Order order;
     private BankAccount baac;
-    private Status past;
+    private Status status;
     private Date dateTime;
     private double amount;
     
@@ -94,12 +94,12 @@ public class Payment implements ORM {
         this.baac = baac;
     }
 
-    public Status getPast() {
-        return past;
+    public Status getStatus() {
+        return status;
     }
 
-    public void setPast(Status past) {
-        this.past = past;
+    public void setPast(Status status) {
+        this.status = status;
     }
 
     public Date getDateTime() {
@@ -135,7 +135,7 @@ public class Payment implements ORM {
                 .insert()
                 .into(Payment.TABLE_NAME, Payment.COLUMN_ORDER_ID, Payment.COLUMN_AMOUNT, Payment.COLUMN_BAAC_ID,
                         Payment.COLUMN_DATE_TIME, Payment.COLUMN_PAST_ID)
-                .values(this.getOrder(), this.getAmount(), this.getBaac(), this.getDateTime(), this.getPast().getId())
+                .values(this.getOrder(), this.getAmount(), this.getBaac(), this.getDateTime(), this.getStatus().getId())
                 .exec();
         this.setId(id);
     }
@@ -148,7 +148,7 @@ public class Payment implements ORM {
                     .set(Payment.COLUMN_AMOUNT, this.getAmount())
                     .set(Payment.COLUMN_BAAC_ID, this.getBaac())
                     .set(Payment.COLUMN_DATE_TIME, this.getDateTime())
-                    .set(Payment.COLUMN_PAST_ID, this.getPast().getId())
+                    .set(Payment.COLUMN_PAST_ID, this.getStatus().getId())
                     .where(Payment.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getId())
                     .exec();
     }
