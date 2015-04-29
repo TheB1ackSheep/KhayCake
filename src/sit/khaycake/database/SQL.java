@@ -96,7 +96,7 @@ public class SQL{
         this.sql = sql;
     }
 
-    public static Connection getConnection() throws ClassNotFoundException, SQLException {
+    public static Connection getConnection() throws Exception {
         Connection con = null;
         try {
             Context ctx = null;
@@ -123,7 +123,7 @@ public class SQL{
         return this;
     }
 
-    public SQL from(String... tables) throws NoSuchFieldException, IllegalAccessException, SQLException, ClassNotFoundException {
+    public SQL from(String... tables) throws Exception {
         this.sql += "FROM ";
         for (int i = 0; i < tables.length; i++)
             this.sql += tables[i] + ((i<tables.length-1)?", ":" ");
@@ -155,7 +155,7 @@ public class SQL{
     }
 
     public SQL chunk(int size){
-        this.sql += "LIMIT 1, "+size;
+        this.sql += "LIMIT 0, "+size;
         return this;
     }
 
@@ -192,7 +192,7 @@ public class SQL{
         return this;
     }
 
-    public SQL into(String table, Column... columns) throws NoSuchFieldException, IllegalAccessException {
+    public SQL into(String table, Column... columns) throws Exception {
         this.sql += "INTO "+table+ " (";
         for(int i=0;i<columns.length;i++)
             this.sql += columns[i] + ((i<columns.length-1)?", ":") ");
@@ -214,7 +214,7 @@ public class SQL{
         return this;
     }
 
-    public SQL update(String table) throws NoSuchFieldException, IllegalAccessException {
+    public SQL update(String table) throws Exception {
         this.sql = "UPDATE " + table +" ";
         return this;
     }
@@ -238,14 +238,19 @@ public class SQL{
         return this;
     }
 
-    public int exec() throws ColumnValueMismatchException, SQLException, ClassNotFoundException, IllegalAccessException, NoSuchFieldException, InstantiationException {
+    public int exec() throws Exception {
+        int ren = 0;
         try (Connection conn = getConnection()) {
             PreparedStatement prep = conn.prepareStatement(this.sql, Statement.RETURN_GENERATED_KEYS);
             for (int i = 0; i < params.size(); i++)
                 prep.setObject(i + 1, params.get(i));
             this.params = null;
-            return prep.executeUpdate();
+            ren = prep.executeUpdate();
+            ResultSet rs = prep.getGeneratedKeys();
+            if(rs.next())
+                ren = rs.getInt(1);
         }
+        return ren;
     }
 
     public static List<? extends ORM> findAll(Class<? extends ORM> entity) throws Exception {

@@ -7,9 +7,12 @@ module.exports = function(grunt) {
                 compress:false,
                 banner: '/* KhayCake by TheB1ackSheep, Front-End Developer <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
-            build: {
-                src: 'src/sit/khaycake/js/<%= pkg.name %>.js',
-                dest: 'web/js/<%= pkg.name %>.min.js'
+            files: {
+                src: 'src/sit/khaycake/js/*.js',  // source files mask
+                dest: 'web/js/',    // destination folder
+                expand: true,    // allow dynamic building
+                flatten: true,   // remove all unnecessary nesting
+                ext: '.min.js'   // replace .js to .min.js
             }
         },
         less: {
@@ -19,17 +22,9 @@ module.exports = function(grunt) {
                     paths: ["web/css"],
                     compress: true
                 },
-                files: {"web/css/<%= pkg.name %>.min.css": "src/sit/khaycake/css/<%= pkg.name %>.less"}
-            },
-            production: {
-                options: {
-                    banner: '/* KhayCake by TheB1ackSheep, Front-End Developer <%= grunt.template.today("yyyy-mm-dd") %> */\n',
-                    paths: ["web/css"],
-                    compress: true
-                },
-                files: {"web/css/<%= pkg.name %>.min.css": "src/sit/khaycake/css/<%= pkg.name %>.less"}
+                files: {"web/css/<%= pkg.name %>.min.css": "src/sit/khaycake/css/<%= pkg.name %>.less",
+                    "web/css/admin.min.css": "src/sit/khaycake/css/admin.less"}
             }
-
         },
         watch: {
             styles: {

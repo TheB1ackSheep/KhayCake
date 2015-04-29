@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
-    <file url="file://$PROJECT_DIR$/test/sit/khaycake/BankTesting.java" charset="UTF-8" />
-    <file url="PROJECT" charset="UTF-8" />
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/sit/khaycake/controller/PictureController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/sit/khaycake/controller/product/ProductController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/sit/khaycake/filter/HeaderFilter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/sit/khaycake/filter/request/PictureRequest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/sit/khaycake/filter/request/ProductRequest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/sit/khaycake/js/admin.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/sit/khaycake/model/Category.java" charset="UTF-8" />
   </component>
 </project>

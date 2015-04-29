@@ -5,10 +5,10 @@ import sit.khaycake.database.SQL;
 import sit.khaycake.database.SQL.*;
 import sit.khaycake.database.exception.ColumnValueMismatchException;
 import sit.khaycake.database.exception.InsertMultiTableException;
-import sit.khaycake.model.Bank;
-import sit.khaycake.model.District;
+import sit.khaycake.model.*;
 
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  * Created by Falook Glico on 4/11/2015.
@@ -67,12 +67,13 @@ public class BankTesting {
 
         System.out.println(SQL.findByKeyword(Bank.class, "JPMO","PONY"));
 
-        System.out.println(SQL.findByKeyword(Bank.class, "JPMO","PONY","กสิกร"));*/
+        System.out.println(SQL.findByKeyword(Bank.class, "JPMO","PONY","กสิกร"));
 
         District dis = (District)SQL.findById(District.class,1);
 
-        System.out.println(dis.getProvince().getName());
+        System.out.println(dis.getProvince().getName());*/
 
+        System.out.println(SQL.findAll(Product.class));
 
     }
 }

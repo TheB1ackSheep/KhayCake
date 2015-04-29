@@ -16,7 +16,7 @@ import sit.khaycake.database.ORM;
  *
  * @author -milk
  */
-public class Unit {
+public class Unit extends Model implements ORM {
     private int id;
     private String name;
     
@@ -47,6 +47,5 @@ public class Unit {
         this.setName(rs.getString(COLUMN_NAME.getColumnName()));
     
     }
-    
-    
+
 }

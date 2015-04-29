@@ -1,9 +1,11 @@
 package sit.khaycake.database;
 
+import java.io.Serializable;
+
 /**
  * Created by Falook Glico on 4/12/2015.
  */
-public class Column extends Table {
+public class Column extends Table implements Serializable {
     protected String columnName;
 
     public String getColumnName() {
