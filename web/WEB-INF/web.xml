@@ -5,15 +5,24 @@
          version="3.1">
 
     <filter>
-        <filter-name>jsonFilter</filter-name>
-        <filter-class>sit.khaycake.Filter.jsonFilter</filter-class>
+        <filter-name>HeaderFilter</filter-name>
+        <filter-class>sit.khaycake.filter.HeaderFilter</filter-class>
     </filter>
     <filter-mapping>
-        <filter-name>jsonFilter</filter-name>
+        <filter-name>HeaderFilter</filter-name>
         <url-pattern>/*</url-pattern>
-        <dispatcher>REQUEST</dispatcher>
-        <dispatcher>FORWARD</dispatcher>
     </filter-mapping>
+
+    <filter>
+        <filter-name>ProductRequest</filter-name>
+        <filter-class>sit.khaycake.filter.request.ProductRequest</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ProductRequest</filter-name>
+        <url-pattern>/product</url-pattern>
+        <url-pattern>/product/*</url-pattern>
+    </filter-mapping>
+
 
     <servlet>
         <servlet-name>AddressServler</servlet-name>

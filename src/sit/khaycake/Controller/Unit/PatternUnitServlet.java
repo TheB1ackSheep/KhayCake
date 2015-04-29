@@ -3,11 +3,14 @@ package sit.khaycake.Controller.Unit;
 import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
 import sit.khaycake.model.Unit;
+import sit.khaycake.util.ErrorMessage;
+import sit.khaycake.util.SuccessMessage;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -17,7 +20,10 @@ public class PatternUnitServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0) + 1);
+        HttpSession session = request.getSession();
+        SuccessMessage success = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
 
         if (resource.indexOf("delete") >= 0) {
             /*resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
@@ -35,18 +41,14 @@ public class PatternUnitServlet extends HttpServlet {
             }*/
 
         } else {
-            Unit unit = null;
             try {
-                unit = (Unit) SQL.findById(Unit.class, Integer.parseInt(resource));
-
+                Unit unit = (Unit) SQL.findById(Unit.class, Integer.parseInt(resource));
+                if (unit == null) {
+                    response.sendError(404);
+                }
+                success.setMessage(unit);
             } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            }
-            if (unit != null) {
-                Gson gson = new Gson();
-                response.getWriter().print(gson.toJson(unit));
-            } else {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                error.setMessage(e.getMessage());
             }
         }
     }

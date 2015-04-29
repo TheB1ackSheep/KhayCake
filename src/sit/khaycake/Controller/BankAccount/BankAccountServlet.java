@@ -2,6 +2,7 @@ package sit.khaycake.Controller.BankAccount;
 
 import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
+import sit.khaycake.model.Bank;
 import sit.khaycake.model.BankAccount;
 
 import javax.servlet.ServletException;
@@ -32,8 +33,10 @@ public class BankAccountServlet extends HttpServlet {
             throws ServletException, IOException {
         try {
             BankAccount bankAccount = new BankAccount();
+            bankAccount.setBranch((Bank.Branch)SQL.findById(Bank.Branch.class,request.getParameter("BABR_ID")));
             bankAccount.setAccName(request.getParameter("accName"));
             bankAccount.setAccNo(request.getParameter("accNo"));
+            bankAccount.setType(BankAccount.Type.getType(Integer.parseInt(request.getParameter("BAAT_ID"))));
             bankAccount.save();
 
             Gson gson = new Gson();

@@ -59,4 +59,28 @@ public class PatternCategoryServlet extends HttpServlet {
         }
     }
 
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
+        Category category = null;
+        try {
+            category = (Category) SQL.findById(Category.class, Integer.parseInt(resource));
+        } catch (Exception e) {
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        }
+        if (category != null) {
+            try {
+                category.setName(request.getParameter("NAME"));
+                category.setCatParentId(Integer.parseInt(request.getParameter("CAT_PARENT_ID")));
+                category.update();
+            } catch (Exception e) {
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            }
+
+        } else {
+            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+        }
+    }
+
 }

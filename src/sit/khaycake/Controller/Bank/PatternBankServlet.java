@@ -3,6 +3,7 @@ package sit.khaycake.Controller.Bank;
 import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
 import sit.khaycake.model.Bank;
+import sit.khaycake.util.Util;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -27,13 +28,17 @@ public class PatternBankServlet extends HttpServlet {
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
             } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             }
 
         } else {
             Bank bank = null;
             try {
-                bank = (Bank) SQL.findById(Bank.class, Integer.parseInt(resource));
+                if(Util.isInteger(resource)) {
+                    bank = (Bank) SQL.findById(Bank.class, Integer.parseInt(resource));
+                }else{
+                    response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                }
 
             } catch (Exception e) {
                 response.sendError(HttpServletResponse.SC_NOT_FOUND);

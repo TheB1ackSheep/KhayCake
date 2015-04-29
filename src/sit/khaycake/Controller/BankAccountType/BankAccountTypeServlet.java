@@ -27,7 +27,7 @@ public class BankAccountTypeServlet extends HttpServlet {
 
     }
 
-    /*@Override
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
@@ -38,8 +38,8 @@ public class BankAccountTypeServlet extends HttpServlet {
             Gson gson = new Gson();
             response.getWriter().print(gson.toJson(bankAccountType));
         } catch (Exception ex) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
 
-    }*/
+    }
 }

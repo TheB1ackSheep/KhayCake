@@ -26,7 +26,7 @@ public class Product implements ORM, CanFindByKeyword{
     private double cost;
     private Category category;
     private double price;
-    private List<Picture> picture;
+    private Unit unit;
 
     public static final String TABLE_NAME = "PRODUCTS";
     public static final Column COLUMN_ID = ORM.column(TABLE_NAME, "PROD_ID");
@@ -34,6 +34,8 @@ public class Product implements ORM, CanFindByKeyword{
     public static final Column COLUMN_DETAIL = ORM.column(TABLE_NAME, "DETAIL");
     public static final Column COLUMN_COST = ORM.column(TABLE_NAME, "COST");
     public static final Column COLUMN_CAT_ID = ORM.column(TABLE_NAME, "CAT_ID");
+    public static final Column COLUMN_PRICE = ORM.column(TABLE_NAME,"PRICE");
+    public static final Column COLUMN_UNIT_ID = ORM.column(TABLE_NAME, "UNIT_ID");
     public static final List<Column> PRIMARY_KEY = ORM.columns(COLUMN_ID);
     public static final List<Column> COLUMN_KEYWORD = ORM.columns(COLUMN_NAME);
 
@@ -73,24 +75,28 @@ public class Product implements ORM, CanFindByKeyword{
 
     public void setCategory(Category category) { this.category = category;}
 
-    public double setPrice() { return price;}
+    public double getPrice() { return price;}
 
     public void setPrice(double price) { this.price = price; }
 
-    public List<Picture> getPicture(){ return picture; }
+    public void setUnit(Unit unit){
+        this.unit = unit;
+    }
 
-    public void setPicture(List<Picture> picture) { this.picture = picture; }
-    
-     public void orm(ResultSet rs) throws Exception {
-         System.out.println(rs.getInt(COLUMN_ID.getColumnName()));
+    public Unit getUnit() {
+        return unit;
+    }
+
+    public void orm(ResultSet rs) throws Exception {
         this.setId(rs.getInt(COLUMN_ID.getColumnName()));
         this.setName(rs.getString(COLUMN_NAME.getColumnName()));
         this.setDetail(rs.getString(COLUMN_DETAIL.getColumnName()));
         this.setCost(rs.getDouble(COLUMN_COST.getColumnName()));
+        this.setPrice(rs.getDouble(COLUMN_PRICE.getColumnName()));
         this.setCategory((Category)
                 SQL.findById(Category.class, rs.getInt(COLUMN_CAT_ID.getColumnName())));
-        this.setPrice(ProductSale.getPrice(ProductSale.findByProdId(rs.getInt(COLUMN_ID.getColumnName()))));
-        this.setPicture(PicProduct.getPictures(PicProduct.findByProdId(rs.getInt(COLUMN_ID.getColumnName()))));
+        this.setPrice(rs.getDouble(COLUMN_PRICE.getColumnName()));
+        this.setUnit((Unit)SQL.findById(Unit.class,rs.getInt(COLUMN_UNIT_ID.getColumnName())));
     }
 
     public static List<Product> findByCategory(int CAT_ID) throws Exception{
@@ -120,13 +126,14 @@ public class Product implements ORM, CanFindByKeyword{
 
 
 
-    /*public void save() throws Exception {
+    public void save() throws Exception {
         SQL sql = new SQL();
         int id = sql
                 .insert()
-                .into(Product.TABLE_NAME, Product.COLUMN_NAME, Product.COLUMN_DETAIL, Product.COLUMN_COST,
-                        Product.COLUMN_CAT_ID)
-                .values(this.getName(), this.getDetail(), this.getCost(), this.getCategory().getId())
+                .into(Product.TABLE_NAME, Product.COLUMN_NAME, Product.COLUMN_DETAIL, Product.COLUMN_PRICE
+                        , Product.COLUMN_COST, Product.COLUMN_CAT_ID, Product.COLUMN_UNIT_ID)
+                .values(this.getName(), this.getDetail(), this.getPrice(), this.getCost(),
+                        this.getCategory().getId(),this.getUnit().getId())
                 .exec();
         this.setId(id);
     }
@@ -137,8 +144,10 @@ public class Product implements ORM, CanFindByKeyword{
                 .update(Product.TABLE_NAME)
                 .set(Product.COLUMN_NAME, this.getName())
                 .set(Product.COLUMN_DETAIL, this.getDetail())
+                .set(Product.COLUMN_PRICE, this.getPrice())
                 .set(Product.COLUMN_COST, this.getCost())
                 .set(Product.COLUMN_CAT_ID, this.getCategory().getId())
+                .set(Product.COLUMN_UNIT_ID, this.getUnit().getId())
                 .where(Product.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getId())
                 .exec();
     }
@@ -150,5 +159,5 @@ public class Product implements ORM, CanFindByKeyword{
                 .where(Product.COLUMN_ID, SQL.WhereClause.Operator.EQ, PROD_ID)
                 .exec();
         return a;
-    }*/
+    }
 }

@@ -1,17 +1,22 @@
 package sit.khaycake.Controller.Product;
 
-import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
-import sit.khaycake.model.Category;
 import sit.khaycake.model.Product;
+import sit.khaycake.model.ProductSale;
+import sit.khaycake.model.Picture;
+import sit.khaycake.model.PicProduct;
+import sit.khaycake.model.Category;
+
+import sit.khaycake.util.ErrorMessage;
+import sit.khaycake.util.SuccessMessage;
 import sit.khaycake.util.Util;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,77 +26,101 @@ public class PatternProductServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
+
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0) + 1);
+        HttpSession session = request.getSession();
+        SuccessMessage succes = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
 
         if (resource.indexOf("delete") >= 0) {
-            /*resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
-            SQL sql = new SQL();
+            resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
             try {
                 int a = Product.delete(Integer.parseInt(resource));
                 if (a < 0) {
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
             } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            }*/
+                error.setMessage(e.getMessage());
+            }
 
-        } else {
-            Gson gson = new Gson();
-
-
+        } else if(resource.indexOf("picture") >= 0) {
+            resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
             try {
-                if(Util.isInteger(resource)) {
-                    Product product = null;
-                    product = (Product) SQL.findById(Product.class, Integer.parseInt(resource));
-                    if (product != null) {
-                        response.getWriter().print(gson.toJson(product));
-                    } else {
+                if (Util.isInteger(resource)) {
+                    List<Picture> pictures = PicProduct.getPictures(
+                            PicProduct.findByProdId(Integer.parseInt(resource)));
+                    if (pictures.isEmpty())
                         response.sendError(HttpServletResponse.SC_NOT_FOUND);
-                    }
-                }else {
-                    List<Product> products = new ArrayList<>();
-                    products = (List<Product>) SQL.findByKeyword(Product.class, resource);
-                    if (!products.isEmpty()) {
-
-                        response.getWriter().print(gson.toJson(products));
-                    } else {
-                        response.sendError(HttpServletResponse.SC_NOT_FOUND);
-                    }
+                    succes.setMessage(pictures);
                 }
 
             } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+                error.setMessage(e.getMessage());
+            }
+
+        } else if(resource.indexOf("productsale") >= 0) {
+            resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
+            try {
+                if (Util.isInteger(resource)) {
+                    List<ProductSale> productSales = ProductSale.findByProdId(
+                            Integer.parseInt(resource));
+                    if (productSales.isEmpty())
+                        response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                    succes.setMessage(productSales);
+                }
+
+            } catch (Exception e) {
+                error.setMessage(e.getMessage());
+            }
+
+        } else {
+
+            try {
+                if (Util.isInteger(resource)) {
+                    Product product = (Product) SQL.findById(Product.class, Integer.parseInt(resource));
+                    if (product == null)
+                        response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                    succes.setMessage(product);
+                } else {
+                    List<Product> products = (List<Product>) SQL.findByKeyword(Product.class, resource);
+                    if (products.isEmpty())
+                        response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                    succes.setMessage(products);
+                }
+
+            } catch (Exception e) {
+                error.setMessage(e.getMessage());
             }
 
         }
     }
 
-    /*@Override
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1));
-        Product product = null;
+        HttpSession session = request.getSession();
+        SuccessMessage succes = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
+
         try {
-            product = (Product) SQL.findById(Product.class, Integer.parseInt(resource));
-        } catch (Exception e) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
-        }
-        if (product != null) {
-            try{
+            Product product = (Product) SQL.findById(Product.class, Integer.parseInt(resource));
+
+            if (product != null) {
                 product.setName(request.getParameter("NAME"));
                 product.setDetail(request.getParameter("DETAIL"));
                 product.setCost(Double.parseDouble(request.getParameter("COST")));
                 product.setCategory(
-                        (Category)SQL.findById(Category.class, Integer.parseInt(request.getParameter("CAT_ID"))));
+                        (Category) SQL.findById(Category.class
+                                , Integer.parseInt(request.getParameter("CAT_ID"))));
                 product.update();
-
-            } catch (Exception e) {
+                succes.setMessage(product);
+            } else {
                 response.sendError(HttpServletResponse.SC_NOT_FOUND);
             }
-        } else {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+        } catch (Exception e) {
+            error.setMessage(e.getMessage());
         }
-
-    }*/
+    }
 
 }

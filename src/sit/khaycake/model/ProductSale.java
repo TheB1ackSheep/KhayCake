@@ -22,16 +22,12 @@ public class ProductSale implements ORM,CanFindByKeyword {
     
     private int id;
     private int qty;
-    private double price;
-    private int prod;
-    private int unitId;
+    private int prodId;
     
     public static final String TABLE_NAME = "PRODUCT_SALES";
     public static final Column COLUMN_ID = ORM.column(TABLE_NAME, "PRSA_ID");
     public static final Column COLUMN_QTY = ORM.column(TABLE_NAME, "QTY");
-    public static final Column COLUMN_PRICE = ORM.column(TABLE_NAME, "PRICE");
     public static final Column COLUMN_PROD_ID = ORM.column(TABLE_NAME, "PROD_ID");
-    public static final Column COLUMN_UNIT_ID = ORM.column(TABLE_NAME, "UNIT_ID");
     public static final List<Column> PRIMARY_KEY = ORM.columns(COLUMN_ID);
 
     public int getId() {
@@ -49,30 +45,12 @@ public class ProductSale implements ORM,CanFindByKeyword {
     public void setQty(int qty) {
         this.qty = qty;
     }
-
-
-    public double getPrice() {
-        return price;
+    public int getProdId() {
+        return prodId;
     }
 
-    public void setPrice(double priceN) {
-        this.price = priceN;
-    }
-
-    public int getProd() {
-        return prod;
-    }
-
-    public void setProd(int prod) {
-        this.prod = prod;
-    }
-
-    public int getUnitId() {
-        return unitId;
-    }
-
-    public void setUnitId(int unitId) {
-        this.unitId = unitId;
+    public void setProdId(int prodId) {
+        this.prodId = prodId;
     }
 
     
@@ -80,10 +58,8 @@ public class ProductSale implements ORM,CanFindByKeyword {
         
         this.setId(rs.getInt(COLUMN_ID.getColumnName()));
         this.setQty(rs.getInt(COLUMN_QTY.getColumnName()));
-        this.setPrice(rs.getDouble(COLUMN_PRICE.getColumnName()));
-        this.setProd(rs.getInt(COLUMN_PROD_ID.getColumnName()));//(Product)SQL.findById(Product.class,rs.getInt(COLUMN_PROD_ID.getColumnName())));
-         this.setUnitId(rs.getInt(COLUMN_UNIT_ID.getColumnName()));
-    }
+        this.setProdId(rs.getInt(COLUMN_PROD_ID.getColumnName()));//(Product)SQL.findById(Product.class,rs.getInt(COLUMN_PROD_ID.getColumnName())));
+     }
 
     public static List<ProductSale> findByProdId(int PROD_ID) throws Exception{
         SQL sql = new SQL();
@@ -95,17 +71,13 @@ public class ProductSale implements ORM,CanFindByKeyword {
         return result;
     }
 
-    public static double getPrice(List<ProductSale> ps) throws Exception{
-        return ps.get(0).getPrice();
-    }
 
-    /*public void save() throws Exception {
+    public void save() throws Exception {
         SQL sql = new SQL();
         int id = sql
                 .insert()
-                .into(ProductSale.TABLE_NAME, ProductSale.COLUMN_PRICE_N, ProductSale.COLUMN_PRICE_V, ProductSale.COLUMN_PROD_ID,
-                        ProductSale.COLUMN_QTY, ProductSale.COLUMN_UNIT_ID)
-                .values(this.getPriceN(), this.getPriceV(), productSale.getProdId(), productSale.getQty(), productSale.getUnitId())
+                .into(ProductSale.TABLE_NAME, ProductSale.COLUMN_PROD_ID, ProductSale.COLUMN_QTY)
+                .values(this.getProdId(), this.getQty())
                 .exec();
         this.setId(id);
     }
@@ -113,21 +85,19 @@ public class ProductSale implements ORM,CanFindByKeyword {
     public void update() throws Exception{
         SQL sql = new SQL();
         sql
-                .update(Product.TABLE_NAME)
-                .set(Product.COLUMN_NAME, this.getName())
-                .set(Product.COLUMN_DETAIL, this.getDetail())
-                .set(Product.COLUMN_COST, this.getCost())
-                .set(Product.COLUMN_CAT_ID, this.getCategory().getId())
+                .update(ProductSale.TABLE_NAME)
+                .set(ProductSale.COLUMN_PROD_ID, this.getProdId())
+                .set(ProductSale.COLUMN_QTY, this.getQty())
                 .where(Product.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getId())
                 .exec();
     }
 
-    public static int delete(int PROD_ID) throws Exception{
+    public static int delete(int PRSA_ID) throws Exception{
         SQL sql = new SQL();
         int a = sql
                 .delete(Product.TABLE_NAME)
-                .where(Product.COLUMN_ID, SQL.WhereClause.Operator.EQ, PROD_ID)
+                .where(Product.COLUMN_ID, SQL.WhereClause.Operator.EQ, PRSA_ID)
                 .exec();
         return a;
-    }*/
+    }
 }

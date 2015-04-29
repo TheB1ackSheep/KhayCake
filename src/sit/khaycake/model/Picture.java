@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class Picture implements ORM {
     private int id;
-    private String path;
+    private String filename;
 
     public static final String TABLE_NAME = "PICTURES";
     public static final Column COLUMN_ID = ORM.column(TABLE_NAME, "PIC_ID");
@@ -27,17 +27,17 @@ public class Picture implements ORM {
         this.id = id;
     }
 
-    public String getPath() {
-        return path;
+    public String getFilename() {
+        return filename;
     }
 
-    public void setPath(String path) {
-        this.path = path;
+    public void setFilename(String path) {
+        this.filename = filename;
     }
 
     public void orm(ResultSet rs) throws Exception {
         this.setId(rs.getInt(COLUMN_ID.getColumnName()));
-        this.setPath(rs.getString(COLUMN_PATH.getColumnName()));
+        this.setFilename(rs.getString(COLUMN_PATH.getColumnName()));
     }
 
     public void save() throws Exception {
@@ -45,7 +45,7 @@ public class Picture implements ORM {
         int id = sql
                 .insert()
                 .into(Picture.TABLE_NAME, Picture.COLUMN_ID, Picture.COLUMN_PATH)
-                .values(this.getId(), this.getPath())
+                .values(this.getId(), this.getFilename())
                 .exec();
         this.setId(id);
     }
@@ -55,7 +55,7 @@ public class Picture implements ORM {
         sql
                 .update(Picture.TABLE_NAME)
                 .set(Picture.COLUMN_ID, this.getId())
-                .set(Picture.COLUMN_PATH, this.getPath())
+                .set(Picture.COLUMN_PATH, this.getFilename())
                 .where(Picture.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getId())
                 .exec();
     }
@@ -73,7 +73,7 @@ public class Picture implements ORM {
     public String toString() {
         return "Picture{" +
                 "id=" + id +
-                ", path='" + path + '\'' +
+                ", path='" + filename + '\'' +
                 '}';
     }
 }

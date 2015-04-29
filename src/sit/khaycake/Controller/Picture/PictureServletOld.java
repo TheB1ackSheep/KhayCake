@@ -1,9 +1,9 @@
-package sit.khaycake.Controller.Address;
+package sit.khaycake.Controller.Picture;
 
 import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
-import sit.khaycake.model.Address;
-import sit.khaycake.model.SubDistrict;
+import sit.khaycake.model.Picture;
+import sit.khaycake.model.Product;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,35 +15,33 @@ import java.util.List;
 /**
  * Created by Pasuth on 19/4/2558.
  */
-public class AddressServlet extends HttpServlet {
+public class PictureServletOld extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
             Gson gson = new Gson();
-            response.getWriter().print(gson.toJson(SQL.findAll(Address.class)));
+            String result = gson.toJson(SQL.findAll(Picture.class));
+            response.getWriter().print(result);
         } catch (Exception ex) {
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
 
     }
 
-    @Override
+    /*@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
             SQL sql = new SQL();
-            Address address = new Address();
-            address.setAddrNo(request.getParameter("ADDR_NO"));
-            address.setAddrAdd(request.getParameter("ADDR_ADD"));
-            address.setStreet(request.getParameter("STREET"));
-            address.setSubDistrictId(Integer.parseInt(request.getParameter("SUDT_ID")));
-            address.save();
+            Picture picture = new Picture();
+            picture.setPath(request.getParameter("PATH"));
+            picture.save();
 
             Gson gson = new Gson();
-            response.getWriter().print(gson.toJson(address));
+            response.getWriter().print(gson.toJson(picture));
         } catch (Exception ex) {
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
 
-    }
+    }*/
 }

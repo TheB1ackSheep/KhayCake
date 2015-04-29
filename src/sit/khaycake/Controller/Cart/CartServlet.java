@@ -34,6 +34,20 @@ public class CartServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        /*if (request.getSession(false).getAttribute("cart") != null) {
+            Cart cart = (Cart) request.getSession(false).getAttribute("cart");
+            cart.add(Integer.parseInt(
+                            resource.substring(0,resource.indexOf("/", 1))),
+                    Integer.parseInt(resource.substring(resource.indexOf("/", 1)+1,
+                            resource.indexOf("/", 2))));
+            request.getSession().setAttribute("cart", cart);
+        } else {
+            Cart cart = new Cart();
+            cart.add(Integer.parseInt(
+                            resource.substring(0,resource.indexOf("/", 1))),
+                    Integer.parseInt(resource.substring(resource.indexOf("/", 1)+1,
+                            resource.indexOf("/", 2))));
+            request.getSession().setAttribute("cart", cart);
+        }*/
     }
 }

@@ -96,7 +96,9 @@ public class BankTesting {
         //System.out.println(PicProduct.findByProdId(12));
         //System.out.println(PicProduct.findByProdId(13));
         Gson gson = new Gson();
-        System.out.println(gson.toJson(SQL.findAll(Address.class)));
+        //System.out.print(ProductSale.findByProdId(76));
+        System.out.println(SQL.findAll(Product.class));
+        //System.out.println(gson.toJson(SQL.findAll(Product.class)));
 
     }
 }

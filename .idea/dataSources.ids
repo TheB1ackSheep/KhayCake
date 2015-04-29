@@ -232,15 +232,11 @@
     <table name="product_sales" schema="" catalog="khaycake" type="TABLE">
       <column name="PRSA_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="QTY" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="PRICE" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
       <column name="PROD_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="UNIT_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="PRSA_ID"/>
       <foreign-key name="product_sales_ibfk_1" columns="PROD_ID" ref-table="products" ref-schema="" ref-catalog="khaycake" ref-columns="PROD_ID" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="product_sales_ibfk_2" columns="UNIT_ID" ref-table="units" ref-schema="" ref-catalog="khaycake" ref-columns="UNIT_ID" update-rule="3" delete-rule="3" deferrability="2"/>
       <exported-key name="order_items_ibfk_2" table="order_items" schema="" catalog="khaycake" columns="PRSA_ID"/>
       <index name="product_sales_ibfk_1" unique="false" columns="PROD_ID"/>
-      <index name="product_sales_ibfk_2" unique="false" columns="UNIT_ID"/>
     </table>
     <table name="products" schema="" catalog="khaycake" type="TABLE">
       <column name="PROD_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
@@ -281,7 +277,6 @@
       <column name="UNIT_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="NAME" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="UNIT_ID"/>
-      <exported-key name="product_sales_ibfk_2" table="product_sales" schema="" catalog="khaycake" columns="UNIT_ID"/>
     </table>
   </data-source>
   <data-source name="MySQL - novice_charigo@localhost" uuid="29af4f9b-0174-4d68-8c79-df3f24eb1158">

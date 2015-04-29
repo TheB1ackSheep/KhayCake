@@ -3,6 +3,7 @@ package sit.khaycake.model;
 import sit.khaycake.database.CanFindByKeyword;
 import sit.khaycake.database.Column;
 import sit.khaycake.database.ORM;
+import sit.khaycake.database.SQL;
 
 import java.sql.ResultSet;
 import java.util.List;
@@ -54,7 +55,34 @@ public class Category implements ORM, CanFindByKeyword {
         this.setCatParentId(rs.getInt(COLUMN_CAT_PART_ID.getColumnName()));
     }
 
+    public void save() throws Exception {
+        SQL sql = new SQL();
+        int Id = sql
+                .insert()
+                .into(Category.TABLE_NAME, Category.COLUMN_NAME, Category.COLUMN_CAT_PART_ID)
+                .values(this.getName())
+                .exec();
+        this.setId(id);
+    }
 
+    public void update() throws Exception{
+        SQL sql = new SQL();
+        sql
+                .update(Category.TABLE_NAME)
+                .set(Category.COLUMN_NAME, this.getName())
+                .set(Category.COLUMN_CAT_PART_ID, this.getCatParentId())
+                .where(BankAccountType.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getId())
+                .exec();
+    }
+
+    public static int delete(int CAT_ID) throws Exception{
+        SQL sql = new SQL();
+        int a = sql
+                .delete(Category.TABLE_NAME)
+                .where(Category.COLUMN_ID, SQL.WhereClause.Operator.EQ, CAT_ID)
+                .exec();
+        return a;
+    }
 
 
 }

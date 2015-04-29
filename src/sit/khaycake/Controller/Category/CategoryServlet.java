@@ -27,4 +27,21 @@ public class CategoryServlet extends HttpServlet {
         }
 
     }
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+            SQL sql = new SQL();
+            Category category = new Category();
+            category.setName(request.getParameter("NAME"));
+            category.setCatParentId(Integer.parseInt(request.getParameter("CAT_PARENT_ID")));
+            category.save();
+
+            Gson gson = new Gson();
+            response.getWriter().print(gson.toJson(category));
+        } catch (Exception ex) {
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        }
+
+    }
 }

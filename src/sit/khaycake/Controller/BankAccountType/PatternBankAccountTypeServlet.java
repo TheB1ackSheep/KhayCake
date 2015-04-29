@@ -20,15 +20,15 @@ public class PatternBankAccountTypeServlet extends HttpServlet {
         String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
 
         if (resource.indexOf("delete") >= 0) {
-            /*resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
+            resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
             try {
                 int a = BankAccountType.delete(Integer.parseInt(resource));
                 if (a < 0) {
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
             } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            }*/
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            }
 
         } else {
             BankAccountType bankAccountType = null;
@@ -47,7 +47,7 @@ public class PatternBankAccountTypeServlet extends HttpServlet {
         }
     }
 
-    /*@Override
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1));
@@ -76,6 +76,6 @@ public class PatternBankAccountTypeServlet extends HttpServlet {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
 
-    }*/
+    }
 
 }

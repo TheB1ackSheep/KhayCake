@@ -47,7 +47,7 @@ public class BankAccountType implements ORM {
         this.setName(rs.getString(COLUMN_NAME.getColumnName()));
     }
 
-    /*public void save() throws Exception {
+    public void save() throws Exception {
         SQL sql = new SQL();
         int Id = sql
                 .insert()
@@ -73,5 +73,5 @@ public class BankAccountType implements ORM {
                 .where(BankAccountType.COLUMN_ID, SQL.WhereClause.Operator.EQ, BAAC_ID)
                 .exec();
         return a;
-    }*/
+    }
 }

@@ -19,7 +19,7 @@ import sit.khaycake.database.SQL;
  */
 public class District implements ORM, CanFindByKeyword {
     private int id;
-    private Province province;
+    private int provinceId;
     private String name;
     
     public static final String TABLE_NAME = "DISTRICT";
@@ -38,12 +38,12 @@ public class District implements ORM, CanFindByKeyword {
         this.id = id;
     }
 
-    public Province getProvince() {
-        return province;
+    public int getProvinceId() {
+        return provinceId;
     }
 
-    public void setProvince(Province province) {
-        this.province = province;
+    public void setProvince(int provinceId) {
+        this.provinceId = provinceId;
     }
 
     public String getName() {
@@ -55,11 +55,9 @@ public class District implements ORM, CanFindByKeyword {
     }
     
     public void orm(ResultSet rs) throws Exception {
-        
         this.setId(rs.getInt(COLUMN_DIST_ID.getColumnName()));
-        this.setProvince((Province) SQL.findById(Province.class, rs.getObject(COLUMN_PROV_ID.getColumnName()) ));
+        this.setProvince(rs.getInt(COLUMN_PROV_ID.getColumnName()));
         this.setName(rs.getString(COLUMN_NAME.getColumnName()));
-        
     }
 
 
@@ -74,12 +72,12 @@ public class District implements ORM, CanFindByKeyword {
     }
 
 
-    /*public void save() throws Exception {
+    public void save() throws Exception {
         SQL sql = new SQL();
         int id = sql
                 .insert()
                 .into(District.TABLE_NAME, District.COLUMN_NAME, District.COLUMN_PROV_ID)
-                .values(this.getName(), this.getProvince().getId())
+                .values(this.getName(), this.getProvinceId())
                 .exec();
         this.setId(id);
     }
@@ -87,8 +85,9 @@ public class District implements ORM, CanFindByKeyword {
     public void update() throws Exception{
         SQL sql = new SQL();
         sql
-                .update(BankAccountType.TABLE_NAME)
-                .set(BankAccountType.COLUMN_NAME, this.getName())
+                .update(District.TABLE_NAME)
+                .set(District.COLUMN_NAME, this.getName())
+                .set(District.COLUMN_PROV_ID, this.getProvinceId())
                 .where(BankAccountType.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getId())
                 .exec();
     }
@@ -100,6 +99,6 @@ public class District implements ORM, CanFindByKeyword {
                 .where(BankAccountType.COLUMN_ID, SQL.WhereClause.Operator.EQ, BAAC_ID)
                 .exec();
         return a;
-    }*/
+    }
     
 }
