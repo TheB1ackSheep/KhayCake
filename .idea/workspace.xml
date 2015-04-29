@@ -2,91 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="122b81fc-5598-44fd-b1f2-c72e3fa42d2d" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\lib\commons-fileupload-1.3.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\lib\commons-io-2.2.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\lib\commons-io-2.4.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\lib\javax.annotation.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\lib\javax.ejb.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\lib\javax.jms.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\lib\javax.persistence.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\lib\javax.resource.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\lib\javax.servlet.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\lib\javax.servlet.jsp.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\lib\javax.servlet.jsp.jstl.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\lib\javax.transaction.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\lib\mysql-connector-java-5.1.35.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\lib\portlet-api-1.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\lib\servlet-api-2.4.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\filter\request\PictureRequest.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\filter\request\ProductRequest.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\util\ErrorHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\filter\request\PictureRequest.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\filter\request\ProductRequest.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\util\ErrorHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\controller\PictureController.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\controller\category\CategoryController.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\controller\product\ProductController.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\controller\unit\UnitController.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\database\CanFindByKeyword.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\database\Column.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\database\ORM.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\database\SQL.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\database\Table.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\database\exception\ColumnValueMismatchException.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\database\exception\InsertMultiTableException.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\exception\ValidationException.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\filter\FormAttribute.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\filter\HeaderFilter.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\filter\MyFilter.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\filter\RequestValidation.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\filter\request\PictureRequest.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\filter\request\ProductRequest.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\model\Address.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\model\Bank.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\model\BankAccount.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\model\BankAccountType.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\model\Category.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\model\Customer.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\model\District.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\model\Invoice.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\model\Lid.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\model\MerchantInfo.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\model\Model.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\model\Order.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\model\OrderItem.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\model\OrderStatus.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\model\Payment.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\model\PaymentStatus.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\model\PicProduct.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\model\Picture.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\model\Product.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\model\ProductMeta.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\model\ProductMetaName.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\model\ProductMetaNameValue.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\model\ProductSale.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\model\Province.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\model\ShipmentMethod.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\model\SubDistrict.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\model\Unit.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\util\ErrorHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\src\sit\khaycake\util\Util.java" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\test\sit\khaycake\BankTesting.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/KhayCake/sit/khaycake/BankTesting.class" afterPath="$PROJECT_DIR$/out/test/KhayCake/sit/khaycake/BankTesting.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/controller/category/CategoryController.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/controller/category/CategoryController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KhayCake/sit/khaycake/controller/category/CategoryController.class" afterPath="$PROJECT_DIR$/out/production/KhayCake/sit/khaycake/controller/category/CategoryController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/filter/HeaderFilter.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/filter/HeaderFilter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KhayCake/sit/khaycake/filter/HeaderFilter.class" afterPath="$PROJECT_DIR$/out/production/KhayCake/sit/khaycake/filter/HeaderFilter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/controller/PictureController.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/controller/PictureController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KhayCake/sit/khaycake/controller/PictureController.class" afterPath="$PROJECT_DIR$/out/production/KhayCake/sit/khaycake/controller/PictureController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/controller/product/ProductController.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/controller/product/ProductController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KhayCake/sit/khaycake/controller/product/ProductController.class" afterPath="$PROJECT_DIR$/out/production/KhayCake/sit/khaycake/controller/product/ProductController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/filter/RequestValidation.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/filter/RequestValidation.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KhayCake/sit/khaycake/filter/RequestValidation.class" afterPath="$PROJECT_DIR$/out/production/KhayCake/sit/khaycake/filter/RequestValidation.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/controller/unit/UnitController.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/controller/unit/UnitController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KhayCake/sit/khaycake/controller/unit/UnitController.class" afterPath="$PROJECT_DIR$/out/production/KhayCake/sit/khaycake/controller/unit/UnitController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/util/Util.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/util/Util.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KhayCake/sit/khaycake/util/Util.class" afterPath="$PROJECT_DIR$/out/production/KhayCake/sit/khaycake/util/Util.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/js/admin.js" afterPath="$PROJECT_DIR$/src/sit/khaycake/js/admin.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/js/khaycake.js" afterPath="$PROJECT_DIR$/src/sit/khaycake/js/khaycake.js" />
     </list>
     <ignored path="KhayCake.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -120,7 +37,37 @@
     <favorites_list name="KhayCake" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="admin.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sit/khaycake/js/admin.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="591" column="3" selection-start-line="591" selection-start-column="3" selection-end-line="591" selection-end-column="3" />
+              <folding>
+                <element signature="e#17424#18416#0" expanded="false" />
+                <element signature="e#19271#19871#0" expanded="false" />
+                <element signature="e#20367#20965#0" expanded="false" />
+                <element signature="e#21042#22186#0" expanded="false" />
+                <element signature="e#22389#23107#0" expanded="false" />
+                <element signature="e#23166#23862#0" expanded="false" />
+                <element signature="e#23961#24042#0" expanded="false" />
+                <element signature="e#24103#24676#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="khaycake.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/sit/khaycake/js/khaycake.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.71611255">
+              <caret line="189" column="30" selection-start-line="189" selection-start-column="30" selection-end-line="189" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -159,7 +106,6 @@
         <option value="$PROJECT_DIR$/src/sit/khaycake/filter/request/PictureRequest.java" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/util/ErrorHandler.java" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/model/Model.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/js/khaycake.js" />
         <option value="$PROJECT_DIR$/web/js/admin.min.js" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/css/admin.less" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/database/SQL.java" />
@@ -167,7 +113,6 @@
         <option value="$PROJECT_DIR$/src/sit/khaycake/model/Product.java" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/model/PicProduct.java" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/model/ProductSale.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/js/admin.js" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/util/JsonMessage.java" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/util/SuccessMessage.java" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/util/ErrorMessage.java" />
@@ -180,6 +125,8 @@
         <option value="$PROJECT_DIR$/src/sit/khaycake/filter/RequestValidation.java" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/filter/MyFilter.java" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/filter/HeaderFilter.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/js/admin.js" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/js/khaycake.js" />
       </list>
     </option>
   </component>
@@ -662,12 +609,12 @@
       <workItem from="1430103254201" duration="20104000" />
       <workItem from="1430127029488" duration="8642000" />
       <workItem from="1430240148639" duration="10366000" />
-      <workItem from="1430334369832" duration="73000" />
+      <workItem from="1430334369832" duration="204000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77259000" />
+    <option name="totallyTimeSpent" value="77390000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -681,7 +628,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28617364" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28617364" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25189108" sideWeight="0.6931217" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25074628" sideWeight="0.3068783" order="2" side_tool="true" content_ui="tabs" />
@@ -747,22 +694,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#5381#6209#0" expanded="false" />
-            <element signature="e#6248#9128#0" expanded="false" />
-            <element signature="e#13244#14436#0" expanded="false" />
-            <element signature="e#14899#15446#0" expanded="false" />
-            <element signature="e#15527#15878#0" expanded="false" />
-            <element signature="e#16288#16798#0" expanded="false" />
-            <element signature="e#16881#16946#0" expanded="false" />
-            <element signature="e#17029#17510#0" expanded="false" />
-            <element signature="e#17612#18604#0" expanded="false" />
-            <element signature="e#19459#20059#0" expanded="false" />
-            <element signature="e#20555#21153#0" expanded="false" />
-            <element signature="e#21230#22374#0" expanded="false" />
-            <element signature="e#22577#23295#0" expanded="false" />
-            <element signature="e#23354#24050#0" expanded="false" />
-            <element signature="e#24149#24230#0" expanded="false" />
-            <element signature="e#24291#24864#0" expanded="false" />
+            <element signature="e#17424#18416#0" expanded="false" />
+            <element signature="e#19271#19871#0" expanded="false" />
+            <element signature="e#20367#20965#0" expanded="false" />
+            <element signature="e#21042#22186#0" expanded="false" />
+            <element signature="e#22389#23107#0" expanded="false" />
+            <element signature="e#23166#23862#0" expanded="false" />
+            <element signature="e#23961#24042#0" expanded="false" />
+            <element signature="e#24103#24676#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -778,41 +717,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.35.jar!/com/mysql/jdbc/Driver.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.08">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.35.jar!/com/mysql/fabric/jdbc/FabricMySQLDriver.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.16">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.35.jar!/com/mysql/jdbc/StringUtils.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.48">
-          <caret line="966" column="0" selection-start-line="966" selection-start-column="0" selection-end-line="966" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.35.jar!/com/mysql/jdbc/NonRegisteringDriver.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.16">
-          <caret line="147" column="0" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.35.jar!/com/mysql/jdbc/ResultSetImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.16">
-          <caret line="3768" column="0" selection-start-line="3768" selection-start-column="0" selection-end-line="3768" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -865,13 +769,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/js/khaycake.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17662337">
-          <caret line="1" column="875" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="9919" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/admin.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="8.76">
@@ -886,35 +783,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.35.jar!/com/mysql/jdbc/ConnectionImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.4">
-          <caret line="1005" column="0" selection-start-line="1005" selection-start-column="0" selection-end-line="1005" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sit/khaycake/js/admin.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="248" column="61" selection-start-line="248" selection-start-column="61" selection-end-line="248" selection-end-column="61" />
+          <caret line="591" column="3" selection-start-line="591" selection-start-column="3" selection-end-line="591" selection-end-column="3" />
           <folding>
-            <element signature="e#5381#6209#0" expanded="false" />
-            <element signature="e#6248#9128#0" expanded="false" />
-            <element signature="e#13244#14436#0" expanded="false" />
-            <element signature="e#14899#15446#0" expanded="false" />
-            <element signature="e#15527#15878#0" expanded="false" />
-            <element signature="e#16288#16798#0" expanded="false" />
-            <element signature="e#16881#16946#0" expanded="false" />
-            <element signature="e#17029#17510#0" expanded="false" />
-            <element signature="e#17612#18604#0" expanded="false" />
-            <element signature="e#19459#20059#0" expanded="false" />
-            <element signature="e#20555#21153#0" expanded="false" />
-            <element signature="e#21230#22374#0" expanded="false" />
-            <element signature="e#22577#23295#0" expanded="false" />
-            <element signature="e#23354#24050#0" expanded="false" />
-            <element signature="e#24149#24230#0" expanded="false" />
-            <element signature="e#24291#24864#0" expanded="false" />
+            <element signature="e#17424#18416#0" expanded="false" />
+            <element signature="e#19271#19871#0" expanded="false" />
+            <element signature="e#20367#20965#0" expanded="false" />
+            <element signature="e#21042#22186#0" expanded="false" />
+            <element signature="e#22389#23107#0" expanded="false" />
+            <element signature="e#23166#23862#0" expanded="false" />
+            <element signature="e#23961#24042#0" expanded="false" />
+            <element signature="e#24103#24676#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/js/khaycake.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.71611255">
+          <caret line="189" column="30" selection-start-line="189" selection-start-column="30" selection-end-line="189" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>

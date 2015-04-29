@@ -2,7 +2,7 @@ var A;
 $(document).ready(function(){
 
     var loadingMask = $('.app-loading-mask');
-    var host = "http://localhost:8080/khaycake";
+    var host = "http://jsp.falook.me/khaycake";
 
 
     var actionBar = $(".app-content .action-bar");
@@ -116,7 +116,7 @@ $(document).ready(function(){
                         if(typeof(fn) === "function")
                             fn(resp);
                         if(resp.JSESSIONID)
-                            sessionID=resp.JSESSIONID;
+                            sessionID=resp.sessionId;
                         Admin.loadedMask();
                         Admin.showInfo();
                     },
@@ -144,7 +144,7 @@ $(document).ready(function(){
                         if(typeof(fn) === "function")
                             fn(resp);
                         if(resp.JSESSIONID)
-                            sessionID=resp.JSESSIONID;
+                            sessionID=resp.sessionId;
                         Admin.loadedMask();
                         Admin.showInfo();
                     },
@@ -169,7 +169,7 @@ $(document).ready(function(){
                         if(typeof(s) === "function")
                             s(resp);
                         if(resp.JSESSIONID)
-                            sessionID=resp.JSESSIONID;
+                            sessionID=resp.sessionId;
                         Admin.showInfo();
                     },
                     error: function(resp){
@@ -182,55 +182,55 @@ $(document).ready(function(){
                 Admin.xhr.push(ajax);
             },
             cakeForm: function(title){
-              return '<div id="error"></div><div id="message"></div>' +
-                  '<div class="small-padding">' +
-                  '<form action="POST" id="form-cake">' +
-                  '<div class="row">' +
-                  '<div class="col-md-6" style="max-width: 400px">' +
-                  '<h3 class="title">'+title+'</h3>' +
-                  '<p class="subtitle">เพิ่มเค้กใหม่ลงหน้าร้าน</p>' +
-                  '<div class="form-group">' +
-                  '<label for="name">ชื่อเค้ก</label><input class="form-control" id="name" name="name" placeholder="คัพเค้กหน้าเป็ด, เค้กปาร์ตี้วันเกิด">' +
-                  '</div>' +
-                  '<div class="form-group">' +
-                  '<label>รายละเอียด</label><textarea rows="5" class="form-control" name="detail" id="detail"></textarea>' +
-                  '</div>' +
-                  '<div class="form-group">' +
-                  '   <label for="pictures">รูปภาพ</label><div id="pic-list"></div><input type="file" accept="image/*" multiple name="pictures" id="pictures"/>' +
-                  '</div>' +
-                  '<div class="form-group">' +
-                  '<div class="row">' +
-                  '<div class="col-sm-6">' +
-                  '<label>หน่วยนับ</label><div id="unit-container"></div>' +
-                  '</div>' +
-                  '<div class="col-sm-6">' +
-                  '<label>ชนิด</label>' +
-                  '<div id="category-container"></div>' +
-                  '</div>' +
-                  '</div>' +
-                  '</div>' +
-                  '<div class="form-group">' +
-                  '<div class="row">' +
-                  '<div class="col-sm-6">' +
-                  '<label>ต้นทุน (บาท)</label><div class="input-group"><span class="input-group-addon">&#3647;</span><input type="number" id="cost" name="cost" class="form-control"/></div>' +
-                  '</div>' +
-                  '<div class="col-sm-6">' +
-                  '<label>ราคาขายต่อหน่วย (บาท)</label><div class="input-group"><span class="input-group-addon">&#3647;</span><input type="number" id="price" name="price" class="form-control"/></div>' +
-                  '</div>' +
-                  '</div>' +
-                  '</div>' +
-                  '</div>' +
-                  '<div class="col-md-6" style="max-width: 400px">' +
-                  '<h3 class="title">ราคาพิเศษ</h3>' +
-                  '<p class="subtitle">ราคาขายเมื่อลูกค้าซื้อตามจำนวนที่กำหนด</p>' +
-                  '<div class="row" id="product_sale"></div>'+
-                  '<div class="form-group">' +
-                  '<label>&nbsp;</label><button class="btn btn-default form-control" id="add-sale">เพิ่มราคาพิเศษ</button>' +
-                  '</div>'+
-                  '</div>' +
-                  '</div>' +
-                  '</form>' +
-                  '</div>';
+                return '<div id="error"></div><div id="message"></div>' +
+                    '<div class="small-padding">' +
+                    '<form action="POST" id="form-cake">' +
+                    '<div class="row">' +
+                    '<div class="col-md-6" style="max-width: 400px">' +
+                    '<h3 class="title">'+title+'</h3>' +
+                    '<p class="subtitle">เพิ่มเค้กใหม่ลงหน้าร้าน</p>' +
+                    '<div class="form-group">' +
+                    '<label for="name">ชื่อเค้ก</label><input class="form-control" id="name" name="name" placeholder="คัพเค้กหน้าเป็ด, เค้กปาร์ตี้วันเกิด">' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                    '<label>รายละเอียด</label><textarea rows="5" class="form-control" name="detail" id="detail"></textarea>' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                    '   <label for="pictures">รูปภาพ</label><div id="pic-list"></div><input type="file" accept="image/*" multiple name="pictures" id="pictures"/>' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                    '<div class="row">' +
+                    '<div class="col-sm-6">' +
+                    '<label>หน่วยนับ</label><div id="unit-container"></div>' +
+                    '</div>' +
+                    '<div class="col-sm-6">' +
+                    '<label>ชนิด</label>' +
+                    '<div id="category-container"></div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                    '<div class="row">' +
+                    '<div class="col-sm-6">' +
+                    '<label>ต้นทุน (บาท)</label><div class="input-group"><span class="input-group-addon">&#3647;</span><input type="number" id="cost" name="cost" class="form-control"/></div>' +
+                    '</div>' +
+                    '<div class="col-sm-6">' +
+                    '<label>ราคาขายต่อหน่วย (บาท)</label><div class="input-group"><span class="input-group-addon">&#3647;</span><input type="number" id="price" name="price" class="form-control"/></div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="col-md-6" style="max-width: 400px">' +
+                    '<h3 class="title">ราคาพิเศษ</h3>' +
+                    '<p class="subtitle">ราคาขายเมื่อลูกค้าซื้อตามจำนวนที่กำหนด</p>' +
+                    '<div class="row" id="product_sale"></div>'+
+                    '<div class="form-group">' +
+                    '<label>&nbsp;</label><button class="btn btn-default form-control" id="add-sale">เพิ่มราคาพิเศษ</button>' +
+                    '</div>'+
+                    '</div>' +
+                    '</div>' +
+                    '</form>' +
+                    '</div>';
             },
             cakeSaleForm: function(sale){
                 if(!sale){
@@ -261,7 +261,7 @@ $(document).ready(function(){
                 actionBar.html('<div class="el"><button class="btn btn-default" id="refresh-cake">รีเฟรช</button></div><div class="el btn-group"><a href="#!/cakes/add" class="btn btn-primary" id="add-cake">เพิ่มเค้ก</a><button class="btn btn-danger disabled" id="delete-cake">ลบ</button></div><div class="el"><form id="form-search-cake"><div class="input-group" style="max-width: 400px"><input type="text" name="q" id="keyword" class="form-control" placeholder="ค้นหาตามชื่อเค้ก, คำอธิบาย" required><span class="input-group-btn"><button class="btn btn-default" id="search-cake" type="submit">ค้นหา</button></span></div></form></div>');
 
                 $("#refresh-cake").click(function(){
-                   Admin.onHashChanged();
+                    Admin.onHashChanged();
                 });
 
                 $("#form-search-cake").submit(function(ev){
@@ -274,75 +274,75 @@ $(document).ready(function(){
                 Admin.get("/product"+(q?"?"+q:""),function(resp){
                     if(!resp.error) {
 
-                            var table = '<div id="error"></div><div id="message"></div><form id="form-cake"><table class="p6n-table">' +
-                                '<tbody>' +
-                                '<tr>' +
-                                '<th style="width:13px">' +
-                                '<label class="ng-isolate-scope p6n-checkbox">' +
-                                '<input type="checkbox" class="ng-valid ng-scope ng-dirty ng-valid-parse ng-touched">' +
-                                '</label>' +
-                                '</th>' +
-                                '<th class="p6n-acl-header-name">' +
-                                '<a href="javascript:;" class="p6n-clickable-link p6n-sort-link">ชื่อเค้ก</a>' +
-                                '</th>' +
-                                '<th class="p6n-acl-header-name" >' +
-                                '<a href="javascript:;" class="p6n-clickable-link p6n-sort-link p6n-sort-flip">ชนิด</a>' +
-                                '</th>' +
-                                '<th class="p6n-acl-header-name text-right">' +
-                                '<a href="javascript:;" class="p6n-clickable-link p6n-sort-link p6n-sort-flip">ต้นทุน (บาท)</a>' +
-                                '</th>' +
-                                '<th class="p6n-acl-header-name text-right">' +
-                                '<a href="javascript:;" class="p6n-clickable-link p6n-sort-link p6n-sort-flip">ขาย (บาท)</a>' +
-                                '</th>' +
-                                '</tr>';
+                        var table = '<div id="error"></div><div id="message"></div><form id="form-cake"><table class="p6n-table">' +
+                            '<tbody>' +
+                            '<tr>' +
+                            '<th style="width:13px">' +
+                            '<label class="ng-isolate-scope p6n-checkbox">' +
+                            '<input type="checkbox" class="ng-valid ng-scope ng-dirty ng-valid-parse ng-touched">' +
+                            '</label>' +
+                            '</th>' +
+                            '<th class="p6n-acl-header-name">' +
+                            '<a href="javascript:;" class="p6n-clickable-link p6n-sort-link">ชื่อเค้ก</a>' +
+                            '</th>' +
+                            '<th class="p6n-acl-header-name" >' +
+                            '<a href="javascript:;" class="p6n-clickable-link p6n-sort-link p6n-sort-flip">ชนิด</a>' +
+                            '</th>' +
+                            '<th class="p6n-acl-header-name text-right">' +
+                            '<a href="javascript:;" class="p6n-clickable-link p6n-sort-link p6n-sort-flip">ต้นทุน (บาท)</a>' +
+                            '</th>' +
+                            '<th class="p6n-acl-header-name text-right">' +
+                            '<a href="javascript:;" class="p6n-clickable-link p6n-sort-link p6n-sort-flip">ขาย (บาท)</a>' +
+                            '</th>' +
+                            '</tr>';
 
-                                if(resp.ProductList) {
-                                    for (var idx in resp.ProductList) {
-                                        var product = resp.ProductList[idx];
-                                        table += '<tr>' +
-                                            '<td>' +
-                                            '<label class="ng-isolate-scope p6n-checkbox">' +
-                                            '<input type="checkbox"  name="p_id" value="' + product.id + '" class="ng-valid ng-scope ng-dirty ng-valid-parse ng-touched">' +
-                                            '</label>' +
-                                            '</td>' +
-                                            '<td><a href="#!/cakes/'+product.id+'">' + product.name + '</a></td>' +
-                                            '<td>' + product.category.name + '</td>' +
-                                            '<td class="text-right">' + Admin.toMoney(product.cost) + '</td>' +
-                                            '<td class="text-right">' + Admin.toMoney(product.price) + '</td>' +
-                                            '</tr>';
-                                    }
-                                }
-                                else{
-                                    table += '<tr><td colspan="5">ไม่พบเค้กใด ๆ ในระบบ</td></tr>';
-                                }
+                        if(resp.ProductList) {
+                            for (var idx in resp.message.ProductList) {
+                                var product = resp.message.ProductList[idx];
+                                table += '<tr>' +
+                                    '<td>' +
+                                    '<label class="ng-isolate-scope p6n-checkbox">' +
+                                    '<input type="checkbox"  name="p_id" value="' + product.id + '" class="ng-valid ng-scope ng-dirty ng-valid-parse ng-touched">' +
+                                    '</label>' +
+                                    '</td>' +
+                                    '<td><a href="#!/cakes/'+product.id+'">' + product.name + '</a></td>' +
+                                    '<td>' + product.category.name + '</td>' +
+                                    '<td class="text-right">' + Admin.toMoney(product.cost) + '</td>' +
+                                    '<td class="text-right">' + Admin.toMoney(product.price) + '</td>' +
+                                    '</tr>';
+                            }
+                        }
+                        else{
+                            table += '<tr><td colspan="5">ไม่พบเค้กใด ๆ ในระบบ</td></tr>';
+                        }
 
-                            table += '</table></form>';
+                        table += '</table></form>';
 
                         if(q!="all")
                             table += '<a href="#!/cakes/all">ดูเต้กทั้งหมด</a>';
 
                         $(".content").html(table);
 
-                            $("#delete-cake").click(function(){
-                                Admin.post("/product/delete",$("#form-cake").serialize(),function(resp){
-                                    if(!resp.error){
-                                        msg = "ลบเค้กที่เลือกไว้เรียบร้อย";
-                                        $("input[type=checkbox]:checked").parent().parent().parent().remove();
-                                    }
-                                    else
-                                        error = resp;
-                                });
-
-
-                            });
-                            $("input[type=checkbox]").on("change",function(ev){
-                                var len = $("input[type=checkbox]:checked").length
-                                if(len > 0)
-                                    $("#delete-cake").removeClass("disabled");
+                        $("#delete-cake").click(function(){
+                            Admin.post("/product/delete",$("#form-cake").serialize(),function(resp){
+                                if(!resp.error){
+                                    msg = "ลบเค้กที่เลือกไว้เรียบร้อย";
+                                    $("input[type=checkbox]:checked").parent().parent().parent().remove();
+                                }
                                 else
-                                    $("#delete-cake").addClass("disabled");
-
+                                    error = resp;
                             });
+
+
+                        });
+                        $("input[type=checkbox]").on("change",function(ev){
+                            var len = $("input[type=checkbox]:checked").length
+                            if(len > 0)
+                                $("#delete-cake").removeClass("disabled");
+                            else
+                                $("#delete-cake").addClass("disabled");
+
+                        });
 
                     }
                 }, true);
@@ -379,7 +379,7 @@ $(document).ready(function(){
                     Admin.post("/product",$("#form-cake").serialize(),function(resp){
                         if(!resp.error){
                             window.location.hash = "#!/cakes";
-                            msg = "เพิ่ม "+resp.name+ " เรียบร้อย";
+                            msg = "เพิ่ม "+resp.message.name+ " เรียบร้อย";
 
                         }else{
                             error = resp;
@@ -389,7 +389,7 @@ $(document).ready(function(){
 
 
                     return false;
-                })
+                });
 
                 //upload picture
                 $("#form-cake #pictures").on("change",function(ev){
