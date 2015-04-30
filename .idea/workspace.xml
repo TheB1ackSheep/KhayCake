@@ -7,13 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d27d28aa-e1da-498a-bb26-aef4211214da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Java_EE_6_Java_EE_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/images/a" />
-      <change type="DELETED" beforePath="C:\Users\Pasuth\Downloads\KayCake\KhayCake\.idea\artifacts\KhayCake_war.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Pasuth\Downloads\KayCake\KhayCake\.idea\libraries\Java_EE_6_Java_EE_6__2_.xml" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\Pasuth\Downloads\KayCake\KhayCake\.idea\artifacts\KhayCake_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/khaycake.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/KhayCake.iml" afterPath="$PROJECT_DIR$/KhayCake.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/Picture.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/Picture.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
@@ -977,7 +970,7 @@
       <workItem from="1430316624630" duration="606000" />
       <workItem from="1430322889368" duration="888000" />
       <workItem from="1430360975870" duration="1845000" />
-      <workItem from="1430364180582" duration="2175000" />
+      <workItem from="1430364180582" duration="2244000" />
     </task>
     <task id="LOCAL-00001" summary="2nd Push">
       <created>1428785948768</created>
@@ -1111,11 +1104,17 @@
       <option name="project" value="LOCAL" />
       <updated>1430316081096</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Pictrue">
+      <created>1430373494435</created>
+      <option name="number" value="00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1430373494435</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="195259000" />
+    <option name="totallyTimeSpent" value="195328000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1211,7 +1210,8 @@
     <MESSAGE value="add filter json to web.xml" />
     <MESSAGE value="Finish Product" />
     <MESSAGE value="=_=" />
-    <option name="LAST_COMMIT_MESSAGE" value="=_=" />
+    <MESSAGE value="Pictrue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pictrue" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
