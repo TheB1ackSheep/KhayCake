@@ -31,7 +31,7 @@ public class Picture implements ORM {
         return filename;
     }
 
-    public void setFilename(String path) {
+    public void setFilename(String filename) {
         this.filename = filename;
     }
 
@@ -44,8 +44,8 @@ public class Picture implements ORM {
         SQL sql = new SQL();
         int id = sql
                 .insert()
-                .into(Picture.TABLE_NAME, Picture.COLUMN_ID, Picture.COLUMN_PATH)
-                .values(this.getId(), this.getFilename())
+                .into(Picture.TABLE_NAME, Picture.COLUMN_PATH)
+                .values(this.getFilename())
                 .exec();
         this.setId(id);
     }
