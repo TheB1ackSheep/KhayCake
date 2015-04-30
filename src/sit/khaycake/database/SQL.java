@@ -98,16 +98,16 @@ public class SQL{
 
     public static Connection getConnection() throws ClassNotFoundException, SQLException {
         Connection con = null;
-        /*try { // JNI มีปัญหาเลยปิดการทำงานไปก่อน
+        try {
             Context ctx = null;
             ctx = new InitialContext();
             DataSource ds = (DataSource) ctx.lookup(SQL.JNI_NAME);
             con = ds.getConnection();
-        } catch (NamingException ex) {*/
+        } catch (NamingException ex) {
             Class.forName("com.mysql.jdbc.Driver");
             String url = "jdbc:mysql://"+SQL.HOST+":"+SQL.PORT+"/"+SQL.DATABASE;
             con = DriverManager.getConnection(url, SQL.USERNAME, SQL.PASSWORD);
-        //}
+        }
         return con ;
     }
 

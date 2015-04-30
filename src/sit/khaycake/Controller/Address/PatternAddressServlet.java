@@ -35,8 +35,8 @@ public class PatternAddressServlet extends HttpServlet {
                 if (result < 0) {
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
-            } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            } catch (Exception ex) {
+                error.setMessage(ex.getMessage());
             }
 
         } else if(resource.indexOf("subdistrict") >= 0) {
@@ -49,8 +49,8 @@ public class PatternAddressServlet extends HttpServlet {
                     succes.setMessage(subDistrict);
                 }
 
-            } catch (Exception e) {
-                error.setMessage(e.getMessage());
+            } catch (Exception ex) {
+                error.setMessage(ex.getMessage());
             }
 
         }else if(resource.indexOf("district") >= 0) {
@@ -91,12 +91,12 @@ public class PatternAddressServlet extends HttpServlet {
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
 
-            } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            } catch (Exception ex) {
+                error.setMessage(ex.getMessage());
             }
             if (address != null) {
                 Gson gson = new Gson();
-                response.getWriter().print(gson.toJson(address));
+                succes.setMessage(gson.toJson(address));
             } else {
                 response.sendError(HttpServletResponse.SC_NOT_FOUND);
             }
@@ -106,12 +106,16 @@ public class PatternAddressServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        SuccessMessage succes = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
+
         String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
         Address address = null;
         try {
             address = (Address) SQL.findById(Address.class, Integer.parseInt(resource));
-        } catch (Exception e) {
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        } catch (Exception ex) {
+            error.setMessage(ex.getMessage());
         }
         if (address != null) {
             try {
@@ -121,7 +125,7 @@ public class PatternAddressServlet extends HttpServlet {
                 address.setSubDistrictId(Integer.parseInt(request.getParameter("SUDT_ID")));
                 address.update();
             }catch (Exception ex){
-                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+                error.setMessage(ex.getMessage());
             }
 
         } else {
