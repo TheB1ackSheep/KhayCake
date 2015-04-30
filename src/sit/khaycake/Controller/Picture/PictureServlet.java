@@ -9,14 +9,12 @@ import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 import sit.khaycake.model.Picture;
 import sit.khaycake.util.ErrorMessage;
+import sit.khaycake.util.SuccessMessage;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
+import javax.servlet.http.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,8 +29,9 @@ import java.util.List;
         maxRequestSize=1024*1024*100)      // 100 MB
 public class PictureServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        ErrorMessage error = new ErrorMessage(request.getSession());
+        HttpSession session = request.getSession();
+        SuccessMessage success = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
 
         PrintWriter out = response.getWriter();
 
@@ -40,7 +39,7 @@ public class PictureServlet extends HttpServlet {
 
             String appPath = request.getServletContext().getRealPath("");
             // constructs path of the directory to save uploaded file
-            File savePath = new File("D:\\Google Drive\\Projects\\KhayCake\\out\\artifacts\\KhayCake_war_exploded\\images");
+            File savePath = new File(appPath+"\\images");
             List<Picture> pictures = new ArrayList<>();
 
             try {
@@ -62,7 +61,7 @@ public class PictureServlet extends HttpServlet {
                     }
 
                 }
-                request.setAttribute("print",pictures);
+                success.setMessage(pictures);
 
             } catch (Exception ex) {
                 error.setMessage(ex.getMessage());
