@@ -28,9 +28,8 @@ public class ProductServlet extends HttpServlet {
         SuccessMessage success = new SuccessMessage(session);
         ErrorMessage error = new ErrorMessage(session);
         try {
-            Gson gson = new Gson();
-            String result = gson.toJson(SQL.findAll(Product.class));
-            success.setMessage(result);
+            List<Product> products = (List<Product>)SQL.findAll(Product.class);
+            success.setMessage(products);
         } catch (Exception ex) {
             error.setMessage(ex.getMessage());
         }

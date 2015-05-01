@@ -33,7 +33,7 @@ public class PatternProductServlet extends HttpServlet {
         ErrorMessage error = new ErrorMessage(session);
 
         if (resource.indexOf("delete") >= 0) {
-            resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
+            resource = resource.substring(0, resource.indexOf("/", 1));
             try {
                 int a = Product.delete(Integer.parseInt(resource));
                 if (a < 0) {
@@ -44,7 +44,7 @@ public class PatternProductServlet extends HttpServlet {
             }
 
         } else if(resource.indexOf("picture") >= 0) {
-            resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
+            resource = resource.substring(0, resource.indexOf("/", 1));
             try {
                 if (Util.isInteger(resource)) {
                     List<Picture> pictures = PicProduct.getPictures(
@@ -59,7 +59,7 @@ public class PatternProductServlet extends HttpServlet {
             }
 
         } else if(resource.indexOf("productsale") >= 0) {
-            resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
+            resource = resource.substring(0, resource.indexOf("/", 1));
             try {
                 if (Util.isInteger(resource)) {
                     List<ProductSale> productSales = ProductSale.findByProdId(

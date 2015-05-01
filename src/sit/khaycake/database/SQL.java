@@ -244,7 +244,12 @@ public class SQL{
             for (int i = 0; i < params.size(); i++)
                 prep.setObject(i + 1, params.get(i));
             this.params = null;
-            return prep.executeUpdate();
+            int id = prep.executeUpdate();
+            ResultSet rs = prep.getGeneratedKeys();
+            if(rs.next()){
+                id = rs.getInt(1);
+            }
+            return id;
         }
     }
 

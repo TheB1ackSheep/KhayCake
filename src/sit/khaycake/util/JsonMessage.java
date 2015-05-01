@@ -44,11 +44,7 @@ public class JsonMessage {
 	}
 
 	public void setMessage(Object message) {
-		Gson gson = new Gson();
-		JsonObject json = new JsonObject();
-		json.add((message instanceof List?((List) message).get(0).getClass().getSimpleName()+"List":
-		message.getClass().getSimpleName()),gson.toJsonTree(message));
-		this.message = json;
+		this.message = message;
 		this.save();
 	}
 
