@@ -7,6 +7,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
+import sit.khaycake.database.SQL;
 import sit.khaycake.model.Picture;
 import sit.khaycake.util.ErrorMessage;
 import sit.khaycake.util.SuccessMessage;
@@ -74,7 +75,16 @@ public class PictureServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        HttpSession session = request.getSession();
+        SuccessMessage success = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
+        try {
+            Gson gson = new Gson();
+            String result = gson.toJson((List<Picture>)SQL.findAll(Picture.class));
+            success.setMessage(result);
+        } catch (Exception ex) {
+            error.setMessage(ex.getMessage());
+        }
     }
 
     private String getFileName(Part part) {

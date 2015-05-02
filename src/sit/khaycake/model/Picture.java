@@ -16,7 +16,7 @@ public class Picture implements ORM {
 
     public static final String TABLE_NAME = "PICTURES";
     public static final Column COLUMN_ID = ORM.column(TABLE_NAME, "PIC_ID");
-    public static final Column COLUMN_PATH = ORM.column(TABLE_NAME, "FILENAME");
+    public static final Column COLUMN_FILENAME = ORM.column(TABLE_NAME, "FILENAME");
     public static final List<Column> PRIMARY_KEY = ORM.columns(COLUMN_ID);
 
     public int getId() {
@@ -37,14 +37,14 @@ public class Picture implements ORM {
 
     public void orm(ResultSet rs) throws Exception {
         this.setId(rs.getInt(COLUMN_ID.getColumnName()));
-        this.setFilename(rs.getString(COLUMN_PATH.getColumnName()));
+        this.setFilename(rs.getString(COLUMN_FILENAME.getColumnName()));
     }
 
     public void save() throws Exception {
         SQL sql = new SQL();
         int id = sql
                 .insert()
-                .into(Picture.TABLE_NAME, Picture.COLUMN_PATH)
+                .into(Picture.TABLE_NAME, Picture.COLUMN_FILENAME)
                 .values(this.getFilename())
                 .exec();
         this.setId(id);
@@ -55,7 +55,7 @@ public class Picture implements ORM {
         sql
                 .update(Picture.TABLE_NAME)
                 .set(Picture.COLUMN_ID, this.getId())
-                .set(Picture.COLUMN_PATH, this.getFilename())
+                .set(Picture.COLUMN_FILENAME, this.getFilename())
                 .where(Picture.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getId())
                 .exec();
     }
@@ -73,7 +73,7 @@ public class Picture implements ORM {
     public String toString() {
         return "Picture{" +
                 "id=" + id +
-                ", path='" + filename + '\'' +
+                ", filename='" + filename + '\'' +
                 '}';
     }
 }

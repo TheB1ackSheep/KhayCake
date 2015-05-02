@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
 import sit.khaycake.model.Category;
 import sit.khaycake.model.Picture;
-import sit.khaycake.model.Product;
+import sit.khaycake.model.Picture;
 import sit.khaycake.util.ErrorMessage;
 import sit.khaycake.util.SuccessMessage;
 import sit.khaycake.util.Util;
@@ -14,7 +14,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,11 +35,16 @@ public class PatternPictureServlet extends HttpServlet {
 
 
         if (resource.indexOf("delete") >= 0) {
-            resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
-            SQL sql = new SQL();
+            resource = resource.substring(0, resource.indexOf("/", 1));
             try {
-                int a = Picture.delete(Integer.parseInt(resource));
-                if (a < 0) {
+                Picture picture = (Picture)SQL.findById(Picture.class,resource);
+                String appPath = request.getServletContext().getRealPath("");
+                File file = new File(appPath+"\\images\\"+picture.getFilename());//"/usr/share/glassfish4/glassfish/domains/jsp.falook.me/applications/khaycake/images/"+picture.getFilename());
+                if(file.delete()) {
+                    int id = Integer.parseInt(resource);
+                    int a = Picture.delete(id);
+                    succes.setMessage(picture);
+                }else{
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
             } catch (Exception ex) {
@@ -49,8 +57,7 @@ public class PatternPictureServlet extends HttpServlet {
                     Picture picture = null;
                     picture = (Picture) SQL.findById(Picture.class, Integer.parseInt(resource));
                     if (picture != null) {
-
-                        response.getWriter().print(gson.toJson(picture));
+                        succes.setMessage(picture);
                     } else {
                         response.sendError(HttpServletResponse.SC_NOT_FOUND);
                     }
@@ -62,32 +69,31 @@ public class PatternPictureServlet extends HttpServlet {
         }
     }
 
-    /*@Override
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        SuccessMessage succes = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
         String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1));
-        Product product = null;
+        Picture picture = null;
         try {
-            product = (Product) SQL.findById(Product.class, Integer.parseInt(resource));
+            picture = (Picture) SQL.findById(Picture.class, Integer.parseInt(resource));
         } catch (Exception e) {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
-        if (product != null) {
+        if (picture != null) {
             try{
-                product.setName(request.getParameter("NAME"));
-                product.setDetail(request.getParameter("DETAIL"));
-                product.setCost(Double.parseDouble(request.getParameter("COST")));
-                product.setCategory(
-                        (Category)SQL.findById(Category.class, Integer.parseInt(request.getParameter("CAT_ID"))));
-                product.update();
-
-            } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                picture.setFilename(request.getParameter("FILENAME"));
+                picture.update();
+                succes.setMessage(picture);
+            } catch (Exception ex) {
+                error.setMessage(ex.getMessage());
             }
         } else {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
 
-    }*/
+    }
 
 }
