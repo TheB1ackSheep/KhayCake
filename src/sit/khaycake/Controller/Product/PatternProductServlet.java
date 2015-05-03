@@ -35,8 +35,12 @@ public class PatternProductServlet extends HttpServlet {
         if (resource.indexOf("delete") >= 0) {
             resource = resource.substring(0, resource.indexOf("/", 1));
             try {
-                int a = Product.delete(Integer.parseInt(resource));
-                if (a < 0) {
+                Product product = (Product)SQL.findById(Product.class,resource);
+
+                if (product!=null) {
+                    Product.delete(product.getId());
+                    succes.setMessage(product);
+                }else{
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
             } catch (Exception e) {

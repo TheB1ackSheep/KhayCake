@@ -26,7 +26,7 @@ public class AddressServlet extends HttpServlet {
         ErrorMessage error = new ErrorMessage(session);
         try {
             Gson gson = new Gson();
-            success.setMessage(gson.toJson(SQL.findAll(Address.class)));
+            success.setMessage((Address)SQL.findAll(Address.class));
         } catch (Exception ex) {
             error.setMessage(ex.getMessage());
         }
@@ -47,8 +47,7 @@ public class AddressServlet extends HttpServlet {
             address.setSubDistrictId(Integer.parseInt(request.getParameter("SUDT_ID")));
             address.save();
 
-            Gson gson = new Gson();
-            success.setMessage(gson.toJson(address));
+            success.setMessage(address);
         } catch (Exception ex) {
             error.setMessage(ex.getMessage());
         }

@@ -31,8 +31,11 @@ public class PatternAddressServlet extends HttpServlet {
         if (resource.indexOf("delete") >= 0) {
             resource = resource.substring(0,resource.indexOf("/", 1));
             try {
-                int result = Address.delete(Integer.parseInt(resource));
-                if (result < 0) {
+                Address address = (Address)SQL.findById(Address.class, resource);
+                if (address != null) {
+                    Address.delete(address.getId());
+                    succes.setMessage(address);
+                }else{
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
             } catch (Exception ex) {
@@ -83,22 +86,15 @@ public class PatternAddressServlet extends HttpServlet {
             }
 
         } else {
-            Address address = null;
             try {
-                if(Util.isInteger(resource)) {
-                    address = (Address) SQL.findById(Address.class, Integer.parseInt(resource));
+                Address address = (Address) SQL.findById(Address.class, resource);
+                if(address!=null) {
+                    succes.setMessage(address);
                 }else{
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
-
             } catch (Exception ex) {
                 error.setMessage(ex.getMessage());
-            }
-            if (address != null) {
-                Gson gson = new Gson();
-                succes.setMessage(gson.toJson(address));
-            } else {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
             }
         }
     }
@@ -110,27 +106,24 @@ public class PatternAddressServlet extends HttpServlet {
         SuccessMessage succes = new SuccessMessage(session);
         ErrorMessage error = new ErrorMessage(session);
 
-        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
-        Address address = null;
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0) + 1);
         try {
-            address = (Address) SQL.findById(Address.class, Integer.parseInt(resource));
-        } catch (Exception ex) {
-            error.setMessage(ex.getMessage());
-        }
-        if (address != null) {
-            try {
+            Address address = (Address) SQL.findById(Address.class, resource);
+            if (address != null) {
                 address.setAddrNo(request.getParameter("ADDR_NO"));
                 address.setAddrAdd(request.getParameter("ADDR_ADD"));
                 address.setStreet(request.getParameter("STREET"));
                 address.setSubDistrictId(Integer.parseInt(request.getParameter("SUDT_ID")));
                 address.update();
-            }catch (Exception ex){
-                error.setMessage(ex.getMessage());
+                succes.setMessage(address);
+            } else {
+                response.sendError(HttpServletResponse.SC_NOT_FOUND);
             }
-
-        } else {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+        }catch (Exception ex){
+                error.setMessage(ex.getMessage());
         }
+
+
     }
 
 }

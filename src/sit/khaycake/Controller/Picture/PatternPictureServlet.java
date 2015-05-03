@@ -41,8 +41,7 @@ public class PatternPictureServlet extends HttpServlet {
                 String appPath = request.getServletContext().getRealPath("");
                 File file = new File(appPath+"\\images\\"+picture.getFilename());//"/usr/share/glassfish4/glassfish/domains/jsp.falook.me/applications/khaycake/images/"+picture.getFilename());
                 if(file.delete()) {
-                    int id = Integer.parseInt(resource);
-                    int a = Picture.delete(id);
+                    Picture.delete(picture.getId());
                     succes.setMessage(picture);
                 }else{
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
