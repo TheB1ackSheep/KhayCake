@@ -7,129 +7,34 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="122b81fc-5598-44fd-b1f2-c72e3fa42d2d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sit/khaycake/js/core.js" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\controller\PictureController.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\controller\category\CategoryController.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\controller\product\ProductController.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\controller\unit\UnitController.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\database\CanFindByKeyword.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\database\Column.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\database\ORM.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\database\SQL$OrderClause$Operator.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\database\SQL$OrderClause.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\database\SQL$WhereClause$Operator.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\database\SQL$WhereClause.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\database\SQL.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\database\Table.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\database\exception\ColumnValueMismatchException.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\database\exception\InsertMultiTableException.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\exception\ValidationException.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\filter\FormAttribute.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\filter\HeaderFilter.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\filter\MyFilter.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\filter\RequestValidation.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\Address.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\Bank$Branch.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\Bank.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\BankAccount.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\BankAccountType.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\Category.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\Customer.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\District.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\Invoice.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\Lid.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\MerchantInfo.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\Model.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\Order.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\OrderItem.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\OrderStatus.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\Payment$Status.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\Payment.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\PaymentStatus.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\PicProduct.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\Picture.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\Product.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\ProductMeta.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\ProductMetaName.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\ProductMetaNameValue.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\ProductSale.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\Province.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\ShipmentMethod.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\SubDistrict.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\Unit.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\util\Util.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\lib\commons-fileupload-1.3.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\lib\commons-io-2.4.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\artifacts\KhayCake_war_exploded\WEB-INF\lib\mysql-connector-java-5.1.35.jar" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\controller\PictureController.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\controller\category\CategoryController.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\controller\product\ProductController.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\controller\unit\UnitController.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\database\CanFindByKeyword.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\database\Column.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\database\ORM.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\database\SQL$OrderClause$Operator.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\database\SQL$OrderClause.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\database\SQL$WhereClause$Operator.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\database\SQL$WhereClause.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\database\SQL.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\database\Table.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\database\exception\ColumnValueMismatchException.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\database\exception\InsertMultiTableException.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\exception\ValidationException.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\filter\FormAttribute.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\filter\HeaderFilter.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\filter\MyFilter.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\filter\RequestValidation.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\model\Address.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\model\Bank$Branch.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\model\Bank.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\model\BankAccount.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\model\BankAccountType.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\model\Category.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\model\Customer.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\model\District.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\model\Invoice.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\model\Lid.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\model\MerchantInfo.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\model\Model.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\model\Order.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\model\OrderItem.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\model\OrderStatus.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\model\Payment$Status.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\model\Payment.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\model\PaymentStatus.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\model\PicProduct.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\model\Picture.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\model\Product.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\model\ProductMeta.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\model\ProductMetaName.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\model\ProductMetaNameValue.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\model\ProductSale.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\model\Province.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\model\ShipmentMethod.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\model\SubDistrict.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\model\Unit.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\production\KhayCake\sit\khaycake\util\Util.class" afterPath="" />
-      <change type="DELETED" beforePath="D:\Google Drive\Projects\KhayCake\out\test\KhayCake\sit\khaycake\BankTesting.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/admin.html" afterPath="$PROJECT_DIR$/web/admin.html" />
+    <list default="true" id="122b81fc-5598-44fd-b1f2-c72e3fa42d2d" name="Default" comment="admin can add/edit/remove/search/list product">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/KhayCake.iml" afterPath="$PROJECT_DIR$/KhayCake.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/admin.html" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/admin.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/js/admin.js" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/js/admin.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KhayCake/sit/khaycake/js/admin.js" afterPath="$PROJECT_DIR$/out/production/KhayCake/sit/khaycake/js/admin.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/js/admin.js" afterPath="$PROJECT_DIR$/src/sit/khaycake/js/admin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/css/admin.less" afterPath="$PROJECT_DIR$/src/sit/khaycake/css/admin.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/css/admin.less" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/css/admin.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KhayCake/sit/khaycake/css/admin.less" afterPath="$PROJECT_DIR$/out/production/KhayCake/sit/khaycake/css/admin.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/css/admin.min.css" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/css/admin.min.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/admin.min.css" afterPath="$PROJECT_DIR$/web/css/admin.min.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/js/admin.min.js" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/js/admin.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/admin.min.js" afterPath="$PROJECT_DIR$/web/js/admin.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/js/core.js" afterPath="$PROJECT_DIR$/src/sit/khaycake/js/core.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/home.html" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/home.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/home.html" afterPath="$PROJECT_DIR$/web/home.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/js/khaycake.js" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/js/khaycake.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KhayCake/sit/khaycake/js/khaycake.js" afterPath="$PROJECT_DIR$/out/production/KhayCake/sit/khaycake/js/khaycake.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/js/khaycake.js" afterPath="$PROJECT_DIR$/src/sit/khaycake/js/khaycake.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/css/khaycake.less" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/css/khaycake.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KhayCake/sit/khaycake/css/khaycake.less" afterPath="$PROJECT_DIR$/out/production/KhayCake/sit/khaycake/css/khaycake.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/css/khaycake.less" afterPath="$PROJECT_DIR$/src/sit/khaycake/css/khaycake.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/css/khaycake.min.css" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/css/khaycake.min.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/khaycake.min.css" afterPath="$PROJECT_DIR$/web/css/khaycake.min.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/js/khaycake.min.js" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/js/khaycake.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/khaycake.min.js" afterPath="$PROJECT_DIR$/web/js/khaycake.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/css/theme-coffee.less" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/css/theme-coffee.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/KhayCake/sit/khaycake/css/theme-coffee.less" afterPath="$PROJECT_DIR$/out/production/KhayCake/sit/khaycake/css/theme-coffee.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/css/theme-coffee.less" afterPath="$PROJECT_DIR$/src/sit/khaycake/css/theme-coffee.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="KhayCake.iws" />
@@ -169,40 +74,59 @@
         <entry file="file://$PROJECT_DIR$/src/sit/khaycake/js/core.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="120" column="36" selection-start-line="120" selection-start-column="36" selection-end-line="120" selection-end-column="36" />
+              <caret line="212" column="29" selection-start-line="212" selection-start-column="29" selection-end-line="212" selection-end-column="29" />
               <folding>
-                <element signature="e#6157#7048#0" expanded="false" />
-                <element signature="e#7090#7331#0" expanded="false" />
-                <marker date="1430652832765" expanded="true" signature="3795:3811" placeholder="..." />
-                <marker date="1430652832765" expanded="true" signature="5661:5677" placeholder="..." />
+                <element signature="e#3563#6117#0" expanded="false" />
+                <element signature="e#6154#7045#0" expanded="false" />
+                <element signature="e#7087#7328#0" expanded="false" />
+                <marker date="1430675968499" expanded="true" signature="3792:3808" placeholder="..." />
+                <marker date="1430675968499" expanded="true" signature="5658:5674" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="admin.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sit/khaycake/js/admin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6529563">
-              <caret line="458" column="48" selection-start-line="458" selection-start-column="48" selection-end-line="458" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="420" column="16" selection-start-line="420" selection-start-column="16" selection-end-line="420" selection-end-column="16" />
               <folding>
+                <element signature="e#388#969#0" expanded="false" />
+                <element signature="e#998#10296#0" expanded="false" />
                 <element signature="e#3938#10286#0" expanded="false" />
-                <element signature="e#14944#17141#0" expanded="false" />
-                <element signature="e#17624#17758#0" expanded="false" />
-                <element signature="e#17815#18201#0" expanded="false" />
-                <element signature="e#18259#18510#0" expanded="false" />
-                <element signature="e#19193#19894#0" expanded="false" />
+                <element signature="e#12316#14139#0" expanded="false" />
+                <element signature="e#15965#18162#0" expanded="false" />
+                <element signature="e#18552#18598#0" expanded="false" />
+                <element signature="e#18653#18787#0" expanded="false" />
+                <element signature="e#18844#19230#0" expanded="false" />
+                <element signature="e#19288#19539#0" expanded="false" />
+                <marker date="1430674562759" expanded="true" signature="11364:11380" placeholder="..." />
+                <marker date="1430674562759" expanded="true" signature="15305:15321" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="khaycake.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="khaycake.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sit/khaycake/js/khaycake.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="237" column="29" selection-start-line="237" selection-start-column="29" selection-end-line="237" selection-end-column="29" />
-              <folding />
+            <state vertical-scroll-proportion="0.6041131">
+              <caret line="286" column="33" selection-start-line="286" selection-start-column="33" selection-end-line="286" selection-end-column="33" />
+              <folding>
+                <element signature="e#186#768#0" expanded="false" />
+                <element signature="e#3261#3798#0" expanded="false" />
+                <element signature="e#6425#7240#0" expanded="false" />
+                <element signature="e#7277#7741#0" expanded="false" />
+                <element signature="e#7775#7830#0" expanded="false" />
+                <element signature="e#7868#8442#0" expanded="false" />
+                <element signature="e#8484#9173#0" expanded="false" />
+                <element signature="e#9215#9381#0" expanded="false" />
+                <element signature="e#9421#9452#0" expanded="false" />
+                <element signature="e#9986#11539#0" expanded="false" />
+                <marker date="1430678761298" expanded="true" signature="9267:9285" placeholder="..." />
+                <marker date="1430678761298" expanded="true" signature="9267:9302" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -210,9 +134,11 @@
       <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.076923">
-              <caret line="153" column="7" selection-start-line="153" selection-start-column="7" selection-end-line="153" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="32" column="35" selection-start-line="32" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
               <folding>
+                <element signature="n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#style#0;n#div#1;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#3;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -229,6 +155,60 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="72" column="7" selection-start-line="72" selection-start-column="7" selection-end-line="72" selection-end-column="7" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.less" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sit/khaycake/css/admin.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="144" column="13" selection-start-line="144" selection-start-column="9" selection-end-line="144" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="khaycake.less" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sit/khaycake/css/khaycake.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.307693">
+              <caret line="484" column="5" selection-start-line="484" selection-start-column="5" selection-end-line="484" selection-end-column="5" />
+              <folding>
+                <element signature="e#2575#4074#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mixin.less" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sit/khaycake/css/mixin.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="66" column="6" selection-start-line="66" selection-start-column="4" selection-end-line="66" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="theme-coffee.less" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sit/khaycake/css/theme-coffee.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="theme-light.less" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sit/khaycake/css/theme-light.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="274" column="13" selection-start-line="232" selection-start-column="0" selection-end-line="274" selection-end-column="13" />
+              <folding>
+                <element signature="e#3852#4191#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -289,14 +269,15 @@
         <option value="$PROJECT_DIR$/src/sit/khaycake/filter/RequestValidation.java" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/filter/MyFilter.java" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/filter/HeaderFilter.java" />
-        <option value="$PROJECT_DIR$/web/home.html" />
         <option value="$PROJECT_DIR$/web/admin.html" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/css/admin.less" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/css/khaycake.less" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/js/khaycake.js" />
         <option value="$PROJECT_DIR$/web/js/admin.min.js" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/js/core.js" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/css/theme-coffee.less" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/js/admin.js" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/js/core.js" />
+        <option value="$PROJECT_DIR$/web/home.html" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/js/khaycake.js" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/css/khaycake.less" />
       </list>
     </option>
   </component>
@@ -399,6 +380,60 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KhayCake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KhayCake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="khaycake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KhayCake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KhayCake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="khaycake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KhayCake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KhayCake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -883,12 +918,22 @@
       <workItem from="1430334369832" duration="847000" />
       <workItem from="1430506267943" duration="1857000" />
       <workItem from="1430614532338" duration="1094000" />
-      <workItem from="1430616175130" duration="9963000" />
+      <workItem from="1430616175130" duration="11627000" />
+      <workItem from="1430668304626" duration="218000" />
+      <workItem from="1430669257704" duration="7190000" />
+      <workItem from="1430692813402" duration="674000" />
     </task>
+    <task id="LOCAL-00001" summary="admin can add/edit/remove/search/list product">
+      <created>1430654735387</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1430654735387</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90947000" />
+    <option name="totallyTimeSpent" value="100693000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -896,31 +941,59 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279743" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40353698" sideWeight="0.17473525" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.329582" sideWeight="0.2677761" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279743" sideWeight="0.49394855" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.329582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33118972" sideWeight="0.7375189" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28456593" sideWeight="0.49394855" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.329582" sideWeight="0.7322239" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28456593" sideWeight="0.48487142" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25189108" sideWeight="0.6931217" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25189108" sideWeight="0.6931217" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25074628" sideWeight="0.3068783" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852808" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40353698" sideWeight="0.82526475" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40353698" sideWeight="0.82526475" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279743" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33118972" sideWeight="0.7375189" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28456593" sideWeight="0.50907713" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279743" sideWeight="0.49394855" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852808" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40353698" sideWeight="0.82526475" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279743" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.4969743" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.73676246" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33118972" sideWeight="0.7375189" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28456593" sideWeight="0.49092284" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25189108" sideWeight="0.6931217" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25074628" sideWeight="0.3068783" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -933,6 +1006,12 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="admin can add/edit/remove/search/list product" />
+    <option name="LAST_COMMIT_MESSAGE" value="admin can add/edit/remove/search/list product" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -943,7 +1022,7 @@
           <option name="timeStamp" value="90" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="92" />
+      <option name="time" value="94" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="GlassfishConfiguration">
@@ -959,12 +1038,33 @@
     <entry file="file://$PROJECT_DIR$/src/sit/khaycake/js/core.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="120" column="36" selection-start-line="120" selection-start-column="36" selection-end-line="120" selection-end-column="36" />
           <folding>
-            <element signature="e#6157#7048#0" expanded="false" />
-            <element signature="e#7090#7331#0" expanded="false" />
-            <marker date="1430652832765" expanded="true" signature="3795:3811" placeholder="..." />
-            <marker date="1430652832765" expanded="true" signature="5661:5677" placeholder="..." />
+            <element signature="e#3563#6117#0" expanded="false" />
+            <element signature="e#6154#7045#0" expanded="false" />
+            <element signature="e#7087#7328#0" expanded="false" />
+            <marker date="1430675968499" expanded="true" signature="3792:3808" placeholder="..." />
+            <marker date="1430675968499" expanded="true" signature="5658:5674" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/js/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="45" selection-start-line="41" selection-start-column="16" selection-end-line="42" selection-end-column="45" />
+          <folding>
+            <element signature="e#388#969#0" expanded="false" />
+            <element signature="e#998#10296#0" expanded="false" />
+            <element signature="e#3938#10286#0" expanded="false" />
+            <element signature="e#12316#14139#0" expanded="false" />
+            <element signature="e#15965#18162#0" expanded="false" />
+            <element signature="e#18552#18598#0" expanded="false" />
+            <element signature="e#18653#18787#0" expanded="false" />
+            <element signature="e#18844#19230#0" expanded="false" />
+            <element signature="e#19288#19539#0" expanded="false" />
+            <marker date="1430674562759" expanded="true" signature="11364:11380" placeholder="..." />
+            <marker date="1430674562759" expanded="true" signature="15305:15321" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -972,22 +1072,20 @@
     <entry file="file://$PROJECT_DIR$/src/sit/khaycake/js/khaycake.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="234" column="57" selection-start-line="234" selection-start-column="57" selection-end-line="234" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/js/admin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="447" column="3" selection-start-line="447" selection-start-column="3" selection-end-line="447" selection-end-column="3" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#3938#10286#0" expanded="false" />
-            <element signature="e#14944#17141#0" expanded="false" />
-            <element signature="e#17624#17758#0" expanded="false" />
-            <element signature="e#17815#18201#0" expanded="false" />
-            <element signature="e#18259#18510#0" expanded="false" />
-            <element signature="e#19193#19894#0" expanded="false" />
+            <element signature="e#186#768#0" expanded="false" />
+            <element signature="e#3261#3798#0" expanded="false" />
+            <element signature="e#6425#7240#0" expanded="false" />
+            <element signature="e#7277#7741#0" expanded="false" />
+            <element signature="e#7775#7830#0" expanded="false" />
+            <element signature="e#7868#8442#0" expanded="false" />
+            <element signature="e#8484#9173#0" expanded="false" />
+            <element signature="e#9215#9381#0" expanded="false" />
+            <element signature="e#9421#9452#0" expanded="false" />
+            <element signature="e#9986#11539#0" expanded="false" />
+            <marker date="1430678761298" expanded="true" signature="9267:9285" placeholder="..." />
+            <marker date="1430678761298" expanded="true" signature="9267:9302" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -997,6 +1095,254 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="153" column="7" selection-start-line="153" selection-start-column="7" selection-end-line="153" selection-end-column="7" />
           <folding>
+            <element signature="n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#5;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/admin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="72" column="7" selection-start-line="72" selection-start-column="7" selection-end-line="72" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/css/admin.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="144" column="13" selection-start-line="144" selection-start-column="9" selection-end-line="144" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/css/khaycake.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
+          <folding>
+            <element signature="e#2575#4074#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/css/mixin.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="66" column="6" selection-start-line="66" selection-start-column="4" selection-end-line="66" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/css/theme-coffee.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/css/theme-light.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="274" column="13" selection-start-line="232" selection-start-column="0" selection-end-line="274" selection-end-column="13" />
+          <folding>
+            <element signature="e#3852#4191#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/js/core.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="120" column="36" selection-start-line="120" selection-start-column="36" selection-end-line="120" selection-end-column="36" />
+          <folding>
+            <element signature="e#3563#6117#0" expanded="false" />
+            <element signature="e#6154#7045#0" expanded="false" />
+            <element signature="e#7087#7328#0" expanded="false" />
+            <marker date="1430675968499" expanded="true" signature="3792:3808" placeholder="..." />
+            <marker date="1430675968499" expanded="true" signature="5658:5674" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/js/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="45" selection-start-line="41" selection-start-column="16" selection-end-line="42" selection-end-column="45" />
+          <folding>
+            <element signature="e#388#969#0" expanded="false" />
+            <element signature="e#998#10296#0" expanded="false" />
+            <element signature="e#3938#10286#0" expanded="false" />
+            <element signature="e#12316#14139#0" expanded="false" />
+            <element signature="e#15965#18162#0" expanded="false" />
+            <element signature="e#18552#18598#0" expanded="false" />
+            <element signature="e#18653#18787#0" expanded="false" />
+            <element signature="e#18844#19230#0" expanded="false" />
+            <element signature="e#19288#19539#0" expanded="false" />
+            <marker date="1430674562759" expanded="true" signature="11364:11380" placeholder="..." />
+            <marker date="1430674562759" expanded="true" signature="15305:15321" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/js/khaycake.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#186#768#0" expanded="false" />
+            <element signature="e#3261#3798#0" expanded="false" />
+            <element signature="e#6425#7240#0" expanded="false" />
+            <element signature="e#7277#7741#0" expanded="false" />
+            <element signature="e#7775#7830#0" expanded="false" />
+            <element signature="e#7868#8442#0" expanded="false" />
+            <element signature="e#8484#9173#0" expanded="false" />
+            <element signature="e#9215#9381#0" expanded="false" />
+            <element signature="e#9421#9452#0" expanded="false" />
+            <element signature="e#9986#11539#0" expanded="false" />
+            <marker date="1430678761298" expanded="true" signature="9267:9285" placeholder="..." />
+            <marker date="1430678761298" expanded="true" signature="9267:9302" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="153" column="7" selection-start-line="153" selection-start-column="7" selection-end-line="153" selection-end-column="7" />
+          <folding>
+            <element signature="n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#5;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/admin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="72" column="7" selection-start-line="72" selection-start-column="7" selection-end-line="72" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/css/admin.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="144" column="13" selection-start-line="144" selection-start-column="9" selection-end-line="144" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/css/khaycake.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
+          <folding>
+            <element signature="e#2575#4074#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/css/mixin.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="66" column="6" selection-start-line="66" selection-start-column="4" selection-end-line="66" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/css/theme-coffee.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/css/theme-light.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="274" column="13" selection-start-line="232" selection-start-column="0" selection-end-line="274" selection-end-column="13" />
+          <folding>
+            <element signature="e#3852#4191#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/js/core.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#3563#6117#0" expanded="false" />
+            <element signature="e#6154#7045#0" expanded="false" />
+            <element signature="e#7087#7328#0" expanded="false" />
+            <marker date="1430675968499" expanded="true" signature="3792:3808" placeholder="..." />
+            <marker date="1430675968499" expanded="true" signature="5658:5674" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/js/khaycake.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="234" column="57" selection-start-line="234" selection-start-column="57" selection-end-line="234" selection-end-column="57" />
+          <folding>
+            <element signature="e#186#768#0" expanded="false" />
+            <element signature="e#3261#3798#0" expanded="false" />
+            <element signature="e#6425#7240#0" expanded="false" />
+            <element signature="e#7277#7741#0" expanded="false" />
+            <element signature="e#7775#7830#0" expanded="false" />
+            <element signature="e#7868#8442#0" expanded="false" />
+            <element signature="e#8484#9173#0" expanded="false" />
+            <element signature="e#9215#9381#0" expanded="false" />
+            <element signature="e#9421#9452#0" expanded="false" />
+            <element signature="e#9986#11539#0" expanded="false" />
+            <marker date="1430678761298" expanded="true" signature="9267:9285" placeholder="..." />
+            <marker date="1430678761298" expanded="true" signature="9267:9302" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/js/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="447" column="3" selection-start-line="447" selection-start-column="3" selection-end-line="447" selection-end-column="3" />
+          <folding>
+            <element signature="e#388#969#0" expanded="false" />
+            <element signature="e#998#10296#0" expanded="false" />
+            <element signature="e#3938#10286#0" expanded="false" />
+            <element signature="e#12316#14139#0" expanded="false" />
+            <element signature="e#15965#18162#0" expanded="false" />
+            <element signature="e#18552#18598#0" expanded="false" />
+            <element signature="e#18653#18787#0" expanded="false" />
+            <element signature="e#18844#19230#0" expanded="false" />
+            <element signature="e#19288#19539#0" expanded="false" />
+            <marker date="1430674562759" expanded="true" signature="11364:11380" placeholder="..." />
+            <marker date="1430674562759" expanded="true" signature="15305:15321" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="153" column="7" selection-start-line="153" selection-start-column="7" selection-end-line="153" selection-end-column="7" />
+          <folding>
+            <element signature="n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#1;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#3;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1026,7 +1372,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="502" column="0" selection-start-line="502" selection-start-column="0" selection-end-line="502" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#2575#4074#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1034,7 +1382,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="47" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1043,12 +1390,17 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="591" column="3" selection-start-line="591" selection-start-column="3" selection-end-line="591" selection-end-column="3" />
           <folding>
+            <element signature="e#388#969#0" expanded="false" />
+            <element signature="e#998#10296#0" expanded="false" />
             <element signature="e#3938#10286#0" expanded="false" />
-            <element signature="e#14944#17141#0" expanded="false" />
-            <element signature="e#17624#17758#0" expanded="false" />
-            <element signature="e#17815#18201#0" expanded="false" />
-            <element signature="e#18259#18510#0" expanded="false" />
-            <element signature="e#19193#19894#0" expanded="false" />
+            <element signature="e#12316#14139#0" expanded="false" />
+            <element signature="e#15965#18162#0" expanded="false" />
+            <element signature="e#18552#18598#0" expanded="false" />
+            <element signature="e#18653#18787#0" expanded="false" />
+            <element signature="e#18844#19230#0" expanded="false" />
+            <element signature="e#19288#19539#0" expanded="false" />
+            <marker date="1430674562759" expanded="true" signature="11364:11380" placeholder="..." />
+            <marker date="1430674562759" expanded="true" signature="15305:15321" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1057,7 +1409,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#186#768#0" expanded="false" />
+            <element signature="e#3261#3798#0" expanded="false" />
+            <element signature="e#6425#7240#0" expanded="false" />
+            <element signature="e#7277#7741#0" expanded="false" />
+            <element signature="e#7775#7830#0" expanded="false" />
+            <element signature="e#7868#8442#0" expanded="false" />
+            <element signature="e#8484#9173#0" expanded="false" />
+            <element signature="e#9215#9381#0" expanded="false" />
+            <element signature="e#9421#9452#0" expanded="false" />
+            <element signature="e#9986#11539#0" expanded="false" />
+            <marker date="1430678761298" expanded="true" signature="9267:9285" placeholder="..." />
+            <marker date="1430678761298" expanded="true" signature="9267:9302" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1066,12 +1431,17 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="591" column="3" selection-start-line="591" selection-start-column="3" selection-end-line="591" selection-end-column="3" />
           <folding>
+            <element signature="e#388#969#0" expanded="false" />
+            <element signature="e#998#10296#0" expanded="false" />
             <element signature="e#3938#10286#0" expanded="false" />
-            <element signature="e#14944#17141#0" expanded="false" />
-            <element signature="e#17624#17758#0" expanded="false" />
-            <element signature="e#17815#18201#0" expanded="false" />
-            <element signature="e#18259#18510#0" expanded="false" />
-            <element signature="e#19193#19894#0" expanded="false" />
+            <element signature="e#12316#14139#0" expanded="false" />
+            <element signature="e#15965#18162#0" expanded="false" />
+            <element signature="e#18552#18598#0" expanded="false" />
+            <element signature="e#18653#18787#0" expanded="false" />
+            <element signature="e#18844#19230#0" expanded="false" />
+            <element signature="e#19288#19539#0" expanded="false" />
+            <marker date="1430674562759" expanded="true" signature="11364:11380" placeholder="..." />
+            <marker date="1430674562759" expanded="true" signature="15305:15321" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1080,7 +1450,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#186#768#0" expanded="false" />
+            <element signature="e#3261#3798#0" expanded="false" />
+            <element signature="e#6425#7240#0" expanded="false" />
+            <element signature="e#7277#7741#0" expanded="false" />
+            <element signature="e#7775#7830#0" expanded="false" />
+            <element signature="e#7868#8442#0" expanded="false" />
+            <element signature="e#8484#9173#0" expanded="false" />
+            <element signature="e#9215#9381#0" expanded="false" />
+            <element signature="e#9421#9452#0" expanded="false" />
+            <element signature="e#9986#11539#0" expanded="false" />
+            <marker date="1430678761298" expanded="true" signature="9267:9285" placeholder="..." />
+            <marker date="1430678761298" expanded="true" signature="9267:9302" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1096,12 +1479,17 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="e#388#969#0" expanded="false" />
+            <element signature="e#998#10296#0" expanded="false" />
             <element signature="e#3938#10286#0" expanded="false" />
-            <element signature="e#14944#17141#0" expanded="false" />
-            <element signature="e#17624#17758#0" expanded="false" />
-            <element signature="e#17815#18201#0" expanded="false" />
-            <element signature="e#18259#18510#0" expanded="false" />
-            <element signature="e#19193#19894#0" expanded="false" />
+            <element signature="e#12316#14139#0" expanded="false" />
+            <element signature="e#15965#18162#0" expanded="false" />
+            <element signature="e#18552#18598#0" expanded="false" />
+            <element signature="e#18653#18787#0" expanded="false" />
+            <element signature="e#18844#19230#0" expanded="false" />
+            <element signature="e#19288#19539#0" expanded="false" />
+            <marker date="1430674562759" expanded="true" signature="11364:11380" placeholder="..." />
+            <marker date="1430674562759" expanded="true" signature="15305:15321" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1134,20 +1522,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/css/mixin.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.2655368">
-          <caret line="50" column="1" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/css/theme-light.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5141243">
-          <caret line="239" column="22" selection-start-line="239" selection-start-column="22" selection-end-line="239" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.44041452">
@@ -1159,6 +1533,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="47" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/admin.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.68">
+          <caret line="1" column="908" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="9404" />
           <folding />
         </state>
       </provider>
@@ -1171,27 +1552,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/css/admin.less">
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/css/mixin.less">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="190" column="1" selection-start-line="190" selection-start-column="1" selection-end-line="190" selection-end-column="1" />
+          <caret line="66" column="6" selection-start-line="66" selection-start-column="4" selection-end-line="66" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/css/khaycake.less">
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/css/theme-light.less">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="502" column="0" selection-start-line="502" selection-start-column="0" selection-end-line="502" selection-end-column="0" />
+          <caret line="274" column="13" selection-start-line="232" selection-start-column="0" selection-end-line="274" selection-end-column="13" />
+          <folding>
+            <element signature="e#3852#4191#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/css/theme-coffee.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/js/core.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="212" column="29" selection-start-line="212" selection-start-column="29" selection-end-line="212" selection-end-column="29" />
+          <folding>
+            <element signature="e#3563#6117#0" expanded="false" />
+            <element signature="e#6154#7045#0" expanded="false" />
+            <element signature="e#7087#7328#0" expanded="false" />
+            <marker date="1430675968499" expanded="true" signature="3792:3808" placeholder="..." />
+            <marker date="1430675968499" expanded="true" signature="5658:5674" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.076923">
-          <caret line="153" column="7" selection-start-line="153" selection-start-column="7" selection-end-line="153" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="35" selection-start-line="32" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
           <folding>
+            <element signature="n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#1;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#3;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1201,46 +1608,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/admin.min.js">
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/js/admin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.68">
-          <caret line="1" column="908" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="9404" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="420" column="16" selection-start-line="420" selection-start-column="16" selection-end-line="420" selection-end-column="16" />
+          <folding>
+            <element signature="e#388#969#0" expanded="false" />
+            <element signature="e#998#10296#0" expanded="false" />
+            <element signature="e#3938#10286#0" expanded="false" />
+            <element signature="e#12316#14139#0" expanded="false" />
+            <element signature="e#15965#18162#0" expanded="false" />
+            <element signature="e#18552#18598#0" expanded="false" />
+            <element signature="e#18653#18787#0" expanded="false" />
+            <element signature="e#18844#19230#0" expanded="false" />
+            <element signature="e#19288#19539#0" expanded="false" />
+            <marker date="1430674562759" expanded="true" signature="11364:11380" placeholder="..." />
+            <marker date="1430674562759" expanded="true" signature="15305:15321" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/css/admin.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="144" column="13" selection-start-line="144" selection-start-column="9" selection-end-line="144" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/css/khaycake.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.307693">
+          <caret line="484" column="5" selection-start-line="484" selection-start-column="5" selection-end-line="484" selection-end-column="5" />
+          <folding>
+            <element signature="e#2575#4074#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sit/khaycake/js/khaycake.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="237" column="29" selection-start-line="237" selection-start-column="29" selection-end-line="237" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/js/core.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="120" column="36" selection-start-line="120" selection-start-column="36" selection-end-line="120" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.6041131">
+          <caret line="286" column="33" selection-start-line="286" selection-start-column="33" selection-end-line="286" selection-end-column="33" />
           <folding>
-            <element signature="e#6157#7048#0" expanded="false" />
-            <element signature="e#7090#7331#0" expanded="false" />
-            <marker date="1430652832765" expanded="true" signature="3795:3811" placeholder="..." />
-            <marker date="1430652832765" expanded="true" signature="5661:5677" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/js/admin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6529563">
-          <caret line="458" column="48" selection-start-line="458" selection-start-column="48" selection-end-line="458" selection-end-column="48" />
-          <folding>
-            <element signature="e#3938#10286#0" expanded="false" />
-            <element signature="e#14944#17141#0" expanded="false" />
-            <element signature="e#17624#17758#0" expanded="false" />
-            <element signature="e#17815#18201#0" expanded="false" />
-            <element signature="e#18259#18510#0" expanded="false" />
-            <element signature="e#19193#19894#0" expanded="false" />
+            <element signature="e#186#768#0" expanded="false" />
+            <element signature="e#3261#3798#0" expanded="false" />
+            <element signature="e#6425#7240#0" expanded="false" />
+            <element signature="e#7277#7741#0" expanded="false" />
+            <element signature="e#7775#7830#0" expanded="false" />
+            <element signature="e#7868#8442#0" expanded="false" />
+            <element signature="e#8484#9173#0" expanded="false" />
+            <element signature="e#9215#9381#0" expanded="false" />
+            <element signature="e#9421#9452#0" expanded="false" />
+            <element signature="e#9986#11539#0" expanded="false" />
+            <marker date="1430678761298" expanded="true" signature="9267:9285" placeholder="..." />
+            <marker date="1430678761298" expanded="true" signature="9267:9302" placeholder="..." />
           </folding>
         </state>
       </provider>

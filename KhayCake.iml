@@ -52,5 +52,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" exported="" name="com.google.code.gson:gson:2.3.1" level="project" />
+    <orderEntry type="library" name="KhayCake node_modules" level="project" />
   </component>
 </module>

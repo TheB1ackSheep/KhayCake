@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="KhayCake:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/KhayCake_war</output-path>
+    <root id="archive" name="khaycake.war">
+      <element id="artifact" artifact-name="KhayCake:war exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/lib/commons-fileupload-1.2.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/lib/commons-io-1.3.2.jar" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

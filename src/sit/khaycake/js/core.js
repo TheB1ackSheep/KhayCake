@@ -115,14 +115,14 @@ Product.update = function(id, form, fn) {
         Ajax.POST(this.URL+"/"+id, data, fn);
     }
 };
-Product.delete = function(form, fn){
-    if (form && form.serialize) {
-        var data = form.serialize();
-        Ajax.POST(this.URL+"/delete", data, fn);
-    }
+Product.delete = function(id, fn){
+    Ajax.GET(this.URL+"/"+id+"/delete", fn);
 };
 Product.pictures = function(id, fn){
   Ajax.GET(this.URL+"/"+id+"/pictures",fn);
+};
+Product.sales = function(id, fn){
+    Ajax.GET(this.URL+"/"+id+"/sales",fn);
 };
 
 Product.form = function(title,cake) {
@@ -198,6 +198,26 @@ Product.form.picture = function(picture){
     if(!picture)
         picture = {};
     return '<div class="filename alert-dismissible" role="alert">' + (picture.filename?picture.filename:'') + '</div><input type="hidden" name="pic_id" value="' + (picture.id?picture.id:'') + '"/>';
+};
+
+Product.box = function(cake){
+    if(!cake)
+        cake = {};
+    return '<div class="col-md-3 col-sm-4 col-xs-6">' +
+        '<div class="box inactive">' +
+        '<div class="box-img">' +
+        '<img src="'+HOST+'/product/'+cake.id+'/picture" alt=""/>' +
+        '</div>' +
+        '<div class="box-name">' + cake.name + '</div>' +
+        '<form class="cart-add" action="#!">' +
+        '<input type="hidden" name="p_id" value="'+cake.id+'"/>'+
+        '<div class="box-button">' +
+        '<div class="price">' + cake.price + ' บาท/' + cake.unit.name + '</div>' +
+        '<button class="cart">Add to Cart</button>' +
+        '</div>' +
+        '</form>' +
+        '</div>' +
+        '</div>';
 };
 
 var Unit = Unit || {

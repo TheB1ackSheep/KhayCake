@@ -1,7 +1,7 @@
 var K;
 $(document).ready(function() {
     var dialog = $(".dialog");
-    var dialogContent = $(".dialog-content");
+    var dialogContent =  $('.section-price');
     var section = $('.section-price');
 
     var KhayCake = KhayCake || {
@@ -20,124 +20,203 @@ $(document).ready(function() {
             }
         };
 
-    KhayCake.onHashChanged = function() {
-        var section = window.location.hash.substr(2);
-        var subSection = section.split('/')[1];
+    KhayCake.home = function(){
+        $(section).html('<div class="cake">'+
+            '<div class="cake-box">'+
+        '<div class="cake-box-img">'+
+        '<img src="images/khaycake-cupcake.png"/>'+
+        '</div>'+
+        '<div class="cake-box-name font-lily">Cupcake</div>'+
+        '<div class="cake-box-detail secondary-text">คัพเค้กนมสด คุณภาพล้นถ้วย อร่อยไปกับเนื้อเค้กนมสด และวิปครีมไขมันต่ำหลากรสให้ท่านได้เลือกสรร พร้อมเป็นของขวัญสำหรับคนที่คุณรัก</div>'+
+        '<div class="cake-box-buy"><a href="#!/cakes/cupcake" class="btn btn-primary">BUY NOW</a></div>'+
+        '</div>'+
+        '<div class="cake-box">'+
+        '<div class="cake-box-img">'+
+        '<img src="images/khaycake-crabecake-white.png"/>'+
+        '</div>'+
+        '<div class="cake-box-name font-lily">Crapecake</div>'+
+        '<div class="cake-box-detail secondary-text">สัมผัสกับความนุ่มละมุนของชั้นแป้งเนยสดสลับกับชั้นครีมหอมหวานละลานในปาก ราดด้วยสตอเบอร์รี่ไซรัปที่ตัดกับรสเค้กอย่างลงตัว</div>'+
+        '<div class="cake-box-buy"><a href="#!/cakes/crapecake" class="btn btn-primary">BUY NOW</a></div>'+
+        '</div>'+
+        '<div class="cake-box">'+
+        '<div class="cake-box-img">'+
+        '<img src="images/khaycake-logo-mask.png"/>'+
+        '</div>'+
+        '<div class="cake-box-name font-lily">Brownie</div>'+
+        '<div class="cake-box-detail secondary-text">บราวนี่อุ่นๆจากเตา หอมกลุ่น กลมกล่อมไปกับรสช็อกโกแลตเข้มข้นที่โรยหน้าด้วยอัลมอนด์คัดสรรพิเศษ พร้อมเสิร์ฟให้คุณได้ลิ้มลองทุกวัน</div>'+
+        '<div class="cake-box-buy"><a href="#!/cakes/brownie" class="btn btn-primary">BUY NOW</a></div>'+
+        '</div>'+
+        '<div class="cake-box">'+
+        '<div class="cake-box-img">'+
+        '<img src="images/khaycake-logo-mask.png"/>'+
+        '</div>'+
+        '<div class="cake-box-name font-lily">Party Cake</div>'+
+        '<div class="cake-box-detail secondary-text">ให้งานปาร์ตี้ของคุณหอมกรุ่นไปด้วยไอของขนมเค้กสุดพิเศษ ที่จะทำให้คุณและเพื่อน ๆ ในงานปาร์ตี้ของคุณไม่มีวันลืม ด้วยสีสันและรสชาติที่ไม่อาจลืม</div>'+
+        '<div class="cake-box-buy"><a  href="#!/cakes/partycake" class="btn btn-primary">BUY NOW</a></div>'+
+        '</div>'+
+        '</div>');
+    };
 
-        switch (subSection) {
-            case 'shop':
-                Shop.open();
+    KhayCake.cakes = function(cat,fn){
+        $(section).html(KhayCake.container());
+        KhayCake.loadingMask($("#cake-container"));
+        var cakeList = '';
+
+        console.log(cat);
+        switch (cat){
+            case 'cupcake':
+                Product.cupcake(function(resp) {
+                    if (resp.message && resp.message.length > 0) {
+                        for(var idx in resp.message){
+                            var product = resp.message[idx];
+                            cakeList += Product.box(product);
+                        }
+                    } else {
+                        cakeList += '<div class="col-sm-12"><div class="box">ไม่มีสินค้าในระบบ</div></div>';
+                    }
+                    if(typeof(fn) === "function")
+                        fn(cakeList);
+                });
                 break;
-            case 'login':
-                Login.open();
+            case 'crapecake':
+                Product.crapecake(function(resp) {
+                    if (resp.message && resp.message.length > 0) {
+                        for(var idx in resp.message){
+                            var product = resp.message[idx];
+                            cakeList += Product.box(product);
+                        }
+                    } else {
+                        cakeList += '<div class="col-sm-12"><div class="box">ไม่มีสินค้าในระบบ</div></div>';
+                    }
+                    if(typeof(fn) === "function")
+                        fn(cakeList);
+                });
+                break;
+            case 'brownie':
+                Product.brownie(function(resp) {
+                    if (resp.message && resp.message.length > 0) {
+                        for(var idx in resp.message){
+                            var product = resp.message[idx];
+                            cakeList += Product.box(product);
+                        }
+                    } else {
+                        cakeList += '<div class="col-sm-12"><div class="box">ไม่มีสินค้าในระบบ</div></div>';
+                    }
+                    if(typeof(fn) === "function")
+                        fn(cakeList);
+                });
+                break;
+            case 'partycake':
+                Product.partycake(function(resp) {
+                    if (resp.message && resp.message.length > 0) {
+                        for(var idx in resp.message){
+                            var product = resp.message[idx];
+                            cakeList += Product.box(product);
+                        }
+                    } else {
+                        cakeList += '<div class="col-sm-12"><div class="box">ไม่มีสินค้าในระบบ</div></div>';
+                    }
+                    if(typeof(fn) === "function")
+                        fn(cakeList);
+                });
                 break;
             default:
-                Shop.close();
+                Product.all(function(resp) {
+                    if (resp.message && resp.message.length > 0) {
+                        for(var idx in resp.message){
+                            var product = resp.message[idx];
+                            cakeList += Product.box(product);
+                        }
+                    } else {
+                        cakeList += '<div class="col-sm-12"><div class="box">ไม่มีสินค้าในระบบ</div></div>';
+                    }
+                    if(typeof(fn) === "function")
+                        fn(cakeList);
+                });
+                break;
+        }
+    };
+    KhayCake.container = function(){
+        return '<div class="row">' +
+            '<div class="col-md-2">' +
+            '<ul class="nav nav-pills nav-stacked">' +
+            '<li role="presentation" id="all"><a href="#!/cakes/all">All</a></li>' +
+            '<li role="presentation" id="cupcake"><a href="#!/cakes/cupcake">Cupcake</a></li>' +
+            '<li role="presentation" id="crapecake"><a href="#!/cakes/crapecake">Crape Cake</a></li>' +
+            '<li role="presentation" id="brownie"><a href="#!/cakes/brownie">Brownie</a></li>' +
+            '<li role="presentation" id="partycake"><a href="#!/cakes/partycake">Party Cake</a></li>' +
+            '</ul>' +
+            '</div>' +
+            '<div class="col-md-10">' +
+            '<div id="cake-container" class="row"></div>' +
+            '</div>' +
+            '</div>';
+    }
+    KhayCake.cakes.bind = function(){
+        var hash = window.location.hash.substr(2);
+        var resources = hash.split('/');
+        var cat = null;
+        if (resources.length >= 3)
+            cat = resources[2];
+
+        $(".section-price .nav li").removeClass("active");
+        $(".section-price .nav li" + "#" + cat).addClass("active");
+
+        $("#cake-container .cart-add").on("submit",function(){
+            Cart.addItem($(this).parent());
+            return false;
+        });
+    };
+
+    KhayCake.login = function(){
+        $(section).html(KhayCake.login.form());
+    };
+    KhayCake.login.form = function(){
+        return '<form id="form-login">' +
+            '<div class="form-group">' +
+            '<label>Username :</label>' +
+            '<input class="form-control" id="email" placholder="ninecake@khaycake.com"/>' +
+            '</div>' +
+            '<div class="form-group">' +
+            '<label>Password :</label>' +
+            '<input class="form-control" id="pwd" type="password"/>' +
+            '</div>' +
+            '<div class="form-group">' +
+            '<button class="btn btn-primary">Login</button>' +
+            '</div>' +
+            '</form>';
+    }
+
+    KhayCake.onHashChanged = function() {
+        var resources = window.location.hash.substr(2).split('/');
+        var method = resources[1];
+
+        switch (method) {
+            case 'cakes':
+                var cat = null;
+                if (resources.length >= 3)
+                    cat = resources[2];
+                KhayCake.cakes(cat,function(cakeList){
+                    $("#cake-container").html(cakeList);
+                    KhayCake.cakes.bind();
+                    KhayCake.loadedMask();
+
+                });
+                break;
+            case 'login':
+                KhayCake.login();
+                break;
+            default:
+                KhayCake.home();
                 break;
         }
     };
 
-
-
-    var Dialog = Dialog || {
-            PARAM_BEGIN_POS: 'begin-pos',
-            getDialog: function() {
-                return $(".dialog");
-            },
-            getBeginPos: function() {
-                return KhayCake.getParam(this.PARAM_BEGIN_POS);
-            }
-        };
-
-    Dialog.isOpen = function() {
-        return section.hasClass("open");
+    KhayCake.loadingMask = function(el){
+        $(el).html("<div class='col-sm-12' style='text-align: center;overflow: hidden'><span class='loader'><span class='loader-inner'></span></span></div>");
     };
-    Dialog.open = function(fn) {
-        if (!this.isOpen()) {
-            section.addClass("open");
-
-            var beginPos = this.getBeginPos();
-            if (beginPos) {
-                var b = beginPos.getBoundingClientRect();
-                var c = beginPos.parentNode.parentNode.parentNode.getBoundingClientRect();
-                dialog.css({
-                    top: b.top - c.top + 'px',
-                    left: b.left - c.left + 'px',
-                    backgroundColor: "#3E2733"
-                });
-            } else {
-                dialog.css({
-                    top: '50%',
-                    left: '50%',
-                    backgroundColor: "#3E2733"
-                });
-            }
-
-            dialogContent.css({
-                opacity: 0
-            });
-
-            dialog.animate({
-                width: '100%',
-                height: '100%',
-                top: 0,
-                left: 0,
-                backgroundColor: "#fff"
-            }, 200, function() {
-                dialogContent.animate({
-                    opacity: 1
-                });
-                if (typeof(fn) === "function")
-                    fn();
-            });
-        }
-    };
-    Dialog.setContent = function(content){
-        dialogContent.html(content);
-    };
-    Dialog.close = function(fn) {
-        if (this.isOpen()) {
-            section.removeClass("open");
-
-            var beginPos = this.getBeginPos();
-            var size;
-            if (beginPos) {
-                var b = beginPos.getBoundingClientRect();
-                var c = beginPos.parentNode.parentNode.parentNode.getBoundingClientRect();
-                size = {
-                    width: b.width,
-                    height: b.height,
-                    top: b.top - c.top + 'px',
-                    left: b.left - c.left + 'px',
-                    backgroundColor: "#3E2733"
-                };
-            } else {
-                size = {
-                    width: 0,
-                    height: 0,
-                    top: '50%',
-                    left: '50%',
-                    backgroundColor: "#fff"
-                };
-            }
-
-            dialogContent.animate({
-                opacity: 0
-            }, 100, function() {
-                dialog.animate({
-                    width: size.width,
-                    height: size.height,
-                    top: size.top,
-                    left: size.left,
-                    backgroundColor: size.backgroundColor
-                }, 350, function() {
-                    dialog.attr('style', '');
-                    if (typeof(fn) === "function")
-                        fn();
-                });
-            });
-
-        }
+    KhayCake.loadedMask = function(el){
+        $(el).html("");
     };
 
     var Cart = Cart || {
@@ -199,173 +278,6 @@ $(document).ready(function() {
 
             }
         };
-
-    var Shop = Shop || {
-            CN_NAV: '.dialog .nav',
-            CN_NAV_LIST: '.dialog .nav li',
-            ID_CAKE_CONTAINER: '#cake-container',
-            getContainer: function(cakes) {
-                var cakeList = "";
-                for (var idx in cakes) {
-                    cakeList += this.getCakeBox(cakes[idx]);
-                }
-                return '<div class="row">' +
-                    '<div class="col-md-2">' +
-                    '<ul class="nav nav-pills nav-stacked">' +
-                    '<li role="presentation" id="cupcake"><a href="#!/shop/cupcake">Cupcake</a></li>' +
-                    '<li role="presentation" id="crapecake"><a href="#!/shop/crapecake">Crape Cake</a></li>' +
-                    '<li role="presentation" id="brownie"><a href="#!/shop/brownie">Brownie</a></li>' +
-                    '<li role="presentation" id="partycake"><a href="#!/shop/partycake">Party Cake</a></li>' +
-                    '</ul>' +
-                    '</div>' +
-                    '<div class="col-md-10">' +
-                    '<div id="cake-container" class="row">' + cakeList + '</div>' +
-                    '</div>' +
-                    '</div>';
-            },
-            getCakeBox: function(cake) {
-                return '<div class="col-md-3 col-sm-4 col-xs-6">' +
-                    '<div class="box inactive">' +
-                    '<div class="box-img">' +
-                    '<img src="'+HOST+'/product/'+cake.id+'/picture" alt=""/>' +
-                    '</div>' +
-                    '<div class="box-name">' + cake.name + '</div>' +
-                    '<div class="box-button">' +
-                    '<div class="price">' + cake.price + ' บาท/' + cake.unit.name + '</div>' +
-                    '<button class="cart">Add to Cart</button>' +
-                    '</div>' +
-                    '</div>' +
-                    '</div>';
-            }
-        };
-
-    Shop.open = function() {
-        var hash = window.location.hash.substr(2);
-        var resources = hash.split('/');
-        var cat = null;
-        if (resources.length >= 3)
-            cat = resources[2];
-
-        var cakes = null;
-        switch (cat) {
-            case 'cupcake':
-                Product.cupcake(function(resp) {
-                    if (resp.success) {
-                        if (resp.message && resp.message.length > 0) {
-                            Dialog.open();
-                            Dialog.setContent(Shop.getContainer(resp.message));
-                            Shop.tab();
-                        } else {
-                            //There are no cakes
-                        }
-                    } else {
-                        //On Error 500
-                    }
-                });
-                break;
-            case 'crapecake':
-                Product.crapecake(function(resp) {
-                    if (resp.success) {
-                        if (resp.message && resp.message.length > 0) {
-                            Dialog.open();
-                            Dialog.setContent(Shop.getContainer(resp.message));
-                            Shop.tab();
-                        } else {
-                            //There are no cakes
-                        }
-                    } else {
-                        //On Error 500
-                    }
-                });
-                break;
-            case 'brownie':
-                Product.brownie(function(resp) {
-                    if (resp.success) {
-                        if (resp.message && resp.message.length > 0) {
-                            Dialog.open();
-                            Dialog.setContent(Shop.getContainer(resp.message));
-                            Shop.tab();
-                        } else {
-                            //There are no cakes
-                        }
-                    } else {
-                        //On Error 500
-                    }
-                });
-                break;
-            case 'partycake':
-                Product.partycake(function(resp) {
-                    if (resp.success) {
-                        if (resp.message && resp.message.length > 0) {
-                            Dialog.open();
-                            Dialog.setContent(Shop.getContainer(resp.message));
-                            Shop.tab();
-                        } else {
-                            //There are no cakes
-                        }
-                    } else {
-                        //On Error 500
-                    }
-                });
-                break;
-            default:
-                Product.all(function(resp) {
-                    if (resp.success) {
-                        if (resp.message && resp.message.length > 0) {
-                            Dialog.open();
-                            Dialog.setContent(Shop.getContainer(resp.message));
-                            Shop.tab();
-                        } else {
-                            //There are no cakes
-                        }
-                    } else {
-                        //On Error 500
-                    }
-                });
-                break;
-        }
-
-
-
-
-
-
-    };
-    Shop.close = function() {
-        Dialog.close();
-    };
-    Shop.tab = function(){
-        var hash = window.location.hash.substr(2);
-        var resources = hash.split('/');
-        var cat = null;
-        if (resources.length >= 3)
-            cat = resources[2];
-
-        $(Shop.CN_NAV_LIST).removeClass("active");
-        $(Shop.CN_NAV_LIST + "#" + cat).addClass("active");
-    };
-
-    var Login = Login || {
-            ID_FORM_NAME: 'form-login',
-            getForm: function() {
-                return '<form id="' + this.ID_FORM_NAME + '">' +
-                    '<div class="form-group">' +
-                    '<label>Username :</label>' +
-                    '<input class="form-control" id="email" placholder="ninecake@khaycake.com"/>' +
-                    '</div>' +
-                    '<div class="form-group">' +
-                    '<label>Password :</label>' +
-                    '<input class="form-control" id="pwd" type="password"/>' +
-                    '</div>' +
-                    '<div class="form-group">' +
-                    '<button class="btn btn-primary">Login</button>' +
-                    '</div>' +
-                    '</form>';
-            }
-        };
-    Login.open = function() {
-        Dialog.open(Login.getForm());
-    };
 
     $(window).bind("hashchange", function() {
         KhayCake.onHashChanged();

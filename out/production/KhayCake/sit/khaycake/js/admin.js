@@ -30,6 +30,7 @@ $(document).ready(function() {
             errorBox += 'request return with status ' + resp.status + ' : ' + resp.statusText;
         }
         alert(errorBox);
+        Admin.loadedMask();
     };
 
 
@@ -52,15 +53,7 @@ $(document).ready(function() {
 
             loadCakeIndex: function(q) {
 
-                $("#delete-cake").click(function() {
-                    Admin.post("/product/delete", $("#form-cake").serialize(), function(resp) {
-                        if (!resp.error) {
-                            msg = "ลบเค้กที่เลือกไว้เรียบร้อย";
-                            $("input[type=checkbox]:checked").parent().parent().parent().remove();
-                        } else
-                            error = resp;
-                    });
-                });
+
 
             },
             loadCakeAddForm: function() {
@@ -311,10 +304,47 @@ $(document).ready(function() {
             });
         } else if (method) {
             if (isInteger(method)) { //get cake by id
+                Admin.loadingMask();
+                Product.find(method,function(resp) {
+                    var product = resp.message;
+                    actionBarContent = '<div class="el"><a href="#!/cakes" class="btn btn-default">กลับ</a></div><div class="el"><button class="btn btn-primary" id="update-cake">บันทึก</button></div>';
+                    $(actionBar).html(actionBarContent);
+                    $(content).html(Product.form("แก้ไขเค้กใหม่",product));
+                    Unit.box(function(unitBox){
+                        $("#unit-container").html(unitBox);
+                        $("#unit-container select").val(product.unit.id);
+                    });
+                    Category.box(function(catBox){
+                        $("#category-container").html(catBox);
+                        $("#category-container select").val(product.category.id);
+                    });
+
+                    Product.pictures(method,function(resp){
+                        var html = '';
+                        for(var idx in resp.message){
+                            var picture = resp.message[idx];
+                            html += (Product.form.picture(picture));
+                        }
+                        $("#form-cake #pic-list").html(html);
+
+                    });
+
+                    Product.sales(method,function(resp){
+                        var html = '';
+                        for(var idx in resp.message){
+                            var sale = resp.message[idx];
+                            html += Product.form.sale(sale);
+                        }
+                        $("#form-cake #product_sale").html(html);
+                    })
+
+                    Admin.tabCake.bind(method);
+                    Admin.loadedMask();
+                });
 
             } else {
                 if (method === "create") {
-                    actionBarContent = '<div class="el"><a href="#!/cakes" class="btn btn-default">กลับ</a></div><div class="el"><button class="btn btn-primary" id="add-cake">บันทึก</button></div>';
+                    actionBarContent = '<div class="el"><a href="#!/cakes" class="btn btn-default">กลับ</a></div><div class="el"><button class="btn btn-primary" id="save-cake">บันทึก</button></div>';
                     $(actionBar).html(actionBarContent);
                     $(content).html(Product.form("เพิ่มเค้กใหม่"));
                     Unit.box(function(unitBox){
@@ -323,9 +353,11 @@ $(document).ready(function() {
                     Category.box(function(catBox){
                         $("#category-container").html(catBox);
                     });
+
                     Admin.tabCake.bind();
                 } else if (method === "search") {
                     Product.find(param, function(resp) {
+                        actionBarContent = '<div class="el"><a href="#!/cakes" class="btn btn-default">กลับ</a></div><div class="el btn-group"><a href="#!/cakes/create" class="btn btn-primary" id="add-cake">เพิ่มเค้ก</a><button class="btn btn-danger disabled" id="delete-cake">ลบ</button></div><div class="el"><form id="form-search-cake"><div class="input-group" style="max-width: 400px"><input type="text" name="q" id="keyword" class="form-control" placeholder="ค้นหาตามชื่อเค้ก, คำอธิบาย" required><span class="input-group-btn"><button class="btn btn-default" id="search-cake" type="submit">ค้นหา</button></span></div></form></div>';
                         $(actionBar).html(actionBarContent);
                         $("#form-search-cake #keyword").val(param);
                         Admin.tabCake.table(resp.message);
@@ -381,10 +413,10 @@ $(document).ready(function() {
         cakeTable += '</table>';
         $(content).html(cakeTable);
     };
-    Admin.tabCake.bind = function() {
+    Admin.tabCake.bind = function(id) {
         $("input[type=checkbox]").on("change", function(ev) {
-            var len = $("input[type=checkbox]:checked").length;
-            if (len > 0)
+            var pIds = $("#form-cake").serializeArray();
+            if(pIds && pIds.length > 0)
                 $("#delete-cake").removeClass("disabled");
             else
                 $("#delete-cake").addClass("disabled");
@@ -411,11 +443,44 @@ $(document).ready(function() {
             return false;
         });
 
-        $(".action-bar #add-cake").click(function(ev){
+        $(".action-bar #save-cake").click(function(ev){
+            Admin.loadingMask();
             Product.save($("#form-cake"),function(resp){
+                Admin.loadedMask();
                 alert("เพิ่มข้อมูลเรียบร้อย");
                 window.location.hash = "#!/cakes";
             });
+        });
+
+        $(".action-bar #update-cake").click(function(ev){
+            Admin.loadingMask();
+            Product.update(id,$("#form-cake"),function(resp){
+                Admin.loadedMask();
+                alert("แก้ไขข้อมูลเรียบร้อย");
+                window.location.hash = "#!/cakes";
+            });
+        });
+
+        $(".action-bar #delete-cake").click(function() {
+
+            var pIds = $("#form-cake").serializeArray();
+            if(pIds && pIds.length > 0){
+                Admin.loadingMask();
+                var length = pIds.length;
+                var total = 0;
+                for(var idx in pIds){
+                    Product.delete(pIds[idx].value,function(){
+                        Admin.loadedMask();
+                        if(++total == length){
+                            alert("ลบข้อมูลเรียบร้อย");
+                            Admin.onHashChanged(); //refresh
+                        }
+
+                    });
+                }
+
+            }
+
         });
 
         $("#form-cake #pictures").on("change", function(ev) {
@@ -431,7 +496,7 @@ $(document).ready(function() {
                     var result = '';
                     for (var idx in resp.message) {
                         var picture = resp.message[idx];
-                        result += '<div class="filename alert-dismissible" role="alert">' + picture.filename + '</div><input type="hidden" name="pic_id" value="' + picture.id + '"/>';
+                        result += Product.form.picture(picture);
                     }
                     $("#form-cake #pic-list").html(result);
                 }
