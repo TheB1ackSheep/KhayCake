@@ -69,6 +69,17 @@ public class Bank implements ORM, CanFindByKeyword {
             this.setBank((Bank)SQL.findById(Bank.class,rs.getInt(COLUMN_BANK_ID.getColumnName())));
         }
 
+        public static List<Branch> findByBank(int BANK_ID) throws Exception{
+            SQL sql = new SQL();
+            List<Branch> result = sql
+                    .select()
+                    .from(Branch.TABLE_NAME)
+                    .where(Branch.COLUMN_ID, SQL.WhereClause.Operator.EQ, BANK_ID)
+                    .fetch(Branch.class);
+            return result;
+
+        }
+
         public void save() throws Exception{
             SQL sql = new SQL();
             int id = sql

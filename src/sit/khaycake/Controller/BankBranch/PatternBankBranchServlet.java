@@ -1,11 +1,9 @@
-package sit.khaycake.Controller.Bank;
+package sit.khaycake.Controller.BankBranch;
 
-import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
 import sit.khaycake.model.Bank;
 import sit.khaycake.util.ErrorMessage;
 import sit.khaycake.util.SuccessMessage;
-import sit.khaycake.util.Util;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,12 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Created by Pasuth on 19/4/2558.
  */
-public class PatternBankServlet extends HttpServlet {
+public class PatternBankBranchServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -30,10 +27,10 @@ public class PatternBankServlet extends HttpServlet {
         if (resource.indexOf("delete") >= 0) {
             resource = resource.substring(0, resource.indexOf("/", 1));
             try {
-                Bank bank = (Bank)SQL.findById(Bank.class,resource);
-                if (bank != null) {
-                    Bank.delete(Integer.parseInt(resource));
-                    succes.setMessage(bank);
+                Bank.Branch bankBranch = (Bank.Branch)SQL.findById(Bank.Branch.class,resource);
+                if (bankBranch != null) {
+                    Bank.Branch.delete(Integer.parseInt(resource));
+                    succes.setMessage(bankBranch);
                 }else{
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
@@ -41,26 +38,11 @@ public class PatternBankServlet extends HttpServlet {
                 error.setMessage(ex.getMessage());
             }
 
-        } else if (resource.indexOf("branch") >= 0) {
-            resource = resource.substring(0, resource.indexOf("/", 1));
+        } else {
             try {
-                if (Util.isInteger(resource)) {
-                    List<Bank.Branch> bankBranchs = Bank.Branch.findByBank(
-                            Integer.parseInt(resource));
-                    if (bankBranchs.isEmpty())
-                        response.sendError(HttpServletResponse.SC_NOT_FOUND);
-                    succes.setMessage(bankBranchs);
-                }
-
-            } catch (Exception e) {
-                error.setMessage(e.getMessage());
-            }
-
-        }else {
-            try {
-                Bank bank = (Bank) SQL.findById(Bank.class, resource);
-                if (bank != null) {
-                    succes.setMessage(bank);
+                Bank.Branch bankBranch = (Bank.Branch) SQL.findById(Bank.Branch.class, resource);
+                if (bankBranch != null) {
+                    succes.setMessage(bankBranch);
                 } else {
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
@@ -81,13 +63,14 @@ public class PatternBankServlet extends HttpServlet {
         ErrorMessage error = new ErrorMessage(session);
 
         try {
-            Bank bank = (Bank) SQL.findById(Bank.class, Integer.parseInt(resource));
+            Bank.Branch bankBranch = (Bank.Branch) SQL.findById(Bank.Branch.class, Integer.parseInt(resource));
 
-            if (bank != null) {
-                bank.setNameTh(request.getParameter("NAME_TH"));
-                bank.setNameEn(request.getParameter("NAME_EN"));
-                bank.update();
-                succes.setMessage(bank);
+            if (bankBranch != null) {
+                bankBranch.setNameTh(request.getParameter("NAME_TH"));
+                bankBranch.setNameEn(request.getParameter("NAME_EN"));
+                bankBranch.setBank((Bank) SQL.findById(Bank.class, request.getParameter("BANK_ID")));
+                bankBranch.update();
+                succes.setMessage(bankBranch);
             } else {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
             }

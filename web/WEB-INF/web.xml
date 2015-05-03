@@ -22,17 +22,26 @@
         <url-pattern>/address</url-pattern>
         <url-pattern>/address/*</url-pattern>
     </filter-mapping>
-
+    
     <filter>
-        <filter-name>ProductRequest</filter-name>
-        <filter-class>sit.khaycake.Filter.request.ProductRequest</filter-class>
+        <filter-name>BankRequest</filter-name>
+        <filter-class>sit.khaycake.Filter.request.BankRequest</filter-class>
     </filter>
     <filter-mapping>
-        <filter-name>ProductRequest</filter-name>
-        <url-pattern>/product</url-pattern>
-        <url-pattern>/product/*</url-pattern>
+        <filter-name>BankRequest</filter-name>
+        <url-pattern>/bank</url-pattern>
+        <url-pattern>/bank/*</url-pattern>
     </filter-mapping>
 
+    <filter>
+        <filter-name>BankBranchRequest</filter-name>
+        <filter-class>sit.khaycake.Filter.request.BankBranchRequest</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>BankBranchRequest</filter-name>
+        <url-pattern>/bankbranch</url-pattern>
+        <url-pattern>/bankbranch/*</url-pattern>
+    </filter-mapping>
 
     <servlet>
         <servlet-name>AddressServler</servlet-name>
@@ -68,6 +77,24 @@
     <servlet-mapping>
         <servlet-name>PatternBankServler</servlet-name>
         <url-pattern>/bank/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BankBranchServler</servlet-name>
+        <servlet-class>sit.khaycake.Controller.BankBranch.BankBranchServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BankBranchServler</servlet-name>
+        <url-pattern>/bankbranch</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PatternBankBranchServler</servlet-name>
+        <servlet-class>sit.khaycake.Controller.BankBranch.PatternBankBranchServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PatternBankBranchServler</servlet-name>
+        <url-pattern>/bankbranch/*</url-pattern>
     </servlet-mapping>
 
     <servlet>

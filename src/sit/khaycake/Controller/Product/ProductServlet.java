@@ -1,13 +1,11 @@
 package sit.khaycake.Controller.Product;
 
-import com.google.gson.Gson;
+
 import sit.khaycake.database.SQL;
-import sit.khaycake.model.Category;
-import sit.khaycake.model.Product;
-import sit.khaycake.model.ProductSale;
+import sit.khaycake.model.*;
 import sit.khaycake.util.ErrorMessage;
-import sit.khaycake.util.JsonMessage;
 import sit.khaycake.util.SuccessMessage;
+import sit.khaycake.util.Util;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Enumeration;
 import java.util.List;
 
 /**
@@ -27,9 +24,16 @@ public class ProductServlet extends HttpServlet {
         HttpSession session = request.getSession();
         SuccessMessage success = new SuccessMessage(session);
         ErrorMessage error = new ErrorMessage(session);
+
+        String cat_id = request.getParameter("cat");
         try {
-            List<Product> products = (List<Product>)SQL.findAll(Product.class);
-            success.setMessage(products);
+            if(cat_id != null && Util.isInteger(cat_id)){
+                List<Product> products = Product.findByCategory(Integer.parseInt(cat_id));
+                success.setMessage(products);
+            }else{
+                List<Product> products = (List<Product>)SQL.findAll(Product.class);
+                success.setMessage(products);
+            }
         } catch (Exception ex) {
             error.setMessage(ex.getMessage());
         }
@@ -43,7 +47,6 @@ public class ProductServlet extends HttpServlet {
         SuccessMessage success = new SuccessMessage(session);
         ErrorMessage error = new ErrorMessage(session);
         try {
-            SQL sql = new SQL();
             Product product = new Product();
             product.setName(request.getParameter("NAME"));
             product.setDetail(request.getParameter("DETAIL"));
@@ -59,9 +62,22 @@ public class ProductServlet extends HttpServlet {
                 productSale.setQty(Integer.parseInt(productSaleStr));
                 productSale.save();
             }
+
+            String[] pictures = request.getParameterValues("PIC_ID");
+            for(String picStr : pictures){
+                PicProduct picProduct = new PicProduct();
+                Picture picture = (Picture)SQL.findById(Picture.class, picStr);
+                if(picture!= null){
+                    picProduct.setProdId(product.getId());
+                    picProduct.setPicture(picture);
+                    picProduct.save();
+                }
+
+            }
             success.setMessage(product);
         } catch (Exception ex) {
             error.setMessage(ex.getMessage());
         }
     }
 }
+

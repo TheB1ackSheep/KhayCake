@@ -11,7 +11,7 @@ import java.io.IOException;
 /**
  * Created by Pasuth on 29/4/2558.
  */
-public class ProductRequest extends MyFilter {
+public class BankRequest extends MyFilter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
 
@@ -23,11 +23,7 @@ public class ProductRequest extends MyFilter {
         HttpServletResponse response = (HttpServletResponse)servletResponse;
         if(request.getMethod().equalsIgnoreCase("post")) {
             RequestValidation req = new RequestValidation(request,response);
-            req.validate(attribute("NAME", "ชื่อเค้ก"), attribute("DETAIL", "รายละเอียด"),
-                    integerAttribute("UNIT_ID", "หน่วยเค้ก"), integerAttribute("CAT_ID", "ชนิดเค้ก"),
-                    floatAttribute("COST", "ราคาต้นทุน"), floatAttribute("PRICE", "ราคาขาย"),
-                    integerAttribute("SALE_QTY", "จำนวนขาย", false),
-                    integerAttribute("SALE_PRICE", "ราคาขาย", false));
+            req.validate(attribute("NAME_TH", "ชื่อภาษาไทย"), attribute("NAME_EN","ชื่อภาษาอังกฤษ"));
 
 
         }else {

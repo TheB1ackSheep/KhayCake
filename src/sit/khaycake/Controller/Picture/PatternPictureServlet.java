@@ -39,7 +39,7 @@ public class PatternPictureServlet extends HttpServlet {
             try {
                 Picture picture = (Picture)SQL.findById(Picture.class,resource);
                 String appPath = request.getServletContext().getRealPath("");
-                File file = new File(appPath+"\\images\\"+picture.getFilename());//"/usr/share/glassfish4/glassfish/domains/jsp.falook.me/applications/khaycake/images/"+picture.getFilename());
+                File file = new File/*(appPath+"\\images\\"+picture.getFilename());*/("/usr/share/glassfish4/glassfish/domains/jsp.falook.me/applications/khaycake/images/"+picture.getFilename());
                 if(file.delete()) {
                     Picture.delete(picture.getId());
                     succes.setMessage(picture);
