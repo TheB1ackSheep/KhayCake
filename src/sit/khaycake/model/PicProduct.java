@@ -1,18 +1,16 @@
 package sit.khaycake.model;
 
-import sit.khaycake.database.CanFindByKeyword;
 import sit.khaycake.database.Column;
 import sit.khaycake.database.ORM;
 import sit.khaycake.database.SQL;
 
 import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Pasuth on 22/4/2558.
  */
-public class PicProduct implements ORM{
+public class PicProduct implements ORM {
     private int prodId;
     private int picId;
 
@@ -20,7 +18,7 @@ public class PicProduct implements ORM{
     public static final String TABLE_NAME = "PIC_PRODUCT";
     public static final Column COLUMN_PROD_ID = ORM.column(TABLE_NAME, "PROD_ID");
     public static final Column COLUMN_PIC_ID = ORM.column(TABLE_NAME, "PIC_ID");
-    public static final List<Column> PRIMARY_KEY = ORM.columns(COLUMN_PROD_ID,COLUMN_PIC_ID);
+    public static final List<Column> PRIMARY_KEY = ORM.columns(COLUMN_PROD_ID, COLUMN_PIC_ID);
     //public static final List<Column> COLUMN_KEYWORD = ORM.columns(COLUMN_PROD_ID);
 
     public int getProdId() {
@@ -44,12 +42,8 @@ public class PicProduct implements ORM{
         this.setPicId(rs.getInt(COLUMN_PIC_ID.getColumnName()));
     }
 
-    public void save() throws Exception{
+    public void save() throws Exception {
         SQL sql = new SQL();
-        sql.delete(TABLE_NAME)
-                .where(COLUMN_PROD_ID, SQL.WhereClause.Operator.EQ, this.prodId)
-                .exec();
-        sql.clear();
         sql
                 .insert()
                 .into(PicProduct.TABLE_NAME, PicProduct.COLUMN_PROD_ID, PicProduct.COLUMN_PIC_ID)
@@ -58,7 +52,7 @@ public class PicProduct implements ORM{
     }
 
 
-    public static int delete(int PROD_ID, int PIC_ID) throws Exception{
+    public static int delete(int PROD_ID, int PIC_ID) throws Exception {
         SQL sql = new SQL();
         int a = sql
                 .delete(PicProduct.TABLE_NAME)
@@ -68,7 +62,7 @@ public class PicProduct implements ORM{
         return a;
     }
 
-    public static int delete(int PROD_ID) throws Exception{
+    public static int delete(int PROD_ID) throws Exception {
         SQL sql = new SQL();
         int a = sql
                 .delete(PicProduct.TABLE_NAME)

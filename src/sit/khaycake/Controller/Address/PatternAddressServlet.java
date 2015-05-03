@@ -23,13 +23,13 @@ public class PatternAddressServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0) + 1);
         HttpSession session = request.getSession();
         SuccessMessage succes = new SuccessMessage(session);
         ErrorMessage error = new ErrorMessage(session);
 
         if (resource.indexOf("delete") >= 0) {
-            resource = resource.substring(0,resource.indexOf("/", 1));
+            resource = resource.substring(0, resource.indexOf("/", 1));
             try {
                 int result = Address.delete(Integer.parseInt(resource));
                 if (result < 0) {
@@ -39,12 +39,12 @@ public class PatternAddressServlet extends HttpServlet {
                 error.setMessage(ex.getMessage());
             }
 
-        } else if(resource.indexOf("subdistrict") >= 0) {
+        } else if (resource.indexOf("subdistrict") >= 0) {
             resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
             try {
                 if (Util.isInteger(resource)) {
-                    SubDistrict subDistrict = (SubDistrict)SQL.findById(SubDistrict.class,resource);
-                    if (subDistrict==null)
+                    SubDistrict subDistrict = (SubDistrict) SQL.findById(SubDistrict.class, resource);
+                    if (subDistrict == null)
                         response.sendError(HttpServletResponse.SC_NOT_FOUND);
                     succes.setMessage(subDistrict);
                 }
@@ -53,13 +53,13 @@ public class PatternAddressServlet extends HttpServlet {
                 error.setMessage(ex.getMessage());
             }
 
-        }else if(resource.indexOf("district") >= 0) {
+        } else if (resource.indexOf("district") >= 0) {
             resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
             try {
                 if (Util.isInteger(resource)) {
-                    SubDistrict subDistrict = (SubDistrict)SQL.findById(SubDistrict.class,resource);
-                    District district = (District)SQL.findById(SubDistrict.class,subDistrict.getDistrict());
-                    if (district==null)
+                    SubDistrict subDistrict = SQL.findById(SubDistrict.class, resource);
+                    District district = SQL.findById(District.class, subDistrict.getDistrict());
+                    if (district == null)
                         response.sendError(HttpServletResponse.SC_NOT_FOUND);
                     succes.setMessage(district);
                 }
@@ -68,12 +68,12 @@ public class PatternAddressServlet extends HttpServlet {
                 error.setMessage(e.getMessage());
             }
 
-        }else if(resource.indexOf("province") >= 0) {
+        } else if (resource.indexOf("province") >= 0) {
             resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
             try {
                 if (Util.isInteger(resource)) {
-                    SubDistrict subDistrict = (SubDistrict)SQL.findById(SubDistrict.class,resource);
-                    if (subDistrict==null)
+                    SubDistrict subDistrict = (SubDistrict) SQL.findById(SubDistrict.class, resource);
+                    if (subDistrict == null)
                         response.sendError(HttpServletResponse.SC_NOT_FOUND);
                     succes.setMessage(subDistrict);
                 }
@@ -85,9 +85,9 @@ public class PatternAddressServlet extends HttpServlet {
         } else {
             Address address = null;
             try {
-                if(Util.isInteger(resource)) {
+                if (Util.isInteger(resource)) {
                     address = (Address) SQL.findById(Address.class, Integer.parseInt(resource));
-                }else{
+                } else {
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
 
@@ -110,7 +110,7 @@ public class PatternAddressServlet extends HttpServlet {
         SuccessMessage succes = new SuccessMessage(session);
         ErrorMessage error = new ErrorMessage(session);
 
-        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0) + 1);
         Address address = null;
         try {
             address = (Address) SQL.findById(Address.class, Integer.parseInt(resource));
@@ -124,7 +124,7 @@ public class PatternAddressServlet extends HttpServlet {
                 address.setStreet(request.getParameter("STREET"));
                 address.setSubDistrictId(Integer.parseInt(request.getParameter("SUDT_ID")));
                 address.update();
-            }catch (Exception ex){
+            } catch (Exception ex) {
                 error.setMessage(ex.getMessage());
             }
 

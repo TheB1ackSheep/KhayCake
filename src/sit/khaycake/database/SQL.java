@@ -7,20 +7,21 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 import java.sql.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Falook Glico on 4/12/2015.
  */
-public class SQL{
+public class SQL {
 
-    public static class WhereClause{
+    public static class WhereClause {
         private Column column;
         private Operator operator;
         private Object value;
         private SQL.WhereClause.Operator endOperator;
 
-        public enum Operator{
+        public enum Operator {
             EQ("="),
             NE("<>"),
             MT(">"),
@@ -30,8 +31,7 @@ public class SQL{
             LIKE("LIKE"),
             IN("IN"),
             AND("AND"),
-            OR("OR")
-            ;
+            OR("OR");
             private final String value;
 
             Operator(final String value) {
@@ -44,21 +44,21 @@ public class SQL{
             }
         }
 
-        public WhereClause(Column column, Operator operator, Object value,SQL.WhereClause.Operator endOperator) {
+        public WhereClause(Column column, Operator operator, Object value, SQL.WhereClause.Operator endOperator) {
             this.column = column;
             this.operator = operator;
             this.value = value;
             this.endOperator = endOperator;
         }
     }
-    public static class OrderClause{
+
+    public static class OrderClause {
         protected Column column;
         protected Operator operator;
 
-        public enum Operator{
+        public enum Operator {
             ASC("ASC"),
-            DESC("DESC")
-            ;
+            DESC("DESC");
             private final String value;
 
             Operator(final String value) {
@@ -89,8 +89,9 @@ public class SQL{
     private List<Object> params;
 
 
-
-    public SQL(){this(null);}
+    public SQL() {
+        this("");
+    }
 
     public SQL(String sql) {
         this.sql = sql;
@@ -105,89 +106,107 @@ public class SQL{
             con = ds.getConnection();
         } catch (NamingException ex) {
             Class.forName("com.mysql.jdbc.Driver");
-            String url = "jdbc:mysql://"+SQL.HOST+":"+SQL.PORT+"/"+SQL.DATABASE+"?useUnicode=true&characterEncoding=UTF-8";
+            String url = "jdbc:mysql://" + SQL.HOST + ":" + SQL.PORT + "/" + SQL.DATABASE + "?useUnicode=true&characterEncoding=UTF-8";
             con = DriverManager.getConnection(url, SQL.USERNAME, SQL.PASSWORD);
         }
-        return con ;
+        return con;
     }
 
-    public SQL select(){
+    public SQL select() {
         this.sql = "SELECT * ";
         return this;
     }
 
-    public SQL select(Column... columns){
-        this.sql = "SELECT ";
+    public SQL select(Column... columns) {
+        if (!this.sql.contains("SELECT") || (this.sql.contains("UNION")))
+            this.sql += "SELECT ";
+        else
+            this.sql += ", ";
         for (int i = 0; i < columns.length; i++)
-            this.sql += columns[i] + ((i<columns.length-1)?", ":" ");
+            this.sql += columns[i] + ((i < columns.length - 1) ? ", " : " ");
+        return this;
+    }
+
+    public SQL select(String str, String colname) {
+        if (!this.sql.contains("SELECT") || (this.sql.contains("UNION")))
+            this.sql += "SELECT ";
+        else
+            this.sql += ", ";
+        this.sql += str + " \"" + colname + "\" ";
         return this;
     }
 
     public SQL from(String... tables) throws NoSuchFieldException, IllegalAccessException, SQLException, ClassNotFoundException {
         this.sql += "FROM ";
         for (int i = 0; i < tables.length; i++)
-            this.sql += tables[i] + ((i<tables.length-1)?", ":" ");
-        return this;
-    }
-    public SQL join(String table){
-        this.sql += "JOIN "+table+" ";
+            this.sql += tables[i] + ((i < tables.length - 1) ? ", " : " ");
         return this;
     }
 
-    public SQL on(Column col1,Column col2){
-        this.sql += "ON "+col1+" = "+col2+" ";
+    public SQL union() {
+        this.sql += "UNION ";
+        return this;
+    }
+
+    public SQL join(String table) {
+        this.sql += "JOIN " + table + " ";
+        return this;
+    }
+
+    public SQL on(Column col1, Column col2) {
+        this.sql += "ON " + col1 + " = " + col2 + " ";
         return this;
     }
 
 
-    public SQL where(Column column,WhereClause.Operator operator,Object value){
-        return this.where(column,operator,value,null);
+    public SQL where(Column column, WhereClause.Operator operator, Object value) {
+        return this.where(column, operator, value, null);
     }
 
-    public SQL where(Column column,WhereClause.Operator operator,Object value,WhereClause.Operator whereOperator){
-        if(!this.sql.contains("WHERE"))
+    public SQL where(Column column, WhereClause.Operator operator, Object value, WhereClause.Operator whereOperator) {
+        if (!this.sql.contains("WHERE") || (this.sql.contains("UNION") && whereOperator != null))
             this.sql += "WHERE ";
-        this.sql += column + " "+operator
-                    + " ? " + ((whereOperator != null) ? whereOperator + " " : "");
-        if(this.params == null)
+        this.sql += column + " " + operator
+                + " ? " + ((whereOperator != null) ? whereOperator + " " : "");
+        if (this.params == null)
             this.params = new ArrayList<>();
         this.params.add(value);
         return this;
     }
 
-    public SQL order(Column column,OrderClause.Operator orderType){
-        if(!this.sql.contains("ORDER BY"))
+    public SQL order(Column column, OrderClause.Operator orderType) {
+        if (!this.sql.contains("ORDER BY"))
             this.sql += "ORDER BY ";
         else
             this.sql += ", ";
-        this.sql += column + " "+ orderType+" ";
+        this.sql += column + " " + orderType + " ";
         return this;
     }
 
-    public SQL chunk(int size){
-        this.sql += "LIMIT 1, "+size;
+    public SQL chunk(int size) {
+        this.sql += "LIMIT 1, " + size;
         return this;
     }
 
-    public SQL chunk(int page,int size){
-        this.sql += "LIMIT "+(page-1)*size + 1+", "+size;
+    public SQL chunk(int page, int size) {
+        this.sql += "LIMIT " + (page - 1) * size + 1 + ", " + size;
         return this;
     }
 
     public <T extends ORM> List<T> fetch(Class<? extends ORM> entity) throws Exception {
         List<T> result = null;
-        try(Connection conn = getConnection()){
-            PreparedStatement prep = conn.prepareStatement((sql == null)?this.getSql():this.sql);
+        try (Connection conn = getConnection()) {
+            PreparedStatement prep = conn.prepareStatement((sql == null) ? this.getSql() : this.sql);
             if (this.params != null) {
                 for (int i = 0; i < params.size(); i++) {
-                    prep.setObject(i+1,params.get(i));
+                    prep.setObject(i + 1, params.get(i));
                 }
             }
             ResultSet rs = prep.executeQuery();
-            while(rs.next()){
-                if(result == null)
+            while (rs.next()) {
+                if (result == null)
                     result = new ArrayList<>();
-                T t = (T)entity.newInstance();
+                T t = (T) entity.newInstance();
                 t.orm(rs);
                 result.add(t);
             }
@@ -197,24 +216,38 @@ public class SQL{
         return result;
     }
 
-    public SQL insert(){
+    public ResultSet fetch() throws Exception {
+        try (Connection conn = getConnection()) {
+            PreparedStatement prep = conn.prepareStatement((sql == null) ? this.getSql() : this.sql);
+            if (this.params != null) {
+                for (int i = 0; i < params.size(); i++) {
+                    prep.setObject(i + 1, params.get(i));
+                }
+            }
+            this.params = null;
+            return prep.executeQuery();
+
+        }
+    }
+
+    public SQL insert() {
         this.sql = "INSERT ";
         return this;
     }
 
     public SQL into(String table, Column... columns) throws NoSuchFieldException, IllegalAccessException {
-        this.sql += "INTO "+table+ " (";
-        for(int i=0;i<columns.length;i++)
-            this.sql += columns[i] + ((i<columns.length-1)?", ":") ");
+        this.sql += "INTO " + table + " (";
+        for (int i = 0; i < columns.length; i++)
+            this.sql += columns[i] + ((i < columns.length - 1) ? ", " : ") ");
         return this;
     }
 
     public SQL values(Object... values) {
 
-        if(!this.sql.contains("VALUES")){
-            if(this.params == null)
+        if (!this.sql.contains("VALUES")) {
+            if (this.params == null)
                 this.params = new ArrayList<>();
-            for(Object o : values)
+            for (Object o : values)
                 this.params.add(o);
             this.sql += "VALUES(";
             for (int i = 0; i < values.length; i++)
@@ -225,26 +258,26 @@ public class SQL{
     }
 
     public SQL update(String table) throws NoSuchFieldException, IllegalAccessException {
-        this.sql = "UPDATE " + table +" ";
+        this.sql = "UPDATE " + table + " ";
         return this;
     }
 
-    public SQL set(Column column,Object value){
-        if(this.params == null)
+    public SQL set(Column column, Object value) {
+        if (this.params == null)
             this.params = new ArrayList<>();
         this.params.add(value);
 
-        if(!this.sql.contains("SET"))
+        if (!this.sql.contains("SET"))
             this.sql += "SET ";
         else
             this.sql += ", ";
-        this.sql += column.columnName + " = ? " ;
+        this.sql += column.columnName + " = ? ";
 
         return this;
     }
 
-    public SQL delete(String tableName){
-        this.sql = "DELETE FROM "+tableName+" ";
+    public SQL delete(String tableName) {
+        this.sql = "DELETE FROM " + tableName + " ";
         return this;
     }
 
@@ -256,7 +289,7 @@ public class SQL{
             this.params = null;
             int id = prep.executeUpdate();
             ResultSet rs = prep.getGeneratedKeys();
-            if(rs.next()){
+            if (rs.next()) {
                 id = rs.getInt(1);
             }
             return id;
@@ -269,48 +302,50 @@ public class SQL{
         return sql.select().from(table).fetch(entity);
     }
 
-    public static ORM findById(Class<? extends ORM> entity, Object... id) throws Exception {
+    public static <T extends ORM> T findById(Class<T> entity, Object... id) throws Exception {
         String table = ORM.getTableName(entity);
         List<Column> primaryKeys = ORM.getPrimaryKey(entity);
         SQL sql = new SQL();
         sql.select().from(table);
-        for(int i=0;i<primaryKeys.size();i++)
-            if(i < primaryKeys.size()-1)
-                sql.where(primaryKeys.get(i),WhereClause.Operator.EQ,id[i],WhereClause.Operator.AND);
+        for (int i = 0; i < primaryKeys.size(); i++)
+            if (i < primaryKeys.size() - 1)
+                sql.where(primaryKeys.get(i), WhereClause.Operator.EQ, id[i], WhereClause.Operator.AND);
             else
-                sql.where(primaryKeys.get(i),WhereClause.Operator.EQ,id[i]);
+                sql.where(primaryKeys.get(i), WhereClause.Operator.EQ, id[i]);
         List<ORM> result = sql.fetch(entity);
-        return (result==null)?null:result.get(0);
+        return (T) ((result == null) ? null : result.get(0));
     }
 
-    public static List<? extends ORM> findByKeyword(Class<? extends CanFindByKeyword> entity,String... keywords) throws Exception {
+    public static List<? extends ORM> findByKeyword(Class<? extends CanFindByKeyword> entity, String... keywords) throws Exception {
         String table = ORM.getTableName(entity);
         List<Column> candidateKeys = CanFindByKeyword.getCandidateKey(entity);
         SQL sql = new SQL();
         sql.select().from(table);
-        for(int i=0;i< keywords.length;i++){
-            for(int j=0;j< candidateKeys.size();j++){
-                if(j < candidateKeys.size()-1)
-                    sql.where(candidateKeys.get(j), WhereClause.Operator.LIKE, "%"+keywords[i]+"%", WhereClause.Operator.OR );
+        for (int i = 0; i < keywords.length; i++) {
+            for (int j = 0; j < candidateKeys.size(); j++) {
+                if (j < candidateKeys.size() - 1)
+                    sql.where(candidateKeys.get(j), WhereClause.Operator.LIKE, "%" + keywords[i] + "%", WhereClause.Operator.OR);
                 else
-                    sql.where(candidateKeys.get(j), WhereClause.Operator.LIKE, "%"+keywords[i]+"%");
+                    sql.where(candidateKeys.get(j), WhereClause.Operator.LIKE, "%" + keywords[i] + "%");
             }
-            if(i < keywords.length-1)
+            if (i < keywords.length - 1)
                 sql.appendSql(" OR ");
         }
         return sql.fetch(entity);
     }
 
-    public void clear(){
+    public void clear() {
         this.sql = "";
         this.params = null;
     }
 
-    public String getSql(){
+    public String getSql() {
         return this.sql;
     }
 
-    public void appendSql(String sql){this.sql += sql;}
+    public void appendSql(String sql) {
+        this.sql += sql;
+    }
 
     @Override
     public String toString() {

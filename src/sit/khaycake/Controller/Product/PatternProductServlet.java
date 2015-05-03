@@ -1,25 +1,17 @@
 package sit.khaycake.Controller.Product;
 
+import sit.khaycake.Filter.request.ProductRequest;
 import sit.khaycake.database.SQL;
 import sit.khaycake.model.*;
-
 import sit.khaycake.util.ErrorMessage;
 import sit.khaycake.util.SuccessMessage;
-import sit.khaycake.util.Util;
 
-import javax.imageio.ImageIO;
-import javax.naming.Context;
-import javax.naming.InitialContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.nio.file.Files;
 import java.util.List;
 
 /**
@@ -30,71 +22,52 @@ public class PatternProductServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0) + 1);
+        String[] resources = request.getRequestURI().split("/");
+
         HttpSession session = request.getSession();
-        SuccessMessage succes = new SuccessMessage(session);
+        SuccessMessage success = new SuccessMessage(session);
         ErrorMessage error = new ErrorMessage(session);
+
+        String id = null, method = null;
+        if (resources.length >= 4)
+            id = resources[3];
+        if (resources.length >= 5)
+            method = resources[4];
+
         try {
 
-            if (resource.indexOf("delete") >= 0) {
-                resource = resource.substring(0, resource.indexOf("/", 1));
-
-                int a = Product.delete(Integer.parseInt(resource));
-                if (a < 0) {
-                    response.sendError(HttpServletResponse.SC_NOT_FOUND);
-                }
-            } else if (resource.indexOf("picture") >= 0 && resource.indexOf("pictures") == -1) {
-                resource = resource.substring(0, resource.indexOf("/", 1));
-
-                if(Util.isInteger(resource)){
-                    List<Picture> pictures = Picture.getPicturesByProductId(resource);
-                    if(pictures.size()>0)
-                    {
-
-                        Picture picture = pictures.get(0);
-                        response.sendRedirect( request.getContextPath()+"/images/"+picture.getFilename());
-                    }else
-                        response.sendError(HttpServletResponse.SC_NOT_FOUND);
-                }
-
-            } else if (resource.indexOf("pictures") >= 0) {
-                resource = resource.substring(0, resource.indexOf("/", 1));
-
-                if (Util.isInteger(resource)) {
-                    List<Picture> pictures = Picture.getPicturesByProductId(resource);
-                    if (pictures.isEmpty())
-                        response.sendError(HttpServletResponse.SC_NOT_FOUND);
-                    succes.setMessage(pictures);
-                }
-
-            } else if (resource.indexOf("sale") >= 0) {
-                resource = resource.substring(0, resource.indexOf("/", 1));
-
-                if (Util.isInteger(resource)) {
-                    List<ProductSale> productSales = ProductSale.findByProdId(
-                            Integer.parseInt(resource));
-                    if (productSales.isEmpty())
-                        response.sendError(HttpServletResponse.SC_NOT_FOUND);
-                    succes.setMessage(productSales);
-                }
-
-
-            } else {
-
-                if (Util.isInteger(resource)) {
-                    Product product = (Product) SQL.findById(Product.class, Integer.parseInt(resource));
-                    if (product == null)
-                        response.sendError(HttpServletResponse.SC_NOT_FOUND);
-                    succes.setMessage(product);
+            Product product = (Product) SQL.findById(Product.class, id);
+            if (product != null) {
+                if (method != null) {
+                    switch (method) {
+                        case "picture":
+                            response.sendRedirect(request.getContextPath() + "/images/" + product.getPictures().get(0).getFilename());
+                            break;
+                        case "pictures":
+                            List<Picture> pictures = product.getPictures();
+                            success.setMessage(pictures);
+                            break;
+                        case "sales":
+                            List<ProductSale> productSales = product.getSales();
+                            success.setMessage(productSales);
+                            break;
+                        case "delete":
+                            product.delete();
+                            success.setMessage("deleted");
+                            break;
+                        default:
+                            success.setMessage(product);
+                            break;
+                    }
                 } else {
-                    List<Product> products = (List<Product>) SQL.findByKeyword(Product.class, resource);
-                    if (products.isEmpty())
-                        response.sendError(HttpServletResponse.SC_NOT_FOUND);
-                    succes.setMessage(products);
+                    //show product
+                    success.setMessage(product);
                 }
-
-
+            } else {
+                response.sendError(HttpServletResponse.SC_NOT_FOUND);
             }
+
+
         } catch (Exception e) {
             error.setMessage(e.getMessage());
         }
@@ -103,15 +76,21 @@ public class PatternProductServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0) + 1);
+        String[] resources = request.getRequestURI().split("/");
+
         HttpSession session = request.getSession();
-        SuccessMessage succes = new SuccessMessage(session);
+        SuccessMessage success = new SuccessMessage(session);
         ErrorMessage error = new ErrorMessage(session);
 
-        try {
-            if(resource == null) {
-                Product product = (Product) SQL.findById(Product.class, Integer.parseInt(resource));
+        String id = null;
+        if (resources.length >= 4)
+            id = resources[3];
 
+        ProductRequest productRequest = new ProductRequest(request);
+
+        if (productRequest.validate()) {
+            try {
+                Product product = (Product) SQL.findById(Product.class, id);
                 if (product != null) {
                     product.setName(request.getParameter("name"));
                     product.setDetail(request.getParameter("detail"));
@@ -125,7 +104,8 @@ public class PatternProductServlet extends HttpServlet {
 
                     String[] saleQty = request.getParameterValues("sale_qty");
                     String[] salePrice = request.getParameterValues("sale_price");
-                    if (saleQty != null && salePrice != null)
+                    if (saleQty != null && salePrice != null) {
+                        product.deleteSales();
                         for (int i = 0; i < saleQty.length; i++) {
                             ProductSale productSale = new ProductSale();
                             productSale.setProdId(product.getId());
@@ -133,31 +113,29 @@ public class PatternProductServlet extends HttpServlet {
                             productSale.setPrice(Double.parseDouble(salePrice[i]));
                             productSale.save();
                         }
+                    }
 
                     String[] picId = request.getParameterValues("pic_id");
+                    product.deletePictures();
                     for (int i = 0; i < picId.length; i++) {
                         PicProduct picProduct = new PicProduct();
                         picProduct.setProdId(product.getId());
                         picProduct.setPicId(Integer.parseInt(picId[i]));
                         picProduct.save();
                     }
-                    succes.setMessage(product);
+                    success.setMessage(product);
+
                 } else {
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
-            }else{
-                if(resource.equalsIgnoreCase("delete")){
-                    String[] prodId = request.getParameterValues("p_id");
-                    if(prodId != null){
-                        for(int i=0;i<prodId.length;i++)
-                            Product.delete(Integer.parseInt(prodId[i]));
-                        succes.setMessage("success");
-                    }
-                }
+
+
+            } catch (Exception e) {
+                error.setMessage(e.getMessage());
             }
-        } catch (Exception e) {
-            error.setMessage(e.getMessage());
         }
+
+
     }
 
 }

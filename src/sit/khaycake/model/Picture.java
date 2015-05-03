@@ -50,7 +50,7 @@ public class Picture implements ORM {
         this.setId(id);
     }
 
-    public void update() throws Exception{
+    public void update() throws Exception {
         SQL sql = new SQL();
         sql
                 .update(Picture.TABLE_NAME)
@@ -60,7 +60,7 @@ public class Picture implements ORM {
                 .exec();
     }
 
-    public static int delete(int PIC_ID) throws Exception{
+    public static int delete(int PIC_ID) throws Exception {
         SQL sql = new SQL();
         int a = sql
                 .delete(Picture.TABLE_NAME)
@@ -68,20 +68,6 @@ public class Picture implements ORM {
                 .exec();
         return a;
     }
-
-    public static List<Picture> getPicturesByProductId(Object prodId) throws Exception{
-        SQL sql = new SQL();
-        List<Picture> result = sql.select()
-                .from(Picture.TABLE_NAME)
-                .join(PicProduct.TABLE_NAME)
-                .on(Picture.COLUMN_ID, PicProduct.COLUMN_PIC_ID)
-                .where(PicProduct.COLUMN_PROD_ID, SQL.WhereClause.Operator.EQ, prodId)
-                .fetch(Picture.class);
-        return result;
-    }
-
-
-
 
 
     @Override

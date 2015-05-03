@@ -5,21 +5,22 @@
  */
 package sit.khaycake.model;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
-
 import sit.khaycake.database.CanFindByKeyword;
 import sit.khaycake.database.Column;
 import sit.khaycake.database.ORM;
 import sit.khaycake.database.SQL;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- *
  * @author -milk
  */
-public class Product implements ORM, CanFindByKeyword{
-    
+public class Product implements ORM, CanFindByKeyword {
+
     private int id;
     private String name;
     private String detail;
@@ -34,7 +35,7 @@ public class Product implements ORM, CanFindByKeyword{
     public static final Column COLUMN_DETAIL = ORM.column(TABLE_NAME, "DETAIL");
     public static final Column COLUMN_COST = ORM.column(TABLE_NAME, "COST");
     public static final Column COLUMN_CAT_ID = ORM.column(TABLE_NAME, "CAT_ID");
-    public static final Column COLUMN_PRICE = ORM.column(TABLE_NAME,"PRICE");
+    public static final Column COLUMN_PRICE = ORM.column(TABLE_NAME, "PRICE");
     public static final Column COLUMN_UNIT_ID = ORM.column(TABLE_NAME, "UNIT_ID");
     public static final List<Column> PRIMARY_KEY = ORM.columns(COLUMN_ID);
     public static final List<Column> COLUMN_KEYWORD = ORM.columns(COLUMN_NAME);
@@ -71,15 +72,23 @@ public class Product implements ORM, CanFindByKeyword{
         this.cost = cost;
     }
 
-    public Category getCategory() { return category;}
+    public Category getCategory() {
+        return category;
+    }
 
-    public void setCategory(Category category) { this.category = category;}
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 
-    public double getPrice() { return price;}
+    public double getPrice() {
+        return price;
+    }
 
-    public void setPrice(double price) { this.price = price; }
+    public void setPrice(double price) {
+        this.price = price;
+    }
 
-    public void setUnit(Unit unit){
+    public void setUnit(Unit unit) {
         this.unit = unit;
     }
 
@@ -96,11 +105,25 @@ public class Product implements ORM, CanFindByKeyword{
         this.setCategory((Category)
                 SQL.findById(Category.class, rs.getInt(COLUMN_CAT_ID.getColumnName())));
         this.setPrice(rs.getDouble(COLUMN_PRICE.getColumnName()));
-        this.setUnit((Unit)SQL.findById(Unit.class,rs.getInt(COLUMN_UNIT_ID.getColumnName())));
+        this.setUnit((Unit) SQL.findById(Unit.class, rs.getInt(COLUMN_UNIT_ID.getColumnName())));
 
     }
 
-    public static List<Product> findByCategory(Object CAT_ID) throws Exception{
+    public void deletePictures() throws Exception {
+        SQL sql = new SQL();
+        sql.delete(PicProduct.TABLE_NAME)
+                .where(PicProduct.COLUMN_PROD_ID, SQL.WhereClause.Operator.EQ, this.id)
+                .exec();
+    }
+
+    public void deleteSales() throws Exception {
+        SQL sql = new SQL();
+        sql.delete(ProductSale.TABLE_NAME)
+                .where(ProductSale.COLUMN_PROD_ID, SQL.WhereClause.Operator.EQ, this.id)
+                .exec();
+    }
+
+    public static List<Product> findByCategory(Object CAT_ID) throws Exception {
         SQL sql = new SQL();
         List<Product> result = sql
                 .select()
@@ -111,31 +134,53 @@ public class Product implements ORM, CanFindByKeyword{
 
     }
 
-    public List<Picture> getPictures() throws Exception{
+    public List<Picture> getPictures() throws Exception {
         SQL sql = new SQL();
         List<Picture> result = sql.select()
-                                    .from(Picture.TABLE_NAME)
-                                    .join(PicProduct.TABLE_NAME)
-                                    .on(Picture.COLUMN_ID,PicProduct.COLUMN_PIC_ID)
-                                    .where(PicProduct.COLUMN_PROD_ID, SQL.WhereClause.Operator.EQ, this.id)
-                                    .fetch(Picture.class);
+                .from(Picture.TABLE_NAME)
+                .join(PicProduct.TABLE_NAME)
+                .on(Picture.COLUMN_ID, PicProduct.COLUMN_PIC_ID)
+                .where(PicProduct.COLUMN_PROD_ID, SQL.WhereClause.Operator.EQ, this.id)
+                .fetch(Picture.class);
+        return result;
+    }
+
+    public List<ProductSale> getSales() throws Exception {
+        List<ProductSale> sales = new ArrayList<>();
+        String sql = "SELECT 1 \"QTY\" , PRODUCTS.PRICE FROM PRODUCTS WHERE PRODUCTS.PROD_ID = ? UNION SELECT PRODUCT_SALES.QTY, PRODUCT_SALES.PRICE FROM PRODUCT_SALES WHERE PRODUCT_SALES.PROD_ID = ?";
+        try (Connection conn = SQL.getConnection()) {
+            PreparedStatement prep = conn.prepareStatement(sql);
+            prep.setInt(1, this.id);
+            prep.setInt(2, this.id);
+            ResultSet rs = prep.executeQuery();
+            while (rs.next()) {
+                ProductSale p = new ProductSale();
+                p.setPrice(rs.getDouble("PRICE"));
+                p.setQty(rs.getInt("QTY"));
+                sales.add(p);
+            }
+        }
+        return sales;
+    }
+
+    public List<ProductSale> getPrices() throws Exception {
+        SQL sql = new SQL();
+        List<ProductSale> result = sql.select()
+                .from(ProductSale.TABLE_NAME)
+                .where(ProductSale.COLUMN_PROD_ID, SQL.WhereClause.Operator.EQ, this.id)
+                .fetch(ProductSale.class);
         return result;
     }
 
 
     @Override
-    public boolean equals(Object object)
-    {
-        boolean result = false;
-
-        if (object != null && object instanceof Product)
-        {
-            result = this.getId() == ((Product) object).getId();
+    public boolean equals(Object object) {
+        if (object != null && object instanceof Product) {
+            return this.getId() == ((Product) object).getId();
         }
 
-        return result;
+        return false;
     }
-
 
 
     public void save() throws Exception {
@@ -145,12 +190,12 @@ public class Product implements ORM, CanFindByKeyword{
                 .into(Product.TABLE_NAME, Product.COLUMN_NAME, Product.COLUMN_DETAIL, Product.COLUMN_PRICE
                         , Product.COLUMN_COST, Product.COLUMN_CAT_ID, Product.COLUMN_UNIT_ID)
                 .values(this.getName(), this.getDetail(), this.getPrice(), this.getCost(),
-                        this.getCategory().getId(),this.getUnit().getId())
+                        this.getCategory().getId(), this.getUnit().getId())
                 .exec();
         this.setId(id);
     }
 
-    public void update() throws Exception{
+    public void update() throws Exception {
         SQL sql = new SQL();
         sql
                 .update(Product.TABLE_NAME)
@@ -164,11 +209,11 @@ public class Product implements ORM, CanFindByKeyword{
                 .exec();
     }
 
-    public static int delete(int PROD_ID) throws Exception{
+    public int delete() throws Exception {
         SQL sql = new SQL();
         int a = sql
                 .delete(Product.TABLE_NAME)
-                .where(Product.COLUMN_ID, SQL.WhereClause.Operator.EQ, PROD_ID)
+                .where(Product.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.id)
                 .exec();
         return a;
     }
