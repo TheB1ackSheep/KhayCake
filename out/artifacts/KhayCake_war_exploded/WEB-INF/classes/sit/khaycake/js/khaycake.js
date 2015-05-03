@@ -1,2 +1,391 @@
-/* KhayCake by TheB1ackSheep, Front-End Developer 2015-04-26 */
-var KhayCake=KhayCake||{parameters:[],AJAX:function a(b,c,d,e){var f=window.XMLHttpRequest?new XMLHttpRequest:window.ActiveXObject?new ActiveXObject("Msxml2.XMLHTTP"):new ActiveXObject("Microsoft.XMLHTTP");f.onreadystatechange=function(){if(f.readyState===4){if(f.status===200){if(typeof e==="object"&&e.success)e.success(f.response)}else{if(typeof e==="object"&&e.error)e.error(f.response)}}};var g="",h=0;for(var i in d)g+=i+"="+d[i]+(h++<Object.keys(d).length-1?"&":"");f.open(b,c+(d&&b==="GET"?"?"+g:""));if(b==="POST")f.setRequestHeader("Content-Type","application/x-www-form-urlencoded");f.send(b==="POST"?g:null)},doAjax:function(){var a=window.location.hash.substr(2);var b=a.split("/")[1];switch(b){case"shop":this.openShop(this.parameters);this.filterShop();break;default:this.closeShop(this.parameters);break}},forEach:function(a,b){[].forEach.call(a,b)},setParameter:function(a,b){this.parameters[a]=b},getParameter:function(a){return this.parameters[a]},classList:function(a){if(a&&a.classList)return function(){this.add=function(b){a.classList.add(b)};this.remove=function(b){a.classList.remove(b)};this.toggle=function(b){a.classList.toggle(b)}};else if(a&&a.className)return function(){this.add=function(b){var c=a.className;if(!c.contains(b))a.setAttribute("class",c+" "+b)};this.remove=function(b){var c=a.className;if(c.contains(b))c.replace(b," ");a.setAttribute("class",c)};this.toggle=function(b){var c=a.className;if(c.contains(b))this.remove(b);else this.add(b)}}},openShop:function(a){document.querySelector(".modal.shop .row").innerHTML="";var b=window.location.hash;var c=b.substr(2).split("/")[2];this.forEach(document.querySelectorAll(".modal.shop .tab a"),function(a){if(a.classList)a.classList.remove("active")});var d=document.querySelector(".modal.shop .tab a."+c);if(d.classList)d.classList.add("active");this.filterShop();if(!document.querySelector(".modal.shop").classList.contains("open")){var e;if(a&&a.buyBtn)e=a.buyBtn.getBoundingClientRect();else{var f=document.body.getBoundingClientRect();e={top:f.height/2,right:f.width/2,bottom:f.height/2,left:f.width/2,width:0,height:0}}var g=document.querySelector(".modal.shop");g.classList.add("open");g.style.top=e.top+"px";g.style.right=e.right+"px";g.style.bottom=e.bottom+"px";g.style.left=e.left+"px";g.style.height=e.height+"px";g.style.width=e.width+"px";g.style.backgroundColor="#3E2723";g.style.transition="top 250ms,right 250ms,bottom 250ms,left 250ms,width 250ms,height 250ms";setTimeout(function(){g.style.top="0px";g.style.right="0px";g.style.bottom="0px";g.style.left="0px";g.style.height="100%";g.style.width="100%";g.querySelector(".container").classList.remove("hide");setTimeout(function(){K.forEach(g.querySelectorAll(".tab a"),function(a){a.classList.remove("hide")})},100)},100)}},filterShop:function(){var a=window.location.hash;var b=a.substr(2).split("/")[2];K.forEach(document.querySelectorAll(".modal.shop .tab .row .box"),function(a){a.classList.add("hide");setTimeout(function(){a.parentNode.remove(a)},350)});document.querySelector(".modal.shop .tab .row").innerHTML="<span class='loader'><span class='loader-inner'></span></span>";setTimeout(function(){var a=null;if(b=="cup-cake")a=K.getCupcake();else if(b=="crape-cake")a=K.getCrapeCake();else if(b=="brownie-cake")a=K.getBrownieCake();else if(b=="party-cake")a=K.getPartyCake();else if(b=="cart")a=K.getCheckout();if(a!=null){var c=document.querySelector(".modal.shop .tab .row");c.innerHTML=a}var d=document.querySelectorAll(".modal.shop .tab .box");var e=0;(function f(a){if(a<d.length){var b=d[a++];setTimeout(function(){b.classList.remove("hide");f(a)},100)}})(e)},1e3)},closeShop:function(a){var b=document.querySelector(".modal.shop");b.querySelector(".container").classList.add("hide");b.classList.remove("open");var c;if(a&&a.buyBtn)c=a.buyBtn.getBoundingClientRect();else{var d=document.body.getBoundingClientRect();c={top:d.height/2,right:d.width/2,bottom:d.height/2,left:d.width/2,width:0,height:0}}b.style.top=c.top+"px";b.style.right=c.right+"px";b.style.bottom=c.bottom+"px";b.style.left=c.left+"px";b.style.height=c.height+"px";b.style.width=c.width+"px";setTimeout(function(){b.setAttribute("style","");K.forEach(document.querySelectorAll(".shop .tab a"),function(a){if(a.classList)a.classList.add("hide")})},500)},getCupcake:function(){return'<div class="box cake-box cup-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Crushed Peanut</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>'+' <div class="box cake-box cup-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Crushed Peanut</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>'+' <div class="box cake-box cup-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Crushed Peanut</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>'+' <div class="box cake-box cup-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Crushed Peanut</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>'+' <div class="box cake-box cup-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Crushed Peanut</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>'},getCrapeCake:function(){return'<div class="box cake-box crape-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Crape Cake</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>'+'<div class="box cake-box crape-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Crape Cake</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>'+'<div class="box cake-box crape-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Crape Cake</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>'+'<div class="box cake-box crape-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Crape Cake</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>'+'<div class="box cake-box crape-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Crape Cake</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>'},getBrownieCake:function(){return'<div class="box cake-box brownie-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Brownie Cake</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>'+'<div class="box cake-box brownie-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Brownie Cake</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>'+'<div class="box cake-box brownie-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Brownie Cake</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>'+'<div class="box cake-box brownie-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Brownie Cake</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>'+'<div class="box cake-box brownie-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Brownie Cake</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>'},getPartyCake:function(){return'<div class="box cake-box party-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Party Cake</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>'+'<div class="box cake-box party-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Party Cake</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>'+'<div class="box cake-box party-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Party Cake</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>'+'<div class="box cake-box party-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Party Cake</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>'+'<div class="box cake-box party-cake hide"><div class="img"><img src="images/cupcake.jpg" alt=""/></div><div class="title">Party Cake</div><div class="add-cart"><div class="price">&#3647;56</div><div>Add to Cart</div></div></div>'},getCheckout:function(){return'<div class="box checkout_box hide"><table><thead><tr><th></th><th>Your order</th><th>Price</th></tr></thead><tbody><tr><th>1x</th><td>Crushed Peanut</td><td>$56</td></tr><tr><th>2x</th><td>Your order</td><td>Price</td></tr><tr><th>1x</th><td>Your order</td><td>Price</td></tr></tbody><tfoot><tr><th></th><th class="text-right">Total</th><th class="text-right">$56</th></tr></tfoot></table></div>'}};var K=KhayCake;document.addEventListener("DOMContentLoaded",function(){window.addEventListener("hashchange",function(){K.doAjax()});if(window.location.hash){K.doAjax()}[].forEach.call(document.querySelectorAll(".box .btn"),function(a){a.addEventListener("click",function(){K.setParameter("buyBtn",this)})});document.querySelector(".checkout").addEventListener("click",function(){this.classList.toggle("active")})});
+var K;
+$(document).ready(function() {
+    var dialog = $(".dialog");
+    var dialogContent = $(".dialog-content");
+    var section = $('.section-price');
+
+    var KhayCake = KhayCake || {
+            params: [],
+            getParam: function(name) {
+                return this.params[name];
+            },
+            setParam: function(name, value) {
+                this.params[name] = value;
+            },
+            isInteger: function(str) {
+                return str ? str.toString().match(/^[0-9]+$/) !== null : false;
+            },
+            isFloat: function(str) {
+                return str ? (this.isInteger(str.toString()) || str.toString().match(/^\.[0-9]+$/) || str.toString().match(/^[0-9]+\.[0-9]+$/)) !== null : false;
+            }
+        };
+
+    KhayCake.onHashChanged = function() {
+        var section = window.location.hash.substr(2);
+        var subSection = section.split('/')[1];
+
+        switch (subSection) {
+            case 'shop':
+                Shop.open();
+                break;
+            case 'login':
+                Login.open();
+                break;
+            default:
+                Shop.close();
+                break;
+        }
+    };
+
+
+
+    var Dialog = Dialog || {
+            PARAM_BEGIN_POS: 'begin-pos',
+            getDialog: function() {
+                return $(".dialog");
+            },
+            getBeginPos: function() {
+                return KhayCake.getParam(this.PARAM_BEGIN_POS);
+            }
+        };
+
+    Dialog.isOpen = function() {
+        return section.hasClass("open");
+    };
+    Dialog.open = function(fn) {
+        if (!this.isOpen()) {
+            section.addClass("open");
+
+            var beginPos = this.getBeginPos();
+            if (beginPos) {
+                var b = beginPos.getBoundingClientRect();
+                var c = beginPos.parentNode.parentNode.parentNode.getBoundingClientRect();
+                dialog.css({
+                    top: b.top - c.top + 'px',
+                    left: b.left - c.left + 'px',
+                    backgroundColor: "#3E2733"
+                });
+            } else {
+                dialog.css({
+                    top: '50%',
+                    left: '50%',
+                    backgroundColor: "#3E2733"
+                });
+            }
+
+            dialogContent.css({
+                opacity: 0
+            });
+
+            dialog.animate({
+                width: '100%',
+                height: '100%',
+                top: 0,
+                left: 0,
+                backgroundColor: "#fff"
+            }, 200, function() {
+                dialogContent.animate({
+                    opacity: 1
+                });
+                if (typeof(fn) === "function")
+                    fn();
+            });
+        }
+    };
+    Dialog.setContent = function(content){
+        dialogContent.html(content);
+    };
+    Dialog.close = function(fn) {
+        if (this.isOpen()) {
+            section.removeClass("open");
+
+            var beginPos = this.getBeginPos();
+            var size;
+            if (beginPos) {
+                var b = beginPos.getBoundingClientRect();
+                var c = beginPos.parentNode.parentNode.parentNode.getBoundingClientRect();
+                size = {
+                    width: b.width,
+                    height: b.height,
+                    top: b.top - c.top + 'px',
+                    left: b.left - c.left + 'px',
+                    backgroundColor: "#3E2733"
+                };
+            } else {
+                size = {
+                    width: 0,
+                    height: 0,
+                    top: '50%',
+                    left: '50%',
+                    backgroundColor: "#fff"
+                };
+            }
+
+            dialogContent.animate({
+                opacity: 0
+            }, 100, function() {
+                dialog.animate({
+                    width: size.width,
+                    height: size.height,
+                    top: size.top,
+                    left: size.left,
+                    backgroundColor: size.backgroundColor
+                }, 350, function() {
+                    dialog.attr('style', '');
+                    if (typeof(fn) === "function")
+                        fn();
+                });
+            });
+
+        }
+    };
+
+    var Cart = Cart || {
+            ID_CART: ".cart-button",
+            ID_CART_ICON: ".cart-button .cart-open",
+            ID_CART_CLOSE: ".order-item .cart-close",
+            total: 0,
+            isOpen: function() {
+                return $(this.ID_CART).hasClass("open");
+            },
+            open: function() {
+                $(this.ID_CART).addClass("open");
+            },
+            close: function() {
+                $(this.ID_CART).removeClass("open");
+            },
+            addItem: function(cakeBox) {
+
+                if ($(cakeBox).hasClass("box")) {
+                    console.log(this.ID_CART_ICON);
+                    var clone = $('<div id="clone"></div>');
+                    var clientRect = $(cakeBox)[0].getBoundingClientRect();
+
+
+                    var isHiding = false;
+
+                    if ($(this.ID_CART).hasClass("inactive")) {
+                        $(this.ID_CART).removeClass("inactive");
+                        isHiding = true;
+                    }
+
+                    setTimeout(function() {
+                        var targetRect = $(Cart.ID_CART_ICON)[0].getBoundingClientRect();
+                        clone.html($(cakeBox).find(".box-img").clone()).appendTo("body");
+
+                        clone.css({
+                            top: clientRect.top,
+                            left: clientRect.left,
+                            width: clientRect.width,
+                            opacity: 1
+                        });
+
+                        clone.animate({
+                            top: targetRect.top - 60,
+                            left: 0,
+                            width: '53px'
+                        }, 500, function() {
+                            clone.animate({
+                                top: targetRect.top,
+                                opacity: 0
+                            }, 300, function() {
+                                clone.remove();
+                            });
+
+                        });
+                    }, isHiding ? 0 : 0);
+
+                }
+
+            }
+        };
+
+    var Shop = Shop || {
+            CN_NAV: '.dialog .nav',
+            CN_NAV_LIST: '.dialog .nav li',
+            ID_CAKE_CONTAINER: '#cake-container',
+            getContainer: function(cakes) {
+                var cakeList = "";
+                for (var idx in cakes) {
+                    cakeList += this.getCakeBox(cakes[idx]);
+                }
+                return '<div class="row">' +
+                    '<div class="col-md-2">' +
+                    '<ul class="nav nav-pills nav-stacked">' +
+                    '<li role="presentation" id="cupcake"><a href="#!/shop/cupcake">Cupcake</a></li>' +
+                    '<li role="presentation" id="crapecake"><a href="#!/shop/crapecake">Crape Cake</a></li>' +
+                    '<li role="presentation" id="brownie"><a href="#!/shop/brownie">Brownie</a></li>' +
+                    '<li role="presentation" id="partycake"><a href="#!/shop/partycake">Party Cake</a></li>' +
+                    '</ul>' +
+                    '</div>' +
+                    '<div class="col-md-10">' +
+                    '<div id="cake-container" class="row">' + cakeList + '</div>' +
+                    '</div>' +
+                    '</div>';
+            },
+            getCakeBox: function(cake) {
+                return '<div class="col-md-3 col-sm-4 col-xs-6">' +
+                    '<div class="box inactive">' +
+                    '<div class="box-img">' +
+                    '<img src="'+HOST+'/product/'+cake.id+'/picture" alt=""/>' +
+                    '</div>' +
+                    '<div class="box-name">' + cake.name + '</div>' +
+                    '<div class="box-button">' +
+                    '<div class="price">' + cake.price + ' บาท/' + cake.unit.name + '</div>' +
+                    '<button class="cart">Add to Cart</button>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>';
+            }
+        };
+
+    Shop.open = function() {
+        var hash = window.location.hash.substr(2);
+        var resources = hash.split('/');
+        var cat = null;
+        if (resources.length >= 3)
+            cat = resources[2];
+
+        var cakes = null;
+        switch (cat) {
+            case 'cupcake':
+                Product.cupcake(function(resp) {
+                    if (resp.success) {
+                        if (resp.message && resp.message.length > 0) {
+                            Dialog.open();
+                            Dialog.setContent(Shop.getContainer(resp.message));
+                            Shop.tab();
+                        } else {
+                            //There are no cakes
+                        }
+                    } else {
+                        //On Error 500
+                    }
+                });
+                break;
+            case 'crapecake':
+                Product.crapecake(function(resp) {
+                    if (resp.success) {
+                        if (resp.message && resp.message.length > 0) {
+                            Dialog.open();
+                            Dialog.setContent(Shop.getContainer(resp.message));
+                            Shop.tab();
+                        } else {
+                            //There are no cakes
+                        }
+                    } else {
+                        //On Error 500
+                    }
+                });
+                break;
+            case 'brownie':
+                Product.brownie(function(resp) {
+                    if (resp.success) {
+                        if (resp.message && resp.message.length > 0) {
+                            Dialog.open();
+                            Dialog.setContent(Shop.getContainer(resp.message));
+                            Shop.tab();
+                        } else {
+                            //There are no cakes
+                        }
+                    } else {
+                        //On Error 500
+                    }
+                });
+                break;
+            case 'partycake':
+                Product.partycake(function(resp) {
+                    if (resp.success) {
+                        if (resp.message && resp.message.length > 0) {
+                            Dialog.open();
+                            Dialog.setContent(Shop.getContainer(resp.message));
+                            Shop.tab();
+                        } else {
+                            //There are no cakes
+                        }
+                    } else {
+                        //On Error 500
+                    }
+                });
+                break;
+            default:
+                Product.all(function(resp) {
+                    if (resp.success) {
+                        if (resp.message && resp.message.length > 0) {
+                            Dialog.open();
+                            Dialog.setContent(Shop.getContainer(resp.message));
+                            Shop.tab();
+                        } else {
+                            //There are no cakes
+                        }
+                    } else {
+                        //On Error 500
+                    }
+                });
+                break;
+        }
+
+
+
+
+
+
+    };
+    Shop.close = function() {
+        Dialog.close();
+    };
+    Shop.tab = function(){
+        var hash = window.location.hash.substr(2);
+        var resources = hash.split('/');
+        var cat = null;
+        if (resources.length >= 3)
+            cat = resources[2];
+
+        $(Shop.CN_NAV_LIST).removeClass("active");
+        $(Shop.CN_NAV_LIST + "#" + cat).addClass("active");
+    };
+
+    var Login = Login || {
+            ID_FORM_NAME: 'form-login',
+            getForm: function() {
+                return '<form id="' + this.ID_FORM_NAME + '">' +
+                    '<div class="form-group">' +
+                    '<label>Username :</label>' +
+                    '<input class="form-control" id="email" placholder="ninecake@khaycake.com"/>' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                    '<label>Password :</label>' +
+                    '<input class="form-control" id="pwd" type="password"/>' +
+                    '</div>' +
+                    '<div class="form-group">' +
+                    '<button class="btn btn-primary">Login</button>' +
+                    '</div>' +
+                    '</form>';
+            }
+        };
+    Login.open = function() {
+        Dialog.open(Login.getForm());
+    };
+
+    $(window).bind("hashchange", function() {
+        KhayCake.onHashChanged();
+    });
+
+    if (window.location.hash) {
+        KhayCake.onHashChanged();
+    }
+
+    $(".cake-box-buy a").click(function(el) {
+        KhayCake.setParam(Dialog.PARAM_BEGIN_POS, this);
+    });
+
+    $(Cart.ID_CART_ICON).click(function() {
+        Cart.open();
+    });
+
+    $(Cart.ID_CART_CLOSE).click(function() {
+        Cart.close();
+    });
+
+    K = KhayCake;
+});
