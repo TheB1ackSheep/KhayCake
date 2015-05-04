@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
 import sit.khaycake.model.Bank;
 import sit.khaycake.model.BankAccount;
+import sit.khaycake.util.Util;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,30 +19,29 @@ public class PatternBankAccountServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1));
+        String resource = request.getRequestURI().substring(request.getPathInfo().indexOf("/", 0)+1);
 
         if (resource.indexOf("delete") >= 0) {
-            resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
-            SQL sql = new SQL();
+            resource = resource.substring(0,resource.indexOf("/", 1));
             try {
-                int a = sql
-                        .delete(BankAccount.TABLE_NAME)
-                        .where(BankAccount.COLUMN_ID, SQL.WhereClause.Operator.EQ, resource)
-                        .exec();
+                int a = BankAccount.delete(Integer.parseInt(resource));
                 if (a < 0) {
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
             } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             }
 
         } else {
             BankAccount bankAccount = null;
             try {
-                bankAccount = (BankAccount) SQL.findById(BankAccount.class, Integer.parseInt(resource));
-
+                if(Util.isInteger(resource)) {
+                    bankAccount = (BankAccount) SQL.findById(BankAccount.class, Integer.parseInt(resource));
+                }else{
+                    response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                }
             } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             }
             if (bankAccount != null) {
                 Gson gson = new Gson();
@@ -55,33 +55,29 @@ public class PatternBankAccountServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1));
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
         BankAccount bankAccount = null;
-        try {
-            bankAccount = (BankAccount) SQL.findById(BankAccount.class, Integer.parseInt(resource));
-        } catch (Exception e) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
-        }
-        if (bankAccount != null) {
-            bankAccount.setAccName(request.getParameter("accName"));
-            bankAccount.setAccNo(request.getParameter("accNo"));
-
-            SQL sql = new SQL();
+        if(Util.isInteger(resource)) {
             try {
-                sql
-                        .update(BankAccount.TABLE_NAME)
-                        .set(BankAccount.COLUMN_ACC_NAME, bankAccount.getAccName())
-                        .set(BankAccount.COLUMN_ACC_NO, bankAccount.getAccNo())
-                        .set(BankAccount.COLUMN_BABR_ID, Integer.parseInt(request.getParameter("babrId")))
-                        .set(BankAccount.COLUMN_BAAT_ID, Integer.parseInt(request.getParameter("baatId")))
-                        .where(Bank.COLUMN_ID, SQL.WhereClause.Operator.EQ, bankAccount.getId())
-                        .exec();
-
+                bankAccount = (BankAccount) SQL.findById(BankAccount.class, Integer.parseInt(resource));
             } catch (Exception e) {
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            }
+            if (bankAccount != null) {
+                try {
+                    bankAccount.setBranch((Bank.Branch) SQL.findById(Bank.Branch.class, request.getParameter("BABR_ID")));
+                    bankAccount.setAccName(request.getParameter("accName"));
+                    bankAccount.setAccNo(request.getParameter("accNo"));
+                    bankAccount.setType(BankAccount.Type.getType(Integer.parseInt(request.getParameter("BAAT_ID"))));
+                    bankAccount.update();
+                } catch (Exception e) {
+                    response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+                }
+
+            } else {
                 response.sendError(HttpServletResponse.SC_NOT_FOUND);
             }
-
-        } else {
+        }else{
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
     }

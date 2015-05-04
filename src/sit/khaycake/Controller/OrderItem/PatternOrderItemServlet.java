@@ -2,8 +2,9 @@ package sit.khaycake.Controller.OrderItem;
 
 import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
-import sit.khaycake.model.Assis.AssisDateTime;
+import sit.khaycake.model.Order;
 import sit.khaycake.model.OrderItem;
+import sit.khaycake.model.ProductSale;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,21 +19,18 @@ public class PatternOrderItemServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1));
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
 
         if (resource.indexOf("delete") >= 0) {
-            resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
+            resource = resource.substring(0,resource.indexOf("/", 1));
             SQL sql = new SQL();
             try {
-                int a = sql
-                        .delete(OrderItem.TABLE_NAME)
-                        .where(OrderItem.COLUMN_ID, SQL.WhereClause.Operator.EQ, resource)
-                        .exec();
+                int a = OrderItem.delete(Integer.parseInt(resource));
                 if (a < 0) {
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
             } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             }
 
         } else {
@@ -55,34 +53,26 @@ public class PatternOrderItemServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1));
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
         OrderItem orderItem = null;
         try {
             orderItem = (OrderItem) SQL.findById(OrderItem.class, Integer.parseInt(resource));
         } catch (Exception e) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
         if (orderItem != null) {
-            orderItem.setAmount(Double.parseDouble(request.getParameter("amount")));
-            orderItem.setOrderId(Integer.parseInt(request.getParameter("odrerId")));
-            orderItem.setPriceUnit(Double.parseDouble(request.getParameter("priceUnit")));
-            orderItem.setPrsaId(Integer.parseInt(request.getParameter("prsaId")));
-            orderItem.setQty(Integer.parseInt(request.getParameter("qty")));
-
-            SQL sql = new SQL();
-            try {
-                sql
-                        .update(OrderItem.TABLE_NAME)
-                        .set(OrderItem.COLUMN_AMOUNT, orderItem.getAmount())
-                        .set(OrderItem.COLUMN_ORDER_ID, orderItem.getOrderId())
-                        .set(OrderItem.COLUMN_PRICE_UNIT, orderItem.getPriceUnit())
-                        .set(OrderItem.COLUMN_PRSA_ID, orderItem.getPrsaId())
-                        .set(OrderItem.COLUMN_QTY, orderItem.getQty())
-                        .where(OrderItem.COLUMN_ID, SQL.WhereClause.Operator.EQ, orderItem.getOritId())
-                        .exec();
+            try{
+                orderItem.setAmount(Double.parseDouble(request.getParameter("AMOUNT")));
+                orderItem.setOrder((Order) SQL.findById(
+                        Order.class, Integer.parseInt(request.getParameter("ORDER_ID"))));
+                orderItem.setPriceUnit(Double.parseDouble(request.getParameter("PRICE_UNIT")));
+                orderItem.setProductSale((ProductSale) SQL.findById(
+                        ProductSale.class, Integer.parseInt(request.getParameter("PRSA_ID"))));
+                orderItem.setQty(Integer.parseInt(request.getParameter("QTY")));
+                orderItem.update();
 
             } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             }
         } else {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);

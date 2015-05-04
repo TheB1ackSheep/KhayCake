@@ -2,6 +2,7 @@ package sit.khaycake.model;
 
 
 
+import sit.khaycake.database.CanFindByKeyword;
 import sit.khaycake.database.Column;
 import sit.khaycake.database.ORM;
 import sit.khaycake.database.SQL;
@@ -13,9 +14,9 @@ import java.util.List;
 /**
  * Created by Falook Glico on 4/12/2015.
  */
-public class Bank implements ORM {
+public class Bank implements ORM, CanFindByKeyword {
 
-    public static class Branch implements ORM {
+    public static class Branch implements ORM, CanFindByKeyword {
         private int id;
         private String name;
         private Bank bank;
@@ -23,10 +24,10 @@ public class Bank implements ORM {
         public static final String TABLE_NAME = "BANK_BRANCHES";
         public static final Column COLUMN_ID = ORM.column(TABLE_NAME, "BABR_ID");
         public static final Column COLUMN_NAME_TH = ORM.column(TABLE_NAME, "NAME_TH");
-        public static final Column COLUMN_NAME_EN = ORM.column(TABLE_NAME, "NAME_EN");
+        //public static final Column COLUMN_NAME_EN = ORM.column(TABLE_NAME, "NAME_EN");
         public static final Column COLUMN_BANK_ID = ORM.column(TABLE_NAME, "BANK_ID");
         public static final List<Column> PRIMARY_KEY = ORM.columns(COLUMN_ID);
-        public static final List<Column> COLUMN_KEYWORD = ORM.columns(COLUMN_NAME_EN, COLUMN_NAME_TH);
+        public static final List<Column> COLUMN_KEYWORD = ORM.columns(COLUMN_NAME_TH);
 
         public int getId() {
             return id;
@@ -66,9 +67,9 @@ public class Bank implements ORM {
     public static final String TABLE_NAME = "BANKS";
     public static final Column COLUMN_ID = ORM.column(TABLE_NAME, "BANK_ID");
     public static final Column COLUMN_NAME_TH = ORM.column(TABLE_NAME, "NAME_TH");
-    public static final Column COLUMN_NAME_EN = ORM.column(TABLE_NAME, "NAME_EN");
+    //public static final Column COLUMN_NAME_EN = ORM.column(TABLE_NAME, "NAME_EN");
     public static final List<Column> PRIMARY_KEY = ORM.columns(COLUMN_ID);
-    public static final List<Column> COLUMN_KEYWORD = ORM.columns(COLUMN_NAME_EN, COLUMN_NAME_TH);
+    public static final List<Column> COLUMN_KEYWORD = ORM.columns(COLUMN_NAME_TH);
 
     public int getId() {
         return id;
@@ -88,10 +89,34 @@ public class Bank implements ORM {
 
     public void orm(ResultSet rs) throws SQLException {
         this.setId(rs.getInt(COLUMN_ID.getColumnName()));
-        this.setName(rs.getString(COLUMN_NAME_EN.getColumnName()));
+        this.setName(rs.getString(COLUMN_NAME_TH.getColumnName()));
     }
 
-    public List<Branch> getBranchList(){
-        return null;
+    public void save() throws Exception{
+        SQL sql = new SQL();
+        int addId = sql
+                .insert()
+                .into(Bank.TABLE_NAME, Bank.COLUMN_NAME_TH)
+                .values(this.getName())
+                .exec();
+        this.setId(addId);
+    }
+
+    public void update() throws Exception{
+        SQL sql = new SQL();
+            sql
+                    .update(Bank.TABLE_NAME)
+                    .set(Bank.COLUMN_NAME_TH, this.getName())
+                    .where(Bank.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getId())
+                    .exec();
+    }
+
+    public static int delete(int BANK_ID) throws Exception{
+        SQL sql = new SQL();
+        int a = sql
+                .delete(Bank.TABLE_NAME)
+                .where(Bank.COLUMN_ID, SQL.WhereClause.Operator.EQ, BANK_ID)
+                .exec();
+        return a;
     }
 }

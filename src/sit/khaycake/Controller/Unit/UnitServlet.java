@@ -3,11 +3,14 @@ package sit.khaycake.Controller.Unit;
 import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
 import sit.khaycake.model.Unit;
+import sit.khaycake.util.ErrorMessage;
+import sit.khaycake.util.SuccessMessage;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -17,18 +20,20 @@ import java.util.List;
 public class UnitServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        SuccessMessage success = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
+
         try {
-            List units = SQL.findAll(Unit.class);
-            Gson gson = new Gson();
-            String result = gson.toJson(units, Unit.class);
-            response.getWriter().print(result);
+            List<Unit> units = (List<Unit>)SQL.findAll(Unit.class);
+            success.setMessage(units);
         } catch (Exception ex) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            error.setMessage(ex.getMessage());
         }
 
     }
 
-    @Override
+    /*@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
@@ -51,5 +56,5 @@ public class UnitServlet extends HttpServlet {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
 
-    }
+    }*/
 }

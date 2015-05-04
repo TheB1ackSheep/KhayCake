@@ -16,7 +16,7 @@ import sit.khaycake.database.ORM;
  *
  * @author -milk
  */
-public class Unit {
+public class Unit implements ORM {
     private int id;
     private String name;
     

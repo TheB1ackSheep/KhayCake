@@ -17,22 +17,19 @@ public class PatternShipmentMethodServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1));
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
 
         if (resource.indexOf("delete") >= 0) {
-            resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
+            /*resource = resource.substring(0,resource.indexOf("/", 1));
             SQL sql = new SQL();
             try {
-                int a = sql
-                        .delete(ShipmentMethod.TABLE_NAME)
-                        .where(ShipmentMethod.COLUMN_ID, SQL.WhereClause.Operator.EQ, resource)
-                        .exec();
+                int a = ShipmentMethod.delete(Integer.parseInt(resource));
                 if (a < 0) {
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
             } catch (Exception e) {
                 response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            }
+            }*/
 
         } else {
             ShipmentMethod shipmentMethod = null;
@@ -51,7 +48,7 @@ public class PatternShipmentMethodServlet extends HttpServlet {
         }
     }
 
-    @Override
+    /*@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1));
@@ -82,6 +79,6 @@ public class PatternShipmentMethodServlet extends HttpServlet {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
 
-    }
+    }*/
 
 }

@@ -32,7 +32,7 @@ public interface ORM {
     }
 
     static List<Column> getPrimaryKey(Class<? extends ORM> entity) throws NoSuchFieldException, IllegalAccessException {
-        return (List<Column>)entity.getDeclaredField("COLUMN_KEYWORD").get(entity);
+        return (List<Column>)entity.getDeclaredField("PRIMARY_KEY").get(entity);
     };
 
     void orm(ResultSet rs) throws Exception;

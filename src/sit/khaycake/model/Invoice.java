@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import sit.khaycake.database.CanFindByKeyword;
 import sit.khaycake.database.Column;
 import sit.khaycake.database.ORM;
 import sit.khaycake.database.SQL;
@@ -18,7 +19,7 @@ import sit.khaycake.database.SQL;
 /**
  * @author -milk
  */
-public class Invoice {
+public class Invoice implements ORM {
 
     private int id;
     private Date date;
@@ -116,5 +117,41 @@ public class Invoice {
         this.setMerchantInfo((MerchantInfo) SQL.findById(MerchantInfo.class, rs.getInt(COLUMN_MEIF_ID.getColumnName())));
 
     }
+
+    /*public void save() throws Exception {
+        SQL sql = new SQL();
+        int id = sql
+                .insert()
+                .into(Invoice.TABLE_NAME, Invoice.COLUMN_DATE, Invoice.COLUMN_MEIF_ID, Invoice.COLUMN_PATM_ID,
+                        Invoice.COLUMN_QRAND_TOTAL, Invoice.COLUMN_SUB_TOTAL, Invoice.COLUMN_VAT, Invoice.COLUMN_QRAND_TOTAL_TEXT)
+                .values(this.getDate(), this.getMerchantInfo().getId(), this.getPayment().getId(), this.getQrandTotal(),
+                        this.getSubTotal(), this.getVat(), this.getQrandTotalText())
+                .exec();
+        this.setId(id);
+    }
+
+    public void update() throws Exception{
+        SQL sql = new SQL();
+            sql
+                    .update(Invoice.TABLE_NAME)
+                    .set(Invoice.COLUMN_DATE, this.getDate())
+                    .set(Invoice.COLUMN_MEIF_ID, this.getMerchantInfo().getId())
+                    .set(Invoice.COLUMN_PATM_ID, this.getPayment().getId())
+                    .set(Invoice.COLUMN_QRAND_TOTAL, this.getQrandTotal())
+                    .set(Invoice.COLUMN_SUB_TOTAL, this.getSubTotal())
+                    .set(Invoice.COLUMN_VAT, this.getVat())
+                    .set(Invoice.COLUMN_QRAND_TOTAL_TEXT, this.getQrandTotalText())
+                    .where(Invoice.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getId())
+                    .exec();
+    }
+
+    public static int delete(int INVO_ID) throws Exception{
+        SQL sql = new SQL();
+        int a = sql
+                .delete(Invoice.TABLE_NAME)
+                .where(Invoice.COLUMN_ID, SQL.WhereClause.Operator.EQ, INVO_ID)
+                .exec();
+        return a;
+    }*/
 
 }

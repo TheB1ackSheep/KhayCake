@@ -5,33 +5,29 @@
  */
 package sit.khaycake.model;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
-
+import sit.khaycake.database.CanFindByKeyword;
 import sit.khaycake.database.Column;
 import sit.khaycake.database.ORM;
+import sit.khaycake.database.SQL;
+
+import java.sql.ResultSet;
+import java.util.List;
 
 /**
- *
  * @author -milk
  */
-public class ProductSale {
-    
+public class ProductSale implements ORM, CanFindByKeyword, Comparable {
+
     private int id;
     private int qty;
-    private double priceV;
-    private double priceN;
     private int prodId;
-    private int unitId;
-    
+    private double price;
+
     public static final String TABLE_NAME = "PRODUCT_SALES";
     public static final Column COLUMN_ID = ORM.column(TABLE_NAME, "PRSA_ID");
     public static final Column COLUMN_QTY = ORM.column(TABLE_NAME, "QTY");
-    public static final Column COLUMN_PRICE_V = ORM.column(TABLE_NAME, "PRICE_V");
-    public static final Column COLUMN_PRICE_N = ORM.column(TABLE_NAME, "PRICE_N");
     public static final Column COLUMN_PROD_ID = ORM.column(TABLE_NAME, "PROD_ID");
-    public static final Column COLUMN_UNIT_ID = ORM.column(TABLE_NAME, "UNIT_ID");
+    public static final Column COLUMN_PRICE = ORM.column(TABLE_NAME, "PRICE");
     public static final List<Column> PRIMARY_KEY = ORM.columns(COLUMN_ID);
 
     public int getId() {
@@ -50,51 +46,74 @@ public class ProductSale {
         this.qty = qty;
     }
 
-    public double getPriceV() {
-        return priceV;
-    }
-
-    public void setPriceV(double priceV) {
-        this.priceV = priceV;
-    }
-
-    public double getPriceN() {
-        return priceN;
-    }
-
-    public void setPriceN(double priceN) {
-        this.priceN = priceN;
-    }
-
     public int getProdId() {
         return prodId;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public void setProdId(int prodId) {
         this.prodId = prodId;
     }
 
-    public int getUnitId() {
-        return unitId;
-    }
-
-    public void setUnitId(int unitId) {
-        this.unitId = unitId;
-    }
-
-    
-     public void orm(ResultSet rs) throws SQLException {
-        
+    public void orm(ResultSet rs) throws Exception {
         this.setId(rs.getInt(COLUMN_ID.getColumnName()));
         this.setQty(rs.getInt(COLUMN_QTY.getColumnName()));
-        this.setPriceV(rs.getDouble(COLUMN_PRICE_V.getColumnName()));
-        this.setPriceN(rs.getDouble(COLUMN_PRICE_N.getColumnName()));
-        this.setProdId(rs.getInt(COLUMN_PROD_ID.getColumnName()));
-        this.setUnitId(rs.getInt(COLUMN_UNIT_ID.getColumnName()));
-        
-        
-        
+        this.setProdId(rs.getInt(COLUMN_PROD_ID.getColumnName()));//(Product)SQL.findById(Product.class,rs.getInt(COLUMN_PROD_ID.getColumnName())));
+        this.setPrice(rs.getDouble(COLUMN_PRICE.getColumnName()));
     }
-    
-    
+
+    public void save() throws Exception {
+        SQL sql = new SQL();
+
+        this.id = sql
+                .insert()
+                .into(TABLE_NAME, COLUMN_PROD_ID, COLUMN_QTY, COLUMN_PRICE)
+                .values(this.prodId, this.qty, this.price)
+                .exec();
+    }
+
+    public void update() throws Exception {
+        SQL sql = new SQL();
+        sql
+                .update(ProductSale.TABLE_NAME)
+                .set(ProductSale.COLUMN_PROD_ID, this.getProdId())
+                .set(ProductSale.COLUMN_QTY, this.getQty())
+                .where(Product.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getId())
+                .exec();
+    }
+
+    public static int delete(int PRSA_ID) throws Exception {
+        SQL sql = new SQL();
+        int a = sql
+                .delete(Product.TABLE_NAME)
+                .where(Product.COLUMN_ID, SQL.WhereClause.Operator.EQ, PRSA_ID)
+                .exec();
+        return a;
+    }
+
+    @Override
+    public String toString() {
+        return "ProductSale{" +
+                "id=" + id +
+                ", qty=" + qty +
+                ", prodId=" + prodId +
+                ", price=" + price +
+                '}';
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        if (o instanceof ProductSale) {
+            ProductSale p = (ProductSale) o;
+            return p.qty - this.qty;
+        }
+        return 0;
+    }
 }

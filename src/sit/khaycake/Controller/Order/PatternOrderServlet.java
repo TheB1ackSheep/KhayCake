@@ -2,7 +2,8 @@ package sit.khaycake.Controller.Order;
 
 import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
-import sit.khaycake.model.Assis.AssisDateTime;
+import sit.khaycake.model.Customer;
+import sit.khaycake.util.AssisDateTime;
 import sit.khaycake.model.Order;
 
 import javax.servlet.ServletException;
@@ -18,16 +19,12 @@ public class PatternOrderServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1));
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
 
         if (resource.indexOf("delete") >= 0) {
-            resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
-            SQL sql = new SQL();
+            resource = resource.substring(0,resource.indexOf("/", 1));
             try {
-                int a = sql
-                        .delete(Order.TABLE_NAME)
-                        .where(Order.COLUMN_ID, SQL.WhereClause.Operator.EQ, resource)
-                        .exec();
+                int a = Order.delete(Integer.parseInt(resource));
                 if (a < 0) {
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
@@ -55,7 +52,7 @@ public class PatternOrderServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1));
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
         Order order = null;
         try {
             order = (Order) SQL.findById(Order.class, Integer.parseInt(resource));
@@ -63,30 +60,19 @@ public class PatternOrderServlet extends HttpServlet {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
         if (order != null) {
-            order.setCustId(Integer.parseInt(request.getParameter("cusId")));
-            order.setOrderDate(AssisDateTime.Date(request.getParameter("orderDate")));
-            order.setOrstId(Integer.parseInt(request.getParameter("orstId")));
-            order.setShmeId(Integer.parseInt(request.getParameter("shmeId")));
-            order.setShtrId(request.getParameter("shtrId"));
-            order.setTotalPrice(Double.parseDouble(request.getParameter("totalPrice")));
-            order.setTotalQty(Integer.parseInt(request.getParameter("totalQty")));
-
-            SQL sql = new SQL();
-            try {
-                sql
-                        .update(Order.TABLE_NAME)
-                        .set(Order.COLUMN_CUST_ID, order.getCustId())
-                        .set(Order.COLUMN_ORDER_DATE, order.getOrderDate())
-                        .set(Order.COLUMN_ORST_ID, order.getOrstId())
-                        .set(Order.COLUMN_SHME_ID, order.getShmeId())
-                        .set(Order.COLUMN_SHTR_ID, order.getShmeId())
-                        .set(Order.COLUMN_TOTAL_PRICE, order.getTotalPrice())
-                        .set(Order.COLUMN_TOTAL_QTY, order.getTotalQty())
-                        .where(Order.COLUMN_ID, SQL.WhereClause.Operator.EQ, order.getOrderId())
-                        .exec();
+            try{
+                order.setCustomer((Customer) SQL.findById(
+                        Customer.class, Integer.parseInt(request.getParameter("CUST_ID"))));
+                order.setOrderDate(AssisDateTime.Date(request.getParameter("ORDER_DATE")));
+                order.setStatus(Order.Status.getStatus(Integer.parseInt(request.getParameter("ORST_ID"))));
+                order.setShipMethod(Order.ShipMethod.getShipMethod(Integer.parseInt(request.getParameter("SHME_ID"))));
+                order.setShtrId(request.getParameter("SHTR_ID"));
+                order.setTotalPrice(Double.parseDouble(request.getParameter("TOTAL_PRICE")));
+                order.setTotalQty(Integer.parseInt(request.getParameter("TOTAL_QTY")));
+                order.update();
 
             } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             }
         } else {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);

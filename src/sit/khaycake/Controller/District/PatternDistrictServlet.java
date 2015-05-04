@@ -3,12 +3,14 @@ package sit.khaycake.Controller.District;
 import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
 import sit.khaycake.model.District;
+import sit.khaycake.model.SubDistrict;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by Pasuth on 19/4/2558.
@@ -17,10 +19,10 @@ public class PatternDistrictServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1));
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
 
         if (resource.indexOf("delete") >= 0) {
-            resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
+            /*resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
             SQL sql = new SQL();
             try {
                 int a = sql
@@ -32,9 +34,29 @@ public class PatternDistrictServlet extends HttpServlet {
                 }
             } catch (Exception e) {
                 response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            }*/
+
+        } else if(resource.indexOf("subdistrict") >= 0){
+            District district = null;
+            try {
+                district = (District) SQL.findById(District.class, Integer.parseInt(resource));
+
+
+            } catch (Exception e) {
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            }
+            if (district != null) {
+                Gson gson = new Gson();
+                try {
+                    response.getWriter().print(gson.toJson(district.getSubDistrictList()));
+                } catch (Exception e) {
+                    response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+                }
+            } else {
+                response.sendError(HttpServletResponse.SC_NOT_FOUND);
             }
 
-        } else {
+        }else {
             District district = null;
             try {
                 district = (District) SQL.findById(District.class, Integer.parseInt(resource));
@@ -51,7 +73,7 @@ public class PatternDistrictServlet extends HttpServlet {
         }
     }
 
-    @Override
+    /*@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1));
@@ -80,6 +102,6 @@ public class PatternDistrictServlet extends HttpServlet {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
 
-    }
+    }*/
 
 }

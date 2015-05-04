@@ -18,12 +18,12 @@ import sit.khaycake.database.SQL;
  */
 public class Address implements ORM{
     private int id;
-    private SubDistrict subDistrict;
+    private int subDistrictId;
     private String street;
     private String addrAdd;
     private String addrNo;
 
-    public static final String TABLE_NAME = "addresses";
+    public static final String TABLE_NAME = "ADDRESSES";
     public static final Column COLUMN_ID = ORM.column(TABLE_NAME, "ADDR_ID");
     public static final Column COLUMN_SUB_DISTRICT_ID = ORM.column(TABLE_NAME, "SUDT_ID");
     public static final Column COLUMN_ADDR_NO = ORM.column(TABLE_NAME, "ADDR_NO");
@@ -63,17 +63,17 @@ public class Address implements ORM{
         this.addrNo = addrNo;
     }
 
-    public SubDistrict getSubDistrict() {
-        return subDistrict;
+    public int getSubDistrictId() {
+        return subDistrictId;
     }
 
-    public void setSubDistrict(SubDistrict subDistrict) {
-        this.subDistrict = subDistrict;
+    public void setSubDistrictId(int subDistrictId) {
+        this.subDistrictId = subDistrictId;
     }
 
     public void orm(ResultSet rs) throws Exception {
         this.setId(rs.getInt(COLUMN_ID.getColumnName()));
-        this.setSubDistrict((SubDistrict) SQL.findById(SubDistrict.class, rs.getInt(COLUMN_SUB_DISTRICT_ID.getColumnName())));
+        this.setSubDistrictId(rs.getInt(COLUMN_SUB_DISTRICT_ID.getColumnName()));
         this.setAddrNo(rs.getString(COLUMN_ADDR_NO.getColumnName()));
         this.setStreet(rs.getString(COLUMN_STREET.getColumnName()));
         this.setAddrAdd(rs.getString(COLUMN_ADDR_ADD.getColumnName()));
@@ -85,9 +85,8 @@ public class Address implements ORM{
                 .insert()
                 .into(Address.TABLE_NAME, Address.COLUMN_ADDR_ADD, Address.COLUMN_ADDR_NO, Address.COLUMN_STREET,
                         Address.COLUMN_SUB_DISTRICT_ID)
-                .values(this.getAddrAdd(), this.getAddrNo(), this.getStreet(), this.subDistrict.getId())
+                .values(this.getAddrAdd(), this.getAddrNo(), this.getStreet(), this.getSubDistrictId())
                 .exec();
-        sql.clear();
         this.setId(addId);
     }
 
@@ -98,7 +97,7 @@ public class Address implements ORM{
                     .set(Address.COLUMN_ADDR_NO, this.getAddrNo())
                     .set(Address.COLUMN_ADDR_ADD, this.getAddrAdd())
                     .set(Address.COLUMN_STREET, this.getStreet())
-                    .set(Address.COLUMN_SUB_DISTRICT_ID,this.getSubDistrict().getId())
+                    .set(Address.COLUMN_SUB_DISTRICT_ID,this.getSubDistrictId())
                     .where(Address.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getId())
                     .exec();
     }

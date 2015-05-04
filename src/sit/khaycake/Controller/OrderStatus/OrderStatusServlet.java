@@ -18,9 +18,8 @@ public class OrderStatusServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            List orderStatuses = SQL.findAll(OrderStatus.class);
             Gson gson = new Gson();
-            String result = gson.toJson(orderStatuses, OrderStatus.class);
+            String result = gson.toJson(SQL.findAll(OrderStatus.class));
             response.getWriter().print(result);
         } catch (Exception ex) {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
@@ -28,22 +27,13 @@ public class OrderStatusServlet extends HttpServlet {
 
     }
 
-    @Override
+    /*@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            SQL sql = new SQL();
             OrderStatus orderStatus = new OrderStatus();
             orderStatus.setName(request.getParameter("name"));
-
-
-            int addId = sql
-                    .insert()
-                    .into(OrderStatus.TABLE_NAME, OrderStatus.COLUMN_NAME)
-                    .values(orderStatus.getName())
-                    .exec();
-            sql.clear();
-            orderStatus.setId(addId);
+            orderStatus.save();
 
             Gson gson = new Gson();
             response.getWriter().print(gson.toJson(orderStatus));
@@ -51,5 +41,5 @@ public class OrderStatusServlet extends HttpServlet {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
 
-    }
+    }*/
 }

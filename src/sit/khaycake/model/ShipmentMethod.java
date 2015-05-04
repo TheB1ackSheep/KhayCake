@@ -11,12 +11,13 @@ import java.util.List;
 
 import sit.khaycake.database.Column;
 import sit.khaycake.database.ORM;
+import sit.khaycake.database.SQL;
 
 /**
  *
  * @author -milk
  */
-public class ShipmentMethod {
+public class ShipmentMethod implements ORM {
     private int id;
     private String name;
     private double price;
@@ -56,8 +57,34 @@ public class ShipmentMethod {
         this.setId(rs.getInt(COLUMN_ID.getColumnName()));
         this.setName(rs.getString(COLUMN_NAME.getColumnName()));
         this.setPrice(rs.getDouble(COLUMN_PRICE.getColumnName()));
-       
+    }
 
-        
+    public void save() throws Exception {
+        SQL sql = new SQL();
+        int id = sql
+                .insert()
+                .into(ShipmentMethod.TABLE_NAME, ShipmentMethod.COLUMN_NAME, ShipmentMethod.COLUMN_PRICE)
+                .values(this.getName(), this.getPrice())
+                .exec();
+        this.setId(id);
+    }
+
+    public void update() throws Exception{
+        SQL sql = new SQL();
+        sql
+                .update(ShipmentMethod.TABLE_NAME)
+                .set(ShipmentMethod.COLUMN_NAME, this.getName())
+                .set(ShipmentMethod.COLUMN_PRICE, this.getPrice())
+                .where(ShipmentMethod.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getId())
+                .exec();
+    }
+
+    public static int delete(int SHME_ID) throws Exception{
+        SQL sql = new SQL();
+        int a = sql
+                .delete(ShipmentMethod.TABLE_NAME)
+                .where(ShipmentMethod.COLUMN_ID, SQL.WhereClause.Operator.EQ, SHME_ID)
+                .exec();
+        return a;
     }
 }

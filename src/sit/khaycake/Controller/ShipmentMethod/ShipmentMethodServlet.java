@@ -18,17 +18,16 @@ public class ShipmentMethodServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            List shipmentMethods = SQL.findAll(ShipmentMethod.class);
             Gson gson = new Gson();
-            String result = gson.toJson(shipmentMethods, ShipmentMethod.class);
+            String result = gson.toJson(SQL.findAll(ShipmentMethod.class));
             response.getWriter().print(result);
         } catch (Exception ex) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
 
     }
 
-    @Override
+    /*@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
@@ -36,15 +35,7 @@ public class ShipmentMethodServlet extends HttpServlet {
             ShipmentMethod shipmentMethod = new ShipmentMethod();
             shipmentMethod.setName(request.getParameter("name"));
             shipmentMethod.setPrice(Double.parseDouble(request.getParameter("price")));
-
-
-            int addId = sql
-                    .insert()
-                    .into(ShipmentMethod.TABLE_NAME, ShipmentMethod.COLUMN_NAME, ShipmentMethod.COLUMN_PRICE)
-                    .values(shipmentMethod.getName(), shipmentMethod.getPrice())
-                    .exec();
-            sql.clear();
-            shipmentMethod.setId(addId);
+            shipmentMethod.save();
 
             Gson gson = new Gson();
             response.getWriter().print(gson.toJson(shipmentMethod));
@@ -52,5 +43,5 @@ public class ShipmentMethodServlet extends HttpServlet {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
 
-    }
+    }*/
 }

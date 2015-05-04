@@ -18,9 +18,8 @@ public class BankServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            List banks = SQL.findAll(Bank.class);
             Gson gson = new Gson();
-            String result = gson.toJson(banks, Bank.class);
+            String result = gson.toJson(SQL.findAll(Bank.class));
             response.getWriter().print(result);
         } catch (Exception ex) {
 
@@ -32,17 +31,9 @@ public class BankServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            SQL sql = new SQL();
             Bank bank = new Bank();
-            bank.setName(request.getParameter("nameEn"));
-
-            int addId = sql
-                    .insert()
-                    .into(Bank.TABLE_NAME, Bank.COLUMN_NAME_EN, Bank.COLUMN_NAME_TH)
-                    .values(bank.getName(), request.getParameter("nameTh"))
-                    .exec();
-            sql.clear();
-            bank.setId(addId);
+            bank.setName(request.getParameter("NAME_TH"));
+            bank.save();
 
             Gson gson = new Gson();
             response.getWriter().print(gson.toJson(bank));

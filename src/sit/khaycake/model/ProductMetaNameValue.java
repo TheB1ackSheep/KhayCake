@@ -15,7 +15,7 @@ import sit.khaycake.database.ORM;
  *
  * @author -milk
  */
-public class ProductMetaNameValue {
+public class ProductMetaNameValue implements ORM {
     
     private int id;
     private String value;

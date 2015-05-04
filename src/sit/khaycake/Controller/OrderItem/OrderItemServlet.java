@@ -2,7 +2,9 @@ package sit.khaycake.Controller.OrderItem;
 
 import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
+import sit.khaycake.model.Order;
 import sit.khaycake.model.OrderItem;
+import sit.khaycake.model.ProductSale;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,12 +20,11 @@ public class OrderItemServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            List orderItems = SQL.findAll(OrderItem.class);
             Gson gson = new Gson();
-            String result = gson.toJson(orderItems, OrderItem.class);
+            String result = gson.toJson(SQL.findAll(OrderItem.class));
             response.getWriter().print(result);
         } catch (Exception ex) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
 
     }
@@ -32,23 +33,15 @@ public class OrderItemServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            SQL sql = new SQL();
             OrderItem orderItem = new OrderItem();
-            orderItem.setAmount(Double.parseDouble(request.getParameter("amount")));
-            orderItem.setOrderId(Integer.parseInt(request.getParameter("odrerId")));
-            orderItem.setPriceUnit(Double.parseDouble(request.getParameter("priceUnit")));
-            orderItem.setPrsaId(Integer.parseInt(request.getParameter("prsaId")));
-            orderItem.setQty(Integer.parseInt(request.getParameter("qty")));
-
-
-            int addId = sql
-                    .insert()
-                    .into(OrderItem.TABLE_NAME, OrderItem.COLUMN_AMOUNT, OrderItem.COLUMN_ORDER_ID, OrderItem.COLUMN_PRICE_UNIT,
-                            OrderItem.COLUMN_PRSA_ID, OrderItem.COLUMN_QTY)
-                    .values(orderItem.getAmount(), orderItem.getOrderId(), orderItem.getPriceUnit(), orderItem.getPrsaId(), orderItem.getQty())
-                    .exec();
-            sql.clear();
-            orderItem.setOritId(addId);
+            orderItem.setAmount(Double.parseDouble(request.getParameter("AMOUNT")));
+            orderItem.setOrder((Order) SQL.findById(
+                    Order.class,Integer.parseInt(request.getParameter("ORDER_ID"))));
+            orderItem.setPriceUnit(Double.parseDouble(request.getParameter("PRICE_UNIT")));
+            orderItem.setProductSale((ProductSale)SQL.findById(
+                    ProductSale.class,Integer.parseInt(request.getParameter("PRSA_ID"))));
+            orderItem.setQty(Integer.parseInt(request.getParameter("QTY")));
+            orderItem.save();
 
             Gson gson = new Gson();
             response.getWriter().print(gson.toJson(orderItem));

@@ -9,7 +9,7 @@ import java.util.List;
 public interface CanFindByKeyword extends ORM {
 
     static List<Column> getCandidateKey(Class<? extends ORM> entity) throws NoSuchFieldException, IllegalAccessException {
-        return (List<Column>)entity.getDeclaredField("CANDIDATE_KEY").get(entity);
+        return (List<Column>)entity.getDeclaredField("COLUMN_KEYWORD").get(entity);
     };
 
 }

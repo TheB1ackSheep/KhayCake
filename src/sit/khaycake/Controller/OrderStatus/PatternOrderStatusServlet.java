@@ -17,22 +17,19 @@ public class PatternOrderStatusServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1));
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
 
         if (resource.indexOf("delete") >= 0) {
-            resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
+            /*resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
             SQL sql = new SQL();
             try {
-                int a = sql
-                        .delete(OrderStatus.TABLE_NAME)
-                        .where(OrderStatus.COLUMN_ID, SQL.WhereClause.Operator.EQ, resource)
-                        .exec();
+                int a = OrderStatus.delete(Integer.parseInt(resource));
                 if (a < 0) {
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
             } catch (Exception e) {
                 response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            }
+            }*/
 
         } else {
             OrderStatus orderStatus = null;
@@ -51,7 +48,7 @@ public class PatternOrderStatusServlet extends HttpServlet {
         }
     }
 
-    @Override
+    /*@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1));
@@ -62,16 +59,9 @@ public class PatternOrderStatusServlet extends HttpServlet {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
         if (orderStatus != null) {
-            orderStatus.setName(request.getParameter("name"));
-
-
-            SQL sql = new SQL();
-            try {
-                sql
-                        .update(OrderStatus.TABLE_NAME)
-                        .set(OrderStatus.COLUMN_NAME, orderStatus.getName())
-                        .where(OrderStatus.COLUMN_ID, SQL.WhereClause.Operator.EQ, orderStatus.getId())
-                        .exec();
+            try{
+                orderStatus.setName(request.getParameter("name"));
+                orderStatus.update();
 
             } catch (Exception e) {
                 response.sendError(HttpServletResponse.SC_NOT_FOUND);
@@ -80,6 +70,6 @@ public class PatternOrderStatusServlet extends HttpServlet {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
 
-    }
+    }*/
 
 }
