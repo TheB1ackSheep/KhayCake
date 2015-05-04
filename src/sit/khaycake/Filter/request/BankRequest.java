@@ -15,8 +15,8 @@ public class BankRequest extends RequestValidation {
     }
 
     public boolean validate() throws IOException {
-        return this.validate(attribute("addr_no", "เลขที่บ้าน"),
-                attribute("addr_add", "ที่อยู่"), attribute("street", "ถนน"),
-                attribute("sudt_id", "รหัสตำบล"));
+        return this.validate(attribute("name_th", "ชื่อธนาคารภาษาไทย"),
+                attribute("name_en", "ชื่อธนาคารภาษาอังกฤษ"),
+                integerAttribute("pic_id","รหัสรูปภาพ",false));
     }
 }

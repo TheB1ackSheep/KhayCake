@@ -16,14 +16,10 @@ public class PaymentRequest extends RequestValidation {
 
     public boolean validate() throws IOException {
         return this.validate(
-                attribute("fname", "ชื่อ"),
-                attribute("lname", "นามสกุล"),
-                attribute("sex", "เพศ"),
-                attribute("dob", "วันเดือนปีเกิด"),
-                attribute("phone", "เบอร์โทรศัพท์"),
-                attribute("email", "อีเมลล์"),
-                attribute("vat_id", "เลขประจำตัวผู้เสียภาษี"),
-                attribute("pwd", "รหัสผ่าน"));
+                integerAttribute("order_id", "รหัสคำสั่งซื้อ"),
+                floatAttribute("amount", "จำนวน"),
+                integerAttribute("baac_id", "รหัสบัญชี"),
+                attribute("date_time", "วันเวลา"),
+                integerAttribute("past_id", "รหัสการชำระเงิน"));
     }
 }
-

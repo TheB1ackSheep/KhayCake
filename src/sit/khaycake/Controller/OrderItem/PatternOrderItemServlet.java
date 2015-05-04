@@ -5,11 +5,14 @@ import sit.khaycake.database.SQL;
 import sit.khaycake.model.Order;
 import sit.khaycake.model.OrderItem;
 import sit.khaycake.model.ProductSale;
+import sit.khaycake.util.ErrorMessage;
+import sit.khaycake.util.SuccessMessage;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -20,33 +23,37 @@ public class PatternOrderItemServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
+        HttpSession session = request.getSession();
+        SuccessMessage succes = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
 
         if (resource.indexOf("delete") >= 0) {
             resource = resource.substring(0,resource.indexOf("/", 1));
-            SQL sql = new SQL();
             try {
-                int a = OrderItem.delete(Integer.parseInt(resource));
-                if (a < 0) {
+                OrderItem orderItem = (OrderItem)SQL.findById(OrderItem.class,resource);
+                if (orderItem != null) {
+                    OrderItem.delete(Integer.parseInt(resource));
+                    succes.setMessage(orderItem);
+                }else{
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
-            } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            } catch (Exception ex) {
+                error.setMessage(ex.getMessage());
             }
+
 
         } else {
-            OrderItem orderItem = null;
             try {
-                orderItem = (OrderItem) SQL.findById(OrderItem.class, Integer.parseInt(resource));
+                OrderItem orderItem = (OrderItem) SQL.findById(OrderItem.class, Integer.parseInt(resource));
+                if (orderItem != null) {
+                    succes.setMessage(orderItem);
+                } else {
+                    response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                }
+            } catch (Exception ex) {
+                error.setMessage(ex.getMessage());
+            }
 
-            } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            }
-            if (orderItem != null) {
-                Gson gson = new Gson();
-                response.getWriter().print(gson.toJson(orderItem));
-            } else {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            }
         }
     }
 
@@ -54,14 +61,12 @@ public class PatternOrderItemServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
-        OrderItem orderItem = null;
+        HttpSession session = request.getSession();
+        SuccessMessage succes = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
         try {
-            orderItem = (OrderItem) SQL.findById(OrderItem.class, Integer.parseInt(resource));
-        } catch (Exception e) {
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-        }
-        if (orderItem != null) {
-            try{
+            OrderItem orderItem = (OrderItem) SQL.findById(OrderItem.class, Integer.parseInt(resource));
+            if (orderItem != null) {
                 orderItem.setAmount(Double.parseDouble(request.getParameter("AMOUNT")));
                 orderItem.setOrder((Order) SQL.findById(
                         Order.class, Integer.parseInt(request.getParameter("ORDER_ID"))));
@@ -70,13 +75,15 @@ public class PatternOrderItemServlet extends HttpServlet {
                         ProductSale.class, Integer.parseInt(request.getParameter("PRSA_ID"))));
                 orderItem.setQty(Integer.parseInt(request.getParameter("QTY")));
                 orderItem.update();
+                succes.setMessage(orderItem);
 
-            } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            } else {
+                response.sendError(HttpServletResponse.SC_NOT_FOUND);
             }
-        } else {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+        } catch (Exception ex) {
+            error.setMessage(ex.getMessage());
         }
+
 
     }
 

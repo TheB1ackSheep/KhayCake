@@ -1,14 +1,19 @@
 package sit.khaycake.Controller.SubDistrict;
 
 import com.google.gson.Gson;
+import sit.khaycake.Filter.request.SubDistrictRequest;
 import sit.khaycake.database.SQL;
 import sit.khaycake.model.District;
+import sit.khaycake.model.Province;
 import sit.khaycake.model.SubDistrict;
+import sit.khaycake.util.ErrorMessage;
+import sit.khaycake.util.SuccessMessage;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -18,71 +23,96 @@ public class PatternSubDistrictServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 1)+1);
-
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
+        HttpSession session = request.getSession();
+        SuccessMessage success = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
         if (resource.indexOf("delete") >= 0) {
-            /*resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
-            SQL sql = new SQL();
+            resource = resource.substring(0, resource.indexOf("/", 1));
             try {
-                int a = sql
-                        .delete(SubDistrict.TABLE_NAME)
-                        .where(SubDistrict.COLUMN_DIST_ID, SQL.WhereClause.Operator.EQ, resource)
-                        .exec();
-                if (a < 0) {
+                SubDistrict subDistrict = (SubDistrict)SQL.findById(SubDistrict.class,resource);
+
+                if (subDistrict!=null) {
+                    SubDistrict.delete(subDistrict.getId());
+                    success.setMessage(subDistrict);
+                }else{
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
-            } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            }*/
+            } catch (Exception ex) {
+                error.setMessage(ex.getMessage());
+            }
 
-        } else {
-            SubDistrict subDistrict = null;
+        } else if (resource.indexOf("district") >= 0) {
+            resource = resource.substring(0, resource.indexOf("/", 1));
             try {
-                subDistrict = (SubDistrict) SQL.findById(SubDistrict.class, Integer.parseInt(resource));
+                SubDistrict subDistrict = (SubDistrict)SQL.findById(SubDistrict.class,resource);
 
-            } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                if (subDistrict!=null) {
+                    District district = (District)SQL.findById(District.class,subDistrict.getDistrictId());
+                    success.setMessage(district);
+                }else{
+                    response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                }
+            } catch (Exception ex) {
+                error.setMessage(ex.getMessage());
             }
-            if (subDistrict != null) {
-                Gson gson = new Gson();
-                response.getWriter().print(gson.toJson(subDistrict));
-            } else {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
+
+        } else if (resource.indexOf("district") >= 0) {
+            resource = resource.substring(0, resource.indexOf("/", 1));
+            try {
+                SubDistrict subDistrict = (SubDistrict)SQL.findById(SubDistrict.class,resource);
+
+                if (subDistrict!=null) {
+                    District district = (District)SQL.findById(District.class,subDistrict.getDistrictId());
+                    Province province = (Province)SQL.findById(Province.class,district.getProvinceId());
+                    success.setMessage(province);
+                }else{
+                    response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                }
+            } catch (Exception ex) {
+                error.setMessage(ex.getMessage());
             }
+
+        }else {
+            try {
+                SubDistrict subDistrict = (SubDistrict) SQL.findById(SubDistrict.class, Integer.parseInt(resource));
+                if (subDistrict != null) {
+                    success.setMessage(subDistrict);
+                } else {
+                    response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                }
+            } catch (Exception ex) {
+                error.setMessage(ex.getMessage());
+            }
+
         }
     }
 
-    /*@Override
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1));
-        SubDistrict subDistrict = null;
-        try {
-            subDistrict = (SubDistrict) SQL.findById(SubDistrict.class, Integer.parseInt(resource));
-        } catch (Exception e) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
-        }
-        if (subDistrict != null) {
-            subDistrict.setName(request.getParameter("name"));
-            subDistrict.setZipCode(request.getParameter("zipCode"));
-
-            SQL sql = new SQL();
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0) + 1);
+               HttpSession session = request.getSession();
+        SuccessMessage success = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
+        SubDistrictRequest subDistrictRequest = new SubDistrictRequest(request);
+        if(subDistrictRequest.validate()) {
             try {
-                sql
-                        .update(SubDistrict.TABLE_NAME)
-                        .set(SubDistrict.COLUMN_NAME, subDistrict.getName())
-                        .set(SubDistrict.COLUMN_ZIPCODE, subDistrict.getName())
-                        .set(SubDistrict.COLUMN_DIST_ID, request.getParameter("districtId"))
-                        .where(District.COLUMN_DIST_ID, SQL.WhereClause.Operator.EQ, subDistrict.getId())
-                        .exec();
+                SubDistrict subDistrict = (SubDistrict) SQL.findById(SubDistrict.class, Integer.parseInt(resource));
+                if (subDistrict != null) {
+                    subDistrict.setName(request.getParameter("name"));
+                    subDistrict.setZipCode(request.getParameter("zipcode"));
+                    subDistrict.setDistrictId(Integer.parseInt(request.getParameter("dist_id")));
+                    subDistrict.update();
+                    success.setMessage(subDistrict);
+                } else {
+                    response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                }
 
-            } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            } catch (Exception ex) {
+                error.setMessage(ex.getMessage());
             }
-        } else {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
-
-    }*/
+    }
 
 }

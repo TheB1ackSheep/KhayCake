@@ -15,8 +15,6 @@ public class BankAccountTypeRequest extends RequestValidation {
     }
 
     public boolean validate() throws IOException {
-        return this.validate(integerAttribute("babr_id", "รหัสสาขา"),
-                attribute("acc_name", "ชื่อบัญชี"),attribute("acc_no", "เลขที่บัญชี"),
-                integerAttribute("baat_id","รหัสประเภทบัญชี"));
+        return this.validate(attribute("name", "ชื่อประเภทบัญชี"));
     }
 }

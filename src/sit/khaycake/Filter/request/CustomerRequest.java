@@ -15,8 +15,15 @@ public class CustomerRequest extends RequestValidation {
     }
 
     public boolean validate() throws IOException {
-        return this.validate(attribute("addr_no", "เลขที่บ้าน"),
-                attribute("addr_add", "ที่อยู่"), attribute("street", "ถนน"),
-                attribute("sudt_id", "รหัสตำบล"));
+        return this.validate(
+                attribute("fname", "ชื่อ"),
+                attribute("lname", "นามสกุล"),
+                attribute("sex", "เพศ"),
+                attribute("dob", "วันเดือนปีเกิด"),
+                attribute("phone", "เบอร์โทรศัพท์"),
+                attribute("email", "อีเมลล์"),
+                attribute("vat_id", "เลขประจำตัวผู้เสียภาษี"),
+                attribute("pwd", "รหัสผ่าน"));
     }
 }
+

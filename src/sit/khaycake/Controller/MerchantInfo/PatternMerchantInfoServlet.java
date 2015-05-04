@@ -1,13 +1,18 @@
 package sit.khaycake.Controller.MerchantInfo;
 
 import com.google.gson.Gson;
+import sit.khaycake.Filter.request.MerchantInfoRequest;
 import sit.khaycake.database.SQL;
+import sit.khaycake.model.Address;
 import sit.khaycake.model.MerchantInfo;
+import sit.khaycake.util.ErrorMessage;
+import sit.khaycake.util.SuccessMessage;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -18,76 +23,68 @@ public class PatternMerchantInfoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
+        HttpSession session = request.getSession();
+        SuccessMessage succes = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
 
         if (resource.indexOf("delete") >= 0) {
-            /*resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
-            SQL sql = new SQL();
+            resource = resource.substring(0, resource.indexOf("/", 1));
             try {
-                int a = sql
-                        .delete(MerchantInfo.TABLE_NAME)
-                        .where(MerchantInfo.COLUMN_ID, SQL.WhereClause.Operator.EQ, resource)
-                        .exec();
-                if (a < 0) {
+                MerchantInfo merchantInfo = (MerchantInfo)SQL.findById(MerchantInfo.class,resource);
+                if (merchantInfo != null) {
+                    MerchantInfo.delete(Integer.parseInt(resource));
+                    succes.setMessage(merchantInfo);
+                }else{
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
-            } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            }*/
+            } catch (Exception ex) {
+                error.setMessage(ex.getMessage());
+            }
 
         } else {
-            MerchantInfo merchantInfo = null;
-            try {
-                merchantInfo = (MerchantInfo) SQL.findById(MerchantInfo.class, Integer.parseInt(resource));
 
-            } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            try {
+                MerchantInfo merchantInfo = (MerchantInfo) SQL.findById(MerchantInfo.class, resource);
+                if (merchantInfo != null) {
+                    succes.setMessage(merchantInfo);
+                } else {
+                    response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                }
+            } catch (Exception ex) {
+                error.setMessage(ex.getMessage());
             }
-            if (merchantInfo != null) {
-                Gson gson = new Gson();
-                response.getWriter().print(gson.toJson(merchantInfo));
-            } else {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            }
+
         }
     }
 
-    /*@Override
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1));
-        MerchantInfo merchantInfo = null;
-        try {
-            merchantInfo = (MerchantInfo) SQL.findById(MerchantInfo.class, Integer.parseInt(resource));
-        } catch (Exception e) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
-        }
-        if (merchantInfo != null) {
-            merchantInfo.setName(request.getParameter("name"));
-            merchantInfo.setVatId(request.getParameter("VatId"));
-            merchantInfo.setPhone(request.getParameter("phone"));
-            merchantInfo.setFax(request.getParameter("fax"));
-            merchantInfo.setVatValue(Double.parseDouble(request.getParameter("vatValue")));
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0) + 1);
+        HttpSession session = request.getSession();
+        SuccessMessage succes = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
+        MerchantInfoRequest merchantInfoRequest = new MerchantInfoRequest(request);
 
-            SQL sql = new SQL();
+        if(merchantInfoRequest.validate()) {
             try {
-                sql
-                        .update(MerchantInfo.TABLE_NAME)
-                        .set(MerchantInfo.COLUMN_NAME, merchantInfo.getName())
-                        .set(MerchantInfo.COLUMN_VAT_ID, merchantInfo.getVatId())
-                        .set(MerchantInfo.COLUMN_PHONE, merchantInfo.getPhone())
-                        .set(MerchantInfo.COLUMN_FAX, merchantInfo.getFax())
-                        .set(MerchantInfo.COLUMN_VAT_VALUE, merchantInfo.getVatValue())
-                        .set(MerchantInfo.COLUMN_ADDR_ID, request.getParameter("addressId"))
-                        .where(MerchantInfo.COLUMN_ID, SQL.WhereClause.Operator.EQ, merchantInfo.getId())
-                        .exec();
-
-            } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                MerchantInfo merchantInfo = (MerchantInfo) SQL.findById(MerchantInfo.class, Integer.parseInt(resource));
+                if (merchantInfo != null) {
+                    merchantInfo.setName(request.getParameter("name"));
+                    merchantInfo.setVatId(request.getParameter("vat_id"));
+                    merchantInfo.setPhone(request.getParameter("phone"));
+                    merchantInfo.setFax(request.getParameter("fax"));
+                    merchantInfo.setVatValue(Double.parseDouble(request.getParameter("vat_value")));
+                    merchantInfo.setAddress((Address) SQL.findById(Address.class, request.getParameter("addr_id")));
+                    merchantInfo.update();
+                    succes.setMessage(merchantInfo);
+                } else {
+                    response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                }
+            } catch (Exception ex) {
+                error.setMessage(ex.getMessage());
             }
-
-        } else {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
-    }*/
+    }
 
 }

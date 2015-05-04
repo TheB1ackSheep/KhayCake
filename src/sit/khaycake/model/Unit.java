@@ -11,6 +11,7 @@ import java.util.List;
 
 import sit.khaycake.database.Column;
 import sit.khaycake.database.ORM;
+import sit.khaycake.database.SQL;
 
 /**
  *
@@ -47,6 +48,32 @@ public class Unit implements ORM {
         this.setName(rs.getString(COLUMN_NAME.getColumnName()));
     
     }
-    
+    public void save() throws Exception {
+        SQL sql = new SQL();
+        int id = sql
+                .insert()
+                .into(Unit.TABLE_NAME, Unit.COLUMN_NAME)
+                .values(this.getName())
+                .exec();
+        this.setId(id);
+    }
+
+    public void update() throws Exception{
+        SQL sql = new SQL();
+        sql
+                .update(Unit.TABLE_NAME)
+                .set(Unit.COLUMN_NAME, this.getName())
+                .where(Unit.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getId())
+                .exec();
+    }
+
+    public static int delete(int UNIT_ID) throws Exception{
+        SQL sql = new SQL();
+        int a = sql
+                .delete(Unit.TABLE_NAME)
+                .where(Unit.COLUMN_ID, SQL.WhereClause.Operator.EQ, UNIT_ID)
+                .exec();
+        return a;
+    }
     
 }

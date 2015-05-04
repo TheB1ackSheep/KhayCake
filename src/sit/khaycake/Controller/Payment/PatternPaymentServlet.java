@@ -1,14 +1,20 @@
 package sit.khaycake.Controller.Payment;
 
 import com.google.gson.Gson;
+import sit.khaycake.Filter.request.PaymentRequest;
 import sit.khaycake.database.SQL;
-import sit.khaycake.model.*;
+import sit.khaycake.model.BankAccount;
+import sit.khaycake.model.Order;
+import sit.khaycake.model.Payment;
 import sit.khaycake.util.AssisDateTime;
+import sit.khaycake.util.ErrorMessage;
+import sit.khaycake.util.SuccessMessage;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -19,62 +25,66 @@ public class PatternPaymentServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
-
+        HttpSession session = request.getSession();
+        SuccessMessage succes = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
+        
         if (resource.indexOf("delete") >= 0) {
-            /*resource = resource.substring(0,resource.indexOf("/", 1));
-            SQL sql = new SQL();
+            resource = resource.substring(0, resource.indexOf("/", 1));
             try {
-                int a = Payment.delete(Integer.parseInt(resource));
-                if (a < 0) {
+                Payment payment = (Payment)SQL.findById(Payment.class,resource);
+                if (payment != null) {
+                    Payment.delete(Integer.parseInt(resource));
+                    succes.setMessage(payment);
+                }else{
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
-            } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            }*/
+            } catch (Exception ex) {
+                error.setMessage(ex.getMessage());
+            }
 
         } else {
-            Payment payment = null;
             try {
-                payment = (Payment) SQL.findById(Payment.class, Integer.parseInt(resource));
+                Payment payment = (Payment) SQL.findById(Payment.class, Integer.parseInt(resource));
+                if (payment != null) {
+                    succes.setMessage(payment);
+                } else {
+                    response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                }
+            } catch (Exception ex) {
+                error.setMessage(ex.getMessage());
+            }
 
-            } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            }
-            if (payment != null) {
-                Gson gson = new Gson();
-                response.getWriter().print(gson.toJson(payment));
-            } else {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            }
         }
     }
 
-    /*@Override
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1));
-        Payment payment = null;
-        try {
-            payment = (Payment) SQL.findById(Payment.class, Integer.parseInt(resource));
-        } catch (Exception e) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
-        }
-        if (payment != null) {
-            try{
-                payment.setOrder((Order) SQL.findById(Order.class, Integer.parseInt(request.getParameter("orderId"))));
-                payment.setAmount(Double.parseDouble(request.getParameter("amount")));
-                payment.setBaac((BankAccount)SQL.findById(BankAccount.class,Integer.parseInt(request.getParameter("baccId"))));
-                payment.setDateTime(AssisDateTime.DateTime(request.getParameter("dateTime")));
-                payment.setPast(Payment.Status.getStatus(Integer.parseInt(request.getParameter("pastId"))));
-                payment.update();
-
-            } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
+        HttpSession session = request.getSession();
+        SuccessMessage succes = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
+        PaymentRequest paymentRequest = new PaymentRequest(request);
+        if(paymentRequest.validate()) {
+            try {
+                Payment payment = (Payment) SQL.findById(Payment.class, Integer.parseInt(resource));
+                if (payment != null) {
+                    payment.setOrder((Order) SQL.findById(Order.class, Integer.parseInt(request.getParameter("order_id"))));
+                    payment.setAmount(Double.parseDouble(request.getParameter("amount")));
+                    payment.setBaac((BankAccount) SQL.findById(BankAccount.class, Integer.parseInt(request.getParameter("bacc_id"))));
+                    payment.setDateTime(AssisDateTime.DateTime(request.getParameter("dae_time")));
+                    payment.setPast(Payment.Status.getStatus(Integer.parseInt(request.getParameter("past_id"))));
+                    payment.update();
+                    succes.setMessage(payment);
+                } else {
+                    response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                }
+            } catch (Exception ex) {
+                error.setMessage(ex.getMessage());
             }
-        } else {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
 
-    }*/
+    }
 
 }

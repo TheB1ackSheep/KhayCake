@@ -1,5 +1,6 @@
 package sit.khaycake.Controller.BankBranch;
 
+import sit.khaycake.Filter.request.BankBranchRequest;
 import sit.khaycake.database.SQL;
 import sit.khaycake.model.Bank;
 import sit.khaycake.util.ErrorMessage;
@@ -37,17 +38,19 @@ public class BankBranchServlet extends HttpServlet {
         HttpSession session = request.getSession();
         SuccessMessage success = new SuccessMessage(session);
         ErrorMessage error = new ErrorMessage(session);
-        try {
-            Bank.Branch bankBranch = new Bank.Branch();
-            bankBranch.setNameTh(request.getParameter("NAME_TH"));
-            bankBranch.setNameEn(request.getParameter("NAME_EN"));
-            bankBranch.setBank((Bank)SQL.findById(Bank.class, request.getParameter("BANK_ID")));
-            bankBranch.save();
+        BankBranchRequest bankBranchRequest = new BankBranchRequest(request);
+        if(bankBranchRequest.validate()) {
+            try {
+                Bank.Branch bankBranch = new Bank.Branch();
+                bankBranch.setNameTh(request.getParameter("name_th"));
+                bankBranch.setNameEn(request.getParameter("name_en"));
+                bankBranch.setBank((Bank) SQL.findById(Bank.class, request.getParameter("bank_id")));
+                bankBranch.save();
 
-            success.setMessage(bankBranch);
-        } catch (Exception ex) {
-            error.setMessage(ex);
+                success.setMessage(bankBranch);
+            } catch (Exception ex) {
+                error.setMessage(ex);
+            }
         }
-
     }
 }

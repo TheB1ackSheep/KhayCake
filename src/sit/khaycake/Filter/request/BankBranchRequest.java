@@ -15,8 +15,8 @@ public class BankBranchRequest extends RequestValidation {
     }
 
     public boolean validate() throws IOException {
-        return this.validate(attribute("name_th", "ชื่อธนาคารภาษาไทย"),
-                attribute("name_en", "ชื่อธนาคารภาษาอังกฤษ"),
-                integerAttribute("pic_id","รหัสรูปภาพ",false));
+        return this.validate(attribute("name_th", "ชื่อสาขาธนาคารภาษาไทย"),
+                attribute("name_en", "ชื่อสาขาธนาคารภาษาอังกฤษ"),
+                integerAttribute("bank_id","รหัสธนาคาร"));
     }
 }

@@ -15,7 +15,7 @@ public class ShipmentMethodRequest extends RequestValidation {
     }
 
     public boolean validate() throws IOException {
-        return this.validate(attribute("name", "ชื่ออำเภอ"),
-                integerAttribute("prov_id", "รหัสจังหวัด"));
+        return this.validate(attribute("name", "ชื่อประเภทการจัดส่ง"),
+                floatAttribute("price", "มูลค่า"));
     }
 }

@@ -1,5 +1,6 @@
 package sit.khaycake.Controller.BankBranch;
 
+import sit.khaycake.Filter.request.BankBranchRequest;
 import sit.khaycake.database.SQL;
 import sit.khaycake.model.Bank;
 import sit.khaycake.util.ErrorMessage;
@@ -61,23 +62,24 @@ public class PatternBankBranchServlet extends HttpServlet {
         HttpSession session = request.getSession();
         SuccessMessage succes = new SuccessMessage(session);
         ErrorMessage error = new ErrorMessage(session);
+        BankBranchRequest bankBranchRequest = new BankBranchRequest(request);
+        if(bankBranchRequest.validate()) {
+            try {
+                Bank.Branch bankBranch = (Bank.Branch) SQL.findById(Bank.Branch.class, Integer.parseInt(resource));
 
-        try {
-            Bank.Branch bankBranch = (Bank.Branch) SQL.findById(Bank.Branch.class, Integer.parseInt(resource));
-
-            if (bankBranch != null) {
-                bankBranch.setNameTh(request.getParameter("NAME_TH"));
-                bankBranch.setNameEn(request.getParameter("NAME_EN"));
-                bankBranch.setBank((Bank) SQL.findById(Bank.class, request.getParameter("BANK_ID")));
-                bankBranch.update();
-                succes.setMessage(bankBranch);
-            } else {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                if (bankBranch != null) {
+                    bankBranch.setNameTh(request.getParameter("name_th"));
+                    bankBranch.setNameEn(request.getParameter("name_en"));
+                    bankBranch.setBank((Bank) SQL.findById(Bank.class, request.getParameter("bank_id")));
+                    bankBranch.update();
+                    succes.setMessage(bankBranch);
+                } else {
+                    response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                }
+            } catch (Exception ex) {
+                error.setMessage(ex.getMessage());
             }
-        }catch (Exception ex) {
-            error.setMessage(ex.getMessage());
         }
-
 
     }
 

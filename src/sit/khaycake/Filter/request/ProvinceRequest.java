@@ -15,6 +15,6 @@ public class ProvinceRequest extends RequestValidation {
     }
 
     public boolean validate() throws IOException {
-        return this.validate(attribute("name", "ชื่อสถานะการชำระเงิน"));
+        return this.validate(attribute("name", "ชื่อจังหวัด"));
     }
 }

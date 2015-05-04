@@ -1,6 +1,7 @@
 package sit.khaycake.Controller.Category;
 
 import com.google.gson.Gson;
+import sit.khaycake.Filter.request.CategoryRequest;
 import sit.khaycake.database.SQL;
 import sit.khaycake.model.Category;
 import sit.khaycake.util.ErrorMessage;
@@ -22,10 +23,10 @@ public class CategoryServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        SuccessMessage success = new SuccessMessage(session);
+        SuccessMessage succes = new SuccessMessage(session);
         ErrorMessage error = new ErrorMessage(session);
         try {
-            success.setMessage(SQL.findAll(Category.class));
+            succes.setMessage((Category) SQL.findAll(Category.class));
         } catch (Exception ex) {
             error.setMessage(ex.getMessage());
         }
@@ -34,7 +35,21 @@ public class CategoryServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        SuccessMessage succes = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
+        CategoryRequest categoryRequest = new CategoryRequest(request);
+        if(categoryRequest.validate()) {
+            try {
+                Category category = new Category();
+                category.setName(request.getParameter("name"));
+                category.setCatParentId(Integer.parseInt(request.getParameter("cat_parent_id")));
+                category.save();
 
-
+                succes.setMessage(category);
+            } catch (Exception ex) {
+                error.setMessage(ex.getMessage());
+            }
+        }
     }
 }

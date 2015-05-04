@@ -1,6 +1,7 @@
 package sit.khaycake.Controller.Address;
 
 import com.google.gson.Gson;
+import sit.khaycake.Filter.request.AddressRequest;
 import sit.khaycake.database.SQL;
 import sit.khaycake.model.Address;
 import sit.khaycake.model.SubDistrict;
@@ -26,7 +27,7 @@ public class AddressServlet extends HttpServlet {
         ErrorMessage error = new ErrorMessage(session);
         try {
             Gson gson = new Gson();
-            success.setMessage(gson.toJson(SQL.findAll(Address.class)));
+            success.setMessage((Address)SQL.findAll(Address.class));
         } catch (Exception ex) {
             error.setMessage(ex.getMessage());
         }
@@ -39,19 +40,20 @@ public class AddressServlet extends HttpServlet {
         HttpSession session = request.getSession();
         SuccessMessage success = new SuccessMessage(session);
         ErrorMessage error = new ErrorMessage(session);
-        try {
-            Address address = new Address();
-            address.setAddrNo(request.getParameter("ADDR_NO"));
-            address.setAddrAdd(request.getParameter("ADDR_ADD"));
-            address.setStreet(request.getParameter("STREET"));
-            address.setSubDistrictId(Integer.parseInt(request.getParameter("SUDT_ID")));
-            address.save();
+        AddressRequest addressRequest = new AddressRequest(request);
+        if(addressRequest.validate()) {
+            try {
+                Address address = new Address();
+                address.setAddrNo(request.getParameter("addr_no"));
+                address.setAddrAdd(request.getParameter("addr_add"));
+                address.setStreet(request.getParameter("street"));
+                address.setSubDistrictId(Integer.parseInt(request.getParameter("sudt_id")));
+                address.save();
 
-            Gson gson = new Gson();
-            success.setMessage(gson.toJson(address));
-        } catch (Exception ex) {
-            error.setMessage(ex.getMessage());
+                success.setMessage(address);
+            } catch (Exception ex) {
+                error.setMessage(ex.getMessage());
+            }
         }
-
     }
 }

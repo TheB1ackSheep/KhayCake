@@ -1,13 +1,17 @@
 package sit.khaycake.Controller.ProductSale;
 
 import com.google.gson.Gson;
+import sit.khaycake.Filter.request.ProductSaleRequest;
 import sit.khaycake.database.SQL;
 import sit.khaycake.model.ProductSale;
+import sit.khaycake.util.ErrorMessage;
+import sit.khaycake.util.SuccessMessage;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -17,43 +21,34 @@ import java.util.List;
 public class ProductSaleServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        SuccessMessage success = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
         try {
-            Gson gson = new Gson();
-            String result = gson.toJson(SQL.findAll(ProductSale.class));
-            response.getWriter().print(result);
+            success.setMessage((ProductSale) SQL.findAll(ProductSale.class));
         } catch (Exception ex) {
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            error.setMessage(ex.getMessage());
         }
 
     }
 
-    /*@Override
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            SQL sql = new SQL();
-            ProductSale productSale = new ProductSale();
-            productSale.setPriceN(Double.parseDouble(request.getParameter("priceN")));
-            productSale.setPriceV(Double.parseDouble(request.getParameter("priceV")));
-            productSale.setProdId(Integer.parseInt(request.getParameter("prodId")));
-            productSale.setQty(Integer.parseInt(request.getParameter("qty")));
-            productSale.setUnitId(Integer.parseInt(request.getParameter("unitId")));
-
-
-            int addId = sql
-                    .insert()
-                    .into(ProductSale.TABLE_NAME, ProductSale.COLUMN_PRICE_N, ProductSale.COLUMN_PRICE_V, ProductSale.COLUMN_PROD_ID,
-                            ProductSale.COLUMN_QTY, ProductSale.COLUMN_UNIT_ID)
-                    .values(productSale.getPriceN(), productSale.getPriceV(), productSale.getProdId(), productSale.getQty(), productSale.getUnitId())
-                    .exec();
-            sql.clear();
-            productSale.setId(addId);
-
-            Gson gson = new Gson();
-            response.getWriter().print(gson.toJson(productSale));
-        } catch (Exception ex) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+        HttpSession session = request.getSession();
+        SuccessMessage success = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
+        ProductSaleRequest productSaleRequest = new ProductSaleRequest(request);
+        if(productSaleRequest.validate()) {
+            try {
+                ProductSale productSale = new ProductSale();
+                productSale.setProdId(Integer.parseInt(request.getParameter("prod_id")));
+                productSale.setQty(Integer.parseInt(request.getParameter("qty")));
+                productSale.save();
+                success.setMessage(productSale);
+            } catch (Exception ex) {
+                error.setMessage(ex.getMessage());
+            }
         }
-
-    }*/
+    }
 }

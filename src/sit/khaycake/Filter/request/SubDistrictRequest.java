@@ -15,7 +15,9 @@ public class SubDistrictRequest extends RequestValidation {
     }
 
     public boolean validate() throws IOException {
-        return this.validate(attribute("name", "ชื่อประเภทการจัดส่ง"),
-                floatAttribute("price", "มูลค่า"));
+        return this.validate(
+                attribute("name", "ชื่อตำบล"),
+                integerAttribute("name", "รหัสไปรษณีย์"),
+                integerAttribute("dist_id", "รหัสอำเภอ"));
     }
 }

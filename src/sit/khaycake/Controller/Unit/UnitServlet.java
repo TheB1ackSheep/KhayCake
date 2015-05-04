@@ -1,6 +1,7 @@
 package sit.khaycake.Controller.Unit;
 
 import com.google.gson.Gson;
+import sit.khaycake.Filter.request.UnitRequest;
 import sit.khaycake.database.SQL;
 import sit.khaycake.model.Unit;
 import sit.khaycake.util.ErrorMessage;
@@ -33,28 +34,23 @@ public class UnitServlet extends HttpServlet {
 
     }
 
-    /*@Override
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            SQL sql = new SQL();
-            Unit unit = new Unit();
-            unit.setName(request.getParameter("name"));
+        HttpSession session = request.getSession();
+        SuccessMessage success = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
+        UnitRequest unitRequest = new UnitRequest(request);
+        if(unitRequest.validate()) {
+            try {
+                Unit unit = new Unit();
+                unit.setName(request.getParameter("name"));
+                unit.save();
 
-
-            int addId = sql
-                    .insert()
-                    .into(Unit.TABLE_NAME, Unit.COLUMN_NAME)
-                    .values(unit.getName())
-                    .exec();
-            sql.clear();
-            unit.setId(addId);
-
-            Gson gson = new Gson();
-            response.getWriter().print(gson.toJson(unit));
-        } catch (Exception ex) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                success.setMessage(unit);
+            } catch (Exception ex) {
+                error.setMessage(ex.getMessage());
+            }
         }
-
-    }*/
+    }
 }

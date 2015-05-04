@@ -16,12 +16,11 @@ public class MerchantInfoRequest extends RequestValidation {
 
     public boolean validate() throws IOException {
         return this.validate(
-                attribute("date", "วันที่"),
-                attribute("qrand_total", "Qrand total"),
-                attribute("sub_total", "จำนวนทั้งหมด"),
-                attribute("vat", "ภาษีมูลค่าเพิ่ม"),
-                attribute("qrand_total_text", "Qrand total text"),
-                attribute("patm_id", "รหัสการชำระเงิน"),
-                attribute("meif_id", "รหัสผู้ขาย"));
+                attribute("name", "ชื่อผู้ขาย"),
+                attribute("vat_id", "เลขประจำตัวผู้เสียภาษี"),
+                attribute("phone", "เบอร์โทรศัพท์"),
+                attribute("fax", "เบอร์โทรสาร"),
+                floatAttribute("vat_value", "มูลค่าภาษี"),
+                integerAttribute("addr_id", "รหัสที่อยู่"));
     }
 }

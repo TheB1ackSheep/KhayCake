@@ -16,14 +16,12 @@ public class OrderRequest extends RequestValidation {
 
     public boolean validate() throws IOException {
         return this.validate(
-                attribute("fname", "ชื่อ"),
-                attribute("lname", "นามสกุล"),
-                attribute("sex", "เพศ"),
-                attribute("dob", "วันเดือนปีเกิด"),
-                attribute("phone", "เบอร์โทรศัพท์"),
-                attribute("email", "อีเมลล์"),
-                attribute("vat_id", "เลขประจำตัวผู้เสียภาษี"),
-                attribute("pwd", "รหัสผ่าน"));
+                integerAttribute("cust_id", "รหัสลูกค้า"),
+                integerAttribute("order_date", "วันที่สั่งซื้อ"),
+                integerAttribute("orst_id", "รหัสสถานะการสั่งซื้อ"),
+                integerAttribute("shme_id", "รหัสประเภทการจัดส่ง"),
+                integerAttribute("shtr_id", "Shtr id",false),
+                floatAttribute("total_price", "จำนวนเงินทั้งหมด"),
+                integerAttribute("total_qty", "จำนวนทั้งหมด(ชิ้น)"));
     }
 }
-

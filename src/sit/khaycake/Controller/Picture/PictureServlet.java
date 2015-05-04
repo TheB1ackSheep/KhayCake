@@ -7,13 +7,12 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
+import sit.khaycake.Filter.request.PictureRequest;
 import sit.khaycake.database.SQL;
 import sit.khaycake.model.Picture;
 import sit.khaycake.util.ErrorMessage;
 import sit.khaycake.util.SuccessMessage;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -35,49 +34,44 @@ public class PictureServlet extends HttpServlet {
         HttpSession session = request.getSession();
         SuccessMessage success = new SuccessMessage(session);
         ErrorMessage error = new ErrorMessage(session);
-
+        PictureRequest pictureRequest = new PictureRequest(request);
         PrintWriter out = response.getWriter();
+        if(pictureRequest.validate()) {
+            if (ServletFileUpload.isMultipartContent(request)) {
 
-        try {
+                String appPath = request.getServletContext().getRealPath("");
+                // constructs path of the directory to save uploaded file
+                File savePath = new File/*(appPath+"\\images");*/("/usr/share/glassfish4/glassfish/domains/jsp.falook.me/applications/khaycake/images");
+                List<Picture> pictures = new ArrayList<>();
 
-        if(ServletFileUpload.isMultipartContent(request)){
+                try {
+                    List<FileItem> multiparts = new ServletFileUpload(
+                            new DiskFileItemFactory()).parseRequest(request);
 
-            String appPath = request.getServletContext().getRealPath("");
-            // constructs path of the directory to save uploaded file
-            Context ctx = new InitialContext();
-            String path = (String) ctx.lookup("resource/uploadImageUrl");
-            File savePath = new File(path);//"/usr/share/glassfish4/glassfish/domains/jsp.falook.me/applications/khaycake/images");
-            List<Picture> pictures = new ArrayList<>();
+                    for (FileItem item : multiparts) {
+                        if (item.getFieldName().equals("pictures")) {
+                            String fileName = FilenameUtils.getName(item.getName());
+                            String fileNamePrefix = FilenameUtils.getBaseName(fileName) + "_";
+                            String fileNameSuffix = "." + FilenameUtils.getExtension(fileName);
+                            File file = File.createTempFile(fileNamePrefix, fileNameSuffix, savePath);
+                            item.write(file);
 
+                            Picture picture = new Picture();
+                            picture.setFilename(file.getName());
+                            picture.save();
+                            pictures.add(picture);
+                        }
 
-                List<FileItem> multiparts = new ServletFileUpload(
-                        new DiskFileItemFactory()).parseRequest(request);
-
-                for (FileItem item : multiparts) {
-                    if(item.getFieldName().equals("pictures")){
-                        String fileName = FilenameUtils.getName(item.getName());
-                        String fileNamePrefix = FilenameUtils.getBaseName(fileName) + "_";
-                        String fileNameSuffix = "." + FilenameUtils.getExtension(fileName);
-                        File file = File.createTempFile(fileNamePrefix,fileNameSuffix, savePath);
-                        item.write(file);
-
-                        Picture picture = new Picture();
-                        picture.setFilename(file.getName());
-                        picture.save();
-                        pictures.add(picture);
                     }
+                    success.setMessage(pictures);
 
+                } catch (Exception ex) {
+                    error.setMessage(ex.getMessage());
                 }
-                success.setMessage(pictures);
-
-
-        }else{
-            error.setMessage("มีบางอย่างไม่ถูกต้อง!");
+            } else {
+                error.setMessage("มีบางอย่างไม่ถูกต้อง!");
+            }
         }
-        } catch (Exception ex) {
-            error.setMessage(ex.getMessage());
-        }
-
 
     }
 
@@ -86,7 +80,9 @@ public class PictureServlet extends HttpServlet {
         SuccessMessage success = new SuccessMessage(session);
         ErrorMessage error = new ErrorMessage(session);
         try {
-            success.setMessage(SQL.findAll(Picture.class));
+            Gson gson = new Gson();
+            String result = gson.toJson((List<Picture>)SQL.findAll(Picture.class));
+            success.setMessage(result);
         } catch (Exception ex) {
             error.setMessage(ex.getMessage());
         }

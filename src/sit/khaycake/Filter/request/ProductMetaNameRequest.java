@@ -15,6 +15,6 @@ public class ProductMetaNameRequest extends RequestValidation {
     }
 
     public boolean validate() throws IOException {
-        return this.validate(attribute("name", "ชื่อสถานะการชำระเงิน"));
+        return this.validate(attribute("name", "Product meta name"));
     }
 }

@@ -15,7 +15,6 @@ public class OrderStatusRequest extends RequestValidation {
     }
 
     public boolean validate() throws IOException {
-        return this.validate(attribute("name", "ชื่อชนิด"),
-                integerAttribute("cat_parent_id", "รหัสประเภท", false));
+        return this.validate(attribute("name", "ชื่อสถานะการชำระเงิน"));
     }
 }

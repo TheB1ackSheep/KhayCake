@@ -1,13 +1,17 @@
 package sit.khaycake.Controller.ProductMetaName;
 
 import com.google.gson.Gson;
+import sit.khaycake.Filter.request.ProductMetaNameRequest;
 import sit.khaycake.database.SQL;
 import sit.khaycake.model.ProductMetaName;
+import sit.khaycake.util.ErrorMessage;
+import sit.khaycake.util.SuccessMessage;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -17,69 +21,65 @@ public class PatternProductMetaNameServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 1)+1);
-
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
+        HttpSession session = request.getSession();
+        SuccessMessage success = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
         if (resource.indexOf("delete") >= 0) {
-            /*resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
-            SQL sql = new SQL();
+            resource = resource.substring(0, resource.indexOf("/", 1));
             try {
-                int a = sql
-                        .delete(ProductMetaName.TABLE_NAME)
-                        .where(ProductMetaName.COLUMN_ID, SQL.WhereClause.Operator.EQ, resource)
-                        .exec();
-                if (a < 0) {
+                ProductMetaName productMetaName = (ProductMetaName)SQL.findById(ProductMetaName.class,resource);
+
+                if (productMetaName!=null) {
+                    ProductMetaName.delete(productMetaName.getId());
+                    success.setMessage(productMetaName);
+                }else{
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
             } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            }*/
+                error.setMessage(e.getMessage());
+            }
 
         } else {
-            ProductMetaName productMetaName = null;
             try {
-                productMetaName = (ProductMetaName) SQL.findById(ProductMetaName.class, Integer.parseInt(resource));
-
+                ProductMetaName productMetaName = (ProductMetaName) SQL.findById(ProductMetaName.class, Integer.parseInt(resource));
+                if (productMetaName != null) {
+                    success.setMessage(productMetaName);
+                } else {
+                    response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                }
             } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                error.setMessage(e.getMessage());
             }
-            if (productMetaName != null) {
-                Gson gson = new Gson();
-                response.getWriter().print(gson.toJson(productMetaName));
-            } else {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            }
+
         }
     }
 
-    /*@Override
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1));
-        ProductMetaName productMetaName = null;
-        try {
-            productMetaName = (ProductMetaName) SQL.findById(ProductMetaName.class, Integer.parseInt(resource));
-        } catch (Exception e) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
-        }
-        if (productMetaName != null) {
-            productMetaName.setName(request.getParameter("name"));
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
+        HttpSession session = request.getSession();
+        SuccessMessage success = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
+        ProductMetaNameRequest productMetaNameRequest = new ProductMetaNameRequest(request);
 
-
-            SQL sql = new SQL();
+        if(productMetaNameRequest.validate()) {
             try {
-                sql
-                        .update(ProductMetaName.TABLE_NAME)
-                        .set(ProductMetaName.COLUMN_NAME, productMetaName.getName())
-                        .where(ProductMetaName.COLUMN_ID, SQL.WhereClause.Operator.EQ, productMetaName.getId())
-                        .exec();
+                ProductMetaName productMetaName = (ProductMetaName) SQL.findById(ProductMetaName.class, Integer.parseInt(resource));
+                if (productMetaName != null) {
+                    productMetaName.setName(request.getParameter("NAME"));
+                    productMetaName.update();
+                    success.setMessage(productMetaName);
 
+                } else {
+                    response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                }
             } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                error.setMessage(e.getMessage());
             }
-        } else {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
 
-    }*/
+    }
 
 }

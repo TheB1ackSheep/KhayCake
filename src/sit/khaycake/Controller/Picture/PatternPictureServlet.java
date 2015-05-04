@@ -39,10 +39,9 @@ public class PatternPictureServlet extends HttpServlet {
             try {
                 Picture picture = (Picture)SQL.findById(Picture.class,resource);
                 String appPath = request.getServletContext().getRealPath("");
-                File file = new File(appPath+"\\images\\"+picture.getFilename());//"/usr/share/glassfish4/glassfish/domains/jsp.falook.me/applications/khaycake/images/"+picture.getFilename());
+                File file = new File/*(appPath+"\\images\\"+picture.getFilename());*/("/usr/share/glassfish4/glassfish/domains/jsp.falook.me/applications/khaycake/images/"+picture.getFilename());
                 if(file.delete()) {
-                    int id = Integer.parseInt(resource);
-                    int a = Picture.delete(id);
+                    Picture.delete(picture.getId());
                     succes.setMessage(picture);
                 }else{
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
@@ -69,7 +68,7 @@ public class PatternPictureServlet extends HttpServlet {
         }
     }
 
-    @Override
+    /*@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
@@ -94,6 +93,6 @@ public class PatternPictureServlet extends HttpServlet {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
 
-    }
+    }*/
 
 }

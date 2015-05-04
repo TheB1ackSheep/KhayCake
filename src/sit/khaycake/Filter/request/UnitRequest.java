@@ -15,6 +15,6 @@ public class UnitRequest extends RequestValidation {
     }
 
     public boolean validate() throws IOException {
-        return this.validate(attribute("name", "ชื่อจังหวัด"));
+        return this.validate(attribute("name", "ชื่อหน่วย"));
     }
 }

@@ -26,8 +26,8 @@ public class ProductSale implements ORM, CanFindByKeyword, Comparable {
     public static final String TABLE_NAME = "PRODUCT_SALES";
     public static final Column COLUMN_ID = ORM.column(TABLE_NAME, "PRSA_ID");
     public static final Column COLUMN_QTY = ORM.column(TABLE_NAME, "QTY");
-    public static final Column COLUMN_PROD_ID = ORM.column(TABLE_NAME, "PROD_ID");
     public static final Column COLUMN_PRICE = ORM.column(TABLE_NAME, "PRICE");
+    public static final Column COLUMN_PROD_ID = ORM.column(TABLE_NAME, "PROD_ID");
     public static final List<Column> PRIMARY_KEY = ORM.columns(COLUMN_ID);
 
     public int getId() {
@@ -50,16 +50,16 @@ public class ProductSale implements ORM, CanFindByKeyword, Comparable {
         return prodId;
     }
 
+    public void setProdId(int prodId) {
+        this.prodId = prodId;
+    }
+
     public double getPrice() {
         return price;
     }
 
     public void setPrice(double price) {
         this.price = price;
-    }
-
-    public void setProdId(int prodId) {
-        this.prodId = prodId;
     }
 
     public void orm(ResultSet rs) throws Exception {
@@ -85,6 +85,7 @@ public class ProductSale implements ORM, CanFindByKeyword, Comparable {
                 .update(ProductSale.TABLE_NAME)
                 .set(ProductSale.COLUMN_PROD_ID, this.getProdId())
                 .set(ProductSale.COLUMN_QTY, this.getQty())
+                .set(ProductSale.COLUMN_PRICE, this.getPrice())
                 .where(Product.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getId())
                 .exec();
     }

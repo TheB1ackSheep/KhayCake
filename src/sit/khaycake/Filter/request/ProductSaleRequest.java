@@ -15,6 +15,7 @@ public class ProductSaleRequest extends RequestValidation {
     }
 
     public boolean validate() throws IOException {
-        return this.validate(attribute("name", "Product meta name"));
+        return this.validate(integerAttribute("prod_id", "รหัสสินค้า"),
+                integerAttribute("qty","จำนวน"));
     }
 }

@@ -118,7 +118,7 @@ public class Invoice implements ORM {
 
     }
 
-    /*public void save() throws Exception {
+    public void save() throws Exception {
         SQL sql = new SQL();
         int id = sql
                 .insert()
@@ -152,6 +152,6 @@ public class Invoice implements ORM {
                 .where(Invoice.COLUMN_ID, SQL.WhereClause.Operator.EQ, INVO_ID)
                 .exec();
         return a;
-    }*/
+    }
 
 }

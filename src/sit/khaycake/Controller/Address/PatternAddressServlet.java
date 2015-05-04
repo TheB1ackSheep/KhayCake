@@ -1,9 +1,11 @@
 package sit.khaycake.Controller.Address;
 
 import com.google.gson.Gson;
+import sit.khaycake.Filter.request.AddressRequest;
 import sit.khaycake.database.SQL;
 import sit.khaycake.model.Address;
 import sit.khaycake.model.District;
+import sit.khaycake.model.Province;
 import sit.khaycake.model.SubDistrict;
 import sit.khaycake.util.ErrorMessage;
 import sit.khaycake.util.SuccessMessage;
@@ -23,82 +25,86 @@ public class PatternAddressServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0) + 1);
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
         HttpSession session = request.getSession();
         SuccessMessage succes = new SuccessMessage(session);
         ErrorMessage error = new ErrorMessage(session);
 
         if (resource.indexOf("delete") >= 0) {
-            resource = resource.substring(0, resource.indexOf("/", 1));
+            resource = resource.substring(0,resource.indexOf("/", 1));
             try {
-                int result = Address.delete(Integer.parseInt(resource));
-                if (result < 0) {
+                Address address = (Address)SQL.findById(Address.class, resource);
+                if (address != null) {
+                    Address.delete(address.getId());
+                    succes.setMessage(address);
+                }else{
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
             } catch (Exception ex) {
                 error.setMessage(ex.getMessage());
             }
 
-        } else if (resource.indexOf("subdistrict") >= 0) {
-            resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
+        } else if(resource.indexOf("subdistrict") >= 0) {
+            resource = resource.substring(0, resource.indexOf("/", 1));
             try {
                 if (Util.isInteger(resource)) {
-                    SubDistrict subDistrict = (SubDistrict) SQL.findById(SubDistrict.class, resource);
-                    if (subDistrict == null)
+                    Address address = (Address) SQL.findById(Address.class, resource);
+                    if (address!=null) {
+                        SubDistrict subDistrict = (SubDistrict) SQL.findById(SubDistrict.class, address.getSubDistrictId());
+                        succes.setMessage(subDistrict);
+                    }else {
                         response.sendError(HttpServletResponse.SC_NOT_FOUND);
-                    succes.setMessage(subDistrict);
+                    }
                 }
-
             } catch (Exception ex) {
                 error.setMessage(ex.getMessage());
             }
 
-        } else if (resource.indexOf("district") >= 0) {
-            resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
+        }else if(resource.indexOf("district") >= 0) {
+            resource = resource.substring(0, resource.indexOf("/", 1));
             try {
                 if (Util.isInteger(resource)) {
-                    SubDistrict subDistrict = SQL.findById(SubDistrict.class, resource);
-                    District district = SQL.findById(District.class, subDistrict.getDistrict());
-                    if (district == null)
+                    Address address = (Address) SQL.findById(Address.class, resource);
+                    if (address!=null) {
+                        SubDistrict subDistrict = (SubDistrict) SQL.findById(SubDistrict.class, address.getSubDistrictId());
+                        District district = (District)SQL.findById(District.class, subDistrict.getDistrictId());
+                        succes.setMessage(district);
+                    }else {
                         response.sendError(HttpServletResponse.SC_NOT_FOUND);
-                    succes.setMessage(district);
+                    }
                 }
-
             } catch (Exception e) {
                 error.setMessage(e.getMessage());
             }
 
-        } else if (resource.indexOf("province") >= 0) {
-            resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
+        }else if(resource.indexOf("province") >= 0) {
+            resource = resource.substring(0,resource.indexOf("/", 1));
             try {
                 if (Util.isInteger(resource)) {
-                    SubDistrict subDistrict = (SubDistrict) SQL.findById(SubDistrict.class, resource);
-                    if (subDistrict == null)
+                    Address address = (Address) SQL.findById(Address.class, resource);
+                    if (address!=null) {
+                        SubDistrict subDistrict = (SubDistrict) SQL.findById(SubDistrict.class, address.getSubDistrictId());
+                        District district = (District)SQL.findById(District.class, subDistrict.getDistrictId());
+                        Province province = (Province)SQL.findById(Province.class, district.getProvinceId());
+                        succes.setMessage(province);
+                    }else {
                         response.sendError(HttpServletResponse.SC_NOT_FOUND);
-                    succes.setMessage(subDistrict);
+                    }
                 }
-
             } catch (Exception e) {
                 error.setMessage(e.getMessage());
             }
 
         } else {
-            Address address = null;
             try {
-                if (Util.isInteger(resource)) {
-                    address = (Address) SQL.findById(Address.class, Integer.parseInt(resource));
-                } else {
+                Address address = (Address) SQL.findById(Address.class, resource);
+                if(address!=null) {
+                    succes.setMessage(address);
+                }else{
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
-
             } catch (Exception ex) {
                 error.setMessage(ex.getMessage());
-            }
-            if (address != null) {
-                Gson gson = new Gson();
-                succes.setMessage(gson.toJson(address));
-            } else {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
             }
         }
     }
@@ -109,28 +115,26 @@ public class PatternAddressServlet extends HttpServlet {
         HttpSession session = request.getSession();
         SuccessMessage succes = new SuccessMessage(session);
         ErrorMessage error = new ErrorMessage(session);
-
-        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0) + 1);
-        Address address = null;
-        try {
-            address = (Address) SQL.findById(Address.class, Integer.parseInt(resource));
-        } catch (Exception ex) {
-            error.setMessage(ex.getMessage());
-        }
-        if (address != null) {
+        AddressRequest addressRequest = new AddressRequest(request);
+        if(addressRequest.validate()) {
+            String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0) + 1);
             try {
-                address.setAddrNo(request.getParameter("ADDR_NO"));
-                address.setAddrAdd(request.getParameter("ADDR_ADD"));
-                address.setStreet(request.getParameter("STREET"));
-                address.setSubDistrictId(Integer.parseInt(request.getParameter("SUDT_ID")));
-                address.update();
+                Address address = (Address) SQL.findById(Address.class, resource);
+                if (address != null) {
+                    address.setAddrNo(request.getParameter("addr_no"));
+                    address.setAddrAdd(request.getParameter("addr_add"));
+                    address.setStreet(request.getParameter("street"));
+                    address.setSubDistrictId(Integer.parseInt(request.getParameter("sudt_id")));
+                    address.update();
+                    succes.setMessage(address);
+                } else {
+                    response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                }
             } catch (Exception ex) {
                 error.setMessage(ex.getMessage());
             }
-
-        } else {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
+
     }
 
 }

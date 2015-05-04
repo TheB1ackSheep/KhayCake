@@ -16,14 +16,12 @@ public class InvoiceRequest extends RequestValidation {
 
     public boolean validate() throws IOException {
         return this.validate(
-                attribute("fname", "ชื่อ"),
-                attribute("lname", "นามสกุล"),
-                attribute("sex", "เพศ"),
-                attribute("dob", "วันเดือนปีเกิด"),
-                attribute("phone", "เบอร์โทรศัพท์"),
-                attribute("email", "อีเมลล์"),
-                attribute("vat_id", "เลขประจำตัวผู้เสียภาษี"),
-                attribute("pwd", "รหัสผ่าน"));
+                attribute("date", "วันที่"),
+                floatAttribute("qrand_total", "Qrand total"),
+                floatAttribute("sub_total", "จำนวนทั้งหมด"),
+                floatAttribute("vat", "ภาษีมูลค่าเพิ่ม"),
+                attribute("qrand_total_text", "Qrand total text"),
+                integerAttribute("patm_id", "รหัสการชำระเงิน"),
+                integerAttribute("meif_id", "รหัสผู้ขาย"));
     }
 }
-

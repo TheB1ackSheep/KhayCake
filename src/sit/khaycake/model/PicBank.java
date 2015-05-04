@@ -52,6 +52,16 @@ public class PicBank implements ORM, CanFindByKeyword {
         return null;
     }
 
+    public static List<PicBank> findByBankId(int BANK_ID) throws Exception{
+        SQL sql = new SQL();
+        List<PicBank> result = sql
+                .select()
+                .from(PicBank.TABLE_NAME)
+                .where(PicBank.COLUMN_BANK_ID, SQL.WhereClause.Operator.EQ, BANK_ID)
+                .fetch(PicBank.class);
+        return result;
+    }
+
     public void save() throws Exception{
         SQL sql = new SQL();
         sql

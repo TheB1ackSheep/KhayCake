@@ -15,8 +15,7 @@ public class CategoryRequest extends RequestValidation {
     }
 
     public boolean validate() throws IOException {
-        return this.validate(attribute("addr_no", "เลขที่บ้าน"),
-                attribute("addr_add", "ที่อยู่"), attribute("street", "ถนน"),
-                attribute("sudt_id", "รหัสตำบล"));
+        return this.validate(attribute("name", "ชื่อชนิด"),
+                integerAttribute("cat_parent_id", "รหัสประเภท",false));
     }
 }
