@@ -5,22 +5,20 @@
  */
 package sit.khaycake.model;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
-
 import sit.khaycake.database.CanFindByKeyword;
 import sit.khaycake.database.Column;
 import sit.khaycake.database.ORM;
 import sit.khaycake.database.SQL;
-import sit.khaycake.database.exception.ColumnValueMismatchException;
+
+import java.sql.ResultSet;
+import java.util.List;
 
 /**
  * @author -milk
  */
-public class BankAccount implements ORM, CanFindByKeyword{
+public class BankAccount implements ORM, CanFindByKeyword {
 
-    public enum Type{
+    public enum Type {
 
         SAVING(1),
         CURRENT(2);
@@ -34,20 +32,25 @@ public class BankAccount implements ORM, CanFindByKeyword{
                 this.id = id;
                 BankAccountType bt = (BankAccountType) SQL.findById(BankAccountType.class, id);
                 this.name = (bt == null) ? null : bt.getName();
-            }catch (Exception e){
+            } catch (Exception e) {
                 //must be caught or dec;ared to be thrown
             }
         }
 
-        public static Type getType(int id){
-            switch (id)
-            {
-                case 1: return SAVING;
-                case 2: return CURRENT;
-                default:return SAVING;
+        public static Type getType(int id) {
+            switch (id) {
+                case 1:
+                    return SAVING;
+                case 2:
+                    return CURRENT;
+                default:
+                    return SAVING;
             }
         }
-        public int getId(){return this.id;}
+
+        public int getId() {
+            return this.id;
+        }
 
     }
 
@@ -108,7 +111,7 @@ public class BankAccount implements ORM, CanFindByKeyword{
 
     public void orm(ResultSet rs) throws Exception {
         this.setId(rs.getInt(COLUMN_ID.getColumnName()));
-        this.setBranch((Bank.Branch) SQL.findById(Bank.Branch.class,rs.getInt(COLUMN_BABR_ID.getColumnName())));
+        this.setBranch((Bank.Branch) SQL.findById(Bank.Branch.class, rs.getInt(COLUMN_BABR_ID.getColumnName())));
         this.setType(Type.getType(rs.getInt(COLUMN_BAAT_ID.getColumnName())));
         this.setAccNo(rs.getString(COLUMN_ACC_NO.getColumnName()));
         this.setAccName(rs.getString(COLUMN_ACC_NAME.getColumnName()));
@@ -118,30 +121,30 @@ public class BankAccount implements ORM, CanFindByKeyword{
         SQL sql = new SQL();
         int id = sql
                 .insert()
-                .into(TABLE_NAME,COLUMN_ACC_NAME,COLUMN_ACC_NO,COLUMN_BAAT_ID,COLUMN_BAAT_ID,COLUMN_BABR_ID)
-                .values(this.accName,this.accNo,this.type.getId(),this.branch.getId())
+                .into(TABLE_NAME, COLUMN_ACC_NAME, COLUMN_ACC_NO, COLUMN_BAAT_ID, COLUMN_BAAT_ID, COLUMN_BABR_ID)
+                .values(this.accName, this.accNo, this.type.getId(), this.branch.getId())
                 .exec();
         this.setId(id);
     }
 
-    public void update() throws Exception{
+    public void update() throws Exception {
         SQL sql = new SQL();
-            sql
-                    .update(BankAccount.TABLE_NAME)
-                    .set(BankAccount.COLUMN_ACC_NAME, this.getAccName())
-                    .set(BankAccount.COLUMN_ACC_NO, this.getAccNo())
-                    .set(BankAccount.COLUMN_BABR_ID, this.getBranch().getId())
-                    .set(BankAccount.COLUMN_BAAT_ID, this.getType().getId())
-                    .where(Bank.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getId())
-                    .exec();
+        sql
+                .update(BankAccount.TABLE_NAME)
+                .set(BankAccount.COLUMN_ACC_NAME, this.getAccName())
+                .set(BankAccount.COLUMN_ACC_NO, this.getAccNo())
+                .set(BankAccount.COLUMN_BABR_ID, this.getBranch().getId())
+                .set(BankAccount.COLUMN_BAAT_ID, this.getType().getId())
+                .where(Bank.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getId())
+                .exec();
     }
 
-    public static int delete(int BAAC_ID) throws Exception{
+    public static int delete(int BAAC_ID) throws Exception {
         SQL sql = new SQL();
-            int a = sql
-                    .delete(BankAccount.TABLE_NAME)
-                    .where(BankAccount.COLUMN_ID, SQL.WhereClause.Operator.EQ, BAAC_ID)
-                    .exec();
+        int a = sql
+                .delete(BankAccount.TABLE_NAME)
+                .where(BankAccount.COLUMN_ID, SQL.WhereClause.Operator.EQ, BAAC_ID)
+                .exec();
         return a;
     }
 

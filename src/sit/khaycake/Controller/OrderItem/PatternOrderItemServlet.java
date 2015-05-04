@@ -19,10 +19,10 @@ public class PatternOrderItemServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0) + 1);
 
         if (resource.indexOf("delete") >= 0) {
-            resource = resource.substring(0,resource.indexOf("/", 1));
+            resource = resource.substring(0, resource.indexOf("/", 1));
             SQL sql = new SQL();
             try {
                 int a = OrderItem.delete(Integer.parseInt(resource));
@@ -53,7 +53,7 @@ public class PatternOrderItemServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0) + 1);
         OrderItem orderItem = null;
         try {
             orderItem = (OrderItem) SQL.findById(OrderItem.class, Integer.parseInt(resource));
@@ -61,7 +61,7 @@ public class PatternOrderItemServlet extends HttpServlet {
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
         if (orderItem != null) {
-            try{
+            try {
                 orderItem.setAmount(Double.parseDouble(request.getParameter("AMOUNT")));
                 orderItem.setOrder((Order) SQL.findById(
                         Order.class, Integer.parseInt(request.getParameter("ORDER_ID"))));

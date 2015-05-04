@@ -1,6 +1,5 @@
 <%@ page import="javax.naming.Context" %>
 <%@ page import="javax.naming.InitialContext" %>
-<%@ page import="javax.sql.DataSource" %>
 <%--
   Created by IntelliJ IDEA.
   User: Falook Glico
@@ -10,16 +9,16 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
+<head>
     <title></title>
-  </head>
-  <body>
+</head>
+<body>
 <%
-  Context ctx = null;
-  ctx = new InitialContext();
-  String ds = (String) ctx.lookup("resource/uploadImageUrl");
+    Context ctx = null;
+    ctx = new InitialContext();
+    String ds = (String) ctx.lookup("resource/uploadImageUrl");
 %>
 
-  <%=ds%>
-  </body>
+<%=ds%>
+</body>
 </html>

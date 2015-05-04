@@ -21,23 +21,22 @@ public class HeaderFilter implements Filter {
     }
 
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
-        HttpServletRequest request = (HttpServletRequest)req;
-        HttpServletResponse response = (HttpServletResponse)resp;
+        HttpServletRequest request = (HttpServletRequest) req;
+        HttpServletResponse response = (HttpServletResponse) resp;
 
 
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("application/json");
 
-            request.setCharacterEncoding("UTF-8");
-            response.setCharacterEncoding("UTF-8");
-            response.setContentType("application/json");
+        response.setHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));
+        response.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, UPDATE");
+        response.setHeader("Access-Control-Allow-Headers", "Content-Type");
+        response.setHeader("Access-Control-Max-Age", "86400");
 
-            response.setHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));
-            response.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, UPDATE");
-            response.setHeader("Access-Control-Allow-Headers", "Content-Type");
-            response.setHeader("Access-Control-Max-Age", "86400");
+        chain.doFilter(request, response);
 
-            chain.doFilter(request, response);
-
-        if(!response.isCommitted()) {
+        if (!response.isCommitted()) {
 
             PrintWriter out = response.getWriter();
             HttpSession session = request.getSession();

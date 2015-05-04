@@ -3,15 +3,14 @@ package sit.khaycake.model;
 import sit.khaycake.database.SQL;
 
 import javax.servlet.http.HttpSession;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by Pasuth on 23/4/2558.
  */
 public class Cart {
-    private HashMap<Integer, Item> items;
+    private transient HashMap<Integer, Item> itemsMap;
+    private List<Item> items;
 
     class Item implements Comparable<Item> {
         private Product product;
@@ -97,12 +96,14 @@ public class Cart {
         return cart != null ? cart : new Cart();
     }
 
-    public HashMap<Integer, Item> getItems() {
-        return items;
-    }
-
-    public void setItems(HashMap<Integer, Item> items) {
-        this.items = items;
+    public List<Item> getItems() {
+        if(this.items == null)
+            this.items = new ArrayList<>();
+        Collection c = itemsMap.values();
+        Iterator<Item> it = c.iterator();
+        while(it.hasNext())
+            this.items.add(it.next());
+        return this.items;
     }
 
     public void add(int id) throws Exception {
@@ -110,31 +111,35 @@ public class Cart {
     }
 
     public void add(int id, int qty) throws Exception {
-        if (this.items == null)
-            this.items = new HashMap<>();
+        if (this.itemsMap == null)
+            this.itemsMap = new HashMap<>();
+        this.items = new ArrayList<>();
         Product product = SQL.findById(Product.class, id);
         if (product != null) {
-            if (this.items.get(id) != null) {
-                Item item = this.items.get(id);
-                this.items.get(id).setQty(item.getQty() + qty);
+            if (this.itemsMap.get(id) != null) {
+                Item item = this.itemsMap.get(id);
+                this.itemsMap.get(id).setQty(item.getQty() + qty);
             } else {
                 Item item = new Item(product, qty);
-                this.items.put(product.getId(), item);
+                this.itemsMap.put(product.getId(), item);
             }
+            this.items.addAll(this.itemsMap.values());
         }
     }
 
     public void set(int id, int qty) throws Exception {
-        if (this.items == null)
-            this.items = new HashMap<>();
+        if (this.itemsMap == null)
+            this.itemsMap = new HashMap<>();
+        this.items = new ArrayList<>();
         Product product = SQL.findById(Product.class, id);
         if (product != null) {
-            if (this.items.get(id) != null) {
-                this.items.get(id).setQty(qty);
+            if (this.itemsMap.get(id) != null) {
+                this.itemsMap.get(id).setQty(qty);
             } else {
                 Item item = new Item(product, qty);
-                this.items.put(product.getId(), item);
+                this.itemsMap.put(product.getId(), item);
             }
+            this.items.addAll(this.itemsMap.values());
         }
     }
 

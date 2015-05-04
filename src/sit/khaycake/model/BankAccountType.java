@@ -5,13 +5,13 @@
  */
 package sit.khaycake.model;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
-
 import sit.khaycake.database.Column;
 import sit.khaycake.database.ORM;
 import sit.khaycake.database.SQL;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
 
 /**
  * @author -milk
@@ -57,16 +57,16 @@ public class BankAccountType implements ORM {
         this.setId(id);
     }
 
-    public void update() throws Exception{
+    public void update() throws Exception {
         SQL sql = new SQL();
-            sql
-                    .update(BankAccountType.TABLE_NAME)
-                    .set(BankAccountType.COLUMN_NAME, this.getName())
-                    .where(BankAccountType.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getId())
-                    .exec();
+        sql
+                .update(BankAccountType.TABLE_NAME)
+                .set(BankAccountType.COLUMN_NAME, this.getName())
+                .where(BankAccountType.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getId())
+                .exec();
     }
 
-    public static int delete(int BAAC_ID) throws Exception{
+    public static int delete(int BAAC_ID) throws Exception {
         SQL sql = new SQL();
         int a = sql
                 .delete(BankAccountType.TABLE_NAME)

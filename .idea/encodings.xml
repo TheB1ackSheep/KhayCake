@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/resources/css" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/resources/js" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/resources/js/admin.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/js/core.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/resources/js/khaycake.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/sit/khaycake/database/SQL.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/test/sit/khaycake/BankTesting.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/web/admin.html" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/web/css" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/web/fonts" charset="windows-1252" />

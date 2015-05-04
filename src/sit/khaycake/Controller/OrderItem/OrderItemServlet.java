@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Created by Pasuth on 19/4/2558.
@@ -36,10 +35,10 @@ public class OrderItemServlet extends HttpServlet {
             OrderItem orderItem = new OrderItem();
             orderItem.setAmount(Double.parseDouble(request.getParameter("AMOUNT")));
             orderItem.setOrder((Order) SQL.findById(
-                    Order.class,Integer.parseInt(request.getParameter("ORDER_ID"))));
+                    Order.class, Integer.parseInt(request.getParameter("ORDER_ID"))));
             orderItem.setPriceUnit(Double.parseDouble(request.getParameter("PRICE_UNIT")));
-            orderItem.setProductSale((ProductSale)SQL.findById(
-                    ProductSale.class,Integer.parseInt(request.getParameter("PRSA_ID"))));
+            orderItem.setProductSale((ProductSale) SQL.findById(
+                    ProductSale.class, Integer.parseInt(request.getParameter("PRSA_ID"))));
             orderItem.setQty(Integer.parseInt(request.getParameter("QTY")));
             orderItem.save();
 

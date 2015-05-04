@@ -17,7 +17,7 @@ public class PatternProvinceServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0) + 1);
 
         if (resource.indexOf("delete") >= 0) {
             /*resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
@@ -34,7 +34,7 @@ public class PatternProvinceServlet extends HttpServlet {
                 response.sendError(HttpServletResponse.SC_NOT_FOUND);
             }*/
 
-        }else if(resource.indexOf("district") >= 0){
+        } else if (resource.indexOf("district") >= 0) {
             resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
             Province province = null;
             try {

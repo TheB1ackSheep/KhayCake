@@ -1,0 +1,130 @@
+@import "theme-coffee";
+
+.transform(@transform) {
+  -webkit-transform: @transform;
+  -moz-transform: @transform;
+  -ms-transform: @transform;
+  -o-transform: @transform;
+  transform: @transform;
+}
+
+.transition(@tran){
+  @normalized: ~"@{tran}" ;
+  -webkit-transition: @normalized;
+  -moz-transition: @normalized;
+  -ms-transition: @normalized;
+  -o-transition: @normalized;
+  transition: @normalized;
+}
+
+.transition-delay(@delay){
+  -webkit-transition-delay: @delay;
+  -moz-transition-delay: @delay;
+  -o-transition-delay: @delay;
+  transition-delay: @delay;
+}
+
+.border-radius(@radius) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+.border-top-left-radius(@radius) {
+  -webkit-border-top-left-radius: @radius;
+  -moz-border-top-left-radius: @radius;
+  border-top-left-radius: @radius;
+}
+
+.border-top-right-radius(@radius) {
+  -webkit-border-top-right-radius: @radius;
+  -moz-border-top-right-radius: @radius;
+  border-top-right-radius: @radius;
+}
+
+.box-shadow(@shadow) {
+  -webkit-box-shadow: @shadow;
+  -moz-box-shadow: @shadow;
+  box-shadow: @shadow;
+}
+
+.animation(@anim) {
+  -webkit-animation: @anim;
+  -o-animation: @anim;
+  animation: @anim;
+}
+
+.keyframes(@name; @arguments) {
+  @-moz-keyframes @name { @arguments();
+  }
+  @-webkit-keyframes @name { @arguments();
+  }
+  @keyframes @name { @arguments();
+  }
+}
+
+.base-text() {
+  color: @A700;
+}
+
+.primary-text() {
+  .base-text;
+  opacity: 0.87;
+}
+
+.secondary-text() {
+  .base-text;
+  opacity: 0.54;
+}
+
+.hint-text() {
+  .base-text;
+  opacity: 0.26;
+}
+
+.no-selection() {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+.primary() {
+  .primary-text;
+}
+
+.secondary() {
+  .secondary-text;
+}
+
+.hint() {
+  .hint-text;
+}
+
+.text-right() {
+  text-align: right;
+}
+
+.text-left() {
+  text-align: left;
+}
+
+.text-center() {
+  text-align: center;
+}
+
+.shadow-1(){
+  box-shadow: 0 1px .2rem rgba(0,0,0,0.12);
+}
+
+.shadow-2(){
+  box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+}
+
+
+.font-lily{
+  font-family: 'Lily Script One',sans-serif;
+}

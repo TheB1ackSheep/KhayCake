@@ -2,9 +2,9 @@ package sit.khaycake.Controller.Customer;
 
 import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
+import sit.khaycake.model.Customer;
 import sit.khaycake.util.AssisDateTime;
 import sit.khaycake.util.Encryption;
-import sit.khaycake.model.Customer;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,10 +19,10 @@ public class PatternCustomerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0) + 1);
 
         if (resource.indexOf("delete") >= 0) {
-            resource = resource.substring(0,resource.indexOf("/", 1));
+            resource = resource.substring(0, resource.indexOf("/", 1));
             try {
                 int a = Customer.delete(Integer.parseInt(resource));
                 if (a < 0) {
@@ -52,7 +52,7 @@ public class PatternCustomerServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 0)+1);
+        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 0) + 1);
         Customer customer = null;
         try {
             customer = (Customer) SQL.findById(Customer.class, Integer.parseInt(resource));
@@ -60,7 +60,7 @@ public class PatternCustomerServlet extends HttpServlet {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
         if (customer != null) {
-            try{
+            try {
                 customer.setFname(request.getParameter("fname"));
                 customer.setLname(request.getParameter("lname"));
                 customer.setSex(request.getParameter("sex"));

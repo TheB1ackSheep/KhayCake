@@ -5,20 +5,19 @@
  */
 package sit.khaycake.model;
 
-import java.sql.ResultSet;
-import java.util.List;
-
 import sit.khaycake.database.Column;
 import sit.khaycake.database.ORM;
 import sit.khaycake.database.SQL;
 
+import java.sql.ResultSet;
+import java.util.List;
+
 
 /**
- *
  * @author -milk
  */
 public class MerchantInfo implements ORM {
-    
+
     private int id;
     private Address address;
     private String name;
@@ -26,7 +25,7 @@ public class MerchantInfo implements ORM {
     private String fax;
     private String vatId;
     private double vatValue;
-    
+
     public static final String TABLE_NAME = "MERCHANT_INFO";
     public static final Column COLUMN_ID = ORM.column(TABLE_NAME, "MEIN_ID");
     public static final Column COLUMN_ADDR_ID = ORM.column(TABLE_NAME, "ADDR_ID");
@@ -92,9 +91,9 @@ public class MerchantInfo implements ORM {
     public void setVatValue(double vatValue) {
         this.vatValue = vatValue;
     }
-    
+
     public void orm(ResultSet rs) throws Exception {
-        
+
         this.setId(rs.getInt(COLUMN_ID.getColumnName()));
         this.setAddress((Address) SQL.findById(Address.class, rs.getInt(COLUMN_ADDR_ID.getColumnName())));
         this.setName(rs.getString(COLUMN_NAME.getColumnName()));
@@ -102,8 +101,8 @@ public class MerchantInfo implements ORM {
         this.setFax(rs.getString(COLUMN_FAX.getColumnName()));
         this.setVatId(rs.getString(COLUMN_VAT_ID.getColumnName()));
         this.setVatValue(rs.getDouble(COLUMN_VAT_VALUE.getColumnName()));
-        
-             
+
+
     }
-   
+
 }

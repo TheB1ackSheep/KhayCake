@@ -3,11 +3,10 @@ package sit.khaycake.Controller.Order;
 import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
 import sit.khaycake.model.Customer;
-import sit.khaycake.model.OrderStatus;
-import sit.khaycake.util.AssisDateTime;
 import sit.khaycake.model.Order;
-import sit.khaycake.model.Order.Status;
 import sit.khaycake.model.Order.ShipMethod;
+import sit.khaycake.model.Order.Status;
+import sit.khaycake.util.AssisDateTime;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

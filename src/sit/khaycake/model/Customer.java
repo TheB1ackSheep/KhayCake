@@ -5,11 +5,14 @@
  */
 package sit.khaycake.model;
 
+import sit.khaycake.database.CanFindByKeyword;
+import sit.khaycake.database.Column;
+import sit.khaycake.database.ORM;
+import sit.khaycake.database.SQL;
+
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.util.List;
-
-import sit.khaycake.database.*;
 
 /**
  * @author -milk
@@ -134,7 +137,7 @@ public class Customer implements ORM, CanFindByKeyword {
         this.setPwd(rs.getString(COLUMN_PWD.getColumnName()));
     }
 
-    public void save() throws Exception{
+    public void save() throws Exception {
         SQL sql = new SQL();
         int id = sql
                 .insert()
@@ -163,15 +166,14 @@ public class Customer implements ORM, CanFindByKeyword {
     }
 
 
-    public static int delete(int CUST_ID) throws Exception{
+    public static int delete(int CUST_ID) throws Exception {
         SQL sql = new SQL();
-            int a = sql
-                    .delete(Customer.TABLE_NAME)
-                    .where(Customer.COLUMN_ID, SQL.WhereClause.Operator.EQ, CUST_ID)
-                    .exec();
+        int a = sql
+                .delete(Customer.TABLE_NAME)
+                .where(Customer.COLUMN_ID, SQL.WhereClause.Operator.EQ, CUST_ID)
+                .exec();
         return a;
     }
-
 
 
 }

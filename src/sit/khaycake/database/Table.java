@@ -17,7 +17,7 @@ public class Table {
 
     @Override
     public boolean equals(Object obj) {
-        Table t = (Table)obj;
+        Table t = (Table) obj;
         return this.tableName.equalsIgnoreCase(t.tableName);
     }
 

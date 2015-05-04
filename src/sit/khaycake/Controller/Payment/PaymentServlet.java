@@ -2,7 +2,6 @@ package sit.khaycake.Controller.Payment;
 
 import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
-import sit.khaycake.util.AssisDateTime;
 import sit.khaycake.model.Payment;
 
 import javax.servlet.ServletException;
@@ -10,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Created by Pasuth on 19/4/2558.

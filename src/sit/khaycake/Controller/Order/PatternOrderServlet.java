@@ -3,8 +3,8 @@ package sit.khaycake.Controller.Order;
 import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
 import sit.khaycake.model.Customer;
-import sit.khaycake.util.AssisDateTime;
 import sit.khaycake.model.Order;
+import sit.khaycake.util.AssisDateTime;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,10 +19,10 @@ public class PatternOrderServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0) + 1);
 
         if (resource.indexOf("delete") >= 0) {
-            resource = resource.substring(0,resource.indexOf("/", 1));
+            resource = resource.substring(0, resource.indexOf("/", 1));
             try {
                 int a = Order.delete(Integer.parseInt(resource));
                 if (a < 0) {
@@ -52,7 +52,7 @@ public class PatternOrderServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0) + 1);
         Order order = null;
         try {
             order = (Order) SQL.findById(Order.class, Integer.parseInt(resource));
@@ -60,7 +60,7 @@ public class PatternOrderServlet extends HttpServlet {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
         if (order != null) {
-            try{
+            try {
                 order.setCustomer((Customer) SQL.findById(
                         Customer.class, Integer.parseInt(request.getParameter("CUST_ID"))));
                 order.setOrderDate(AssisDateTime.Date(request.getParameter("ORDER_DATE")));

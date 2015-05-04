@@ -18,7 +18,7 @@ public class PatternBankServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0) + 1);
 
         if (resource.indexOf("delete") >= 0) {
             resource = resource.substring(0, resource.indexOf("/", 1));
@@ -34,9 +34,9 @@ public class PatternBankServlet extends HttpServlet {
         } else {
             Bank bank = null;
             try {
-                if(Util.isInteger(resource)) {
+                if (Util.isInteger(resource)) {
                     bank = (Bank) SQL.findById(Bank.class, Integer.parseInt(resource));
-                }else{
+                } else {
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
 
@@ -55,7 +55,7 @@ public class PatternBankServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0) + 1);
         Bank bank = null;
         try {
             bank = (Bank) SQL.findById(Bank.class, Integer.parseInt(resource));
@@ -64,9 +64,9 @@ public class PatternBankServlet extends HttpServlet {
                 bank.setName(request.getParameter("NAME_TH"));
                 bank.update();
             } else {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
-        }
-        }catch (Exception e) {
+                response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            }
+        } catch (Exception e) {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
 

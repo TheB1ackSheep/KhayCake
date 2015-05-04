@@ -5,27 +5,26 @@
  */
 package sit.khaycake.model;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
-
 import sit.khaycake.database.Column;
 import sit.khaycake.database.ORM;
 import sit.khaycake.database.SQL;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
 /**
- *
  * @author -milk
  */
 public class ShipmentMethod implements ORM {
     private int id;
     private String name;
     private double price;
-    
+
     public static final String TABLE_NAME = "SHIPMENT_METHODS";
     public static final Column COLUMN_ID = ORM.column(TABLE_NAME, "SHME_ID");
-    public static final Column COLUMN_NAME = ORM.column(TABLE_NAME,"NAME");
-    public static final Column COLUMN_PRICE = ORM.column(TABLE_NAME,"PRICE");
+    public static final Column COLUMN_NAME = ORM.column(TABLE_NAME, "NAME");
+    public static final Column COLUMN_PRICE = ORM.column(TABLE_NAME, "PRICE");
     public static final List<Column> PRIMARY_KEY = ORM.columns(COLUMN_ID);
 
     public int getId() {
@@ -51,9 +50,9 @@ public class ShipmentMethod implements ORM {
     public void setPrice(double price) {
         this.price = price;
     }
-    
-     public void orm(ResultSet rs) throws SQLException {
-        
+
+    public void orm(ResultSet rs) throws SQLException {
+
         this.setId(rs.getInt(COLUMN_ID.getColumnName()));
         this.setName(rs.getString(COLUMN_NAME.getColumnName()));
         this.setPrice(rs.getDouble(COLUMN_PRICE.getColumnName()));
@@ -69,7 +68,7 @@ public class ShipmentMethod implements ORM {
         this.setId(id);
     }
 
-    public void update() throws Exception{
+    public void update() throws Exception {
         SQL sql = new SQL();
         sql
                 .update(ShipmentMethod.TABLE_NAME)
@@ -79,7 +78,7 @@ public class ShipmentMethod implements ORM {
                 .exec();
     }
 
-    public static int delete(int SHME_ID) throws Exception{
+    public static int delete(int SHME_ID) throws Exception {
         SQL sql = new SQL();
         int a = sql
                 .delete(ShipmentMethod.TABLE_NAME)

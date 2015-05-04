@@ -1,6 +1,5 @@
 package sit.khaycake.Controller.Unit;
 
-import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
 import sit.khaycake.model.Unit;
 import sit.khaycake.util.ErrorMessage;

@@ -5,11 +5,11 @@ package sit.khaycake.util;
  */
 public class Util {
 
-    public static boolean isInteger(String str){
+    public static boolean isInteger(String str) {
         return str.matches("^[0-9]+$");
     }
 
-    public static boolean isFloat(String str){
+    public static boolean isFloat(String str) {
         return str.matches("^\\.[0-9]+$") || str.matches("^[0-9]+\\.[0-9]+$");
     }
 

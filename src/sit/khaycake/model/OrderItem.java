@@ -5,29 +5,27 @@
  */
 package sit.khaycake.model;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
-
 import sit.khaycake.database.Column;
 import sit.khaycake.database.ORM;
 import sit.khaycake.database.SQL;
 
+import java.sql.ResultSet;
+import java.util.List;
+
 /**
- *
  * @author -milk
  */
 public class OrderItem implements ORM {
-    
+
     private int oritId;
     private ProductSale productSale;
     private Order order;
     private int qty;
     private double priceUnit;
     private double amount;
-    
+
     public static final String TABLE_NAME = "ORDER_ITEMS";
-    public static final Column COLUMN_ID = ORM.column(TABLE_NAME,"ORIT_ID");
+    public static final Column COLUMN_ID = ORM.column(TABLE_NAME, "ORIT_ID");
     public static final Column COLUMN_PRSA_ID = ORM.column(TABLE_NAME, "PRSA_ID");
     public static final Column COLUMN_ORDER_ID = ORM.column(TABLE_NAME, "ORDER_ID");
     public static final Column COLUMN_QTY = ORM.column(TABLE_NAME, "QTY");
@@ -82,17 +80,17 @@ public class OrderItem implements ORM {
     public void setAmount(double amount) {
         this.amount = amount;
     }
-    
+
     public void orm(ResultSet rs) throws Exception {
-        
+
         this.setOritId(rs.getInt(COLUMN_ID.getColumnName()));
-        this.setProductSale((ProductSale)SQL.findById(ProductSale.class,rs.getInt(COLUMN_PRSA_ID.getColumnName())));
-        this.setOrder((Order)SQL.findById(Order.class,rs.getInt(COLUMN_ORDER_ID.getColumnName())));
-        this.setQty(rs.getInt(COLUMN_QTY.getColumnName()));        
+        this.setProductSale((ProductSale) SQL.findById(ProductSale.class, rs.getInt(COLUMN_PRSA_ID.getColumnName())));
+        this.setOrder((Order) SQL.findById(Order.class, rs.getInt(COLUMN_ORDER_ID.getColumnName())));
+        this.setQty(rs.getInt(COLUMN_QTY.getColumnName()));
         this.setPriceUnit(rs.getDouble(COLUMN_PRICE_UNIT.getColumnName()));
         this.setAmount(rs.getInt(COLUMN_AMOUNT.getColumnName()));
-        
-             
+
+
     }
 
     public void save() throws Exception {
@@ -106,21 +104,21 @@ public class OrderItem implements ORM {
         this.setOritId(id);
     }
 
-    public void update() throws Exception{
+    public void update() throws Exception {
         SQL sql = new SQL();
-            sql
-                    .update(OrderItem.TABLE_NAME)
-                    .set(OrderItem.COLUMN_AMOUNT, this.getAmount())
-                    .set(OrderItem.COLUMN_ORDER_ID, this.getOrder().getOrderId())
-                    .set(OrderItem.COLUMN_PRICE_UNIT, this.getPriceUnit())
-                    .set(OrderItem.COLUMN_PRSA_ID, this.getProductSale().getId())
-                    .set(OrderItem.COLUMN_QTY, this.getQty())
-                    .where(OrderItem.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getOritId())
-                    .exec();
+        sql
+                .update(OrderItem.TABLE_NAME)
+                .set(OrderItem.COLUMN_AMOUNT, this.getAmount())
+                .set(OrderItem.COLUMN_ORDER_ID, this.getOrder().getOrderId())
+                .set(OrderItem.COLUMN_PRICE_UNIT, this.getPriceUnit())
+                .set(OrderItem.COLUMN_PRSA_ID, this.getProductSale().getId())
+                .set(OrderItem.COLUMN_QTY, this.getQty())
+                .where(OrderItem.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getOritId())
+                .exec();
 
     }
 
-    public static int delete(int ORIT_ID) throws Exception{
+    public static int delete(int ORIT_ID) throws Exception {
         SQL sql = new SQL();
         int a = sql
                 .delete(OrderItem.TABLE_NAME)

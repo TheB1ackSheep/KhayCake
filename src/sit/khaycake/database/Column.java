@@ -21,6 +21,6 @@ public class Column extends Table {
 
     @Override
     public String toString() {
-        return tableName+"."+columnName;
+        return tableName + "." + columnName;
     }
 }

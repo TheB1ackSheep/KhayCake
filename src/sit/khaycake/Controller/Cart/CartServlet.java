@@ -29,7 +29,6 @@ public class CartServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        CartRequest cartRequest = new CartRequest(request);
         HttpSession session = request.getSession();
         SuccessMessage success = new SuccessMessage(session);
         ErrorMessage error = new ErrorMessage(session);

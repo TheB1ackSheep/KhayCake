@@ -19,7 +19,7 @@ public class Category implements ORM, CanFindByKeyword {
     public static final String TABLE_NAME = "CATEGORIES";
     public static final Column COLUMN_ID = ORM.column(TABLE_NAME, "CAT_ID");
     public static final Column COLUMN_NAME = ORM.column(TABLE_NAME, "NAME");
-    public static final Column COLUMN_CAT_PART_ID = ORM.column(TABLE_NAME,"CAT_PARENT_ID");
+    public static final Column COLUMN_CAT_PART_ID = ORM.column(TABLE_NAME, "CAT_PARENT_ID");
     public static final List<Column> PRIMARY_KEY = ORM.columns(COLUMN_ID);
     public static final List<Column> COLUMN_KEYWORD = ORM.columns(COLUMN_NAME);
 
@@ -65,7 +65,7 @@ public class Category implements ORM, CanFindByKeyword {
         this.setId(id);
     }
 
-    public void update() throws Exception{
+    public void update() throws Exception {
         SQL sql = new SQL();
         sql
                 .update(Category.TABLE_NAME)
@@ -75,7 +75,7 @@ public class Category implements ORM, CanFindByKeyword {
                 .exec();
     }
 
-    public static int delete(int CAT_ID) throws Exception{
+    public static int delete(int CAT_ID) throws Exception {
         SQL sql = new SQL();
         int a = sql
                 .delete(Category.TABLE_NAME)

@@ -5,18 +5,18 @@
  */
 package sit.khaycake.model;
 
-import java.sql.ResultSet;
-import java.util.List;
-
 import sit.khaycake.database.Column;
 import sit.khaycake.database.ORM;
 import sit.khaycake.database.SQL;
+
+import java.sql.ResultSet;
+import java.util.List;
 
 
 /**
  * @author -milk
  */
-public class Address implements ORM{
+public class Address implements ORM {
     private int id;
     private int subDistrictId;
     private String street;
@@ -79,7 +79,7 @@ public class Address implements ORM{
         this.setAddrAdd(rs.getString(COLUMN_ADDR_ADD.getColumnName()));
     }
 
-    public void save() throws Exception{
+    public void save() throws Exception {
         SQL sql = new SQL();
         int addId = sql
                 .insert()
@@ -90,24 +90,24 @@ public class Address implements ORM{
         this.setId(addId);
     }
 
-    public void update() throws Exception{
+    public void update() throws Exception {
         SQL sql = new SQL();
-            sql
-                    .update(Address.TABLE_NAME)
-                    .set(Address.COLUMN_ADDR_NO, this.getAddrNo())
-                    .set(Address.COLUMN_ADDR_ADD, this.getAddrAdd())
-                    .set(Address.COLUMN_STREET, this.getStreet())
-                    .set(Address.COLUMN_SUB_DISTRICT_ID,this.getSubDistrictId())
-                    .where(Address.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getId())
-                    .exec();
+        sql
+                .update(Address.TABLE_NAME)
+                .set(Address.COLUMN_ADDR_NO, this.getAddrNo())
+                .set(Address.COLUMN_ADDR_ADD, this.getAddrAdd())
+                .set(Address.COLUMN_STREET, this.getStreet())
+                .set(Address.COLUMN_SUB_DISTRICT_ID, this.getSubDistrictId())
+                .where(Address.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getId())
+                .exec();
     }
 
-    public static int delete(int ADDR_ID) throws Exception{
+    public static int delete(int ADDR_ID) throws Exception {
         SQL sql = new SQL();
-            int a = sql
-                    .delete(Address.TABLE_NAME)
-                    .where(Address.COLUMN_ID, SQL.WhereClause.Operator.EQ, ADDR_ID)
-                    .exec();
+        int a = sql
+                .delete(Address.TABLE_NAME)
+                .where(Address.COLUMN_ID, SQL.WhereClause.Operator.EQ, ADDR_ID)
+                .exec();
         return a;
     }
 }

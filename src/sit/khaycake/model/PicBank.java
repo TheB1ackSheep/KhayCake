@@ -44,15 +44,15 @@ public class PicBank implements ORM, CanFindByKeyword {
         this.setPicture((Picture) SQL.findById(Picture.class, rs.getInt(COLUMN_PIC_ID.getColumnName())));
     }
 
-    public static List<Picture> getPicture (List<PicBank> PicProducts){
+    public static List<Picture> getPicture(List<PicBank> PicProducts) {
         List<Picture> pictures = new ArrayList<>();
-        for(PicBank pp : PicProducts) {
+        for (PicBank pp : PicProducts) {
             pictures.add(pp.getPicture());
         }
         return null;
     }
 
-    public void save() throws Exception{
+    public void save() throws Exception {
         SQL sql = new SQL();
         sql
                 .insert()
@@ -62,7 +62,7 @@ public class PicBank implements ORM, CanFindByKeyword {
     }
 
 
-    public static int delete(int BANK_ID, int PIC_ID) throws Exception{
+    public static int delete(int BANK_ID, int PIC_ID) throws Exception {
         SQL sql = new SQL();
         int a = sql
                 .delete(PicBank.TABLE_NAME)
@@ -72,7 +72,7 @@ public class PicBank implements ORM, CanFindByKeyword {
         return a;
     }
 
-    public static int delete(int BANK_ID) throws Exception{
+    public static int delete(int BANK_ID) throws Exception {
         SQL sql = new SQL();
         int a = sql
                 .delete(PicBank.TABLE_NAME)

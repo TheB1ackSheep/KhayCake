@@ -2,7 +2,6 @@ package sit.khaycake.Controller.ProductMeta;
 
 import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
-import sit.khaycake.model.OrderStatus;
 import sit.khaycake.model.ProductMeta;
 
 import javax.servlet.ServletException;
@@ -18,7 +17,7 @@ public class PatternProductMetaServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 1)+1);
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 1) + 1);
 
         if (resource.indexOf("delete") >= 0) {
             /*resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));

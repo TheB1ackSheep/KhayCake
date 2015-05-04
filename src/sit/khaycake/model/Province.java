@@ -5,14 +5,14 @@
  */
 package sit.khaycake.model;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
-
 import sit.khaycake.database.CanFindByKeyword;
 import sit.khaycake.database.Column;
 import sit.khaycake.database.ORM;
 import sit.khaycake.database.SQL;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
 
 /**
  * @author -milk
@@ -51,13 +51,13 @@ public class Province implements ORM, CanFindByKeyword {
 
     }
 
-    public List<District> getDistrictList() throws Exception{
-            SQL sql = new SQL();
-            List<District> result = sql
-                    .select()
-                    .from(District.TABLE_NAME)
-                    .where(District.COLUMN_PROV_ID, SQL.WhereClause.Operator.EQ, this.getId())
-                    .fetch(District.class);
+    public List<District> getDistrictList() throws Exception {
+        SQL sql = new SQL();
+        List<District> result = sql
+                .select()
+                .from(District.TABLE_NAME)
+                .where(District.COLUMN_PROV_ID, SQL.WhereClause.Operator.EQ, this.getId())
+                .fetch(District.class);
         return result;
     }
 }

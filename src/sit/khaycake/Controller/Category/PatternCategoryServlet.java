@@ -3,10 +3,7 @@ package sit.khaycake.Controller.Category;
 import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
 import sit.khaycake.model.Category;
-import sit.khaycake.model.Customer;
 import sit.khaycake.model.Product;
-import sit.khaycake.util.AssisDateTime;
-import sit.khaycake.util.Encryption;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -23,14 +20,14 @@ public class PatternCategoryServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0) + 1);
 
 
         if (resource.indexOf("product") >= 0) {
-            resource = resource.substring(0,resource.indexOf("/", 1));
+            resource = resource.substring(0, resource.indexOf("/", 1));
             List<Product> product = new ArrayList<>();
             try {
-                product = (List<Product>)SQL.findByKeyword(Product.class,resource);
+                product = (List<Product>) SQL.findByKeyword(Product.class, resource);
 
             } catch (Exception e) {
                 response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
@@ -62,7 +59,7 @@ public class PatternCategoryServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0) + 1);
         Category category = null;
         try {
             category = (Category) SQL.findById(Category.class, Integer.parseInt(resource));

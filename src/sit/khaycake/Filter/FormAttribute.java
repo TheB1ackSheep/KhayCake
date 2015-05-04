@@ -87,7 +87,7 @@ public class FormAttribute {
         this.isFile = isFile;
     }
 
-    public FormAttribute(String name,String nickName, boolean required, int min, int max, boolean isInteger, boolean isFloat) {
+    public FormAttribute(String name, String nickName, boolean required, int min, int max, boolean isInteger, boolean isFloat) {
         this.name = name;
         this.nickName = nickName;
         this.required = required;
@@ -97,7 +97,7 @@ public class FormAttribute {
         this.isFloat = isFloat;
     }
 
-    public FormAttribute(String name,String nickName, boolean isFile) {
+    public FormAttribute(String name, String nickName, boolean isFile) {
         this.name = name;
         this.nickName = nickName;
         this.required = true;
@@ -108,6 +108,6 @@ public class FormAttribute {
 
     @Override
     public String toString() {
-        return (this.nickName != null)?nickName:name;
+        return (this.nickName != null) ? nickName : name;
     }
 }

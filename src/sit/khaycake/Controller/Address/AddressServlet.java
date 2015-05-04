@@ -3,7 +3,6 @@ package sit.khaycake.Controller.Address;
 import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
 import sit.khaycake.model.Address;
-import sit.khaycake.model.SubDistrict;
 import sit.khaycake.util.ErrorMessage;
 import sit.khaycake.util.SuccessMessage;
 
@@ -13,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Created by Pasuth on 19/4/2558.

@@ -5,15 +5,13 @@
  */
 package sit.khaycake.model;
 
-import java.sql.Date;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
-
-import sit.khaycake.database.CanFindByKeyword;
 import sit.khaycake.database.Column;
 import sit.khaycake.database.ORM;
 import sit.khaycake.database.SQL;
+
+import java.sql.Date;
+import java.sql.ResultSet;
+import java.util.List;
 
 
 /**

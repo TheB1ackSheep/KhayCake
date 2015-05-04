@@ -44,15 +44,15 @@ public class CustAddress implements ORM, CanFindByKeyword {
         this.setAddress((Address) SQL.findById(Address.class, rs.getInt(COLUMN_ADDR_ID.getColumnName())));
     }
 
-    public static List<Address> getAddresses (List<CustAddress> custAddresses){
+    public static List<Address> getAddresses(List<CustAddress> custAddresses) {
         List<Address> addresses = new ArrayList<>();
-        for(CustAddress ca : custAddresses) {
+        for (CustAddress ca : custAddresses) {
             addresses.add(ca.getAddress());
         }
         return null;
     }
 
-    public void save() throws Exception{
+    public void save() throws Exception {
         SQL sql = new SQL();
         sql
                 .insert()
@@ -62,7 +62,7 @@ public class CustAddress implements ORM, CanFindByKeyword {
     }
 
 
-    public static int delete(int CUST_ID, int ADDR_ID) throws Exception{
+    public static int delete(int CUST_ID, int ADDR_ID) throws Exception {
         SQL sql = new SQL();
         int a = sql
                 .delete(CustAddress.TABLE_NAME)
@@ -72,7 +72,7 @@ public class CustAddress implements ORM, CanFindByKeyword {
         return a;
     }
 
-    public static int delete(int CUST_ID) throws Exception{
+    public static int delete(int CUST_ID) throws Exception {
         SQL sql = new SQL();
         int a = sql
                 .delete(CustAddress.TABLE_NAME)

@@ -5,22 +5,20 @@
  */
 package sit.khaycake.model;
 
-import java.sql.Date;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
-
 import sit.khaycake.database.Column;
 import sit.khaycake.database.ORM;
 import sit.khaycake.database.SQL;
 
+import java.sql.Date;
+import java.sql.ResultSet;
+import java.util.List;
+
 /**
- *
  * @author -milk
  */
 public class Payment implements ORM {
 
-    public enum Status{
+    public enum Status {
 
         COMPLETED(1),
         CANCELED(2),
@@ -36,22 +34,29 @@ public class Payment implements ORM {
                 this.id = id;
                 paymentStatus = (PaymentStatus) SQL.findById(PaymentStatus.class, id);
                 this.name = (paymentStatus == null) ? null : paymentStatus.getName();
-            }catch (Exception e){
+            } catch (Exception e) {
                 //must be caught or dec;ared to be thrown
             }
         }
 
-        public static Status getStatus(int id){
-            switch (id)
-            {
-                case 1: return COMPLETED;
-                case 2: return CANCELED;
-                case 3: return PENDING;
-                case 4: return FAILED;
-                default:return PENDING;
+        public static Status getStatus(int id) {
+            switch (id) {
+                case 1:
+                    return COMPLETED;
+                case 2:
+                    return CANCELED;
+                case 3:
+                    return PENDING;
+                case 4:
+                    return FAILED;
+                default:
+                    return PENDING;
             }
         }
-        public int getId(){return this.id;}
+
+        public int getId() {
+            return this.id;
+        }
     }
 
     private int id;
@@ -60,7 +65,7 @@ public class Payment implements ORM {
     private Status status;
     private Date dateTime;
     private double amount;
-    
+
     public static final String TABLE_NAME = "PAYMENTS";
     public static final Column COLUMN_ID = ORM.column(TABLE_NAME, "PATM_ID");
     public static final Column COLUMN_ORDER_ID = ORM.column(TABLE_NAME, "ORDER_ID");
@@ -117,16 +122,16 @@ public class Payment implements ORM {
     public void setAmount(double amount) {
         this.amount = amount;
     }
-    
+
     public void orm(ResultSet rs) throws Exception {
-        
+
         this.setId(rs.getInt(COLUMN_ID.getColumnName()));
-        this.setOrder((Order)SQL.findById(Order.class, rs.getInt(COLUMN_ORDER_ID.getColumnName())));
-        this.setBaac((BankAccount)SQL.findById(BankAccount.class,rs.getInt(COLUMN_BAAC_ID.getColumnName())));
+        this.setOrder((Order) SQL.findById(Order.class, rs.getInt(COLUMN_ORDER_ID.getColumnName())));
+        this.setBaac((BankAccount) SQL.findById(BankAccount.class, rs.getInt(COLUMN_BAAC_ID.getColumnName())));
         this.setPast(Status.getStatus(rs.getInt(COLUMN_PAST_ID.getColumnName())));
         this.setDateTime(rs.getDate(COLUMN_DATE_TIME.getColumnName()));
         this.setAmount(rs.getDouble(COLUMN_AMOUNT.getColumnName()));
-        
+
     }
 
     public void save() throws Exception {
@@ -140,20 +145,20 @@ public class Payment implements ORM {
         this.setId(id);
     }
 
-    public void update() throws Exception{
+    public void update() throws Exception {
         SQL sql = new SQL();
-            sql
-                    .update(Payment.TABLE_NAME)
-                    .set(Payment.COLUMN_ORDER_ID, this.getOrder())
-                    .set(Payment.COLUMN_AMOUNT, this.getAmount())
-                    .set(Payment.COLUMN_BAAC_ID, this.getBaac())
-                    .set(Payment.COLUMN_DATE_TIME, this.getDateTime())
-                    .set(Payment.COLUMN_PAST_ID, this.getStatus().getId())
-                    .where(Payment.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getId())
-                    .exec();
+        sql
+                .update(Payment.TABLE_NAME)
+                .set(Payment.COLUMN_ORDER_ID, this.getOrder())
+                .set(Payment.COLUMN_AMOUNT, this.getAmount())
+                .set(Payment.COLUMN_BAAC_ID, this.getBaac())
+                .set(Payment.COLUMN_DATE_TIME, this.getDateTime())
+                .set(Payment.COLUMN_PAST_ID, this.getStatus().getId())
+                .where(Payment.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getId())
+                .exec();
     }
 
-    public static int delete(int PATM_ID) throws Exception{
+    public static int delete(int PATM_ID) throws Exception {
         SQL sql = new SQL();
         int a = sql
                 .delete(Payment.TABLE_NAME)

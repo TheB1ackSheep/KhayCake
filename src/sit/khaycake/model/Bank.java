@@ -1,7 +1,6 @@
 package sit.khaycake.model;
 
 
-
 import sit.khaycake.database.CanFindByKeyword;
 import sit.khaycake.database.Column;
 import sit.khaycake.database.ORM;
@@ -57,7 +56,7 @@ public class Bank implements ORM, CanFindByKeyword {
         public void orm(ResultSet rs) throws Exception {
             this.setId(rs.getInt(COLUMN_ID.getColumnName()));
             this.setName(rs.getString(COLUMN_ID.getColumnName()));
-            this.setBank((Bank)SQL.findById(Bank.class,rs.getInt(COLUMN_BANK_ID.getColumnName())));
+            this.setBank((Bank) SQL.findById(Bank.class, rs.getInt(COLUMN_BANK_ID.getColumnName())));
         }
     }
 
@@ -92,7 +91,7 @@ public class Bank implements ORM, CanFindByKeyword {
         this.setName(rs.getString(COLUMN_NAME_TH.getColumnName()));
     }
 
-    public void save() throws Exception{
+    public void save() throws Exception {
         SQL sql = new SQL();
         int addId = sql
                 .insert()
@@ -102,16 +101,16 @@ public class Bank implements ORM, CanFindByKeyword {
         this.setId(addId);
     }
 
-    public void update() throws Exception{
+    public void update() throws Exception {
         SQL sql = new SQL();
-            sql
-                    .update(Bank.TABLE_NAME)
-                    .set(Bank.COLUMN_NAME_TH, this.getName())
-                    .where(Bank.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getId())
-                    .exec();
+        sql
+                .update(Bank.TABLE_NAME)
+                .set(Bank.COLUMN_NAME_TH, this.getName())
+                .where(Bank.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getId())
+                .exec();
     }
 
-    public static int delete(int BANK_ID) throws Exception{
+    public static int delete(int BANK_ID) throws Exception {
         SQL sql = new SQL();
         int a = sql
                 .delete(Bank.TABLE_NAME)

@@ -1,6 +1,5 @@
 package sit.khaycake.Controller.Unit;
 
-import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
 import sit.khaycake.model.Unit;
 import sit.khaycake.util.ErrorMessage;
@@ -25,7 +24,7 @@ public class UnitServlet extends HttpServlet {
         ErrorMessage error = new ErrorMessage(session);
 
         try {
-            List<Unit> units = (List<Unit>)SQL.findAll(Unit.class);
+            List<Unit> units = (List<Unit>) SQL.findAll(Unit.class);
             success.setMessage(units);
         } catch (Exception ex) {
             error.setMessage(ex.getMessage());

@@ -1,153 +1,149 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300,800' rel='stylesheet' type='text/css'>
-	<style type="text/css">
+    <title></title>
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300,800' rel='stylesheet' type='text/css'>
+    <style type="text/css">
 
-		*{
-			box-sizing: border-box;
-		}
+        * {
+            box-sizing: border-box;
+        }
 
-		html,body{
-			width: 100%;
-			height: 100%;
-			margin: 0;
-			padding: 0;
-		}
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
 
-		body{
-			font-family: 'Open Sans', sans-serif;
-		}
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
 
+        .app-bar {
+            width: 100%;
+            height: 100%;
+            background-color: rgb(35, 186, 163);
+            display: flex;
+            justify-content: center;
+            min-width: 140px;
+            transition: 500ms ease-in-out all;
+        }
 
-		.app-bar{
-			width:100%;
-			height: 100%;
-			background-color: rgb(35, 186, 163);
-			display: flex;
-			justify-content: center;
-			min-width: 140px;
-			transition: 500ms ease-in-out all;
-		}
+        .app-bar.collapse {
+            width: 140px;
+        }
 
-		.app-bar.collapse{
-			width: 140px;
-		}
+        .logo {
+            width: 100px;
+            height: 96px;
+            position: relative;
+            transition: 500ms ease-in-out all;
+            top: 0;
+        }
 
-		.logo{
-			width: 100px;
-			height: 96px;
-			position: relative;
-			transition: 500ms ease-in-out all;	
-			top:0;		
-		}
+        .logo.inactive {
+            top: -30vh;
+        }
 
-		.logo.inactive{
-			top: -30vh;
-		}
+        .logo.load {
+            top: 30vh;
+        }
 
-		.logo.load{
-			top: 30vh;
-		}
+        .logo .cake {
+            width: 100px;
+            height: 96px;
+        }
 
-		.logo .cake{
-			width: 100px;
-			height: 96px;
-		}	
+        .logo .cake:before {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 96px;
+            top: 0;
+            background-image: url('khaycake-logo-mask.png');
+            background-repeat: no-repeat;
+        }
 
-		.logo .cake:before{
-			content: '';
-			position: absolute;
-			width:100px;
-			height: 96px;
-			top:0;
-			background-image: url('khaycake-logo-mask.png');
-			background-repeat: no-repeat;			
-		}
+        .logo .cake:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 96px;
+            background-image: url('khaycake-logo.png');
+            background-repeat: no-repeat;
+            transition: 350ms all;
+            clip: rect(0, 0, 96px, 0);
+        }
 
-		.logo .cake:after{
-			content:'';
-			position: absolute;
-			width:100px;
-			height: 96px;
-			background-image: url('khaycake-logo.png');
-			background-repeat: no-repeat;			
-			transition: 350ms all;
-			clip: rect(0,0,96px,0);
-		}
+        .logo .name {
+            font-size: 23px;
+            font-family: 'Lobster', sans-serif;
+            text-align: center;
+            transition: 350ms all;
+            color: #fff;
+        }
 
-		.logo .name{
-			font-size: 23px;
-			font-family: 'Lobster', sans-serif;
-			text-align: center;
-			transition: 350ms all;
-			color: #fff;
-		}
+        .logo.load.done {
+            top: 20vh;
+        }
 
-		.logo.load.done{
-			top: 20vh;
-		}
+        .logo.load.done .name {
+            color: #3E2723;
+        }
 
-		.logo.load.done .name{
-			color: #3E2723;
-		}
-
-		.logo.load.done .cake:after{
-			clip: rect(0,100px,96px,0);
-		}
-
+        .logo.load.done .cake:after {
+            clip: rect(0, 100px, 96px, 0);
+        }
 
 
-	</style>
+    </style>
 </head>
 <body>
-	<div class="app-bar">
-		<div class="logo load">
-			<div class="cake">
-			</div>
-			
-			
-			<div class="name">Khay Cake</div>
-		</div>
-		
-	</div>
-	<script>
-		var KhayCake = KhayCake || {
-			AJAX : function AJAX(method,url,params,fn){
-				var httpRequest = (window.XMLHttpRequest)?new XMLHttpRequest():(window.ActiveXObject)?new ActiveXObject("Msxml2.XMLHTTP"):new ActiveXObject("Microsoft.XMLHTTP");
-				httpRequest.onreadystatechange = function(){
-					if (httpRequest.readyState === 4) {
-						if(httpRequest.status === 200){
-						    if(typeof(fn) === "object" && fn.success)
-						    	fn.success(httpRequest.response);
-						}else{
-							if(typeof(fn) === "object" && fn.error)
-						    	fn.error(httpRequest.response);
-						}
-					}
-				}				
-				
-				var q = "",c = 0;
-				for(var k in params)
-					q += k+"="+params[k]+((c++<Object.keys(params).length-1)?"&":"");
-
-				httpRequest.open(method,url+((params && method === "GET")?"?"+q:""));
-				if(method === "POST")
-					httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-				httpRequest.send((method==="POST")?q:null);			
-
-			}
-			
-		};
-
-		var K = KhayCake;
-		
+<div class="app-bar">
+    <div class="logo load">
+        <div class="cake">
+        </div>
 
 
+        <div class="name">Khay Cake</div>
+    </div>
 
-</script>	
+</div>
+<script>
+    var KhayCake = KhayCake || {
+                AJAX: function AJAX(method, url, params, fn) {
+                    var httpRequest = (window.XMLHttpRequest) ? new XMLHttpRequest() : (window.ActiveXObject) ? new ActiveXObject("Msxml2.XMLHTTP") : new ActiveXObject("Microsoft.XMLHTTP");
+                    httpRequest.onreadystatechange = function () {
+                        if (httpRequest.readyState === 4) {
+                            if (httpRequest.status === 200) {
+                                if (typeof(fn) === "object" && fn.success)
+                                    fn.success(httpRequest.response);
+                            } else {
+                                if (typeof(fn) === "object" && fn.error)
+                                    fn.error(httpRequest.response);
+                            }
+                        }
+                    }
+
+                    var q = "", c = 0;
+                    for (var k in params)
+                        q += k + "=" + params[k] + ((c++ < Object.keys(params).length - 1) ? "&" : "");
+
+                    httpRequest.open(method, url + ((params && method === "GET") ? "?" + q : ""));
+                    if (method === "POST")
+                        httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                    httpRequest.send((method === "POST") ? q : null);
+
+                }
+
+            };
+
+    var K = KhayCake;
+
+
+</script>
 
 </body>
 </html>

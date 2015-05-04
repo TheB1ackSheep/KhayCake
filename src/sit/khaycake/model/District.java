@@ -5,30 +5,29 @@
  */
 package sit.khaycake.model;
 
-import java.sql.ResultSet;
-import java.util.List;
-
 import sit.khaycake.database.CanFindByKeyword;
 import sit.khaycake.database.Column;
 import sit.khaycake.database.ORM;
 import sit.khaycake.database.SQL;
 
+import java.sql.ResultSet;
+import java.util.List;
+
 /**
- *
  * @author -milk
  */
 public class District implements ORM, CanFindByKeyword {
     private int id;
     private int provinceId;
     private String name;
-    
+
     public static final String TABLE_NAME = "DISTRICT";
     public static final Column COLUMN_DIST_ID = ORM.column(TABLE_NAME, "DIST_ID");
     public static final Column COLUMN_PROV_ID = ORM.column(TABLE_NAME, "PROV_ID");
     public static final Column COLUMN_NAME = ORM.column(TABLE_NAME, "NAME");
     public static final List<Column> PRIMARY_KEY = ORM.columns(COLUMN_DIST_ID);
     public static final List<Column> COLUMN_KEYWORD = ORM.columns(COLUMN_NAME);
-    
+
 
     public int getId() {
         return id;
@@ -53,7 +52,7 @@ public class District implements ORM, CanFindByKeyword {
     public void setName(String name) {
         this.name = name;
     }
-    
+
     public void orm(ResultSet rs) throws Exception {
         this.setId(rs.getInt(COLUMN_DIST_ID.getColumnName()));
         this.setProvince(rs.getInt(COLUMN_PROV_ID.getColumnName()));
@@ -61,7 +60,7 @@ public class District implements ORM, CanFindByKeyword {
     }
 
 
-    public List<SubDistrict> getSubDistrictList() throws Exception{
+    public List<SubDistrict> getSubDistrictList() throws Exception {
         SQL sql = new SQL();
         List<SubDistrict> result = sql
                 .select()
@@ -82,7 +81,7 @@ public class District implements ORM, CanFindByKeyword {
         this.setId(id);
     }
 
-    public void update() throws Exception{
+    public void update() throws Exception {
         SQL sql = new SQL();
         sql
                 .update(District.TABLE_NAME)
@@ -92,7 +91,7 @@ public class District implements ORM, CanFindByKeyword {
                 .exec();
     }
 
-    public static int delete(int BAAC_ID) throws Exception{
+    public static int delete(int BAAC_ID) throws Exception {
         SQL sql = new SQL();
         int a = sql
                 .delete(BankAccountType.TABLE_NAME)
@@ -100,5 +99,5 @@ public class District implements ORM, CanFindByKeyword {
                 .exec();
         return a;
     }
-    
+
 }

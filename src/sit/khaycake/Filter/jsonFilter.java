@@ -8,6 +8,7 @@ import java.io.IOException;
  */
 public class jsonFilter implements Filter {
     FilterConfig config;
+
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         config = filterConfig;
@@ -18,7 +19,7 @@ public class jsonFilter implements Filter {
         servletRequest.setCharacterEncoding("UTF-8");
         servletResponse.setContentType("application/json; charset=UTF-8");
         servletResponse.setCharacterEncoding("UTF-8");
-        filterChain.doFilter(servletRequest,servletResponse);
+        filterChain.doFilter(servletRequest, servletResponse);
     }
 
     @Override
