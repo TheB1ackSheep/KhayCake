@@ -3,11 +3,14 @@ package sit.khaycake.Controller.Province;
 import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
 import sit.khaycake.model.Province;
+import sit.khaycake.util.ErrorMessage;
+import sit.khaycake.util.SuccessMessage;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -17,37 +20,31 @@ import java.util.List;
 public class ProvinceServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        SuccessMessage success = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
         try {
-            Gson gson = new Gson();
-            String result = gson.toJson(SQL.findAll(Province.class));
-            response.getWriter().print(result);
+            success.setMessage((Province) SQL.findAll(Province.class));
         } catch (Exception ex) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            error.setMessage(ex.getMessage());
         }
 
     }
 
-    /*@Override
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        SuccessMessage success = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
         try {
-            SQL sql = new SQL();
             Province province = new Province();
-            province.setName(request.getParameter("name"));
+            province.setName(request.getParameter("NAME"));
 
-            int addId = sql
-                    .insert()
-                    .into(Province.TABLE_NAME, Province.COLUMN_NAME)
-                    .values(province.getName())
-                    .exec();
-            sql.clear();
-            province.setId(addId);
-
-            Gson gson = new Gson();
-            response.getWriter().print(gson.toJson(province));
+            success.setMessage(province);
         } catch (Exception ex) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            error.setMessage(ex.getMessage());
         }
 
-    }*/
+    }
 }

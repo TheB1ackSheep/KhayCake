@@ -3,6 +3,8 @@ package sit.khaycake.Controller.Bank;
 import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
 import sit.khaycake.model.Bank;
+import sit.khaycake.model.PicBank;
+import sit.khaycake.model.Picture;
 import sit.khaycake.util.ErrorMessage;
 import sit.khaycake.util.SuccessMessage;
 
@@ -43,6 +45,18 @@ public class BankServlet extends HttpServlet {
             bank.setNameTh(request.getParameter("NAME_TH"));
             bank.setNameEn(request.getParameter("NAME_EN"));
             bank.save();
+
+            String[] pictures = request.getParameterValues("PIC_ID");
+            for(String picStr : pictures){
+                PicBank picBank = new PicBank();
+                Picture picture = (Picture)SQL.findById(Picture.class, picStr);
+                if(picture!= null){
+                    picBank.setBankId(bank.getId());
+                    picBank.setPicture(picture);
+                    picBank.save();
+                }
+
+            }
 
             success.setMessage(bank);
         } catch (Exception ex) {

@@ -8,11 +8,14 @@ import sit.khaycake.util.AssisDateTime;
 import sit.khaycake.model.Order;
 import sit.khaycake.model.Order.Status;
 import sit.khaycake.model.Order.ShipMethod;
+import sit.khaycake.util.ErrorMessage;
+import sit.khaycake.util.SuccessMessage;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -21,12 +24,13 @@ import java.io.IOException;
 public class OrderServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        SuccessMessage succes = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
         try {
-            Gson gson = new Gson();
-            String result = gson.toJson(SQL.findAll(Order.class));
-            response.getWriter().print(result);
+            succes.setMessage((Order) SQL.findAll(Order.class));
         } catch (Exception ex) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            error.setMessage(ex.getMessage());
         }
 
     }
@@ -34,6 +38,9 @@ public class OrderServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        SuccessMessage succes = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
         try {
             SQL sql = new SQL();
             Order order = new Order();
@@ -47,10 +54,9 @@ public class OrderServlet extends HttpServlet {
             order.setTotalQty(Integer.parseInt(request.getParameter("TOTAL_QTY")));
             order.save();
 
-            Gson gson = new Gson();
-            response.getWriter().print(gson.toJson(order));
+            succes.setMessage(order);
         } catch (Exception ex) {
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            error.setMessage(ex.getMessage());
         }
 
     }

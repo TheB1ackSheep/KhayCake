@@ -97,7 +97,20 @@ public class BankTesting {
         //System.out.println(PicProduct.findByProdId(13));
         Gson gson = new Gson();
         //System.out.print(ProductSale.findByProdId(76));
-        System.out.println(SQL.findAll(Product.class));
+        Cart cart = new Cart();
+        Product product = new Product();
+        product.setId(1);
+
+        cart.add(product);
+        System.out.println(gson.toJson(cart));
+        cart.add(product, 3);
+        System.out.println(gson.toJson(cart));
+        cart.reduce(product);
+        System.out.println(gson.toJson(cart));
+        cart.reduce(product,2);
+        System.out.println(gson.toJson(cart));
+        cart.remove(product);
+        System.out.println(gson.toJson(cart));
         //System.out.println(gson.toJson(SQL.findAll(Product.class)));
 
     }

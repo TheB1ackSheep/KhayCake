@@ -43,6 +43,196 @@
         <url-pattern>/bankbranch/*</url-pattern>
     </filter-mapping>
 
+    <filter>
+        <filter-name>BankAccountRequest</filter-name>
+        <filter-class>sit.khaycake.Filter.request.BankAccountRequest</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>BankAccountRequest</filter-name>
+        <url-pattern>/bankaccount</url-pattern>
+        <url-pattern>/bankaccount/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+    <filter-name>BankAccountTypeRequest</filter-name>
+    <filter-class>sit.khaycake.Filter.request.BankAccountTypeRequest</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>BankAccountTypeRequest</filter-name>
+        <url-pattern>/bankaccounttype</url-pattern>
+        <url-pattern>/bankaccounttype/*</url-pattern>
+    </filter-mapping>
+    
+    <filter>
+        <filter-name>CartRequest</filter-name>
+        <filter-class>sit.khaycake.Filter.request.CartRequest</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CartRequest</filter-name>
+        <url-pattern>/cart</url-pattern>
+        <url-pattern>/cart/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>CategoryRequest</filter-name>
+        <filter-class>sit.khaycake.Filter.request.CategoryRequest</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CategoryRequest</filter-name>
+        <url-pattern>/category</url-pattern>
+        <url-pattern>/category/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>CustomerRequest</filter-name>
+        <filter-class>sit.khaycake.Filter.request.CustomerRequest</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CustomerRequest</filter-name>
+        <url-pattern>/customer</url-pattern>
+        <url-pattern>/customer/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>DistrictRequest</filter-name>
+        <filter-class>sit.khaycake.Filter.request.DistrictRequest</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>DistrictRequest</filter-name>
+        <url-pattern>/district</url-pattern>
+        <url-pattern>/district/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>InvoiceRequest</filter-name>
+        <filter-class>sit.khaycake.Filter.request.InvoiceRequest</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>InvoiceRequest</filter-name>
+        <url-pattern>/invoice</url-pattern>
+        <url-pattern>/invoice/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>MerchantInfoRequest</filter-name>
+        <filter-class>sit.khaycake.Filter.request.MerchantInfoRequest</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>MerchantInfoRequest</filter-name>
+        <url-pattern>/merchantinfo</url-pattern>
+        <url-pattern>/merchantinfo/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>OrderRequest</filter-name>
+        <filter-class>sit.khaycake.Filter.request.OrderRequest</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>OrderRequest</filter-name>
+        <url-pattern>/order</url-pattern>
+        <url-pattern>/order/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>OrderItemRequest</filter-name>
+        <filter-class>sit.khaycake.Filter.request.OrderItemRequest</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>OrderItemRequest</filter-name>
+        <url-pattern>/orderitem</url-pattern>
+        <url-pattern>/orderitem/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>OrderStatusRequest</filter-name>
+        <filter-class>sit.khaycake.Filter.request.OrderStatusRequest</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>OrderStatusRequest</filter-name>
+        <url-pattern>/orderstatus</url-pattern>
+        <url-pattern>/orderstatus/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>PaymentRequest</filter-name>
+        <filter-class>sit.khaycake.Filter.request.PaymentRequest</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>PaymentRequest</filter-name>
+        <url-pattern>/payment</url-pattern>
+        <url-pattern>/payment/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>PictureRequest</filter-name>
+        <filter-class>sit.khaycake.Filter.request.PictureRequest</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>PictureRequest</filter-name>
+        <url-pattern>/picture</url-pattern>
+        <url-pattern>/picture/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>ProductMetaNameRequest</filter-name>
+        <filter-class>sit.khaycake.Filter.request.ProductMetaNameRequest</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ProductMetaNameRequest</filter-name>
+        <url-pattern>/productmetaname</url-pattern>
+        <url-pattern>/productmetaname/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>ProductSaleRequest</filter-name>
+        <filter-class>sit.khaycake.Filter.request.ProductSaleRequest</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ProductSaleRequest</filter-name>
+        <url-pattern>/productsale</url-pattern>
+        <url-pattern>/productsale/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>ProvinceRequest</filter-name>
+        <filter-class>sit.khaycake.Filter.request.ProvinceRequest</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ProvinceRequest</filter-name>
+        <url-pattern>/province</url-pattern>
+        <url-pattern>/province/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>ShipmentMethodRequest</filter-name>
+        <filter-class>sit.khaycake.Filter.request.ShipmentMethodRequest</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ShipmentMethodRequest</filter-name>
+        <url-pattern>/shipmentmethod</url-pattern>
+        <url-pattern>/shipmentmethod/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>SubDistrictRequest</filter-name>
+        <filter-class>sit.khaycake.Filter.request.SubDistrictRequest</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>SubDistrictRequest</filter-name>
+        <url-pattern>/subdistrict</url-pattern>
+        <url-pattern>/subdistrict/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>UnitRequest</filter-name>
+        <filter-class>sit.khaycake.Filter.request.UnitRequest</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>UnitRequest</filter-name>
+        <url-pattern>/unit</url-pattern>
+        <url-pattern>/unit/*</url-pattern>
+    </filter-mapping>
+    
     <servlet>
         <servlet-name>AddressServler</servlet-name>
         <servlet-class>sit.khaycake.Controller.Address.AddressServlet</servlet-class>

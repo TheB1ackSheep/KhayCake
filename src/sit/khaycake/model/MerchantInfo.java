@@ -102,8 +102,41 @@ public class MerchantInfo implements ORM {
         this.setFax(rs.getString(COLUMN_FAX.getColumnName()));
         this.setVatId(rs.getString(COLUMN_VAT_ID.getColumnName()));
         this.setVatValue(rs.getDouble(COLUMN_VAT_VALUE.getColumnName()));
-        
-             
+    }
+
+    public void save() throws Exception {
+        SQL sql = new SQL();
+        int id = sql
+                .insert()
+                .into(MerchantInfo.TABLE_NAME, MerchantInfo.COLUMN_NAME, MerchantInfo.COLUMN_VAT_ID, MerchantInfo.COLUMN_PHONE,
+                        MerchantInfo.COLUMN_FAX, MerchantInfo.COLUMN_VAT_VALUE, MerchantInfo.COLUMN_ADDR_ID)
+                .values(this.getName(), this.getVatId(), this.getPhone(), this.getFax(),
+                        this.getVatValue(), this.address.getId())
+                .exec();
+        this.setId(id);
+    }
+
+    public void update() throws Exception{
+        SQL sql = new SQL();
+            sql
+                    .update(this.TABLE_NAME)
+                    .set(this.COLUMN_NAME, this.getName())
+                    .set(this.COLUMN_VAT_ID, this.getVatId())
+                    .set(this.COLUMN_PHONE, this.getPhone())
+                    .set(this.COLUMN_FAX, this.getFax())
+                    .set(this.COLUMN_VAT_VALUE, this.getVatValue())
+                    .set(this.COLUMN_ADDR_ID, address.getId())
+                    .where(this.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getId())
+                    .exec();
+    }
+
+    public static int delete(int MEIN_ID) throws Exception{
+        SQL sql = new SQL();
+        int a = sql
+                .delete(MerchantInfo.TABLE_NAME)
+                .where(MerchantInfo.COLUMN_ID, SQL.WhereClause.Operator.EQ, MEIN_ID)
+                .exec();
+        return a;
     }
    
 }

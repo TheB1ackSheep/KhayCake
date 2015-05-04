@@ -3,12 +3,16 @@ package sit.khaycake.Controller.District;
 import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
 import sit.khaycake.model.District;
+import sit.khaycake.model.Province;
 import sit.khaycake.model.SubDistrict;
+import sit.khaycake.util.ErrorMessage;
+import sit.khaycake.util.SuccessMessage;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -20,88 +24,89 @@ public class PatternDistrictServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
+        HttpSession session = request.getSession();
+        SuccessMessage succes = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
 
         if (resource.indexOf("delete") >= 0) {
-            /*resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
-            SQL sql = new SQL();
+            resource = resource.substring(0, resource.indexOf("/", 1));
             try {
-                int a = sql
-                        .delete(District.TABLE_NAME)
-                        .where(District.COLUMN_DIST_ID, SQL.WhereClause.Operator.EQ, resource)
-                        .exec();
-                if (a < 0) {
+                District district = (District)SQL.findById(District.class,resource);
+                if (district != null) {
+                    District.delete(Integer.parseInt(resource));
+                    succes.setMessage(district);
+                }else{
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
-            } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            }*/
-
-        } else if(resource.indexOf("subdistrict") >= 0){
-            District district = null;
-            try {
-                district = (District) SQL.findById(District.class, Integer.parseInt(resource));
-
-
-            } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            } catch (Exception ex) {
+                error.setMessage(ex.getMessage());
             }
-            if (district != null) {
-                Gson gson = new Gson();
-                try {
-                    response.getWriter().print(gson.toJson(district.getSubDistrictList()));
-                } catch (Exception e) {
-                    response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+
+        }else if (resource.indexOf("province") >= 0) {
+            resource = resource.substring(0, resource.indexOf("/", 1));
+            try {
+                District district = (District)SQL.findById(District.class,resource);
+                if (district != null) {
+                    Province province = (Province)SQL.findById(Province.class, district.getProvinceId());
+                    succes.setMessage(province);
+                }else{
+                    response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
-            } else {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            } catch (Exception ex) {
+                error.setMessage(ex.getMessage());
+            }
+
+        }  else if(resource.indexOf("subdistrictlist") >= 0){
+            resource = resource.substring(0, resource.indexOf("/", 1));
+            try {
+                District district = (District)SQL.findById(District.class,resource);
+                if (district != null) {
+                    succes.setMessage(district.getSubDistrictList());
+                } else {
+                    response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                }
+            } catch (Exception ex) {
+                error.setMessage(ex.getMessage());
             }
 
         }else {
-            District district = null;
             try {
-                district = (District) SQL.findById(District.class, Integer.parseInt(resource));
+                District district = (District) SQL.findById(District.class, Integer.parseInt(resource));
+                if (district != null) {
+                    succes.setMessage(district);
+                } else {
+                    response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                }
 
-            } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            } catch (Exception ex) {
+                error.setMessage(ex.getMessage());
             }
-            if (district != null) {
-                Gson gson = new Gson();
-                response.getWriter().print(gson.toJson(district));
-            } else {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            }
+
         }
     }
 
-    /*@Override
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1));
-        District district = null;
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0) + 1);
+        HttpSession session = request.getSession();
+        SuccessMessage succes = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
         try {
-            district = (District) SQL.findById(District.class, Integer.parseInt(resource));
-        } catch (Exception e) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
-        }
-        if (district != null) {
-            district.setName(request.getParameter("name"));
-
-            SQL sql = new SQL();
-            try {
-                sql
-                        .update(District.TABLE_NAME)
-                        .set(District.COLUMN_NAME, district.getName())
-                        .set(District.COLUMN_PROV_ID, request.getParameter("provinceId"))
-                        .where(District.COLUMN_DIST_ID, SQL.WhereClause.Operator.EQ, district.getId())
-                        .exec();
-
-            } catch (Exception e) {
+            District district = (District) SQL.findById(District.class, Integer.parseInt(resource));
+            if (district != null) {
+                district.setName(request.getParameter("NAME"));
+                district.setProvinceId(Integer.parseInt(request.getParameter("PROV_ID")));
+                district.update();
+                succes.setMessage(district);
+            } else {
                 response.sendError(HttpServletResponse.SC_NOT_FOUND);
             }
-        } else {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+        } catch (Exception ex) {
+            error.setMessage(ex.getMessage());
         }
 
-    }*/
+
+    }
 
 }

@@ -26,25 +26,25 @@ public class PatternUnitServlet extends HttpServlet {
         ErrorMessage error = new ErrorMessage(session);
 
         if (resource.indexOf("delete") >= 0) {
-            /*resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
-            SQL sql = new SQL();
+            resource = resource.substring(0, resource.indexOf("/", 1));
             try {
-                int a = sql
-                        .delete(Unit.TABLE_NAME)
-                        .where(Unit.COLUMN_ID, SQL.WhereClause.Operator.EQ, resource)
-                        .exec();
-                if (a < 0) {
+                Unit unit = (Unit)SQL.findById(Unit.class,resource);
+
+                if (unit!=null) {
+                    Unit.delete(unit.getId());
+                    success.setMessage(unit);
+                }else{
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
-            } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            }*/
+            } catch (Exception ex) {
+                error.setMessage(ex.getMessage());
+            }
 
         } else {
             try {
                 Unit unit = (Unit) SQL.findById(Unit.class, Integer.parseInt(resource));
                 if (unit == null) {
-                    response.sendError(404);
+                    response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
                 success.setMessage(unit);
             } catch (Exception e) {
@@ -53,35 +53,27 @@ public class PatternUnitServlet extends HttpServlet {
         }
     }
 
-    /*@Override
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getRequestURI().substring(request.getRequestURI().indexOf("/", 1));
-        Unit unit = null;
+        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0) + 1);
+        HttpSession session = request.getSession();
+        SuccessMessage success = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
         try {
-            unit = (Unit) SQL.findById(Unit.class, Integer.parseInt(resource));
-        } catch (Exception e) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
-        }
-        if (unit != null) {
-            unit.setName(request.getParameter("name"));
-
-
-            SQL sql = new SQL();
-            try {
-                sql
-                        .update(Unit.TABLE_NAME)
-                        .set(Unit.COLUMN_NAME, unit.getName())
-                        .where(Unit.COLUMN_ID, SQL.WhereClause.Operator.EQ, unit.getId())
-                        .exec();
-
-            } catch (Exception e) {
+            Unit unit = (Unit) SQL.findById(Unit.class, Integer.parseInt(resource));
+            if (unit != null) {
+                unit.setName(request.getParameter("name"));
+                unit.update();
+                success.setMessage(unit);
+            } else {
                 response.sendError(HttpServletResponse.SC_NOT_FOUND);
             }
-        } else {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+        } catch (Exception e) {
+            error.setMessage(e.getMessage());
         }
 
-    }*/
+
+    }
 
 }

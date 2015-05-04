@@ -11,6 +11,7 @@ import java.util.List;
 
 import sit.khaycake.database.Column;
 import sit.khaycake.database.ORM;
+import sit.khaycake.database.SQL;
 
 /**
  *
@@ -51,5 +52,31 @@ public class ProductMetaName implements ORM {
         
         
     }
-    
+    public void save() throws Exception {
+        SQL sql = new SQL();
+        int id = sql
+                .insert()
+                .into(ProductMetaName.TABLE_NAME, ProductMetaName.COLUMN_NAME)
+                .values(this.getName())
+                .exec();
+        this.setId(id);
+    }
+
+    public void update() throws Exception{
+        SQL sql = new SQL();
+        sql
+                .update(ProductMetaName.TABLE_NAME)
+                .set(ProductMetaName.COLUMN_NAME, this.getName())
+                .where(ProductMetaName.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getId())
+                .exec();
+    }
+
+    public static int delete(int PRMN_ID) throws Exception{
+        SQL sql = new SQL();
+        int a = sql
+                .delete(ProductMetaName.TABLE_NAME)
+                .where(ProductMetaName.COLUMN_ID, SQL.WhereClause.Operator.EQ, PRMN_ID)
+                .exec();
+        return a;
+    }
 }

@@ -42,7 +42,7 @@ public class District implements ORM, CanFindByKeyword {
         return provinceId;
     }
 
-    public void setProvince(int provinceId) {
+    public void setProvinceId(int provinceId) {
         this.provinceId = provinceId;
     }
 
@@ -56,7 +56,7 @@ public class District implements ORM, CanFindByKeyword {
     
     public void orm(ResultSet rs) throws Exception {
         this.setId(rs.getInt(COLUMN_DIST_ID.getColumnName()));
-        this.setProvince(rs.getInt(COLUMN_PROV_ID.getColumnName()));
+        this.setProvinceId(rs.getInt(COLUMN_PROV_ID.getColumnName()));
         this.setName(rs.getString(COLUMN_NAME.getColumnName()));
     }
 
@@ -92,11 +92,11 @@ public class District implements ORM, CanFindByKeyword {
                 .exec();
     }
 
-    public static int delete(int BAAC_ID) throws Exception{
+    public static int delete(int DIST_ID) throws Exception{
         SQL sql = new SQL();
         int a = sql
-                .delete(BankAccountType.TABLE_NAME)
-                .where(BankAccountType.COLUMN_ID, SQL.WhereClause.Operator.EQ, BAAC_ID)
+                .delete(District.TABLE_NAME)
+                .where(District.COLUMN_DIST_ID, SQL.WhereClause.Operator.EQ, DIST_ID)
                 .exec();
         return a;
     }

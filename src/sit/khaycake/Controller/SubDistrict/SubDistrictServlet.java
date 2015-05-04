@@ -3,11 +3,14 @@ package sit.khaycake.Controller.SubDistrict;
 import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
 import sit.khaycake.model.SubDistrict;
+import sit.khaycake.util.ErrorMessage;
+import sit.khaycake.util.SuccessMessage;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -17,13 +20,13 @@ import java.util.List;
 public class SubDistrictServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        SuccessMessage succes = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
         try {
-            List subDistricts = SQL.findAll(SubDistrict.class);
-            Gson gson = new Gson();
-            String result = gson.toJson(subDistricts, SubDistrict.class);
-            response.getWriter().print(result);
+            succes.setMessage((SubDistrict) SQL.findAll(SubDistrict.class));
         } catch (Exception ex) {
-
+            error.setMessage(ex.getMessage());
         }
 
     }
@@ -31,25 +34,17 @@ public class SubDistrictServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        SuccessMessage succes = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
         try {
-            SQL sql = new SQL();
             SubDistrict subDistrict = new SubDistrict();
-            subDistrict.setName(request.getParameter("name"));
-            subDistrict.setZipCode(request.getParameter("zipCode"));
-
-            int addId = sql
-                    .insert()
-                    .into(SubDistrict.TABLE_NAME, SubDistrict.COLUMN_NAME, SubDistrict.COLUMN_DIST_ID)
-                    .values(subDistrict.getName(), Integer.parseInt(request.getParameter("subDistrictId")))
-                    .exec();
-            sql.clear();
-            subDistrict.setId(addId);
-
-            Gson gson = new Gson();
-            response.getWriter().print(gson.toJson(subDistrict));
+            subDistrict.setName(request.getParameter("NAME"));
+            subDistrict.setZipCode(request.getParameter("ZIPCODE"));
+            subDistrict.setDistrictId(Integer.parseInt(request.getParameter("DIST_ID")));
+            succes.setMessage(subDistrict);
         } catch (Exception ex) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            return;
+            error.setMessage(ex.getMessage());
         }
 
     }

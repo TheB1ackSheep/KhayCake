@@ -19,7 +19,7 @@ import sit.khaycake.database.SQL;
  */
 public class SubDistrict implements ORM, CanFindByKeyword {
     private int id;
-    private District district;
+    private int districtId;
     private String name;
     private String zipCode;
     
@@ -38,12 +38,12 @@ public class SubDistrict implements ORM, CanFindByKeyword {
         this.id = id;
     }
 
-    public District getDistrict() {
-        return district;
+    public int getDistrictId() {
+        return districtId;
     }
 
-    public void setDistrict(District district) {
-        this.district = district;
+    public void setDistrictId(int districtId) {
+        this.districtId = districtId;
     }
 
     public String getName() {
@@ -63,16 +63,41 @@ public class SubDistrict implements ORM, CanFindByKeyword {
     }
     
     public void orm(ResultSet rs) throws Exception {
-        
-        
         this.setId(rs.getInt(COLUMN_SUDT_ID.getColumnName()));
-        this.setDistrict((District) SQL.findById(District.class,rs.getInt(COLUMN_DIST_ID.getColumnName())));
+        this.setDistrictId(rs.getInt(COLUMN_DIST_ID.getColumnName()));
         this.setName(rs.getString(COLUMN_NAME.getColumnName()));
         this.setZipCode(rs.getString(COLUMN_ZIPCODE.getColumnName()));
-        
-
-        
     }
-    
+
+
+
+    public void save() throws Exception {
+        SQL sql = new SQL();
+        int id = sql
+                .insert()
+                .into(SubDistrict.TABLE_NAME, SubDistrict.COLUMN_NAME, SubDistrict.COLUMN_DIST_ID)
+                .values(this.getName(), this.getDistrictId())
+                .exec();
+        this.setId(id);
+    }
+
+    public void update() throws Exception{
+        SQL sql = new SQL();
+        sql
+                .update(SubDistrict.TABLE_NAME)
+                .set(SubDistrict.COLUMN_NAME, this.getName())
+                .set(SubDistrict.COLUMN_DIST_ID, this.getDistrictId())
+                .where(BankAccountType.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getId())
+                .exec();
+    }
+
+    public static int delete(int SUDT_ID) throws Exception{
+        SQL sql = new SQL();
+        int a = sql
+                .delete(SubDistrict.TABLE_NAME)
+                .where(SubDistrict.COLUMN_SUDT_ID, SQL.WhereClause.Operator.EQ, SUDT_ID)
+                .exec();
+        return a;
+    }
     
 }

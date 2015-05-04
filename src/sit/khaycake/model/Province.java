@@ -60,4 +60,33 @@ public class Province implements ORM, CanFindByKeyword {
                     .fetch(District.class);
         return result;
     }
+
+    public void save() throws Exception {
+        SQL sql = new SQL();
+        int id = sql
+                .insert()
+                .into(Province.TABLE_NAME, Province.COLUMN_NAME)
+                .values(this.getName())
+                .exec();
+        this.setId(id);
+    }
+
+    public void update() throws Exception{
+        SQL sql = new SQL();
+        sql
+                .update(Province.TABLE_NAME)
+                .set(Province.COLUMN_NAME, this.getName())
+                .where(Province.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getId())
+                .exec();
+    }
+
+    public static int delete(int PROV_ID) throws Exception{
+        SQL sql = new SQL();
+        int a = sql
+                .delete(Province.TABLE_NAME)
+                .where(Province.COLUMN_ID, SQL.WhereClause.Operator.EQ, PROV_ID)
+                .exec();
+        return a;
+    }
+
 }

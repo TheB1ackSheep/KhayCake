@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
 import sit.khaycake.model.Address;
 import sit.khaycake.model.District;
+import sit.khaycake.model.Province;
 import sit.khaycake.model.SubDistrict;
 import sit.khaycake.util.ErrorMessage;
 import sit.khaycake.util.SuccessMessage;
@@ -43,44 +44,52 @@ public class PatternAddressServlet extends HttpServlet {
             }
 
         } else if(resource.indexOf("subdistrict") >= 0) {
-            resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
+            resource = resource.substring(0, resource.indexOf("/", 1));
             try {
                 if (Util.isInteger(resource)) {
-                    SubDistrict subDistrict = (SubDistrict)SQL.findById(SubDistrict.class,resource);
-                    if (subDistrict==null)
+                    Address address = (Address) SQL.findById(Address.class, resource);
+                    if (address!=null) {
+                        SubDistrict subDistrict = (SubDistrict) SQL.findById(SubDistrict.class, address.getSubDistrictId());
+                        succes.setMessage(subDistrict);
+                    }else {
                         response.sendError(HttpServletResponse.SC_NOT_FOUND);
-                    succes.setMessage(subDistrict);
+                    }
                 }
-
             } catch (Exception ex) {
                 error.setMessage(ex.getMessage());
             }
 
         }else if(resource.indexOf("district") >= 0) {
-            resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
+            resource = resource.substring(0, resource.indexOf("/", 1));
             try {
                 if (Util.isInteger(resource)) {
-                    SubDistrict subDistrict = (SubDistrict)SQL.findById(SubDistrict.class,resource);
-                    District district = (District)SQL.findById(SubDistrict.class,subDistrict.getDistrict());
-                    if (district==null)
+                    Address address = (Address) SQL.findById(Address.class, resource);
+                    if (address!=null) {
+                        SubDistrict subDistrict = (SubDistrict) SQL.findById(SubDistrict.class, address.getSubDistrictId());
+                        District district = (District)SQL.findById(District.class, subDistrict.getDistrictId());
+                        succes.setMessage(district);
+                    }else {
                         response.sendError(HttpServletResponse.SC_NOT_FOUND);
-                    succes.setMessage(district);
+                    }
                 }
-
             } catch (Exception e) {
                 error.setMessage(e.getMessage());
             }
 
         }else if(resource.indexOf("province") >= 0) {
-            resource = request.getRequestURI().substring(0, request.getRequestURI().indexOf("/", 1));
+            resource = resource.substring(0,resource.indexOf("/", 1));
             try {
                 if (Util.isInteger(resource)) {
-                    SubDistrict subDistrict = (SubDistrict)SQL.findById(SubDistrict.class,resource);
-                    if (subDistrict==null)
+                    Address address = (Address) SQL.findById(Address.class, resource);
+                    if (address!=null) {
+                        SubDistrict subDistrict = (SubDistrict) SQL.findById(SubDistrict.class, address.getSubDistrictId());
+                        District district = (District)SQL.findById(District.class, subDistrict.getDistrictId());
+                        Province province = (Province)SQL.findById(Province.class, district.getProvinceId());
+                        succes.setMessage(province);
+                    }else {
                         response.sendError(HttpServletResponse.SC_NOT_FOUND);
-                    succes.setMessage(subDistrict);
+                    }
                 }
-
             } catch (Exception e) {
                 error.setMessage(e.getMessage());
             }

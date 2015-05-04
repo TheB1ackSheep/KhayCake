@@ -7,11 +7,14 @@ import sit.khaycake.model.Customer;
 import sit.khaycake.model.Product;
 import sit.khaycake.util.AssisDateTime;
 import sit.khaycake.util.Encryption;
+import sit.khaycake.util.ErrorMessage;
+import sit.khaycake.util.SuccessMessage;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,38 +27,53 @@ public class PatternCategoryServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
+        HttpSession session = request.getSession();
+        SuccessMessage succes = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
 
 
-        if (resource.indexOf("product") >= 0) {
-            resource = resource.substring(0,resource.indexOf("/", 1));
-            List<Product> product = new ArrayList<>();
+        if (resource.indexOf("delete") >= 0) {
+            resource = resource.substring(0, resource.indexOf("/", 1));
             try {
-                product = (List<Product>)SQL.findByKeyword(Product.class,resource);
+                Category category = (Category)SQL.findById(Category.class,resource);
+                if (category != null) {
+                    Category.delete(Integer.parseInt(resource));
+                    succes.setMessage(category);
+                }else{
+                    response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                }
+            } catch (Exception ex) {
+                error.setMessage(ex.getMessage());
+            }
 
-            } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        }else if (resource.indexOf("product") >= 0) {
+            resource = resource.substring(0,resource.indexOf("/", 1));
+            try {
+                List<Product> product = Product.findByCategory(Integer.parseInt(resource));
+                if (!product.isEmpty()) {
+                    succes.setMessage(product);
+                } else {
+                    response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                }
+
+            } catch (Exception ex) {
+                error.setMessage(ex.getMessage());
             }
-            if (!product.isEmpty()) {
-                Gson gson = new Gson();
-                response.getWriter().print(gson.toJson(product));
-            } else {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            }
+
 
         } else {
-            Category category = null;
-            try {
-                category = (Category) SQL.findById(Category.class, Integer.parseInt(resource));
 
-            } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            try {
+                Category category = (Category) SQL.findById(Category.class, Integer.parseInt(resource));
+                if (category != null) {
+                    succes.setMessage(category);
+                } else {
+                    response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                }
+            } catch (Exception ex) {
+                error.setMessage(ex.getMessage());
             }
-            if (category != null) {
-                Gson gson = new Gson();
-                response.getWriter().print(gson.toJson(category));
-            } else {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            }
+
         }
     }
 
@@ -63,24 +81,23 @@ public class PatternCategoryServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
-        Category category = null;
+        HttpSession session = request.getSession();
+        SuccessMessage succes = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
         try {
-            category = (Category) SQL.findById(Category.class, Integer.parseInt(resource));
-        } catch (Exception e) {
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-        }
-        if (category != null) {
-            try {
-                category.setName(request.getParameter("NAME"));
-                category.setCatParentId(Integer.parseInt(request.getParameter("CAT_PARENT_ID")));
-                category.update();
-            } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            Category category = (Category) SQL.findById(Category.class, Integer.parseInt(resource));
+            if (category != null) {
+                    category.setName(request.getParameter("NAME"));
+                    category.setCatParentId(Integer.parseInt(request.getParameter("CAT_PARENT_ID")));
+                    category.update();
+                succes.setMessage(category);
+            } else {
+                response.sendError(HttpServletResponse.SC_NOT_FOUND);
             }
-
-        } else {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+        } catch (Exception ex) {
+            error.setMessage(ex.getMessage());
         }
+
     }
 
 }

@@ -78,5 +78,6 @@ public abstract class MyFilter implements Filter {
     public static FormAttribute floatAttribute(String name,String nickname, boolean required){
         return new FormAttribute(name,nickname,required,-1,-1,false,true);
     }
+    
 
 }

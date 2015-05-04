@@ -33,28 +33,22 @@ public class UnitServlet extends HttpServlet {
 
     }
 
-    /*@Override
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        SuccessMessage success = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
         try {
             SQL sql = new SQL();
             Unit unit = new Unit();
-            unit.setName(request.getParameter("name"));
+            unit.setName(request.getParameter("NAME"));
+            unit.save();
 
-
-            int addId = sql
-                    .insert()
-                    .into(Unit.TABLE_NAME, Unit.COLUMN_NAME)
-                    .values(unit.getName())
-                    .exec();
-            sql.clear();
-            unit.setId(addId);
-
-            Gson gson = new Gson();
-            response.getWriter().print(gson.toJson(unit));
+            success.setMessage(unit);
         } catch (Exception ex) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            error.setMessage(ex.getMessage());
         }
 
-    }*/
+    }
 }

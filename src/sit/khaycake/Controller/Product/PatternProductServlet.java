@@ -118,6 +118,7 @@ public class PatternProductServlet extends HttpServlet {
                         (Category) SQL.findById(Category.class
                                 , Integer.parseInt(request.getParameter("CAT_ID"))));
                 product.update();
+
                 succes.setMessage(product);
             } else {
                 response.sendError(HttpServletResponse.SC_NOT_FOUND);

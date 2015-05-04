@@ -3,11 +3,14 @@ package sit.khaycake.Controller.ProductMetaName;
 import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
 import sit.khaycake.model.ProductMetaName;
+import sit.khaycake.util.ErrorMessage;
+import sit.khaycake.util.SuccessMessage;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -17,37 +20,32 @@ import java.util.List;
 public class ProductMetaNameServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        SuccessMessage success = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
         try {
-            List productMetaNames = SQL.findAll(ProductMetaName.class);
-            Gson gson = new Gson();
-            String result = gson.toJson(productMetaNames, ProductMetaName.class);
-            response.getWriter().print(result);
+            success.setMessage((ProductMetaName) SQL.findAll(ProductMetaName.class));
         } catch (Exception ex) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            error.setMessage(ex.getMessage());
         }
 
     }
 
-    /*@Override
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        SuccessMessage success = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
         try {
-            SQL sql = new SQL();
             ProductMetaName productMetaName = new ProductMetaName();
-            productMetaName.setName("name");
+            productMetaName.setName("NAME");
 
-            sql
-                    .insert()
-                    .into(ProductMetaName.TABLE_NAME, ProductMetaName.COLUMN_NAME)
-                    .values(productMetaName.getName())
-                    .exec();
-            sql.clear();
 
-            Gson gson = new Gson();
-            response.getWriter().print(gson.toJson(productMetaName));
+            success.setMessage(productMetaName);
         } catch (Exception ex) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            error.setMessage(ex.getMessage());
         }
 
-    }*/
+    }
 }

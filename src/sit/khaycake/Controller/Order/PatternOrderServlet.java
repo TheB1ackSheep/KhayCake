@@ -5,11 +5,14 @@ import sit.khaycake.database.SQL;
 import sit.khaycake.model.Customer;
 import sit.khaycake.util.AssisDateTime;
 import sit.khaycake.model.Order;
+import sit.khaycake.util.ErrorMessage;
+import sit.khaycake.util.SuccessMessage;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -20,32 +23,36 @@ public class PatternOrderServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
-
+        HttpSession session = request.getSession();
+        SuccessMessage succes = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
         if (resource.indexOf("delete") >= 0) {
+
             resource = resource.substring(0,resource.indexOf("/", 1));
             try {
-                int a = Order.delete(Integer.parseInt(resource));
-                if (a < 0) {
+                Order order = (Order)SQL.findById(Order.class,resource);
+                if (order != null) {
+                    Order.delete(Integer.parseInt(resource));
+                    succes.setMessage(order);
+                }else{
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                 }
-            } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            } catch (Exception ex) {
+                error.setMessage(ex.getMessage());
             }
 
         } else {
-            Order order = null;
             try {
-                order = (Order) SQL.findById(Order.class, Integer.parseInt(resource));
+                Order order = (Order) SQL.findById(Order.class, Integer.parseInt(resource));
+                if (order != null) {
+                    succes.setMessage(order);
+                } else {
+                    response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                }
+            } catch (Exception ex) {
+                error.setMessage(ex.getMessage());
+            }
 
-            } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            }
-            if (order != null) {
-                Gson gson = new Gson();
-                response.getWriter().print(gson.toJson(order));
-            } else {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            }
         }
     }
 
@@ -53,30 +60,29 @@ public class PatternOrderServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0)+1);
-        Order order = null;
+        HttpSession session = request.getSession();
+        SuccessMessage succes = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
         try {
-            order = (Order) SQL.findById(Order.class, Integer.parseInt(resource));
-        } catch (Exception e) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
-        }
-        if (order != null) {
-            try{
-                order.setCustomer((Customer) SQL.findById(
-                        Customer.class, Integer.parseInt(request.getParameter("CUST_ID"))));
-                order.setOrderDate(AssisDateTime.Date(request.getParameter("ORDER_DATE")));
-                order.setStatus(Order.Status.getStatus(Integer.parseInt(request.getParameter("ORST_ID"))));
-                order.setShipMethod(Order.ShipMethod.getShipMethod(Integer.parseInt(request.getParameter("SHME_ID"))));
-                order.setShtrId(request.getParameter("SHTR_ID"));
-                order.setTotalPrice(Double.parseDouble(request.getParameter("TOTAL_PRICE")));
-                order.setTotalQty(Integer.parseInt(request.getParameter("TOTAL_QTY")));
-                order.update();
-
-            } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            Order order = (Order) SQL.findById(Order.class, Integer.parseInt(resource));
+            if (order != null) {
+                    order.setCustomer((Customer) SQL.findById(
+                            Customer.class, Integer.parseInt(request.getParameter("CUST_ID"))));
+                    order.setOrderDate(AssisDateTime.Date(request.getParameter("ORDER_DATE")));
+                    order.setStatus(Order.Status.getStatus(Integer.parseInt(request.getParameter("ORST_ID"))));
+                    order.setShipMethod(Order.ShipMethod.getShipMethod(Integer.parseInt(request.getParameter("SHME_ID"))));
+                    order.setShtrId(request.getParameter("SHTR_ID"));
+                    order.setTotalPrice(Double.parseDouble(request.getParameter("TOTAL_PRICE")));
+                    order.setTotalQty(Integer.parseInt(request.getParameter("TOTAL_QTY")));
+                    order.update();
+                    succes.setMessage(order);
+            } else {
+                response.sendError(HttpServletResponse.SC_NOT_FOUND);
             }
-        } else {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+        } catch (Exception ex) {
+            error.setMessage(ex.getMessage());
         }
+
 
     }
 

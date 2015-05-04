@@ -1,0 +1,38 @@
+package sit.khaycake.Filter.request;
+
+import sit.khaycake.Filter.MyFilter;
+import sit.khaycake.Filter.RequestValidation;
+
+import javax.servlet.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+/**
+ * Created by Pasuth on 29/4/2558.
+ */
+public class InvoiceRequest extends MyFilter {
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+
+    }
+
+    @Override
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+        HttpServletRequest request = (HttpServletRequest)servletRequest;
+        HttpServletResponse response = (HttpServletResponse)servletResponse;
+        if(request.getMethod().equalsIgnoreCase("post")) {
+            RequestValidation req = new RequestValidation(request,response);
+            req.validate(attribute("DATE", "เวลาที่ออกใบกำกับภาษี"),floatAttribute("SUB_TOTAL", "จำนวนเงินทั้งหมด"), floatAttribute("VAT", "ภาษีมูลค่าเพิ่ม"),
+                    floatAttribute("QRAND_TOTAL", "QRAND_TOTAL"), attribute("QRAND_TOTAL_TEXT", "QRAND_TOTAL_TEXT"),
+                    integerAttribute("PATM_ID","ประเภทการชำระเงิน"), integerAttribute("MEIF_ID","รหัสผู้ขาย"));
+        }else {
+            filterChain.doFilter(servletRequest, servletResponse);
+        }
+    }
+
+    @Override
+    public void destroy() {
+
+    }
+}
