@@ -8,235 +8,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d27d28aa-e1da-498a-bb26-aef4211214da" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\pasut\Downloads\KhayCake\KhayCake\src\sit\khaycake\Controller\Branch\BranchServlet.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\pasut\Downloads\KhayCake\KhayCake\src\sit\khaycake\Controller\Branch\PatternBranchServlet.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\pasut\Downloads\KhayCake\KhayCake\src\sit\khaycake\Controller\PaymentStatus\PatternPaymentStatusServlet.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\pasut\Downloads\KhayCake\KhayCake\src\sit\khaycake\Controller\PaymentStatus\PaymentStatusServlet.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\pasut\Downloads\KhayCake\KhayCake\src\sit\khaycake\model\Lid.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Filter/request/AddressRequest.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Filter/request/AddressRequest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Filter/request/AddressRequest.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Filter/request/AddressRequest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Address/AddressServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Address/AddressServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Address/AddressServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Address/AddressServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Bank$Branch.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Bank$Branch.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Bank$Branch.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Bank$Branch.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Bank.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Bank.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Bank.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Bank.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/BankAccount/BankAccountServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/BankAccount/BankAccountServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/BankAccount/BankAccountServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/BankAccount/BankAccountServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/BankAccountType/BankAccountTypeServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/BankAccountType/BankAccountTypeServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/BankAccountType/BankAccountTypeServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/BankAccountType/BankAccountTypeServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Bank/BankServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Bank/BankServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Bank/BankServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Bank/BankServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Cart$Item.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Cart$Item.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Cart$Item.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Cart$Item.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Cart.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Cart.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Cart.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Cart.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Cart/CartServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Cart/CartServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Cart/CartServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Cart/CartServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Category/CategoryServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Category/CategoryServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Category/CategoryServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Category/CategoryServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Customer/CustomerServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Customer/CustomerServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Customer/CustomerServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Customer/CustomerServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/District.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/District.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/District.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/District.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/District/DistrictServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/District/DistrictServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/District/DistrictServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/District/DistrictServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Invoice.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Invoice.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Invoice.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Invoice.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Invoice/InvoiceServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Invoice/InvoiceServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Invoice/InvoiceServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Invoice/InvoiceServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war/KhayCake_war.war" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war/KhayCake_war.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/MerchantInfo.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/MerchantInfo.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/MerchantInfo.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/MerchantInfo.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/MerchantInfo/MerchantInfoServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/MerchantInfo/MerchantInfoServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/MerchantInfo/MerchantInfoServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/MerchantInfo/MerchantInfoServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/OrderItem/OrderItemServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/OrderItem/OrderItemServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/OrderItem/OrderItemServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/OrderItem/OrderItemServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Order/OrderServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Order/OrderServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Order/OrderServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Order/OrderServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/OrderStatus/OrderStatusServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/OrderStatus/OrderStatusServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/OrderStatus/OrderStatusServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/OrderStatus/OrderStatusServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Address/PatternAddressServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Address/PatternAddressServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Address/PatternAddressServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Address/PatternAddressServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/BankAccount/PatternBankAccountServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/BankAccount/PatternBankAccountServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/BankAccount/PatternBankAccountServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/BankAccount/PatternBankAccountServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/BankAccountType/PatternBankAccountTypeServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/BankAccountType/PatternBankAccountTypeServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/BankAccountType/PatternBankAccountTypeServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/BankAccountType/PatternBankAccountTypeServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Bank/PatternBankServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Bank/PatternBankServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Bank/PatternBankServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Bank/PatternBankServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Cart/PatternCartServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Cart/PatternCartServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Cart/PatternCartServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Cart/PatternCartServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Category/PatternCategoryServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Category/PatternCategoryServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Category/PatternCategoryServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Category/PatternCategoryServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Customer/PatternCustomerServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Customer/PatternCustomerServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Customer/PatternCustomerServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Customer/PatternCustomerServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/District/PatternDistrictServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/District/PatternDistrictServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/District/PatternDistrictServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/District/PatternDistrictServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Invoice/PatternInvoiceServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Invoice/PatternInvoiceServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Invoice/PatternInvoiceServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Invoice/PatternInvoiceServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/MerchantInfo/PatternMerchantInfoServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/MerchantInfo/PatternMerchantInfoServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/MerchantInfo/PatternMerchantInfoServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/MerchantInfo/PatternMerchantInfoServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/OrderItem/PatternOrderItemServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/OrderItem/PatternOrderItemServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/OrderItem/PatternOrderItemServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/OrderItem/PatternOrderItemServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Order/PatternOrderServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Order/PatternOrderServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Order/PatternOrderServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Order/PatternOrderServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/OrderStatus/PatternOrderStatusServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/OrderStatus/PatternOrderStatusServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/OrderStatus/PatternOrderStatusServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/OrderStatus/PatternOrderStatusServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Payment/PatternPaymentServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Payment/PatternPaymentServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Payment/PatternPaymentServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Payment/PatternPaymentServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Picture/PatternPictureServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Picture/PatternPictureServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Picture/PatternPictureServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Picture/PatternPictureServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/ProductMetaName/PatternProductMetaNameServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/ProductMetaName/PatternProductMetaNameServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/ProductMetaName/PatternProductMetaNameServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/ProductMetaName/PatternProductMetaNameServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/ProductSale/PatternProductSaleServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/ProductSale/PatternProductSaleServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/ProductSale/PatternProductSaleServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/ProductSale/PatternProductSaleServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Product/PatternProductServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Product/PatternProductServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Product/PatternProductServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Product/PatternProductServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Province/PatternProvinceServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Province/PatternProvinceServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Province/PatternProvinceServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Province/PatternProvinceServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/ShipmentMethod/PatternShipmentMethodServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/ShipmentMethod/PatternShipmentMethodServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/ShipmentMethod/PatternShipmentMethodServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/ShipmentMethod/PatternShipmentMethodServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/SubDistrict/PatternSubDistrictServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/SubDistrict/PatternSubDistrictServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/SubDistrict/PatternSubDistrictServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/SubDistrict/PatternSubDistrictServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Unit/PatternUnitServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Unit/PatternUnitServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Unit/PatternUnitServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Unit/PatternUnitServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Payment/PaymentServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Payment/PaymentServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Payment/PaymentServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Payment/PaymentServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/PicBank.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/PicBank.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/PicBank.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/PicBank.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/PicProduct.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/PicProduct.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/PicProduct.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/PicProduct.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Picture.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Picture.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Picture.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Picture.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Picture/PictureServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Picture/PictureServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Picture/PictureServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Picture/PictureServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Product.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Product.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Product.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Product.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/ProductMetaName.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/ProductMetaName.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/ProductMetaName.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/ProductMetaName.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/ProductMetaName/ProductMetaNameServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/ProductMetaName/ProductMetaNameServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/ProductMetaName/ProductMetaNameServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/ProductMetaName/ProductMetaNameServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Filter/request/ProductRequest.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Filter/request/ProductRequest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Filter/request/ProductRequest.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Filter/request/ProductRequest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/ProductSale.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/ProductSale.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/ProductSale.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/ProductSale.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/ProductSale/ProductSaleServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/ProductSale/ProductSaleServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/ProductSale/ProductSaleServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/ProductSale/ProductSaleServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Product/ProductServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Product/ProductServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Product/ProductServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Product/ProductServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Province.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Province.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Province.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Province.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Province/ProvinceServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Province/ProvinceServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Province/ProvinceServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Province/ProvinceServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Filter/RequestValidation.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Filter/RequestValidation.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Filter/RequestValidation.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Filter/RequestValidation.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/database/SQL$OrderClause$Operator.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/database/SQL$OrderClause$Operator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/database/SQL$OrderClause$Operator.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/database/SQL$OrderClause$Operator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/database/SQL$WhereClause$Operator.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/database/SQL$WhereClause$Operator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/database/SQL$WhereClause$Operator.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/database/SQL$WhereClause$Operator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/database/SQL.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/database/SQL.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/database/SQL.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/database/SQL.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/ShipmentMethod/ShipmentMethodServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/ShipmentMethod/ShipmentMethodServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/ShipmentMethod/ShipmentMethodServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/ShipmentMethod/ShipmentMethodServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/SubDistrict.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/SubDistrict.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/SubDistrict.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/SubDistrict.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/SubDistrict/SubDistrictServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/SubDistrict/SubDistrictServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/SubDistrict/SubDistrictServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/SubDistrict/SubDistrictServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Unit.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Unit.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Unit.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Unit.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Unit/UnitServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Unit/UnitServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Unit/UnitServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Unit/UnitServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/Address.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/Address.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/AddressRequest.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/AddressRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Address/AddressServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Address/AddressServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/Bank.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/Bank.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/BankAccount.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/BankAccount.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/BankAccountRequest.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/BankAccountRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/BankAccount/BankAccountServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/BankAccount/BankAccountServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/BankAccountType.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/BankAccountType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/BankAccountTypeRequest.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/BankAccountTypeRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/BankAccountType/BankAccountTypeServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/BankAccountType/BankAccountTypeServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/BankBranchRequest.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/BankBranchRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/BankBranch/BankBranchServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/BankBranch/BankBranchServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/BankRequest.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/BankRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Bank/BankServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Bank/BankServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/Category.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/Category.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/CategoryRequest.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/CategoryRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Category/CategoryServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Category/CategoryServlet.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sit/khaycake/Filter/AuthenticationFilter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/LoginRequest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Authentication/LoginServlet.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Authentication/LogoutServlet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/Customer.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/Customer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/CustomerRequest.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/CustomerRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Customer/CustomerServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Customer/CustomerServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/District.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/District.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/DistrictRequest.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/DistrictRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/District/DistrictServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/District/DistrictServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/Invoice.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/Invoice.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/InvoiceRequest.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/InvoiceRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Invoice/InvoiceServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Invoice/InvoiceServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/MerchantInfo.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/MerchantInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/MerchantInfoRequest.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/MerchantInfoRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/MerchantInfo/MerchantInfoServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/MerchantInfo/MerchantInfoServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/Order.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/Order.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/OrderItem.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/OrderItem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/OrderItem/OrderItemServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/OrderItem/OrderItemServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/OrderRequest.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/OrderRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Order/OrderServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Order/OrderServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/OrderStatus.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/OrderStatus.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/OrderStatusRequest.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/OrderStatusRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/OrderStatus/OrderStatusServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/OrderStatus/OrderStatusServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Address/PatternAddressServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Address/PatternAddressServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/BankAccount/PatternBankAccountServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/BankAccount/PatternBankAccountServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/BankAccountType/PatternBankAccountTypeServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/BankAccountType/PatternBankAccountTypeServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/BankBranch/PatternBankBranchServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/BankBranch/PatternBankBranchServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Bank/PatternBankServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Bank/PatternBankServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Category/PatternCategoryServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Category/PatternCategoryServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Customer/PatternCustomerServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Customer/PatternCustomerServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/District/PatternDistrictServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/District/PatternDistrictServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Invoice/PatternInvoiceServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Invoice/PatternInvoiceServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/MerchantInfo/PatternMerchantInfoServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/MerchantInfo/PatternMerchantInfoServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/OrderItem/PatternOrderItemServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/OrderItem/PatternOrderItemServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Order/PatternOrderServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Order/PatternOrderServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/OrderStatus/PatternOrderStatusServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/OrderStatus/PatternOrderStatusServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Payment/PatternPaymentServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Payment/PatternPaymentServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Picture/PatternPictureServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Picture/PatternPictureServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/ProductMetaName/PatternProductMetaNameServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/ProductMetaName/PatternProductMetaNameServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/ProductMeta/PatternProductMetaServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/ProductMeta/PatternProductMetaServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/ProductSale/PatternProductSaleServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/ProductSale/PatternProductSaleServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Province/PatternProvinceServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Province/PatternProvinceServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/ShipmentMethod/PatternShipmentMethodServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/ShipmentMethod/PatternShipmentMethodServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/SubDistrict/PatternSubDistrictServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/SubDistrict/PatternSubDistrictServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Unit/PatternUnitServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Unit/PatternUnitServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/Payment.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/Payment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/PaymentRequest.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/PaymentRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Payment/PaymentServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Payment/PaymentServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/PaymentStatus.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/PaymentStatus.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/PicBank.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/PicBank.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/PictureRequest.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/PictureRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Picture/PictureServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Picture/PictureServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/ProductMeta.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/ProductMeta.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/ProductMetaName.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/ProductMetaName.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/ProductMetaNameRequest.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/ProductMetaNameRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/ProductMetaName/ProductMetaNameServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/ProductMetaName/ProductMetaNameServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/ProductMetaNameValue.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/ProductMetaNameValue.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/ProductMetaNameValue/ProductMetaNameValueServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/ProductMetaNameValue/ProductMetaNameValueServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/ProductMeta/ProductMetaServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/ProductMeta/ProductMetaServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/ProductSale.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/ProductSale.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/ProductSaleRequest.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/ProductSaleRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/ProductSale/ProductSaleServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/ProductSale/ProductSaleServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/Province.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/Province.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/ProvinceRequest.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/ProvinceRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Province/ProvinceServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Province/ProvinceServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/ShipmentMethod.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/ShipmentMethod.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/ShipmentMethodRequest.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/ShipmentMethodRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/ShipmentMethod/ShipmentMethodServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/ShipmentMethod/ShipmentMethodServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/SubDistrict.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/SubDistrict.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/SubDistrictRequest.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/SubDistrictRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/SubDistrict/SubDistrictServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/SubDistrict/SubDistrictServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/Unit.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/Unit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/UnitRequest.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/UnitRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Unit/UnitServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Unit/UnitServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/index.jsp" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
@@ -295,6 +71,43 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="44" column="17" selection-start-line="44" selection-start-column="17" selection-end-line="44" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Customer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/Customer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="183" column="50" selection-start-line="183" selection-start-column="50" selection-end-line="183" selection-end-column="50" />
+              <folding>
+                <element signature="e#1569#1570#0" expanded="true" />
+                <element signature="e#1594#1595#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AuthenticationFilter.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Filter/AuthenticationFilter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.49945593">
+              <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginServlet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Authentication/LoginServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="40" column="49" selection-start-line="40" selection-start-column="49" selection-end-line="40" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -305,7 +118,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="77" column="9" selection-start-line="77" selection-start-column="9" selection-end-line="77" selection-end-column="9" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -314,37 +129,32 @@
         <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/Product.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="157" column="17" selection-start-line="157" selection-start-column="17" selection-end-line="157" selection-end-column="17" />
+              <caret line="170" column="42" selection-start-line="169" selection-start-column="16" selection-end-line="170" selection-end-column="42" />
               <folding>
-                <marker date="1430740178900" expanded="true" signature="4571:4645" placeholder="SELECT 1 \&quot;Q..PRODUCTS..." />
-                <marker date="1430740178900" expanded="true" signature="4571:4748" placeholder="SELECT 1 \&quot;Q..." />
-                <marker date="1430740178900" expanded="true" signature="4652:4748" placeholder="SELECT PRODU..PRODUCT_SALES..." />
+                <marker date="1430788736040" expanded="true" signature="4571:4645" placeholder="SELECT 1 \&quot;Q..PRODUCTS..." />
+                <marker date="1430788736040" expanded="true" signature="4571:4748" placeholder="SELECT 1 \&quot;Q..." />
+                <marker date="1430788736040" expanded="true" signature="4652:4748" placeholder="SELECT PRODU..PRODUCT_SALES..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Cart.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Cart.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/Cart.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.22734761">
-              <caret line="57" column="45" selection-start-line="57" selection-start-column="45" selection-end-line="57" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProductSale.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/ProductSale.java">
+      <file leaf-file-name="AddressServlet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Address/AddressServlet.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="107" column="34" selection-start-line="107" selection-start-column="34" selection-end-line="107" selection-end-column="34" />
-              <folding>
-                <element signature="e#1455#1456#0" expanded="true" />
-                <element signature="e#1483#1484#0" expanded="true" />
-                <element signature="e#1525#1526#0" expanded="true" />
-                <element signature="e#1559#1560#0" expanded="true" />
-              </folding>
+              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="26" selection-end-column="55" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -354,7 +164,11 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="17" column="57" selection-start-line="17" selection-start-column="57" selection-end-line="17" selection-end-column="57" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#313#314#0" expanded="false" />
+                <element signature="e#343#344#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -366,9 +180,9 @@
       <list>
         <option value="spring-beans.schema" />
         <option value="package-info" />
-        <option value="Class" />
         <option value="Jsp File" />
         <option value="Html5" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -392,11 +206,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/BankAccountType/BankAccountTypeServlet.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/BankAccountType/PatternBankAccountTypeServlet.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/Filter/request/BankBranchRequest.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/BankBranch/BankBranchServlet.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/BankBranch/PatternBankBranchServlet.java" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/Filter/request/CategoryRequest.java" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/Category/CategoryServlet.java" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/Category/PatternCategoryServlet.java" />
@@ -443,6 +252,11 @@
         <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/Unit/UnitServlet.java" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/Unit/PatternUnitServlet.java" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/model/ProductSale.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/model/Customer.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/Filter/request/LoginRequest.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/Authentication/LoginServlet.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/Authentication/LogoutServlet.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/Filter/AuthenticationFilter.java" />
       </list>
     </option>
   </component>
@@ -478,8 +292,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -504,9 +318,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -637,32 +448,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Filter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="request" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KhayCake" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KhayCake" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="khaycake" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="Controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -745,8 +530,63 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KhayCake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KhayCake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="khaycake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Authentication" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KhayCake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KhayCake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="khaycake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Address" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -790,10 +630,10 @@
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="sit.khaycake.Filter.request" />
+      <recent name="sit.khaycake.Controller.Authentication" />
       <recent name="sit.khaycake.Controller.Cart" />
       <recent name="sit.khaycake.Controller.Category" />
       <recent name="sit.khaycake.model" />
-      <recent name="sit.khaycake.Controller.Picture" />
     </key>
   </component>
   <component name="RunManager" selected="GlassFish Server.KhayCake Local">
@@ -1306,6 +1146,7 @@
       <workItem from="1430740840255" duration="56000" />
       <workItem from="1430741006633" duration="6228000" />
       <workItem from="1430747331606" duration="1474000" />
+      <workItem from="1430788741128" duration="2590000" />
     </task>
     <task id="LOCAL-00001" summary="2nd Push">
       <created>1428785948768</created>
@@ -1473,15 +1314,14 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="241457000" />
+    <option name="totallyTimeSpent" value="244047000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30393702" sideWeight="0.4331307" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.5058565" order="7" side_tool="true" content_ui="tabs" />
@@ -1490,7 +1330,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.4941435" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.4969743" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22693998" sideWeight="0.4893617" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2265625" sideWeight="0.4893617" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.49909255" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17423134" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1502,6 +1342,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3697749" sideWeight="0.54765505" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30393702" sideWeight="0.4331307" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2813505" sideWeight="0.5514372" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1584,59 +1425,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/BankBranch/PatternBankBranchServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.55189455">
-          <caret line="72" column="100" selection-start-line="72" selection-start-column="100" selection-end-line="72" selection-end-column="100" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Category/PatternCategoryServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7759473">
-          <caret line="102" column="9" selection-start-line="102" selection-start-column="9" selection-end-line="102" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Category/CategoryServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57990116">
-          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="45" selection-end-column="97" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/BankBranch/BankBranchServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7479407">
-          <caret line="53" column="9" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Filter/request/BankAccountTypeRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3360791">
-          <caret line="17" column="63" selection-start-line="17" selection-start-column="63" selection-end-line="17" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Customer/PatternCustomerServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.94398683">
-          <caret line="87" column="9" selection-start-line="87" selection-start-column="9" selection-end-line="87" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/District/PatternDistrictServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.85996705">
           <caret line="110" column="9" selection-start-line="110" selection-start-column="9" selection-end-line="110" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1644,7 +1436,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8401977">
           <caret line="60" column="9" selection-start-line="60" selection-start-column="9" selection-end-line="60" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1652,7 +1443,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2520593">
           <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1660,7 +1450,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8039539">
           <caret line="51" column="9" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1668,7 +1457,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36408567">
           <caret line="18" column="47" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1684,7 +1472,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.53212523">
           <caret line="79" column="20" selection-start-line="79" selection-start-column="20" selection-end-line="79" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1692,7 +1479,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8121911">
           <caret line="60" column="9" selection-start-line="60" selection-start-column="9" selection-end-line="60" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1700,7 +1486,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.53212523">
           <caret line="77" column="116" selection-start-line="77" selection-start-column="116" selection-end-line="77" selection-end-column="116" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1708,7 +1493,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.523888">
           <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="51" selection-end-column="112" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1716,7 +1500,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36408567">
           <caret line="18" column="41" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1724,7 +1507,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5041186">
           <caret line="23" column="58" selection-start-line="23" selection-start-column="58" selection-end-line="23" selection-end-column="58" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1732,7 +1514,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1740,7 +1521,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.55189455">
           <caret line="73" column="40" selection-start-line="73" selection-start-column="40" selection-end-line="73" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1748,7 +1528,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.523888">
           <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="55" selection-end-column="87" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1756,7 +1535,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8039539">
           <caret line="51" column="9" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1764,7 +1542,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7479407">
           <caret line="77" column="9" selection-start-line="77" selection-start-column="9" selection-end-line="77" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1772,7 +1549,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.53212523">
           <caret line="76" column="113" selection-start-line="76" selection-start-column="113" selection-end-line="76" selection-end-column="113" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1780,7 +1556,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.53212523">
           <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="52" selection-end-column="109" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1788,7 +1563,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.53212523">
           <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1796,7 +1570,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3360791">
           <caret line="17" column="61" selection-start-line="17" selection-start-column="61" selection-end-line="17" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1812,7 +1585,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7841845">
           <caret line="95" column="7" selection-start-line="95" selection-start-column="7" selection-end-line="95" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1820,7 +1592,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3360791">
           <caret line="17" column="65" selection-start-line="17" selection-start-column="65" selection-end-line="17" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1828,7 +1599,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.83196044">
           <caret line="52" column="9" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1836,7 +1606,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3360791">
           <caret line="17" column="68" selection-start-line="17" selection-start-column="68" selection-end-line="17" selection-end-column="68" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1844,7 +1613,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36408567">
           <caret line="18" column="49" selection-start-line="18" selection-start-column="49" selection-end-line="18" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1852,7 +1620,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.523888">
           <caret line="41" column="43" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1860,7 +1627,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="39" column="16" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1868,7 +1634,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7479407">
           <caret line="80" column="8" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1876,7 +1641,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.42009884">
           <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1884,7 +1648,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7759473">
           <caret line="96" column="9" selection-start-line="96" selection-start-column="9" selection-end-line="96" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1892,7 +1655,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7841845">
           <caret line="50" column="9" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1900,7 +1662,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6919275">
           <caret line="70" column="90" selection-start-line="70" selection-start-column="90" selection-end-line="70" selection-end-column="90" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1908,7 +1669,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8039539">
           <caret line="53" column="9" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1916,7 +1676,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3360791">
           <caret line="17" column="67" selection-start-line="17" selection-start-column="67" selection-end-line="17" selection-end-column="67" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1940,7 +1699,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2520593">
           <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1948,7 +1706,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="44" column="17" selection-start-line="44" selection-start-column="17" selection-end-line="44" selection-end-column="17" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1956,19 +1716,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="77" column="9" selection-start-line="77" selection-start-column="9" selection-end-line="77" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/ProductSale.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="107" column="34" selection-start-line="107" selection-start-column="34" selection-end-line="107" selection-end-column="34" />
           <folding>
-            <element signature="e#1455#1456#0" expanded="true" />
-            <element signature="e#1483#1484#0" expanded="true" />
-            <element signature="e#1525#1526#0" expanded="true" />
-            <element signature="e#1559#1560#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1977,6 +1726,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="57" selection-start-line="17" selection-start-column="57" selection-end-line="17" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#313#314#0" expanded="false" />
+            <element signature="e#343#344#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/ProductSale.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0924919">
+          <caret line="107" column="34" selection-start-line="107" selection-start-column="34" selection-end-line="107" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -1984,20 +1745,73 @@
     <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/Product.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="157" column="17" selection-start-line="157" selection-start-column="17" selection-end-line="157" selection-end-column="17" />
+          <caret line="170" column="42" selection-start-line="169" selection-start-column="16" selection-end-line="170" selection-end-column="42" />
           <folding>
-            <marker date="1430740178900" expanded="true" signature="4571:4645" placeholder="SELECT 1 \&quot;Q..PRODUCTS..." />
-            <marker date="1430740178900" expanded="true" signature="4571:4748" placeholder="SELECT 1 \&quot;Q..." />
-            <marker date="1430740178900" expanded="true" signature="4652:4748" placeholder="SELECT PRODU..PRODUCT_SALES..." />
+            <marker date="1430788736040" expanded="true" signature="4571:4645" placeholder="SELECT 1 \&quot;Q..PRODUCTS..." />
+            <marker date="1430788736040" expanded="true" signature="4571:4748" placeholder="SELECT 1 \&quot;Q..." />
+            <marker date="1430788736040" expanded="true" signature="4652:4748" placeholder="SELECT PRODU..PRODUCT_SALES..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Address/AddressServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="26" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Filter/request/LoginRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2959739">
+          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Authentication/LogoutServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4069641">
+          <caret line="31" column="37" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/Cart.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22734761">
-          <caret line="57" column="45" selection-start-line="57" selection-start-column="45" selection-end-line="57" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/Customer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="183" column="50" selection-start-line="183" selection-start-column="50" selection-end-line="183" selection-end-column="50" />
+          <folding>
+            <element signature="e#1569#1570#0" expanded="true" />
+            <element signature="e#1594#1595#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Authentication/LoginServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="40" column="49" selection-start-line="40" selection-start-column="49" selection-end-line="40" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Filter/AuthenticationFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49945593">
+          <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

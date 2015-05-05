@@ -7,14 +7,16 @@ package sit.khaycake.model;
 
 import java.sql.Date;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 import sit.khaycake.database.*;
+import sit.khaycake.util.Encryption;
 
 /**
  * @author -milk
  */
-public class Customer implements ORM, CanFindByKeyword {
+public class Customer implements ORM{
     private int id;
     private List<Address> addresses;
     private String fname;
@@ -28,7 +30,6 @@ public class Customer implements ORM, CanFindByKeyword {
 
     public static final String TABLE_NAME = "CUSTOMERS";
     public static final Column COLUMN_ID = ORM.column(TABLE_NAME, "CUST_ID");
-    //public static final Column COLUMN_ADDR_ID = ORM.column(TABLE_NAME, "ADDR_ID");
     public static final Column COLUMN_FNAME = ORM.column(TABLE_NAME, "FNAME");
     public static final Column COLUMN_LNAME = ORM.column(TABLE_NAME, "LNAME");
     public static final Column COLUMN_EMAIL = ORM.column(TABLE_NAME, "EMAIL");
@@ -172,6 +173,21 @@ public class Customer implements ORM, CanFindByKeyword {
         return a;
     }
 
+    public static Customer authenticatoion(String email, String password) throws Exception {
+        SQL sql = new SQL();
+        List<Customer> customer = sql
+                .select()
+                .from(Customer.TABLE_NAME)
+                .where(Customer.COLUMN_EMAIL, SQL.WhereClause.Operator.EQ, email)
+                .fetch(Customer.class);
+        if(!customer.isEmpty()){
+            String pwd = customer.get(0).getPwd();
+            if(pwd.equals(Encryption.md5(password))){
+                return customer.get(0);
+            }
+        }
+        return null;
 
+    }
 
 }
