@@ -54,6 +54,15 @@ public class Province implements ORM, CanFindByKeyword {
         this.geography = geography;
     }
 
+    public static List<Province> find(String str) throws Exception {
+        SQL sql = new SQL();
+        return sql.select()
+                .from(TABLE_NAME)
+                .where(COLUMN_NAME, SQL.WhereClause.Operator.LIKE, "%"+str+"%")
+                .chunk(10)
+                .fetch(Province.class);
+    }
+
     public void orm(ResultSet rs) throws Exception {
 
         this.setId(rs.getInt(COLUMN_ID.getColumnName()));

@@ -21,7 +21,7 @@ import java.util.List;
  */
 public class Customer implements ORM, CanFindByKeyword {
     private int id;
-    private List<Address> addresses;
+    //private List<Address> addresses;
     private String fname;
     private String lname;
     private String email;
@@ -52,13 +52,13 @@ public class Customer implements ORM, CanFindByKeyword {
         this.id = id;
     }
 
-    public List<Address> getAddresses() {
+    /*public List<Address> getAddresses() {
         return addresses;
-    }
+    }*/
 
-    public void setAddress(List<Address> addresses) {
+   /*public void setAddress(List<Address> addresses) {
         this.addresses = addresses;
-    }
+    }*/
 
     public String getFname() {
         return fname;
@@ -126,9 +126,9 @@ public class Customer implements ORM, CanFindByKeyword {
 
     public void orm(ResultSet rs) throws Exception {
         this.setId(rs.getInt(COLUMN_ID.getColumnName()));
-        this.setAddress(CustAddress.getAddresses(
+        /*this.setAddress(CustAddress.getAddresses(
                 (List<CustAddress>) SQL.findByKeyword(CustAddress.class,
-                        rs.getString(COLUMN_ID.getColumnName()))));
+                        rs.getString(COLUMN_ID.getColumnName()))));*/
         this.setVatId(rs.getString(COLUMN_VAT_ID.getColumnName()));
         this.setFname(rs.getString(COLUMN_FNAME.getColumnName()));
         this.setLname(rs.getString(COLUMN_LNAME.getColumnName()));
@@ -185,6 +185,27 @@ public class Customer implements ORM, CanFindByKeyword {
                                     .fetch(Customer.class);
         if(custs != null && custs.size() > 0)
             return custs.get(0);
+        return null;
+    }
+
+    public List<ShipmentAddress> getAddresses() throws Exception {
+        SQL sql = new SQL();
+        List<ShipmentAddress> s = sql.select()
+                .from(ShipmentAddress.TABLE_NAME)
+                .where(ShipmentAddress.COLUMN_CUST_ID, SQL.WhereClause.Operator.EQ, this.id)
+                .fetch(ShipmentAddress.class);
+        return s;
+    }
+
+    public ShipmentAddress getAddress(Object shad_id) throws Exception {
+        SQL sql = new SQL();
+        List<ShipmentAddress> s = sql.select()
+                .from(ShipmentAddress.TABLE_NAME)
+                .where(ShipmentAddress.COLUMN_CUST_ID, SQL.WhereClause.Operator.EQ, this.id, SQL.WhereClause.Operator.AND)
+                .where(ShipmentAddress.COLUMN_ID, SQL.WhereClause.Operator.EQ, shad_id)
+                .fetch(ShipmentAddress.class);
+        if(s != null && s.size() > 0)
+            return s.get(0);
         return null;
     }
 

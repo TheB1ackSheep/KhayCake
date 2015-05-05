@@ -41,24 +41,6 @@ public class PatternCustomerServlet extends HttpServlet {
             if(customer != null){
                 if(method == null){
                     success.setMessage(customer);
-                }else{
-                    if(method.equals("address")){
-                        String sub = null;
-                        if(resources.length >= 6)
-                            sub = resources[5];
-                        if(sub == null){
-                            //show address
-                            success.setMessage(customer.getAddresses());
-                        }else{
-                            //check sub
-                            if(sub.equals("add")){
-                                //TODO add address to customer
-
-                            }else if(sub.equals("update")){
-                                //TODO update address to customer
-                            }
-                        }
-                    }
                 }
             }else
                 response.sendError(HttpServletResponse.SC_NOT_FOUND);

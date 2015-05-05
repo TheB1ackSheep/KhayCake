@@ -382,15 +382,6 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>ProvinceServler</servlet-name>
-        <url-pattern>/province</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>PatternProvinceServler</servlet-name>
-        <servlet-class>sit.khaycake.Controller.Province.PatternProvinceServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>PatternProvinceServler</servlet-name>
         <url-pattern>/province/*</url-pattern>
     </servlet-mapping>
 

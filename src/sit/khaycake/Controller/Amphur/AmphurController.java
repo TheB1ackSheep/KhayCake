@@ -1,9 +1,11 @@
 package sit.khaycake.Controller.Amphur;
 
+import sit.khaycake.database.SQL;
 import sit.khaycake.model.Amphur;
 import sit.khaycake.model.Tumbon;
 import sit.khaycake.util.ErrorMessage;
 import sit.khaycake.util.SuccessMessage;
+import sit.khaycake.util.Util;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,7 +18,7 @@ import java.io.IOException;
 /**
  * Created by Falook Glico on 5/5/2015.
  */
-@WebServlet(name = "AmphurController", urlPatterns = "/amphur")
+@WebServlet(name = "AmphurController", urlPatterns = "/amphur/*")
 public class AmphurController extends HttpServlet {
 
     @Override
@@ -25,16 +27,45 @@ public class AmphurController extends HttpServlet {
         HttpSession session = req.getSession();
         SuccessMessage success = new SuccessMessage(session);
         ErrorMessage error = new ErrorMessage(session);
-        String keyword = req.getParameter("q");
+
+        String[] resources = req.getRequestURI().split("/");
+
+        String id = null, method = null;
+        if (resources.length >= 4)
+            id = resources[3];
+        if (resources.length >= 5)
+            method = resources[4];
 
         try {
-            if (keyword != null) {
-                success.setMessage(Amphur.find(keyword));
-            } else {
-                success.setMessage(Amphur.find(""));
+
+            if(id == null){
+                //request URL is /amphur
+                String keyword = req.getParameter("q");
+
+                if (keyword != null) {
+                    success.setMessage(Amphur.find(keyword));
+                } else {
+                    success.setMessage(Amphur.find(""));
+                }
+
+            }else{
+                //request URL is /amphur/*
+                if(Util.isInteger(id)){
+                    //get amphur by id
+                    Amphur amp = SQL.findById(Amphur.class, id);
+                    if(amp != null)
+                        success.setMessage(amp);
+                    else
+                        resp.sendError(HttpServletResponse.SC_NOT_FOUND);
+                }else{
+
+                }
             }
+
         }catch (Exception ex){
             error.setMessage(ex.getMessage());
         }
+
+
     }
 }

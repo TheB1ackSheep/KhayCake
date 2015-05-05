@@ -31,6 +31,10 @@ public class RequestValidation extends HttpServletRequestWrapper {
         return new FormAttribute(name, nickname, true, -1, -1, false, false, false);
     }
 
+    public static FormAttribute attribute(String name, String nickname, boolean required) {
+        return new FormAttribute(name, nickname, required, -1, -1, false, false, false);
+    }
+
     public static FormAttribute integerAttribute(String name, String nickname) {
         return new FormAttribute(name, nickname, true, -1, -1, true, false, false);
     }

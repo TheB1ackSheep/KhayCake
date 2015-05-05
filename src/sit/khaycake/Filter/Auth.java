@@ -16,7 +16,7 @@ import java.io.PrintWriter;
 /**
  * Created by Falook Glico on 5/5/2015.
  */
-@WebFilter(filterName = "Auth",urlPatterns = {"/customer/address/*"})
+@WebFilter(filterName = "Auth",urlPatterns = {"/shipment/address/*"})
 public class Auth implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

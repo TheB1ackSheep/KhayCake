@@ -4,6 +4,7 @@ import sit.khaycake.database.SQL;
 import sit.khaycake.model.Tumbon;
 import sit.khaycake.util.ErrorMessage;
 import sit.khaycake.util.SuccessMessage;
+import sit.khaycake.util.Util;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,7 +17,7 @@ import java.io.IOException;
 /**
  * Created by Falook Glico on 5/5/2015.
  */
-@WebServlet(name = "TumbonController", urlPatterns = "/tumbon")
+@WebServlet(name = "TumbonController", urlPatterns = "/tumbon/*")
 public class TumbonController extends HttpServlet {
 
     @Override
@@ -25,16 +26,47 @@ public class TumbonController extends HttpServlet {
         HttpSession session = req.getSession();
         SuccessMessage success = new SuccessMessage(session);
         ErrorMessage error = new ErrorMessage(session);
-        String keyword = req.getParameter("q");
+
+        String[] resources = req.getRequestURI().split("/");
+
+        String id = null, method = null;
+        if (resources.length >= 4)
+            id = resources[3];
+        if (resources.length >= 5)
+            method = resources[4];
 
         try {
-            if (keyword != null) {
-                success.setMessage(Tumbon.find(keyword));
-            } else {
-                success.setMessage(Tumbon.find(""));
+
+            if(id == null){
+                //request URL is /tumbon
+                String keyword = req.getParameter("q");
+
+
+                    if (keyword != null) {
+                        success.setMessage(Tumbon.find(keyword));
+                    } else {
+                        success.setMessage(Tumbon.find(""));
+                    }
+
+            }else{
+                //request URL is /tumbon/*
+                if(Util.isInteger(id)){
+                    //get tumbon by id
+                    Tumbon tumbon = SQL.findById(Tumbon.class, id);
+                    if(tumbon != null)
+                        success.setMessage(tumbon);
+                    else
+                        resp.sendError(HttpServletResponse.SC_NOT_FOUND);
+                }else{
+
+                }
             }
+
         }catch (Exception ex){
             error.setMessage(ex.getMessage());
         }
+
+
+
     }
 }

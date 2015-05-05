@@ -340,5 +340,38 @@ var Tumbon = Tumbon || {
         URL: "/tumbon"
     };
 Tumbon.find = function(q, fn){
-    Ajax.GET(this.URL+(q?"?q="+q:""), fn);
+    Ajax.GET(this.URL+(isInteger(q)?'/'+q:(q?'?q='+q:'')), fn);
+};
+
+var Amphur = Amphur ||{
+      URL: "/amphur"
+    };
+Amphur.find = function(q, fn){
+    Ajax.GET(this.URL+(isInteger(q)?'/'+q:(q?'?q='+q:'')), fn);
+};
+
+var Province = Province ||{
+        URL: "/province"
+    };
+Province.find = function(q, fn){
+    Ajax.GET(this.URL+(isInteger(q)?'/'+q:(q?'?q='+q:'')), fn);
+};
+
+var Shipment = Shipment || {};
+Shipment.Address = Shipment.Address || {
+      URL: "/shipment/address"
+    };
+Shipment.Address.find = function(id, fn){
+  Ajax.GET(this.URL+"/"+id, fn);
+};
+Shipment.Address.all = function(fn){
+  Ajax.GET(this.URL, fn);
+};
+Shipment.Address.add = function(form, fn){
+    if(form && form.serialize)
+        Ajax.POST(this.URL, form.serialize(), fn);
+};
+Shipment.Address.update = function(id, form, fn){
+    if(form && form.serialize)
+        Ajax.POST(this.URL+"/"+id, form.serialize(), fn);
 };

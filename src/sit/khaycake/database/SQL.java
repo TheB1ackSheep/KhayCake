@@ -184,7 +184,7 @@ public class SQL {
     }
 
     public SQL chunk(int size) {
-        this.sql += "LIMIT 1, " + size;
+        this.sql += "LIMIT 0, " + size;
         return this;
     }
 
