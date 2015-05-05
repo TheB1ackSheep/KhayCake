@@ -10,6 +10,10 @@ function isFloat(str) {
     return str ? (isInteger(str.toString()) || str.toString().match(/^\.[0-9]+$/) || str.toString().match(/^[0-9]+\.[0-9]+$/)) !== null : false;
 }
 
+function toMoney(baht){
+    return baht.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+}
+
 var Ajax = Ajax || {};
 Ajax.onError = function(resp) {
     //TODO : add error notification for ajax request
@@ -203,7 +207,7 @@ Product.form.picture = function(picture){
 Product.box = function(cake){
     if(!cake)
         cake = {};
-    return '<div class="col-md-3 col-sm-4 col-xs-6">' +
+    return '<div class="col-md-3 col-xs-12">' +
         '<div class="box inactive">' +
         '<div class="box-img">' +
         '<img id="img-'+cake.id+'" src="'+HOST+'/product/'+cake.id+'/picture" alt=""/>' +
@@ -270,20 +274,71 @@ Cart.add = function(form,fn){
     if(form && form.serialize)
         Ajax.POST(this.URL+"/add", form.serialize(), fn);
 };
-Cart.item = function(fn){
+Cart.all = function(fn){
     Ajax.GET(this.URL, fn);
 };
+Cart.form = function(cart){
+    var items = cart.items;
+    var html = ''
+    var total = 0.0;
+    if(items && items.length > 0){
+        html += '<form id="user-cart"><div class="header row">'+
+            '<div class="cell column-order">YOUR ORDER</div>'+
+            '<div class="cell column-price">PRICE (&#3647;)</div>'+
+            '</div>';
+        for(var idx in items){
+            var item = items[idx];
+            total += item.total;
+            html += Cart.item.form(item, idx);
+        }
+        html += '<div class="footer row" style="width:280px;transition-delay:'+((items.length+1)*10)+'ms">'+
+            '<div class="cell column-order text-right">รวม</div>'+
+            '<div class="cell column-price">'+toMoney(total)+'</div>'+
+            '</div>';
+        html += '<div class="footer row"  style="width:280px;transition-delay:'+((items.length+2)*10)+'ms">'+
+            '<div class="checkout cell text-right">'+
+            '<a class="btn btn-default" href="#!/checkout">Check Out</a>'+
+            '</div>'+
+            '</div>';
+        html += "</form>";
+    }else{
+
+        html += '<div class="header row">'+
+            '<div class="cell column-order">ไม่มีสินค้าในตะกร้า</div>'+
+            '</div>';
+    }
+
+    return html;
+};
+Cart.item = {};
 Cart.item.form = function(item, idx){
     return '<div class="body row" style="transition-delay:'+(idx*10)+'ms">'+
-        '<div class="cell column-order">'+
-        '<div class="order-item-name">'+item.product.name+'</div>' +
-        '<div class="order-item-qty">'+item.qty+' '+item.product.unit.name+'</div>'+
         '<input type="hidden" name="p_id" value="'+item.product.id+'"/>'+
         '<input type="hidden" name="qty" value="'+item.qty+'"/>'+
-        '</div>'+
-        '<div class="cell column-price">&#3647;'+item.total+'</div>'+
+        '<div title="'+item.product.name+'" class="cell column-order">'+item.product.name+'</div>' +
+        '<div title="'+item.qty+' '+item.product.unit.name+'" class="cell column-qty">'+item.qty+' '+item.product.unit.name+'</div>'+
         '<div class="cell column-remove">'+
         '<span class="glyphicon glyphicon-remove"></span>'+
         '</div>'+
+        '<div class="cell column-price">'+toMoney(item.total)+'</div>'+
         '</div>';
-}
+};
+
+var Auth = Auth || {
+        URL: "/auth"
+    };
+Auth.auth = function(form, fn){
+    if(form && form.serialize)
+        Ajax.POST(this.URL, form.serialize(), fn);
+};
+Auth.register = Auth.auth;
+Auth.get = function(fn){
+    Ajax.GET(this.URL, fn);
+};
+
+var Tumbon = Tumbon || {
+        URL: "/tumbon"
+    };
+Tumbon.find = function(q, fn){
+    Ajax.GET(this.URL+(q?"?q="+q:""), fn);
+};

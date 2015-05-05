@@ -20,10 +20,12 @@ import java.util.List;
 public class Province implements ORM, CanFindByKeyword {
     private int id;
     private String name;
+    private Geography geography;
 
     public static final String TABLE_NAME = "PROVINCES";
     public static final Column COLUMN_ID = ORM.column(TABLE_NAME, "PROV_ID");
     public static final Column COLUMN_NAME = ORM.column(TABLE_NAME, "NAME");
+    public static final Column COLUMN_GEO_ID = ORM.column(TABLE_NAME, "GEO_ID");
     public static final List<Column> PRIMARY_KEY = ORM.columns(COLUMN_ID);
     public static final List<Column> COLUMN_KEYWORD = ORM.columns(COLUMN_NAME);
 
@@ -44,10 +46,19 @@ public class Province implements ORM, CanFindByKeyword {
         this.name = name;
     }
 
-    public void orm(ResultSet rs) throws SQLException {
+    public Geography getGeography() {
+        return geography;
+    }
+
+    public void setGeography(Geography geography) {
+        this.geography = geography;
+    }
+
+    public void orm(ResultSet rs) throws Exception {
 
         this.setId(rs.getInt(COLUMN_ID.getColumnName()));
         this.setName(rs.getString(COLUMN_NAME.getColumnName()));
+        this.geography = SQL.findById(Geography.class, rs.getInt(COLUMN_GEO_ID.getColumnName()));
 
     }
 
@@ -60,4 +71,5 @@ public class Province implements ORM, CanFindByKeyword {
                 .fetch(District.class);
         return result;
     }
+
 }

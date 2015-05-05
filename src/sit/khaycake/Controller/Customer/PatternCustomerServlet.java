@@ -5,11 +5,14 @@ import sit.khaycake.database.SQL;
 import sit.khaycake.model.Customer;
 import sit.khaycake.util.AssisDateTime;
 import sit.khaycake.util.Encryption;
+import sit.khaycake.util.ErrorMessage;
+import sit.khaycake.util.SuccessMessage;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -19,33 +22,49 @@ public class PatternCustomerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0) + 1);
+        String[] resources = request.getRequestURI().split("/");
 
-        if (resource.indexOf("delete") >= 0) {
-            resource = resource.substring(0, resource.indexOf("/", 1));
-            try {
-                int a = Customer.delete(Integer.parseInt(resource));
-                if (a < 0) {
-                    response.sendError(HttpServletResponse.SC_NOT_FOUND);
+        HttpSession session = request.getSession();
+        SuccessMessage success = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
+
+        String id = null, method = null;
+        if (resources.length >= 4)
+            id = resources[3];
+        if (resources.length >= 5)
+            method = resources[4];
+
+        try {
+
+            Customer customer = SQL.findById(Customer.class, id);
+
+            if(customer != null){
+                if(method == null){
+                    success.setMessage(customer);
+                }else{
+                    if(method.equals("address")){
+                        String sub = null;
+                        if(resources.length >= 6)
+                            sub = resources[5];
+                        if(sub == null){
+                            //show address
+                            success.setMessage(customer.getAddresses());
+                        }else{
+                            //check sub
+                            if(sub.equals("add")){
+                                //TODO add address to customer
+
+                            }else if(sub.equals("update")){
+                                //TODO update address to customer
+                            }
+                        }
+                    }
                 }
-            } catch (Exception e) {
+            }else
                 response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            }
 
-        } else {
-            Customer customer = null;
-            try {
-                customer = (Customer) SQL.findById(Customer.class, Integer.parseInt(resource));
-
-            } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            }
-            if (customer != null) {
-                Gson gson = new Gson();
-                response.getWriter().print(gson.toJson(customer));
-            } else {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            }
+        }catch (Exception ex){
+            error.setMessage(ex.getMessage());
         }
     }
 

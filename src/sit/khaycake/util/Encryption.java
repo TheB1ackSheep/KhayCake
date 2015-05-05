@@ -15,7 +15,7 @@ public class Encryption {
             MessageDigest md = MessageDigest.getInstance("MD5");
             byte[] digest = md.digest(bytesOfMessage);
             return new BigInteger(1, digest).toString(16);
-        } catch (UnsupportedEncodingException | NoSuchAlgorithmException ex) {
+        } catch (Exception ex) {
             return null;
         }
     }

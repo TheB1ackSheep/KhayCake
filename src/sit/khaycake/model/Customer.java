@@ -9,9 +9,11 @@ import sit.khaycake.database.CanFindByKeyword;
 import sit.khaycake.database.Column;
 import sit.khaycake.database.ORM;
 import sit.khaycake.database.SQL;
+import sit.khaycake.util.Encryption;
 
 import java.sql.Date;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -26,7 +28,7 @@ public class Customer implements ORM, CanFindByKeyword {
     private String phone;
     private String sex;
     private Date birthday;
-    private String pwd;
+    private transient String pwd;
     private String vatId;
 
     public static final String TABLE_NAME = "CUSTOMERS";
@@ -165,7 +167,6 @@ public class Customer implements ORM, CanFindByKeyword {
                 .exec();
     }
 
-
     public static int delete(int CUST_ID) throws Exception {
         SQL sql = new SQL();
         int a = sql
@@ -173,6 +174,18 @@ public class Customer implements ORM, CanFindByKeyword {
                 .where(Customer.COLUMN_ID, SQL.WhereClause.Operator.EQ, CUST_ID)
                 .exec();
         return a;
+    }
+
+    public static Customer auth(String email,String password) throws Exception {
+        SQL sql = new SQL();
+        List<Customer> custs = sql.select()
+                                    .from(TABLE_NAME)
+                                    .where(COLUMN_EMAIL, SQL.WhereClause.Operator.EQ, email, SQL.WhereClause.Operator.AND)
+                                    .where(COLUMN_PWD, SQL.WhereClause.Operator.EQ, Encryption.md5(password))
+                                    .fetch(Customer.class);
+        if(custs != null && custs.size() > 0)
+            return custs.get(0);
+        return null;
     }
 
 

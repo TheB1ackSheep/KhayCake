@@ -25,89 +25,28 @@ import java.util.List;
 
 public class RequestValidation extends HttpServletRequestWrapper {
 
-    public static FormAttribute attribute(String name) {
-        return new FormAttribute(name, null, true, -1, -1, false, false);
-    }
 
-    public static FormAttribute attribute(String name, int min) {
-        return new FormAttribute(name, null, true, min, -1, false, false);
-    }
-
-    public static FormAttribute attribute(String name, int min, int max) {
-        return new FormAttribute(name, null, true, min, max, false, false);
-    }
-
-    public static FormAttribute integerAttribute(String name) {
-        return new FormAttribute(name, null, true, -1, -1, true, false);
-    }
-
-    public static FormAttribute integerAttribute(String name, int min) {
-        return new FormAttribute(name, null, true, min, -1, true, false);
-    }
-
-    public static FormAttribute integerAttribute(String name, int min, int max) {
-        return new FormAttribute(name, null, true, min, max, true, false);
-    }
-
-    public static FormAttribute floatAttribute(String name) {
-        return new FormAttribute(name, null, true, -1, -1, false, true);
-    }
-
-    public static FormAttribute floatAttribute(String name, int min) {
-        return new FormAttribute(name, null, true, min, -1, false, true);
-    }
-
-    public static FormAttribute floatAttribute(String name, int min, int max) {
-        return new FormAttribute(name, null, true, min, max, false, true);
-    }
 
     public static FormAttribute attribute(String name, String nickname) {
-        return new FormAttribute(name, nickname, true, -1, -1, false, false);
-    }
-
-    public static FormAttribute attribute(String name, String nickname, int min) {
-        return new FormAttribute(name, nickname, true, min, -1, false, false);
-    }
-
-    public static FormAttribute attribute(String name, String nickname, int min, int max) {
-        return new FormAttribute(name, nickname, true, min, max, false, false);
+        return new FormAttribute(name, nickname, true, -1, -1, false, false, false);
     }
 
     public static FormAttribute integerAttribute(String name, String nickname) {
-        return new FormAttribute(name, nickname, true, -1, -1, true, false);
-    }
-
-    public static FormAttribute integerAttribute(String name, String nickname, int min) {
-        return new FormAttribute(name, nickname, true, min, -1, true, false);
-    }
-
-    public static FormAttribute integerAttribute(String name, String nickname, int min, int max) {
-        return new FormAttribute(name, nickname, true, min, max, true, false);
-    }
-
-    public static FormAttribute floatAttribute(String name, String nickname) {
-        return new FormAttribute(name, nickname, true, -1, -1, false, true);
-    }
-
-    public static FormAttribute floatAttribute(String name, String nickname, int min) {
-        return new FormAttribute(name, nickname, true, min, -1, false, true);
-    }
-
-    public static FormAttribute floatAttribute(String name, String nickname, int min, int max) {
-        return new FormAttribute(name, nickname, true, min, max, false, true);
-    }
-
-    public static FormAttribute fileAttribute(String name, String nickname) {
-        return new FormAttribute(name, nickname, true);
+        return new FormAttribute(name, nickname, true, -1, -1, true, false, false);
     }
 
     public static FormAttribute integerAttribute(String name, String nickname, boolean required) {
-        return new FormAttribute(name, nickname, required, -1, -1, true, false);
+        return new FormAttribute(name, nickname, required, -1, -1, true, false, false);
     }
 
-    public static FormAttribute floatAttribute(String name, String nickname, boolean required) {
-        return new FormAttribute(name, nickname, required, -1, -1, false, true);
+    public static FormAttribute floatAttribute(String name, String nickname) {
+        return new FormAttribute(name, nickname, true, -1, -1, false, true, false);
     }
+
+    public static FormAttribute emailAttribute(String name, String nickname) {
+        return new FormAttribute(name, nickname, true, -1, -1, false, false, true);
+    }
+
 
     public RequestValidation(HttpServletRequest request) {
         super(request);
@@ -121,14 +60,17 @@ public class RequestValidation extends HttpServletRequestWrapper {
             if (r.isRequired()) {
                 if (param == null || param.length() == 0)
                     errors.add("คุณไม่ได้ระบุ " + r);
-            } else {
-                if (param != null) {
+            }
+
+               if (param != null) {
                     if (r.isInteger() && !Util.isInteger(param))
                         errors.add(r + " จะต้องเป็นตัวเลขเท่านั้น");
                     if (r.isFloat() && !Util.isFloat(param))
                         errors.add(r + " จะต้องเป็นตัวเลขทศนิยมเท่านั้น");
+                    if (r.isEmail() && !Util.isEmail(param))
+                        errors.add("รูปแบบอีเมล์ไม่ถูกต้อง");
                 }
-            }
+
 
         }
         if (!errors.isEmpty()) {
@@ -138,53 +80,5 @@ public class RequestValidation extends HttpServletRequestWrapper {
         return true;
     }
 
-    public boolean validateMultipart(FormAttribute... required) {
-        ErrorMessage error = new ErrorMessage(this.getSession());
-        List<String> errors = new ArrayList<>();
-
-        HttpServletRequest req = (HttpServletRequest) this.getRequest();
-        boolean isMultipart = ServletFileUpload.isMultipartContent(req);
-
-        if (isMultipart) {
-
-            // Create a factory for disk-based file items
-            DiskFileItemFactory factory = new DiskFileItemFactory();
-
-            // Configure a repository (to ensure a secure temp location is used)
-            ServletContext servletContext = req.getServletContext();
-            File repository = (File) servletContext.getAttribute("javax.servlet.context.tempdir");
-            factory.setRepository(repository);
-
-            // Create a new file upload handler
-            ServletFileUpload upload = new ServletFileUpload(factory);
-
-            try {
-                List<FileItem> items = upload.parseRequest(req);
-                for (FileItem item : items) {
-                    for (FormAttribute r : required) {
-                        if (item.getFieldName().equals(r.getName())) {
-                            if (item.isFormField()) {
-                                if (r.isRequired() && item.getString().length() == 0)
-                                    errors.add("คุณไม่ได้ใส่ " + r);
-
-                            } else {
-                                if (r.isRequired() && item.getName().length() == 0)
-                                    errors.add("คุณไม่ได้ใส่ " + r);
-                            }
-                        }
-
-                    }
-                }
-            } catch (FileUploadException e) {
-                errors.add(e.getMessage());
-            }
-
-        }
-        if (!errors.isEmpty()) {
-            error.setMessage(errors);
-            return false;
-        }
-        return true;
-    }
 
 }

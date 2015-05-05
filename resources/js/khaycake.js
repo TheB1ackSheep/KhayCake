@@ -58,11 +58,9 @@ $(document).ready(function() {
     };
 
     KhayCake.cakes = function(cat,fn){
-        $(section).html(KhayCake.container());
+        $(section).html(KhayCake.cakes.container());
         KhayCake.loadingMask($("#cake-container"));
         var cakeList = '';
-
-        console.log(cat);
         switch (cat){
             case 'cupcake':
                 Product.cupcake(function(resp) {
@@ -136,7 +134,7 @@ $(document).ready(function() {
                 break;
         }
     };
-    KhayCake.container = function(){
+    KhayCake.cakes.container = function(){
         return '<div class="row">' +
             '<div class="col-md-2">' +
             '<ul class="nav nav-pills nav-stacked">' +
@@ -166,24 +164,10 @@ $(document).ready(function() {
             ev.preventDefault();
             var id = $(this).serializeArray()[0].value;
             Cart.add($(this), function(resp){
-                var html = '<form id="user-cart"><div class="header row">'+
-                    '<div class="cell column-order">YOUR ORDER</div>'+
-                    '<div class="cell column-price">PRICE</div>'+
-                    '</div>';
-                var items = resp.message.items;
-                if(items && items.length > 0){
-                    for(var idx in items){
-                        var item = items[idx];
-                        html += Cart.item.form(item, idx);
-                    }
-                }else{
-                    html += '<div class="header row">'+
-                    '<div class="cell column-order">ไม่มีสินค้าในตะกร้า</div>'+
-                    '</div>';
+                if(resp.message) {
+                    $("#cart-table").html(Cart.form(resp.message));
+                    KhayCake.cart.bind();
                 }
-                html += "</form>"
-                $("#cart-table").html(html);
-                KhayCake.cart.bind();
             });
             KhayCake.cart.add(id);
             return false;
@@ -191,7 +175,15 @@ $(document).ready(function() {
     };
 
     KhayCake.cart = function(){
+        Cart.all(function(resp){
+            if(resp.message && resp.message.items && resp.message.items.length > 0){
+                $("#cart-table").html(Cart.form(resp.message));
+                KhayCake.cart.bind();
 
+                if ($(".cart-button").hasClass("inactive"))
+                    $(".cart-button").removeClass("inactive");
+            }
+        });
     };
     KhayCake.cart.open = function(){
         $(".cart-button").addClass("open");
@@ -199,7 +191,7 @@ $(document).ready(function() {
     KhayCake.cart.close = function(){
         $(".cart-button").removeClass("open");
     };
-    KhayCake.cart.add = function(id){
+    KhayCake.cart.add = function(id, fn){
 
         var clone = $('<div id="clone"></div>');
         var clientRect = $("#img-"+id)[0].getBoundingClientRect();
@@ -219,7 +211,7 @@ $(document).ready(function() {
             });
 
             clone.animate({
-                top: targetRect.top - 60,
+                top: targetRect.top - 80,
                 left: 0,
                 width: '53px'
             }, 500, function() {
@@ -228,6 +220,8 @@ $(document).ready(function() {
                     opacity: 0
                 }, 300, function() {
                     clone.remove();
+                    if(typeof(fn) === "function")
+                        fn();
                 });
 
             });
@@ -235,11 +229,250 @@ $(document).ready(function() {
         };
     KhayCake.cart.bind = function(){
         $("#cart-table .column-remove span").click(function(){
-            $(this).parent().parent().remove();
-            Cart.update($("#user-cart"), function(resp){
+            var row =  $(this).parent().parent();
+            $(row).animate({
+                height:0
+            },350,function(){
+                $(row).remove();
+                Cart.update($("#user-cart"),function(resp){
+                    if(resp.message) {
+                        $("#cart-table").html(Cart.form(resp.message));
+                        KhayCake.cart.bind();
+                    }
+                });
+            });
+            //
 
+        });
+    };
+
+    KhayCake.checkout = function(step){
+
+        KhayCake.cart.close();
+        var html = KhayCake.checkout.header();
+        $(section).html(html);
+
+        Cart.all(function(cartResp){
+            Auth.get(function(authResp){
+                var items = null;
+                if(cartResp.message)
+                    items = cartResp.message.items;
+                var email = null;
+                if(authResp.message)
+                    email = authResp.message.email;
+                if(step == 1) {
+                    KhayCake.checkout.set(KhayCake.checkout.order.form(cartResp));
+                }else if(step == 2 && items && !email) {
+                    KhayCake.checkout.set(KhayCake.checkout.login.form());
+                }else if(step == 2 && items && email) {
+                    window.location.hash = '#!/checkout/3';
+                    return;
+                }else if(step == 3  && items && email) {
+                    KhayCake.checkout.set(KhayCake.checkout.address.form(authResp.message));
+
+                }else if(step == 4 && items && email) {
+
+                }else if(step == 5 && items && email) {
+
+                }else {
+                    window.location.hash = '#!/checkout/1';
+                    return;
+                }
+
+                $(".checkout-progressbar li").removeClass("active");
+                for(var i=1;i<=5;i++)
+                    if(i<=step)
+                        $(".checkout-progressbar li:nth-child("+i+")").addClass("active");
+            });
+
+        });
+
+
+
+    };
+    KhayCake.checkout.set = function(html){
+        $("#checkout-container").html(html);
+        KhayCake.checkout.bind();
+    };
+    KhayCake.checkout.bind = function(){
+
+        $("#checkout-register").click(function(){
+            KhayCake.checkout.set(KhayCake.checkout.register.form());
+            return false;
+        });
+
+        $("#checkout-login").click(function(){
+            KhayCake.checkout.set(KhayCake.checkout.login.form());
+            return false;
+        });
+
+        $("#checkout-do-login").click(function(){
+            KhayCake.checkout.login();
+            return false;
+        });
+
+        $("#checkout-do-register").click(function(){
+            KhayCake.checkout.register();
+            return false;
+        });
+
+        $("#checkout-address").click(function(){
+           return false;
+        });
+
+        $("#form-address #tumbons").on("input",function(){
+           var length = $(this).val().length;
+            Tumbon.find($(this).val(), function(resp){
+                if(resp.message && resp.message.length > 0){
+                    var html = '';
+                    for(var idx in resp.message){
+                        var tumbon = resp.message[idx];
+                        html += '<option label='+tumbon.amphur.name+' data-id='+tumbon.id+' value='+tumbon.name+'></option>';
+                    }
+                    $("#form-address #tumbon-list").html(html);
+                }
             });
         });
+
+    };
+    KhayCake.checkout.header = function(){
+        return '<section class="checkout"><ul class="checkout-progressbar">'+
+                '<li class="active">รายการสินค้า</li>'+
+                '<li class="active">ยืนยันตัวตน</li>'+
+                '<li>ที่อยู่ในการจัดส่ง</li>'+
+                '<li>ยืนยันการสั่งซื้อ</li><li>เสร็จสิ้น</li>'+
+                '</ul>' +
+                '<div id="checkout-container"></div>'+
+                '</section>';
+    };
+    KhayCake.checkout.login = function(){
+        var form = $("#form-login");
+        Auth.auth(form, function(resp){
+           if(resp.message && resp.message.email){
+               window.location.hash = '#!/checkout/3';
+           }
+        });
+    };
+    KhayCake.checkout.login.form = function(){
+        return '<form id="form-login">' +
+            '<div class="form-group">' +
+            '<label>อีเมล์ :</label>' +
+            '<input class="form-control" id="email" name="email" placholder="ninecake@khaycake.com" autocomplete="off"/>' +
+            '</div>' +
+            '<div class="form-group">' +
+            '<label>รหัสผ่าน :</label>' +
+            '<input class="form-control" id="pwd" name="pwd" type="password"/>' +
+            '</div>' +
+            '<div class="form-group">' +
+            '<button id="checkout-do-login" class="btn btn-primary">Login</button> <a id="checkout-register" href="#!/checkout">ฉันยังไม่มีรหัสผ่าน</a>' +
+            '</div>' +
+            '</form>';
+    };
+    KhayCake.checkout.register = function(){
+        var form = $("#form-register");
+        Auth.register(form, function(resp){
+            if(resp.message && resp.message.email){
+                window.location.hash = '#!/checkout/3';
+            }
+        });
+    };
+    KhayCake.checkout.register.form = function(){
+        return '<form id="form-register">' +
+            '<div class="form-group">' +
+            '<label>อีเมล์ :</label>' +
+            '<input class="form-control" id="email" name="email" placholder="ninecake@khaycake.com" autocomplete="off"/>' +
+            '</div>' +
+            '<div class="form-group">' +
+            '<label>รหัสผ่าน :</label>' +
+            '<input class="form-control" id="pwd" name="pwd" type="password"/>' +
+            '</div>' +
+            '<div class="form-group">' +
+            '<label>ยืนยันรหัสผ่าน :</label>' +
+            '<input class="form-control" id="confirm-pwd" name="confirm-pwd" type="password"/>' +
+            '</div>' +
+            '<div class="form-group">' +
+            '<button id="checkout-do-register" class="btn btn-primary">Register</button> <a id="checkout-login" href="#!/checkout">ฉันมีรหัสผ่านแล้ว</a>' +
+            '</div>' +
+            '</form>';
+    };
+    KhayCake.checkout.address = {};
+    KhayCake.checkout.address.form = function(user){
+        return '<form id="form-address">' +
+                '<div class="row">' +
+                '<h3 class="title">ที่อยู่ในของคุณ</h3>'+
+                '<p class="subtitle">หากคุณเคยกรอกที่อยู่ไว้แล้ว จะแสดงที่เลือกด้านล่าง</p>'+
+                '<div id="address-container"></div>'+
+                '<h3>เพิ่มที่อยู่ใหม่</h3>'+
+                '<div class="col-sm-6">' +
+                    '<div class="form-group">' +
+                        '<label>ชื่อจริง</label><input type="text" name="fname" id="fname" class="form-control" autocomplete="off"/>' +
+                    '</div>' +
+                '</div>' +
+                '<div class="col-sm-6">' +
+                    '<div class="form-group">' +
+                        '<label>นามสกุล</label><input type="text" name="lname" id="lname" class="form-control" autocomplete="off"/>' +
+                    '</div>' +
+                '</div>' +
+                '<div class="col-md-12">' +
+                    '<div class="form-group">' +
+                        '<label>ที่อยู่</label>' +
+                        '<textarea name="addr" id="addr" cols="30" rows="8" class="form-control" placeholder="123 ซอย 13 หมู่บ้านขายเค้ก ถนนเค้กนุ่ม">' +
+                        '</textarea>' +
+                    '</div>' +
+                '</div>' +
+                '<div class="col-md-6">' +
+                    '<div class="form-group">'+
+                        '<label>ตำบล/เขต</label><input list="tumbon-list" type="text" class="form-control" name="tumbons" id="tumbons"/>' +
+                        '<datalist id="tumbon-list"></datalist>'+
+                    '</div>' +
+                '</div>'+
+                '<div class="col-md-6">' +
+                    '<div class="form-group">'+
+                        '<label>อำเภอ/แขวง</label><input type="text" class="form-control" name="amphur" id="amphur"/>' +
+                    '</div>' +
+                '</div>'+
+                '<div class="col-md-6">' +
+                    '<div class="form-group">' +
+                        '<label>จังหวัด</label><input type="text" class="form-control" name="province" id="province"/>'+
+                    '</div>' +
+                '</div>' +
+                '<div class="col-md-6">' +
+                    '<div class="form-group">' +
+                        '<label>รหัสไปรษณีย์</label><input type="text" class="form-control" name="zipcode" id="zipcode"/>' +
+                    '</div>' +
+                '</div>'+
+                '<div class="col-sm-12 text-right"><button id="checkout-address" class="btn btn-primary">ถัดไป</button></div>'+
+                '</form>' +
+            '</div>';
+    }
+    KhayCake.checkout.order = {};
+    KhayCake.checkout.order.form = function(resp){
+
+        var html = '<form id="form-cart"><table class="table"><tr><th>ชื่อ</th><th>จำนวน</th><th class="text-right">ราคา (บาท)</th></tr>';
+        var hasNext = false;
+        if(resp.message && resp.message.items && resp.message.items.length > 0){
+            hasNext = true;
+            var items = resp.message.items;
+            var total = 0.0;
+            for(var idx in items){
+                var item = items[idx];
+                html += '<tr><td>'+item.product.name+'</td>' +
+                    '<td>'+item.qty+' '+item.product.unit.name+'</td>' +
+                    '<td class="text-right">'+toMoney(item.total)+'</td></tr>';
+                total += item.total;
+            }
+            html += '<tr><td colspan="2" class="text-right">รวม</td><td class="text-right">'+toMoney(total)+'</td></tr>';
+
+        }else{
+            html += '<tr><td colspan="3">ไม่มีสินค้าในตะกร้า</td></tr>';
+        }
+        html += "</table>";
+        if(hasNext)
+            html += '<div class="col-md-12 text-right"><a class="btn btn-primary" id="checkout-next" href="#!/checkout/2">ถัดไป</a></div>';
+        html += '</form>';
+        return html;
+
+
     };
 
 
@@ -247,19 +480,7 @@ $(document).ready(function() {
         $(section).html(KhayCake.login.form());
     };
     KhayCake.login.form = function(){
-        return '<form id="form-login">' +
-            '<div class="form-group">' +
-            '<label>Username :</label>' +
-            '<input class="form-control" id="email" placholder="ninecake@khaycake.com"/>' +
-            '</div>' +
-            '<div class="form-group">' +
-            '<label>Password :</label>' +
-            '<input class="form-control" id="pwd" type="password"/>' +
-            '</div>' +
-            '<div class="form-group">' +
-            '<button class="btn btn-primary">Login</button>' +
-            '</div>' +
-            '</form>';
+
     }
 
     KhayCake.onHashChanged = function() {
@@ -278,8 +499,11 @@ $(document).ready(function() {
 
                 });
                 break;
-            case 'login':
-                KhayCake.login();
+            case 'checkout':
+                var step = null;
+                if(resources.length >= 3)
+                step = resources[2];
+                KhayCake.checkout(step);
                 break;
             default:
                 KhayCake.home();
@@ -302,10 +526,6 @@ $(document).ready(function() {
         KhayCake.onHashChanged();
     }
 
-    $(".cake-box-buy a").click(function(el) {
-        KhayCake.setParam(Dialog.PARAM_BEGIN_POS, this);
-    });
-
     $(".cart-button .cart-open").click(function() {
         KhayCake.cart.open();
     });
@@ -314,5 +534,5 @@ $(document).ready(function() {
         KhayCake.cart.close();
     });
 
-    K = KhayCake;
+    KhayCake.cart();
 });

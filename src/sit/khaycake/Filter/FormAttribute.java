@@ -13,7 +13,15 @@ public class FormAttribute {
     private boolean isInteger;
     private boolean isFloat;
     private boolean isFile;
+    private boolean isEmail;
 
+    public boolean isEmail() {
+        return isEmail;
+    }
+
+    public void setIsEmail(boolean isEmail) {
+        this.isEmail = isEmail;
+    }
 
     public String getName() {
         return name;
@@ -87,7 +95,7 @@ public class FormAttribute {
         this.isFile = isFile;
     }
 
-    public FormAttribute(String name, String nickName, boolean required, int min, int max, boolean isInteger, boolean isFloat) {
+    public FormAttribute(String name, String nickName, boolean required, int min, int max, boolean isInteger, boolean isFloat, boolean isEmail) {
         this.name = name;
         this.nickName = nickName;
         this.required = required;
@@ -95,16 +103,9 @@ public class FormAttribute {
         this.max = max;
         this.isInteger = isInteger;
         this.isFloat = isFloat;
+        this.isEmail = isEmail;
     }
 
-    public FormAttribute(String name, String nickName, boolean isFile) {
-        this.name = name;
-        this.nickName = nickName;
-        this.required = true;
-        this.isInteger = false;
-        this.isFloat = false;
-        this.isFile = isFile;
-    }
 
     @Override
     public String toString() {

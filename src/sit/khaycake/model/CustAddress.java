@@ -17,7 +17,7 @@ public class CustAddress implements ORM, CanFindByKeyword {
     private Address address;
 
 
-    public static final String TABLE_NAME = "CUST_ADDRESS";
+    public static final String TABLE_NAME = "CUST_ADDRESSES";
     public static final Column COLUMN_CUST_ID = ORM.column(TABLE_NAME, "CUST_ID");
     public static final Column COLUMN_ADDR_ID = ORM.column(TABLE_NAME, "ADDR_ID");
     public static final List<Column> COLUMN_KEYWORD = ORM.columns(COLUMN_CUST_ID);
@@ -41,15 +41,18 @@ public class CustAddress implements ORM, CanFindByKeyword {
 
     public void orm(ResultSet rs) throws Exception {
         this.setCustId(rs.getInt(COLUMN_CUST_ID.getColumnName()));
-        this.setAddress((Address) SQL.findById(Address.class, rs.getInt(COLUMN_ADDR_ID.getColumnName())));
+        this.setAddress(SQL.findById(Address.class, rs.getInt(COLUMN_ADDR_ID.getColumnName())));
     }
 
     public static List<Address> getAddresses(List<CustAddress> custAddresses) {
-        List<Address> addresses = new ArrayList<>();
-        for (CustAddress ca : custAddresses) {
-            addresses.add(ca.getAddress());
+        List<Address> addresses = null;
+        if(custAddresses != null) {
+            addresses = new ArrayList<>();
+            for (CustAddress ca : custAddresses) {
+                addresses.add(ca.getAddress());
+            }
         }
-        return null;
+        return addresses;
     }
 
     public void save() throws Exception {
