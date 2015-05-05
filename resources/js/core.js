@@ -1,5 +1,5 @@
-//var HOST = 'http://jsp.falook.me/khaycake';
-var HOST = 'http://localhost:8080/khaycake';
+var HOST = 'http://jsp.falook.me/khaycake';
+//var HOST = 'http://localhost:8080/khaycake';
 var sessionID = '';
 
 function isInteger(str) {
@@ -75,6 +75,31 @@ Ajax.UPLOAD = function(url, data, success) {
                 sessionID = resp.sessionId;
             Ajax.onError(resp);
         }
+    });
+};
+
+var Notify = Notify || {};
+Notify.queue = [];
+Notify.alert = function(text){
+    Notify.queue.push(text);
+    var box = $('<div class="notify"></div>');
+    var len = Notify.queue.length;
+    $(box).text(text);
+    $(box).css({
+       top:'-100px'
+    });
+    $("body").append(box);
+    $(box).animate({
+        top:'px'
+    }, 350, function(){
+        setTimeout(function(){
+            $(box).animate({
+                top:'100px',
+                opacity:0
+            }, 350,function(){
+                $(box).remove();
+            })
+        },3000);
     });
 };
 
