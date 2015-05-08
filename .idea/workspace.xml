@@ -8,17 +8,151 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d27d28aa-e1da-498a-bb26-aef4211214da" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\Customer.class" afterPath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\Customer.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/images/sad.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/images/spongebob.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/BankAccountRequest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/BankBranch.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/PaymentRequest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/css/bootstrap-datepicker.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/css/bootstrap-timepicker.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/bootstrap-timepicker.min.js" />
+      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\Bank$Branch.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\BankAccount$Type.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\Order$ShipMethod.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\Order$Status.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\Payment$Status.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\out\artifacts\KhayCake_war_exploded\home.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\out\artifacts\KhayCake_war_exploded\index.jsp" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\target\classes\sit\khaycake\model\Bank$Branch.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\target\classes\sit\khaycake\model\BankAccount$Type.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\target\classes\sit\khaycake\model\Order$ShipMethod.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\target\classes\sit\khaycake\model\Order$Status.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\target\classes\sit\khaycake\model\Payment$Status.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\web\images\1499431_382742111871675_1224582147_n_2303874750157589462.jpg" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\web\images\1499431_382742111871675_1224582147_n_3746893655043373117.jpg" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\web\images\1499431_382742111871675_1224582147_n_4571941475252952566.jpg" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\web\images\1499431_382742111871675_1224582147_n_5198870594937399816.jpg" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\web\images\1499431_382742111871675_1224582147_n_5784348181927910135.jpg" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\web\images\1499431_382742111871675_1224582147_n_6255008347071092418.jpg" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\web\images\1499431_382742111871675_1224582147_n_6941604982263180658.jpg" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\web\images\image.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\web\index.jsp" afterPath="" />
+      <change type="MOVED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\web\home.html" afterPath="$PROJECT_DIR$/web/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Bank.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Bank.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Bank.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Bank.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/BankAccount.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/BankAccount.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/BankAccount.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/BankAccount.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/BankAccount/BankAccountServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/BankAccount/BankAccountServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/BankAccount/BankAccountServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/BankAccount/BankAccountServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/BankAccountType/BankAccountTypeServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/BankAccountType/BankAccountTypeServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/BankAccountType/BankAccountTypeServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/BankAccountType/BankAccountTypeServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Bank/BankServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Bank/BankServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Bank/BankServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Bank/BankServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Cart$Item.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Cart$Item.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Cart$Item.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Cart$Item.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Cart.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Cart.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Cart.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Cart.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Customer.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Customer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Customer.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Customer.class" />
-      <change type="MODIFICATION" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\Controller\Customer\PatternCustomerServlet.class" afterPath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\Controller\Customer\PatternCustomerServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Customer/PatternCustomerServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Customer/PatternCustomerServlet.class" />
-      <change type="MODIFICATION" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\Filter\RequestValidation.class" afterPath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\Filter\RequestValidation.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Filter/FormAttribute.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Filter/FormAttribute.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Filter/FormAttribute.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Filter/FormAttribute.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Order.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Order.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Order.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Order.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/OrderItem.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/OrderItem.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/OrderItem.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/OrderItem.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/OrderItem/OrderItemServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/OrderItem/OrderItemServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/OrderItem/OrderItemServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/OrderItem/OrderItemServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Order/OrderServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Order/OrderServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Order/OrderServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Order/OrderServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/OrderStatus.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/OrderStatus.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/OrderStatus.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/OrderStatus.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/BankAccount/PatternBankAccountServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/BankAccount/PatternBankAccountServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/BankAccount/PatternBankAccountServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/BankAccount/PatternBankAccountServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/BankAccountType/PatternBankAccountTypeServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/BankAccountType/PatternBankAccountTypeServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/BankAccountType/PatternBankAccountTypeServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/BankAccountType/PatternBankAccountTypeServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Bank/PatternBankServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Bank/PatternBankServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Bank/PatternBankServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Bank/PatternBankServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Cart/PatternCartServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Cart/PatternCartServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Cart/PatternCartServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Cart/PatternCartServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/OrderItem/PatternOrderItemServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/OrderItem/PatternOrderItemServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/OrderItem/PatternOrderItemServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/OrderItem/PatternOrderItemServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Order/PatternOrderServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Order/PatternOrderServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Order/PatternOrderServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Order/PatternOrderServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Payment/PatternPaymentServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Payment/PatternPaymentServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Payment/PatternPaymentServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Payment/PatternPaymentServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Product/PatternProductServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Product/PatternProductServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Product/PatternProductServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Product/PatternProductServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Payment.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Payment.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Payment.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Payment.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Payment/PaymentServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Payment/PaymentServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Payment/PaymentServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Payment/PaymentServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Product.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Product.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Product.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Product.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Product/ProductServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Product/ProductServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Product/ProductServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Product/ProductServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Filter/RequestValidation.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Filter/RequestValidation.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Filter/RequestValidation.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Filter/RequestValidation.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/database/SQL.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/database/SQL.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/database/SQL.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/database/SQL.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/ShipmentMethod/ShipmentMethodServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/ShipmentMethod/ShipmentMethodServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/ShipmentMethod/ShipmentMethodServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/ShipmentMethod/ShipmentMethodServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/util/Util.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/util/Util.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/util/Util.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/util/Util.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/images/slider-1.jpg" afterPath="$PROJECT_DIR$/web/images/slider-1.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Auth/AuthController.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Auth/AuthController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/Bank.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/Bank.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/BankAccount.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/BankAccount.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/BankAccount/BankAccountServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/BankAccount/BankAccountServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/BankAccountType/BankAccountTypeServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/BankAccountType/BankAccountTypeServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Bank/BankServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Bank/BankServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/Cart.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/Cart.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/Customer.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/Customer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Filter/FormAttribute.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Filter/FormAttribute.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/Order.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/Order.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/OrderItem.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/OrderItem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/OrderItem/OrderItemServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/OrderItem/OrderItemServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Order/OrderServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Order/OrderServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/OrderStatus.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/OrderStatus.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/BankAccount/PatternBankAccountServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/BankAccount/PatternBankAccountServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/BankAccountType/PatternBankAccountTypeServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/BankAccountType/PatternBankAccountTypeServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Bank/PatternBankServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Bank/PatternBankServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Cart/PatternCartServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Cart/PatternCartServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/OrderItem/PatternOrderItemServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/OrderItem/PatternOrderItemServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Order/PatternOrderServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Order/PatternOrderServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Payment/PatternPaymentServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Payment/PatternPaymentServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Product/PatternProductServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Product/PatternProductServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/Payment.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/Payment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Payment/PaymentServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Payment/PaymentServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/Product.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/Product.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Product/ProductServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Product/ProductServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Filter/RequestValidation.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Filter/RequestValidation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/database/SQL.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/database/SQL.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/ShipmentAddress/ShipmentAddressController.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/ShipmentAddress/ShipmentAddressController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/ShipmentMethod/ShipmentMethodServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/ShipmentMethod/ShipmentMethodServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/util/Util.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/util/Util.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/admin.html" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/admin.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/admin.html" afterPath="$PROJECT_DIR$/web/admin.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/admin.js" afterPath="$PROJECT_DIR$/resources/js/admin.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/css/admin.less" afterPath="$PROJECT_DIR$/resources/css/admin.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/css/admin.min.css" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/css/admin.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/admin.min.css" afterPath="$PROJECT_DIR$/web/css/admin.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/js/admin.min.js" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/js/admin.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/admin.min.js" afterPath="$PROJECT_DIR$/web/js/admin.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/core.js" afterPath="$PROJECT_DIR$/resources/js/core.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/js/core.min.js" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/js/core.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/core.min.js" afterPath="$PROJECT_DIR$/web/js/core.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/khaycake.js" afterPath="$PROJECT_DIR$/resources/js/khaycake.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/css/khaycake.less" afterPath="$PROJECT_DIR$/resources/css/khaycake.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/css/khaycake.min.css" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/css/khaycake.min.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/khaycake.min.css" afterPath="$PROJECT_DIR$/web/css/khaycake.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/js/khaycake.min.js" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/js/khaycake.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/khaycake.min.js" afterPath="$PROJECT_DIR$/web/js/khaycake.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/css/mixin.less" afterPath="$PROJECT_DIR$/resources/css/mixin.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/css/theme-coffee.less" afterPath="$PROJECT_DIR$/resources/css/theme-coffee.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/web.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="47a0f455-aeee-494a-9b6c-32752d8a22e1" name="Failed commit: Default" comment="Cart done, working on checkout" />
@@ -78,47 +212,170 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="core.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/core.js">
+      <file leaf-file-name="khaycake.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/khaycake.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <caret line="291" column="27" selection-start-line="291" selection-start-column="27" selection-end-line="291" selection-end-column="27" />
               <folding>
-                <element signature="e#885#1521#0" expanded="false" />
-                <element signature="e#3000#3031#0" expanded="false" />
-                <element signature="e#3065#3216#0" expanded="false" />
-                <element signature="e#8018#8761#0" expanded="false" />
-                <element signature="e#8783#8811#0" expanded="false" />
-                <element signature="e#8891#9279#0" expanded="false" />
-                <element signature="e#9429#9828#0" expanded="false" />
-                <marker date="1430861585443" expanded="true" signature="4451:4467" placeholder="..." />
-                <marker date="1430861585443" expanded="true" signature="6317:6333" placeholder="..." />
+                <element signature="e#141#727#0" expanded="false" />
+                <element signature="e#205#262#0" expanded="false" />
+                <element signature="e#309#367#0" expanded="false" />
+                <element signature="e#407#502#0" expanded="false" />
+                <element signature="e#540#717#0" expanded="false" />
+                <element signature="e#4477#5161#0" expanded="false" />
+                <element signature="e#4544#4916#0" expanded="false" />
+                <element signature="e#4922#5054#0" expanded="false" />
+                <element signature="e#5271#5955#0" expanded="false" />
+                <element signature="e#5716#5848#0" expanded="false" />
+                <element signature="e#6069#6753#0" expanded="false" />
+                <element signature="e#6514#6646#0" expanded="false" />
+                <element signature="e#6852#7538#0" expanded="false" />
+                <element signature="e#9343#9522#0" expanded="false" />
+                <element signature="e#9379#9508#0" expanded="false" />
+                <element signature="e#11541#11632#0" expanded="false" />
+                <element signature="e#11636#11738#0" expanded="false" />
+                <element signature="e#12064#12161#0" expanded="false" />
+                <element signature="e#13537#14204#0" expanded="false" />
+                <element signature="e#14242#14367#0" expanded="false" />
+                <element signature="e#14407#14847#0" expanded="false" />
+                <element signature="e#14548#14817#0" expanded="false" />
+                <element signature="e#14600#14667#0" expanded="false" />
+                <element signature="e#14671#14807#0" expanded="false" />
+                <element signature="e#14905#15793#0" expanded="false" />
+                <element signature="e#15836#16283#0" expanded="false" />
+                <element signature="e#15981#16253#0" expanded="false" />
+                <element signature="e#16033#16100#0" expanded="false" />
+                <element signature="e#16104#16243#0" expanded="false" />
+                <element signature="e#16343#17421#0" expanded="false" />
+                <element signature="e#17463#17543#0" expanded="false" />
+                <element signature="e#17584#19648#0" expanded="false" />
+                <element signature="e#19729#20504#0" expanded="false" />
+                <element signature="e#20556#21714#0" expanded="false" />
+                <element signature="e#21777#23834#0" expanded="false" />
+                <element signature="e#22543#23435#0" expanded="false" />
+                <element signature="e#23004#23281#0" expanded="false" />
+                <element signature="e#23882#24293#0" expanded="false" />
+                <element signature="e#24351#26250#0" expanded="false" />
+                <element signature="e#26307#26520#0" expanded="false" />
+                <element signature="e#26579#26797#0" expanded="false" />
+                <element signature="e#28044#29212#0" expanded="false" />
+                <element signature="e#29314#29644#0" expanded="false" />
+                <element signature="e#29680#30061#0" expanded="false" />
+                <element signature="e#29715#30053#0" expanded="false" />
+                <element signature="e#29802#30043#0" expanded="false" />
+                <element signature="e#30100#30418#0" expanded="false" />
+                <element signature="e#30458#30512#0" expanded="false" />
+                <element signature="e#30556#31606#0" expanded="false" />
+                <element signature="e#31645#32195#0" expanded="false" />
+                <element signature="e#32238#34627#0" expanded="false" />
+                <element signature="e#34673#34790#0" expanded="false" />
+                <element signature="e#34833#39698#0" expanded="false" />
+                <element signature="e#39743#40143#0" expanded="false" />
+                <element signature="e#40187#40409#0" expanded="false" />
+                <element signature="e#40458#41201#0" expanded="false" />
+                <element signature="e#41248#41477#0" expanded="false" />
+                <element signature="e#41529#42450#0" expanded="false" />
+                <element signature="e#42497#42710#0" expanded="false" />
+                <element signature="e#42770#45894#0" expanded="false" />
+                <element signature="e#46006#46666#0" expanded="false" />
+                <element signature="e#46751#48234#0" expanded="false" />
+                <element signature="e#48278#48285#0" expanded="false" />
+                <element signature="e#48338#50404#0" expanded="false" />
+                <element signature="e#50455#51268#0" expanded="false" />
+                <marker date="1431051835642" expanded="true" signature="8410:8430" placeholder="..." />
+                <marker date="1431051835642" expanded="true" signature="21361:21367" placeholder="..." />
+                <marker date="1431051835642" expanded="true" signature="28747:28761" placeholder="..." />
+                <marker date="1431051835642" expanded="true" signature="28927:28933" placeholder="..." />
+                <marker date="1431051835642" expanded="false" signature="43035:43045" placeholder="..." />
+                <marker date="1431051835642" expanded="false" signature="43564:43576" placeholder="..." />
+                <marker date="1431051835642" expanded="false" signature="53082:53117" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="khaycake.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/js/khaycake.js">
+      <file leaf-file-name="AuthController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Auth/AuthController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.32380953">
-              <caret line="545" column="27" selection-start-line="545" selection-start-column="27" selection-end-line="545" selection-end-column="27" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="71" column="53" selection-start-line="71" selection-start-column="53" selection-end-line="71" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/admin.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="484" column="0" selection-start-line="484" selection-start-column="0" selection-end-line="484" selection-end-column="0" />
               <folding>
-                <element signature="e#186#772#0" expanded="false" />
-                <element signature="e#6471#7286#0" expanded="false" />
-                <element signature="e#7325#8102#0" expanded="false" />
-                <element signature="e#8137#8518#0" expanded="false" />
-                <element signature="e#8557#8608#0" expanded="false" />
-                <element signature="e#8648#8702#0" expanded="false" />
-                <element signature="e#8746#9688#0" expanded="false" />
-                <element signature="e#13141#14385#0" expanded="false" />
-                <element signature="e#14445#15351#0" expanded="false" />
-                <element signature="e#15413#16298#0" expanded="false" />
-                <element signature="e#17064#17807#0" expanded="false" />
-                <element signature="e#24417#24472#0" expanded="false" />
-                <element signature="e#24512#24520#0" expanded="false" />
-                <marker date="1430861904208" expanded="true" signature="19744:19754" placeholder="..." />
-                <marker date="1430861904208" expanded="true" signature="25478:25513" placeholder="..." />
+                <element signature="e#388#969#0" expanded="false" />
+                <element signature="e#998#1531#0" expanded="false" />
+                <element signature="e#1571#2534#0" expanded="false" />
+                <element signature="e#3162#4396#0" expanded="false" />
+                <element signature="e#4469#4653#0" expanded="false" />
+                <element signature="e#4776#6111#0" expanded="false" />
+                <element signature="e#8040#10161#0" expanded="false" />
+                <element signature="e#10422#11495#0" expanded="false" />
+                <element signature="e#11549#13954#0" expanded="false" />
+                <element signature="e#13148#13425#0" expanded="false" />
+                <element signature="e#13990#16658#0" expanded="false" />
+                <element signature="e#16698#16879#0" expanded="false" />
+                <element signature="e#16928#18086#0" expanded="false" />
+                <element signature="e#18133#21340#0" expanded="false" />
+                <element signature="e#21377#23706#0" expanded="false" />
+                <element signature="e#23747#24416#0" expanded="false" />
+                <element signature="e#24471#25770#0" expanded="false" />
+                <element signature="e#25827#28891#0" expanded="false" />
+                <element signature="e#28083#28360#0" expanded="false" />
+                <element signature="e#28925#33947#0" expanded="false" />
+                <element signature="e#33991#36188#0" expanded="false" />
+                <element signature="e#39510#41602#0" expanded="false" />
+                <element signature="e#41652#43744#0" expanded="false" />
+                <element signature="e#43799#45292#0" expanded="false" />
+                <element signature="e#45368#45639#0" expanded="false" />
+                <element signature="e#45726#46018#0" expanded="false" />
+                <element signature="e#46055#48243#0" expanded="false" />
+                <marker date="1431050158769" expanded="true" signature="2701:2717" placeholder="..." />
+                <marker date="1431050158769" expanded="true" signature="3604:3620" placeholder="..." />
+                <marker date="1431050158769" expanded="true" signature="7511:7525" placeholder="..." />
+                <marker date="1431050158769" expanded="true" signature="8164:8180" placeholder="..." />
+                <marker date="1431050158769" expanded="true" signature="9481:9497" placeholder="..." />
+                <marker date="1431050158769" expanded="true" signature="11212:11218" placeholder="..." />
+                <marker date="1431050158769" expanded="true" signature="11703:11714" placeholder="..." />
+                <marker date="1431050158769" expanded="true" signature="12441:12447" placeholder="..." />
+                <marker date="1431050158769" expanded="true" signature="14116:14132" placeholder="..." />
+                <marker date="1431050158769" expanded="true" signature="15971:15987" placeholder="..." />
+                <marker date="1431050158769" expanded="true" signature="17621:17635" placeholder="..." />
+                <marker date="1431050158769" expanded="true" signature="17801:17807" placeholder="..." />
+                <marker date="1431050158769" expanded="true" signature="19006:19012" placeholder="..." />
+                <marker date="1431050158769" expanded="true" signature="19469:19480" placeholder="..." />
+                <marker date="1431050158769" expanded="true" signature="21504:21520" placeholder="..." />
+                <marker date="1431050158769" expanded="true" signature="23017:23033" placeholder="..." />
+                <marker date="1431050158769" expanded="true" signature="26025:26036" placeholder="..." />
+                <marker date="1431050158769" expanded="true" signature="26770:26776" placeholder="..." />
+                <marker date="1431050158769" expanded="true" signature="29299:29315" placeholder="..." />
+                <marker date="1431050158769" expanded="true" signature="33374:33390" placeholder="..." />
+                <marker date="1431050158769" expanded="true" signature="34183:34193" placeholder="..." />
+                <marker date="1431050158769" expanded="true" signature="39877:39893" placeholder="..." />
+                <marker date="1431050158769" expanded="true" signature="41794:41804" placeholder="..." />
+                <marker date="1431050158769" expanded="true" signature="44167:44183" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="core.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/core.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.5862069">
+              <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
+              <folding>
+                <element signature="e#10714#10742#0" expanded="false" />
+                <marker date="1431052077221" expanded="true" signature="6341:6357" placeholder="..." />
+                <marker date="1431052077221" expanded="true" signature="8207:8223" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -127,59 +384,131 @@
       <file leaf-file-name="khaycake.less" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/css/khaycake.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.769231">
-              <caret line="628" column="13" selection-start-line="628" selection-start-column="13" selection-end-line="628" selection-end-column="13" />
+            <state vertical-scroll-proportion="-205.3077">
+              <caret line="314" column="0" selection-start-line="314" selection-start-column="0" selection-end-line="314" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShipmentAddressController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/ShipmentAddress/ShipmentAddressController.java">
+      <file leaf-file-name="admin.less" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/css/admin.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.5779037">
+              <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShipmentAddressRequest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Filter/request/ShipmentAddressRequest.java">
+      <file leaf-file-name="PatternCustomerServlet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Customer/PatternCustomerServlet.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+              <caret line="64" column="65" selection-start-line="64" selection-start-column="65" selection-end-line="64" selection-end-column="65" />
               <folding>
                 <element signature="imports" expanded="false" />
-                <element signature="e#335#336#0" expanded="false" />
-                <element signature="e#365#366#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RequestValidation.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Filter/RequestValidation.java">
+      <file leaf-file-name="Payment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/Payment.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="69" column="51" selection-start-line="69" selection-start-column="51" selection-end-line="69" selection-end-column="51" />
+              <caret line="173" column="29" selection-start-line="173" selection-start-column="29" selection-end-line="173" selection-end-column="29" />
               <folding>
+                <element signature="e#0#7719#0" expanded="false" />
                 <element signature="imports" expanded="false" />
-                <element signature="e#1852#1853#0" expanded="false" />
-                <element signature="e#1882#1883#0" expanded="false" />
+                <element signature="e#1304#1305#0" expanded="false" />
+                <element signature="e#1329#1330#0" expanded="false" />
+                <element signature="e#1362#1363#0" expanded="false" />
+                <element signature="e#1390#1391#0" expanded="false" />
+                <element signature="e#1421#1422#0" expanded="false" />
+                <element signature="e#1449#1450#0" expanded="false" />
+                <element signature="e#1490#1491#0" expanded="false" />
+                <element signature="e#1524#1525#0" expanded="false" />
+                <element signature="e#1567#1568#0" expanded="false" />
+                <element signature="e#1594#1595#0" expanded="false" />
+                <element signature="e#1646#1647#0" expanded="false" />
+                <element signature="e#1678#1679#0" expanded="false" />
+                <element signature="e#1718#1719#0" expanded="false" />
+                <element signature="e#1747#1748#0" expanded="false" />
+                <element signature="e#1798#1799#0" expanded="false" />
+                <element signature="e#1834#1835#0" expanded="false" />
+                <element signature="e#1872#1873#0" expanded="false" />
+                <element signature="e#1903#1904#0" expanded="false" />
+                <element signature="e#1954#1955#0" expanded="false" />
+                <element signature="e#1994#1995#0" expanded="false" />
+                <element signature="e#2027#2028#0" expanded="false" />
+                <element signature="e#2056#2057#0" expanded="false" />
+                <element signature="e#2100#2101#0" expanded="false" />
+                <element signature="e#2136#2137#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Util.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sit/khaycake/util/Util.java">
+      <file leaf-file-name="Order.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/Order.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+              <caret line="206" column="0" selection-start-line="206" selection-start-column="0" selection-end-line="206" selection-end-column="0" />
               <folding>
-                <element signature="e#274#275#0" expanded="false" />
-                <element signature="e#359#360#0" expanded="false" />
+                <element signature="e#0#9105#0" expanded="false" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#1671#1672#0" expanded="false" />
+                <element signature="e#1696#1697#0" expanded="false" />
+                <element signature="e#1734#1735#0" expanded="false" />
+                <element signature="e#1767#1768#0" expanded="false" />
+                <element signature="e#1801#1802#0" expanded="false" />
+                <element signature="e#1828#1829#0" expanded="false" />
+                <element signature="e#1876#1877#0" expanded="false" />
+                <element signature="e#1913#1914#0" expanded="false" />
+                <element signature="e#1945#1946#0" expanded="false" />
+                <element signature="e#1976#1977#0" expanded="false" />
+                <element signature="e#2021#2022#0" expanded="false" />
+                <element signature="e#2061#2062#0" expanded="false" />
+                <element signature="e#2098#2099#0" expanded="false" />
+                <element signature="e#2131#2132#0" expanded="false" />
+                <element signature="e#2183#2184#0" expanded="false" />
+                <element signature="e#2227#2228#0" expanded="false" />
+                <element signature="e#2265#2266#0" expanded="false" />
+                <element signature="e#2294#2295#0" expanded="false" />
+                <element signature="e#2343#2344#0" expanded="false" />
+                <element signature="e#2379#2380#0" expanded="false" />
+                <element signature="e#2424#2425#0" expanded="false" />
+                <element signature="e#2457#2458#0" expanded="false" />
+                <element signature="e#2517#2518#0" expanded="false" />
+                <element signature="e#2561#2562#0" expanded="false" />
+                <element signature="e#2608#2609#0" expanded="false" />
+                <element signature="e#2642#2643#0" expanded="false" />
+                <element signature="e#2705#2706#0" expanded="false" />
+                <element signature="e#2751#2752#0" expanded="false" />
+                <element signature="e#2784#2785#0" expanded="false" />
+                <element signature="e#2814#2815#0" expanded="false" />
+                <element signature="e#2859#2860#0" expanded="false" />
+                <element signature="e#2897#2898#0" expanded="false" />
+                <element signature="e#2934#2935#0" expanded="false" />
+                <element signature="e#2965#2966#0" expanded="false" />
+                <element signature="e#3015#3016#0" expanded="false" />
+                <element signature="e#3055#3056#0" expanded="false" />
+                <element signature="method#getItems#1;class#Order#0" expanded="false" />
+                <element signature="method#getPayments#0;class#Order#0" expanded="false" />
+                <element signature="method#findAll#0;class#Order#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderServlet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Order/OrderServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="33" column="54" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="54" />
+              <folding>
+                <element signature="imports" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -218,57 +547,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/Category/CategoryServlet.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/Filter/HeaderFilter.java" />
-        <option value="$PROJECT_DIR$/web/js/core.min.js" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/Filter/request/ProductRequest.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/Filter/request/AddressRequest.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/Product/ProductServlet.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/model/PicProduct.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/model/Picture.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/Product/PatternProductServlet.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/Address/PatternAddressServlet.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/model/ProductSale.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/model/Product.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/Filter/request/CartRequest.java" />
-        <option value="$PROJECT_DIR$/test/sit/khaycake/BankTesting.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/Cart/PatternCartServlet.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/Cart/CartServlet.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/model/Cart.java" />
-        <option value="$PROJECT_DIR$/resources/css/mixin.less" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/util/Encryption.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/util/EmailValidator.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/Filter/FormAttribute.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/Filter/request/CustomerRequest.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/model/CustAddress.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/Customer/CustomerServlet.java" />
-        <option value="$PROJECT_DIR$/web/js/khaycake.min.js" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/Auth/AuthController.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/Filter/request/AddAddressRequest.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/model/Tumbon.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/model/Geography.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/Aumphur/AumphurController.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/model/Amphur.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/model/Province.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/database/SQL.java" />
-        <option value="$PROJECT_DIR$/web/home.html" />
-        <option value="$PROJECT_DIR$/resources/css/theme-coffee.less" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/Amphur/AmphurController.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/tumbons/TumbonController.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/Province/ProvinceServlet.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/web/js/jquery.autocomplete.min.js" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/Customer/PatternCustomerServlet.java" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/Filter/Auth.java" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/model/ShipmentAddress.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/model/Customer.java" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/Filter/request/ShipmentAddressRequest.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/Filter/RequestValidation.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/util/Util.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/ShipmentMethod/ShipmentMethodServlet.java" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/ShipmentAddress/ShipmentAddressController.java" />
-        <option value="$PROJECT_DIR$/resources/js/core.js" />
-        <option value="$PROJECT_DIR$/resources/js/khaycake.js" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/model/ShipmentStatus.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/OrderItem/OrderItemServlet.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/OrderItem/PatternOrderItemServlet.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/model/OrderStatus.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/Bank/BankServlet.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/BankAccountType/BankAccountTypeServlet.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/BankAccountType/PatternBankAccountTypeServlet.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/BankAccount/PatternBankAccountServlet.java" />
+        <option value="$PROJECT_DIR$/resources/css/theme-light.less" />
+        <option value="$PROJECT_DIR$/resources/css/mixin.less" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/model/BankBranch.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/model/Bank.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/Bank/PatternBankServlet.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/Filter/request/BankAccountRequest.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/BankAccount/BankAccountServlet.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/model/BankAccount.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/model/OrderItem.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/model/Cart.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/Cart/PatternCartServlet.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/Filter/request/PaymentRequest.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/Filter/FormAttribute.java" />
+        <option value="$PROJECT_DIR$/web/home.html" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/Filter/RequestValidation.java" />
+        <option value="$PROJECT_DIR$/web/js/bootstrap-timepicker.min.js" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/util/Util.java" />
         <option value="$PROJECT_DIR$/resources/css/khaycake.less" />
+        <option value="$PROJECT_DIR$/resources/css/theme-coffee.less" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/Product/PatternProductServlet.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/Product/ProductServlet.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/database/SQL.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/model/Product.java" />
+        <option value="$PROJECT_DIR$/web/css/khaycake.min.css" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/Order/OrderServlet.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/Payment/PaymentServlet.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/Payment/PatternPaymentServlet.java" />
+        <option value="$PROJECT_DIR$/web/admin.html" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/Order/PatternOrderServlet.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/model/Customer.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/model/Order.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/model/Payment.java" />
+        <option value="$PROJECT_DIR$/resources/js/admin.js" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/Auth/AuthController.java" />
+        <option value="$PROJECT_DIR$/resources/js/khaycake.js" />
+        <option value="$PROJECT_DIR$/resources/js/core.js" />
+        <option value="$PROJECT_DIR$/resources/css/admin.less" />
       </list>
     </option>
   </component>
@@ -330,7 +659,9 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -359,180 +690,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="khaycake" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KhayCake" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KhayCake-DevServlet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="khaycake" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KhayCake" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KhayCake-DevServlet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="khaycake" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Filter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KhayCake" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KhayCake-DevServlet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="khaycake" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Filter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="request" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KhayCake" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KhayCake-DevServlet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="khaycake" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KhayCake" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KhayCake-DevServlet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="khaycake" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ShipmentAddress" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KhayCake" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KhayCake-DevServlet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="khaycake" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Customer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KhayCake" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KhayCake-DevServlet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="out" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="artifacts" />
+              <option name="myItemId" value="web" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -544,7 +707,7 @@
     <property name="Downloaded.Files.Path.Enabled" value="true" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
@@ -560,12 +723,15 @@
     <property name="DefaultHtmlFileTemplate" value="Html5" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="sit.khaycake.model" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\web\images" />
+      <recent name="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\web\css" />
+      <recent name="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\web\js" />
       <recent name="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\out\artifacts\KhayCake_war_exploded" />
       <recent name="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\out\artifacts\KhayCake_war_exploded\images" />
-      <recent name="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet" />
-      <recent name="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\src\sit\khaycake" />
-      <recent name="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\web\js" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\web\js" />
@@ -1105,7 +1271,25 @@
       <workItem from="1430832326203" duration="8106000" />
       <workItem from="1430840678073" duration="1622000" />
       <workItem from="1430846955348" duration="6988000" />
-      <workItem from="1430859312979" duration="5057000" />
+      <workItem from="1430859312979" duration="8358000" />
+      <workItem from="1430893438899" duration="5752000" />
+      <workItem from="1430959201969" duration="9202000" />
+      <workItem from="1430968576560" duration="6270000" />
+      <workItem from="1430977093012" duration="3181000" />
+      <workItem from="1430981617038" duration="2001000" />
+      <workItem from="1430983743819" duration="4132000" />
+      <workItem from="1430987962275" duration="3732000" />
+      <workItem from="1430991829596" duration="4320000" />
+      <workItem from="1430996251996" duration="7332000" />
+      <workItem from="1431009163227" duration="7290000" />
+      <workItem from="1431016615478" duration="6683000" />
+      <workItem from="1431024384372" duration="5954000" />
+      <workItem from="1431032116026" duration="7182000" />
+      <workItem from="1431039419726" duration="2928000" />
+      <workItem from="1431042497312" duration="2464000" />
+      <workItem from="1431045051077" duration="2524000" />
+      <workItem from="1431047724856" duration="3088000" />
+      <workItem from="1431050993250" duration="1192000" />
     </task>
     <task id="LOCAL-00001" summary="2nd Push">
       <created>1428785948768</created>
@@ -1293,11 +1477,17 @@
       <option name="project" value="LOCAL" />
       <updated>1430853892403</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="working on checkout, select shipment address done">
+      <created>1430870031058</created>
+      <option name="number" value="00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1430870031058</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="345305000" />
+    <option name="totallyTimeSpent" value="433833000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1314,24 +1504,24 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.4969743" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31993568" sideWeight="0.41149774" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.317817" sideWeight="0.36081696" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35691318" sideWeight="0.5249622" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34565917" sideWeight="0.47806355" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279743" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.49092284" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27974278" sideWeight="0.48184568" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32744783" sideWeight="0.48184568" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26205787" sideWeight="0.40015128" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31993568" sideWeight="0.46066564" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22844176" sideWeight="0.4893617" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22844176" sideWeight="0.5945946" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.49909255" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17246597" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44051448" sideWeight="0.4750378" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22844176" sideWeight="0.4054054" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34565917" sideWeight="0.5219365" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1341,7 +1531,7 @@
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38424438" sideWeight="0.5338542" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25455928" sideWeight="0.5106383" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279743" sideWeight="0.48865354" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279743" sideWeight="0.48562783" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1349,7 +1539,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35691318" sideWeight="0.5249622" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279743" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1361,13 +1551,13 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.4969743" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31993568" sideWeight="0.41149774" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.49092284" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2813505" sideWeight="0.48184568" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27974278" sideWeight="0.48184568" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279743" sideWeight="0.48184568" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32636657" sideWeight="0.48184568" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38424438" sideWeight="0.5338542" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25455928" sideWeight="0.5106383" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22844176" sideWeight="0.4893617" order="0" side_tool="false" content_ui="combo" />
@@ -1414,42 +1604,16 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/sit/khaycake/Filter/request/ProductRequest.java</url>
-          <line>2</line>
-          <properties />
-          <option name="timeStamp" value="142" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/sit/khaycake/Controller/Product/ProductServlet.java</url>
-          <line>65</line>
-          <properties />
-          <option name="timeStamp" value="146" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/sit/khaycake/Controller/Customer/PatternCustomerServlet.java</url>
-          <line>55</line>
-          <properties />
-          <option name="timeStamp" value="182" />
-        </line-breakpoint>
-        <line-breakpoint type="java-method">
-          <url>file://$PROJECT_DIR$/src/sit/khaycake/Controller/Picture/PictureServlet.java</url>
-          <line>31</line>
-          <properties class="sit.khaycake.Controller.Picture.PictureServlet" method="doPost" />
-          <option name="timeStamp" value="127" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="186" />
+      <option name="time" value="276" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="GlassfishConfiguration">
-        <watch expression="sales.get(i).getQty()" />
-        <watch expression="qty" />
-        <watch expression="this.items.contains(product)" />
+        <watch expression="cart.getItems()" />
+        <watch expression="this.itemsMap.get(id)" />
+        <watch expression="keyword" language="JAVA" custom="" />
       </configuration>
       <configuration name="Application">
         <watch expression="sales.get(i).getQty()" />
@@ -1463,336 +1627,187 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/util/Util.java">
+    <entry file="file://$PROJECT_DIR$/resources/css/mixin.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
-          <folding>
-            <element signature="e#274#275#0" expanded="false" />
-            <element signature="e#359#360#0" expanded="false" />
-          </folding>
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/sit/khaycake/BankTesting.java">
+    <entry file="file://$PROJECT_DIR$/resources/css/mixin.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.8725">
+          <caret line="133" column="18" selection-start-line="133" selection-start-column="18" selection-end-line="133" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/Cart.java">
+    <entry file="file://$PROJECT_DIR$/resources/css/theme-light.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28301886">
+          <caret line="159" column="0" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Bank/PatternBankServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="115" column="39" selection-start-line="115" selection-start-column="39" selection-end-line="115" selection-end-column="39" />
+          <caret line="45" column="62" selection-start-line="45" selection-start-column="62" selection-end-line="45" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/BankAccount/PatternBankAccountServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47775176">
+          <caret line="45" column="46" selection-start-line="45" selection-start-column="46" selection-end-line="45" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Filter/request/CartRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="1" selection-start-line="10" selection-start-column="25" selection-end-line="20" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/BankBranch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3325527">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Filter/request/BankAccountRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.63700235">
+          <caret line="18" column="40" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/BankAccount/BankAccountServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="61" column="26" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/BankAccount.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="101" column="54" selection-start-line="101" selection-start-column="54" selection-end-line="101" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/Bank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.3419204">
+          <caret line="101" column="38" selection-start-line="101" selection-start-column="38" selection-end-line="101" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/OrderItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33080807">
+          <caret line="76" column="91" selection-start-line="76" selection-start-column="91" selection-end-line="76" selection-end-column="91" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Cart/CartServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <caret line="40" column="13" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Cart/PatternCartServlet.java">
+    <entry file="jar://$PROJECT_DIR$/lib/javax.servlet.jar!/javax/servlet/http/HttpServlet.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="43" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
+          <caret line="212" column="19" selection-start-line="212" selection-start-column="19" selection-end-line="212" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/core.min.js">
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/Cart.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6519174">
-          <caret line="1" column="1210" selection-start-line="1" selection-start-column="1210" selection-end-line="1" selection-end-column="1210" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="120" column="8" selection-start-line="120" selection-start-column="8" selection-end-line="120" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/khaycake.css">
+    <entry file="file://$PROJECT_DIR$/web/js/bootstrap-datepicker.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.0167065">
+        <state vertical-scroll-proportion="0.5040431">
+          <caret line="7" column="1390" selection-start-line="7" selection-start-column="1390" selection-end-line="7" selection-end-column="1390" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/bootstrap-datepicker.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22911051">
+          <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/PaymentStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/bootstrap-timepicker.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/css/admin.less">
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Filter/request/PaymentRequest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2514793">
-          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/admin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="21.346153">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/admin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="77" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/css/theme-light.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="166" column="1" selection-start-line="56" selection-start-column="0" selection-end-line="166" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/css/mixin.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="63" column="1" selection-start-line="63" selection-start-column="1" selection-end-line="63" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.22727273">
+          <caret line="10" column="47" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sit/khaycake/util/AssisDateTime.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1923077">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/util/Encryption.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/database/Column.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/CustAddress.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="51" column="39" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Filter/request/CustomerRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27419356">
-          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Filter/request/ProductRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68010753">
-          <caret line="24" column="1" selection-start-line="10" selection-start-column="27" selection-end-line="24" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Customer/CustomerServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/khaycake.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="11992" selection-start-line="0" selection-start-column="11992" selection-end-line="0" selection-end-column="11992" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Auth/AuthController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="78" column="35" selection-start-line="78" selection-start-column="35" selection-end-line="78" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Filter/HeaderFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="57" column="20" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Product/ProductServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="55" column="50" selection-start-line="55" selection-start-column="50" selection-end-line="55" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Filter/request/CartRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6854839">
-          <caret line="20" column="1" selection-start-line="10" selection-start-column="24" selection-end-line="20" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/Unit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="49" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/Product.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.655527">
-          <caret line="40" column="51" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/Geography.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/Tumbon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="68" column="5" selection-start-line="61" selection-start-column="4" selection-end-line="68" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/Province.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="61" column="19" selection-start-line="61" selection-start-column="19" selection-end-line="61" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/database/SQL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="187" column="20" selection-start-line="187" selection-start-column="20" selection-end-line="187" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.3333335">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/Amphur.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/css/theme-coffee.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.8461537">
-          <caret line="157" column="1" selection-start-line="157" selection-start-column="1" selection-end-line="158" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Product/PatternProductServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="34" selection-start-line="24" selection-start-column="6" selection-end-line="34" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/tumbons/TumbonController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="51" column="42" selection-start-line="51" selection-start-column="42" selection-end-line="51" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Amphur/AmphurController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="65" column="19" selection-start-line="26" selection-start-column="8" selection-end-line="66" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7026239">
-          <caret line="459" column="10" selection-start-line="459" selection-start-column="10" selection-end-line="459" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/jquery.autocomplete.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.2070177">
-          <caret line="7" column="11815" selection-start-line="7" selection-start-column="11815" selection-end-line="7" selection-end-column="11815" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Province/ProvinceServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45714286">
-          <caret line="35" column="34" selection-start-line="25" selection-start-column="6" selection-end-line="35" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Customer/PatternCustomerServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="17" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Filter/Auth.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="48" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/Customer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="196" column="17" selection-start-line="196" selection-start-column="17" selection-end-line="196" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/ShipmentAddress.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.74375">
-          <caret line="30" column="24" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+          <caret line="22" column="62" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="62" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Filter/FormAttribute.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.96875">
-          <caret line="57" column="19" selection-start-line="57" selection-start-column="19" selection-end-line="57" selection-end-column="19" />
-          <folding>
-            <element signature="e#1052#1053#0" expanded="false" />
-            <element signature="e#1084#1085#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.68686867">
+          <caret line="109" column="31" selection-start-line="109" selection-start-column="31" selection-end-line="109" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/bootstrap-timepicker.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4888179">
+          <caret line="4" column="6233" selection-start-line="4" selection-start-column="6233" selection-end-line="4" selection-end-column="6233" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Filter/RequestValidation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="69" column="51" selection-start-line="69" selection-start-column="51" selection-end-line="69" selection-end-column="51" />
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/util/SuccessMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1852#1853#0" expanded="false" />
-            <element signature="e#1882#1883#0" expanded="false" />
+            <element signature="e#356#357#0" expanded="false" />
+            <element signature="e#386#387#0" expanded="false" />
+            <element signature="e#421#422#0" expanded="false" />
+            <element signature="e#456#457#0" expanded="false" />
+            <element signature="e#503#504#0" expanded="false" />
+            <element signature="e#541#542#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1800,81 +1815,411 @@
     <entry file="file://$PROJECT_DIR$/src/sit/khaycake/util/Util.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/css/theme-coffee.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.653846">
+          <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Product/PatternProductServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.6340326">
+          <caret line="32" column="30" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/database/SQL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="116" column="5" selection-start-line="116" selection-start-column="5" selection-end-line="116" selection-end-column="5" />
           <folding>
-            <element signature="e#274#275#0" expanded="false" />
-            <element signature="e#359#360#0" expanded="false" />
+            <element signature="e#2343#2344#0" expanded="false" />
+            <element signature="e#2367#2368#0" expanded="false" />
+            <element signature="e#3122#3123#0" expanded="false" />
+            <element signature="e#3152#3153#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Filter/request/ShipmentAddressRequest.java">
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/Product.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.53023255">
+          <caret line="182" column="13" selection-start-line="182" selection-start-column="13" selection-end-line="182" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Cart/PatternCartServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+          <caret line="40" column="38" selection-start-line="31" selection-start-column="7" selection-end-line="40" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+          <folding>
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Picture/PictureServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Product/ProductServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Filter/request/ProductRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07906977">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/khaycake.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="2" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Payment/PaymentServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="52" selection-start-line="34" selection-start-column="52" selection-end-line="34" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Payment/PatternPaymentServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="59" column="51" selection-start-line="59" selection-start-column="51" selection-end-line="59" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/admin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="49" column="21" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
+          <folding>
+            <element signature="n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Order/PatternOrderServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="54" column="76" selection-start-line="54" selection-start-column="76" selection-end-line="54" selection-end-column="76" />
           <folding>
             <element signature="imports" expanded="false" />
-            <element signature="e#335#336#0" expanded="false" />
-            <element signature="e#365#366#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/ShipmentAddress/ShipmentAddressController.java">
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Customer/PatternCustomerServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <caret line="64" column="65" selection-start-line="64" selection-start-column="65" selection-end-line="64" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Order/OrderServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="54" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/Customer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="216" column="19" selection-start-line="216" selection-start-column="19" selection-end-line="216" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/Payment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="173" column="29" selection-start-line="173" selection-start-column="29" selection-end-line="173" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#7719#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#1304#1305#0" expanded="false" />
+            <element signature="e#1329#1330#0" expanded="false" />
+            <element signature="e#1362#1363#0" expanded="false" />
+            <element signature="e#1390#1391#0" expanded="false" />
+            <element signature="e#1421#1422#0" expanded="false" />
+            <element signature="e#1449#1450#0" expanded="false" />
+            <element signature="e#1490#1491#0" expanded="false" />
+            <element signature="e#1524#1525#0" expanded="false" />
+            <element signature="e#1567#1568#0" expanded="false" />
+            <element signature="e#1594#1595#0" expanded="false" />
+            <element signature="e#1646#1647#0" expanded="false" />
+            <element signature="e#1678#1679#0" expanded="false" />
+            <element signature="e#1718#1719#0" expanded="false" />
+            <element signature="e#1747#1748#0" expanded="false" />
+            <element signature="e#1798#1799#0" expanded="false" />
+            <element signature="e#1834#1835#0" expanded="false" />
+            <element signature="e#1872#1873#0" expanded="false" />
+            <element signature="e#1903#1904#0" expanded="false" />
+            <element signature="e#1954#1955#0" expanded="false" />
+            <element signature="e#1994#1995#0" expanded="false" />
+            <element signature="e#2027#2028#0" expanded="false" />
+            <element signature="e#2056#2057#0" expanded="false" />
+            <element signature="e#2100#2101#0" expanded="false" />
+            <element signature="e#2136#2137#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/Order.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="206" column="0" selection-start-line="206" selection-start-column="0" selection-end-line="206" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#9105#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#1671#1672#0" expanded="false" />
+            <element signature="e#1696#1697#0" expanded="false" />
+            <element signature="e#1734#1735#0" expanded="false" />
+            <element signature="e#1767#1768#0" expanded="false" />
+            <element signature="e#1801#1802#0" expanded="false" />
+            <element signature="e#1828#1829#0" expanded="false" />
+            <element signature="e#1876#1877#0" expanded="false" />
+            <element signature="e#1913#1914#0" expanded="false" />
+            <element signature="e#1945#1946#0" expanded="false" />
+            <element signature="e#1976#1977#0" expanded="false" />
+            <element signature="e#2021#2022#0" expanded="false" />
+            <element signature="e#2061#2062#0" expanded="false" />
+            <element signature="e#2098#2099#0" expanded="false" />
+            <element signature="e#2131#2132#0" expanded="false" />
+            <element signature="e#2183#2184#0" expanded="false" />
+            <element signature="e#2227#2228#0" expanded="false" />
+            <element signature="e#2265#2266#0" expanded="false" />
+            <element signature="e#2294#2295#0" expanded="false" />
+            <element signature="e#2343#2344#0" expanded="false" />
+            <element signature="e#2379#2380#0" expanded="false" />
+            <element signature="e#2424#2425#0" expanded="false" />
+            <element signature="e#2457#2458#0" expanded="false" />
+            <element signature="e#2517#2518#0" expanded="false" />
+            <element signature="e#2561#2562#0" expanded="false" />
+            <element signature="e#2608#2609#0" expanded="false" />
+            <element signature="e#2642#2643#0" expanded="false" />
+            <element signature="e#2705#2706#0" expanded="false" />
+            <element signature="e#2751#2752#0" expanded="false" />
+            <element signature="e#2784#2785#0" expanded="false" />
+            <element signature="e#2814#2815#0" expanded="false" />
+            <element signature="e#2859#2860#0" expanded="false" />
+            <element signature="e#2897#2898#0" expanded="false" />
+            <element signature="e#2934#2935#0" expanded="false" />
+            <element signature="e#2965#2966#0" expanded="false" />
+            <element signature="e#3015#3016#0" expanded="false" />
+            <element signature="e#3055#3056#0" expanded="false" />
+            <element signature="method#getItems#1;class#Order#0" expanded="false" />
+            <element signature="method#getPayments#0;class#Order#0" expanded="false" />
+            <element signature="method#findAll#0;class#Order#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="484" column="0" selection-start-line="484" selection-start-column="0" selection-end-line="484" selection-end-column="0" />
+          <folding>
+            <element signature="e#388#969#0" expanded="false" />
+            <element signature="e#998#1531#0" expanded="false" />
+            <element signature="e#1571#2534#0" expanded="false" />
+            <element signature="e#3162#4396#0" expanded="false" />
+            <element signature="e#4469#4653#0" expanded="false" />
+            <element signature="e#4776#6111#0" expanded="false" />
+            <element signature="e#8040#10161#0" expanded="false" />
+            <element signature="e#10422#11495#0" expanded="false" />
+            <element signature="e#11549#13954#0" expanded="false" />
+            <element signature="e#13148#13425#0" expanded="false" />
+            <element signature="e#13990#16658#0" expanded="false" />
+            <element signature="e#16698#16879#0" expanded="false" />
+            <element signature="e#16928#18086#0" expanded="false" />
+            <element signature="e#18133#21340#0" expanded="false" />
+            <element signature="e#21377#23706#0" expanded="false" />
+            <element signature="e#23747#24416#0" expanded="false" />
+            <element signature="e#24471#25770#0" expanded="false" />
+            <element signature="e#25827#28891#0" expanded="false" />
+            <element signature="e#28083#28360#0" expanded="false" />
+            <element signature="e#28925#33947#0" expanded="false" />
+            <element signature="e#33991#36188#0" expanded="false" />
+            <element signature="e#39510#41602#0" expanded="false" />
+            <element signature="e#41652#43744#0" expanded="false" />
+            <element signature="e#43799#45292#0" expanded="false" />
+            <element signature="e#45368#45639#0" expanded="false" />
+            <element signature="e#45726#46018#0" expanded="false" />
+            <element signature="e#46055#48243#0" expanded="false" />
+            <marker date="1431050158769" expanded="true" signature="2701:2717" placeholder="..." />
+            <marker date="1431050158769" expanded="true" signature="3604:3620" placeholder="..." />
+            <marker date="1431050158769" expanded="true" signature="7511:7525" placeholder="..." />
+            <marker date="1431050158769" expanded="true" signature="8164:8180" placeholder="..." />
+            <marker date="1431050158769" expanded="true" signature="9481:9497" placeholder="..." />
+            <marker date="1431050158769" expanded="true" signature="11212:11218" placeholder="..." />
+            <marker date="1431050158769" expanded="true" signature="11703:11714" placeholder="..." />
+            <marker date="1431050158769" expanded="true" signature="12441:12447" placeholder="..." />
+            <marker date="1431050158769" expanded="true" signature="14116:14132" placeholder="..." />
+            <marker date="1431050158769" expanded="true" signature="15971:15987" placeholder="..." />
+            <marker date="1431050158769" expanded="true" signature="17621:17635" placeholder="..." />
+            <marker date="1431050158769" expanded="true" signature="17801:17807" placeholder="..." />
+            <marker date="1431050158769" expanded="true" signature="19006:19012" placeholder="..." />
+            <marker date="1431050158769" expanded="true" signature="19469:19480" placeholder="..." />
+            <marker date="1431050158769" expanded="true" signature="21504:21520" placeholder="..." />
+            <marker date="1431050158769" expanded="true" signature="23017:23033" placeholder="..." />
+            <marker date="1431050158769" expanded="true" signature="26025:26036" placeholder="..." />
+            <marker date="1431050158769" expanded="true" signature="26770:26776" placeholder="..." />
+            <marker date="1431050158769" expanded="true" signature="29299:29315" placeholder="..." />
+            <marker date="1431050158769" expanded="true" signature="33374:33390" placeholder="..." />
+            <marker date="1431050158769" expanded="true" signature="34183:34193" placeholder="..." />
+            <marker date="1431050158769" expanded="true" signature="39877:39893" placeholder="..." />
+            <marker date="1431050158769" expanded="true" signature="41794:41804" placeholder="..." />
+            <marker date="1431050158769" expanded="true" signature="44167:44183" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/khaycake.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="291" column="27" selection-start-line="291" selection-start-column="27" selection-end-line="291" selection-end-column="27" />
+          <folding>
+            <element signature="e#141#727#0" expanded="false" />
+            <element signature="e#205#262#0" expanded="false" />
+            <element signature="e#309#367#0" expanded="false" />
+            <element signature="e#407#502#0" expanded="false" />
+            <element signature="e#540#717#0" expanded="false" />
+            <element signature="e#4477#5161#0" expanded="false" />
+            <element signature="e#4544#4916#0" expanded="false" />
+            <element signature="e#4922#5054#0" expanded="false" />
+            <element signature="e#5271#5955#0" expanded="false" />
+            <element signature="e#5716#5848#0" expanded="false" />
+            <element signature="e#6069#6753#0" expanded="false" />
+            <element signature="e#6514#6646#0" expanded="false" />
+            <element signature="e#6852#7538#0" expanded="false" />
+            <element signature="e#9343#9522#0" expanded="false" />
+            <element signature="e#9379#9508#0" expanded="false" />
+            <element signature="e#11541#11632#0" expanded="false" />
+            <element signature="e#11636#11738#0" expanded="false" />
+            <element signature="e#12064#12161#0" expanded="false" />
+            <element signature="e#13537#14204#0" expanded="false" />
+            <element signature="e#14242#14367#0" expanded="false" />
+            <element signature="e#14407#14847#0" expanded="false" />
+            <element signature="e#14548#14817#0" expanded="false" />
+            <element signature="e#14600#14667#0" expanded="false" />
+            <element signature="e#14671#14807#0" expanded="false" />
+            <element signature="e#14905#15793#0" expanded="false" />
+            <element signature="e#15836#16283#0" expanded="false" />
+            <element signature="e#15981#16253#0" expanded="false" />
+            <element signature="e#16033#16100#0" expanded="false" />
+            <element signature="e#16104#16243#0" expanded="false" />
+            <element signature="e#16343#17421#0" expanded="false" />
+            <element signature="e#17463#17543#0" expanded="false" />
+            <element signature="e#17584#19648#0" expanded="false" />
+            <element signature="e#19729#20504#0" expanded="false" />
+            <element signature="e#20556#21714#0" expanded="false" />
+            <element signature="e#21777#23834#0" expanded="false" />
+            <element signature="e#22543#23435#0" expanded="false" />
+            <element signature="e#23004#23281#0" expanded="false" />
+            <element signature="e#23882#24293#0" expanded="false" />
+            <element signature="e#24351#26250#0" expanded="false" />
+            <element signature="e#26307#26520#0" expanded="false" />
+            <element signature="e#26579#26797#0" expanded="false" />
+            <element signature="e#28044#29212#0" expanded="false" />
+            <element signature="e#29314#29644#0" expanded="false" />
+            <element signature="e#29680#30061#0" expanded="false" />
+            <element signature="e#29715#30053#0" expanded="false" />
+            <element signature="e#29802#30043#0" expanded="false" />
+            <element signature="e#30100#30418#0" expanded="false" />
+            <element signature="e#30458#30512#0" expanded="false" />
+            <element signature="e#30556#31606#0" expanded="false" />
+            <element signature="e#31645#32195#0" expanded="false" />
+            <element signature="e#32238#34627#0" expanded="false" />
+            <element signature="e#34673#34790#0" expanded="false" />
+            <element signature="e#34833#39698#0" expanded="false" />
+            <element signature="e#39743#40143#0" expanded="false" />
+            <element signature="e#40187#40409#0" expanded="false" />
+            <element signature="e#40458#41201#0" expanded="false" />
+            <element signature="e#41248#41477#0" expanded="false" />
+            <element signature="e#41529#42450#0" expanded="false" />
+            <element signature="e#42497#42710#0" expanded="false" />
+            <element signature="e#42770#45894#0" expanded="false" />
+            <element signature="e#46006#46666#0" expanded="false" />
+            <element signature="e#46751#48234#0" expanded="false" />
+            <element signature="e#48278#48285#0" expanded="false" />
+            <element signature="e#48338#50404#0" expanded="false" />
+            <element signature="e#50455#51268#0" expanded="false" />
+            <marker date="1431051835642" expanded="true" signature="8410:8430" placeholder="..." />
+            <marker date="1431051835642" expanded="true" signature="21361:21367" placeholder="..." />
+            <marker date="1431051835642" expanded="true" signature="28747:28761" placeholder="..." />
+            <marker date="1431051835642" expanded="true" signature="28927:28933" placeholder="..." />
+            <marker date="1431051835642" expanded="false" signature="43035:43045" placeholder="..." />
+            <marker date="1431051835642" expanded="false" signature="43564:43576" placeholder="..." />
+            <marker date="1431051835642" expanded="false" signature="53082:53117" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Auth/AuthController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="71" column="53" selection-start-line="71" selection-start-column="53" selection-end-line="71" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/core.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state vertical-scroll-proportion="-0.5862069">
+          <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
           <folding>
-            <element signature="e#885#1521#0" expanded="false" />
-            <element signature="e#3000#3031#0" expanded="false" />
-            <element signature="e#3065#3216#0" expanded="false" />
-            <element signature="e#8018#8761#0" expanded="false" />
-            <element signature="e#8783#8811#0" expanded="false" />
-            <element signature="e#8891#9279#0" expanded="false" />
-            <element signature="e#9429#9828#0" expanded="false" />
-            <marker date="1430861585443" expanded="true" signature="4451:4467" placeholder="..." />
-            <marker date="1430861585443" expanded="true" signature="6317:6333" placeholder="..." />
+            <element signature="e#10714#10742#0" expanded="false" />
+            <marker date="1431052077221" expanded="true" signature="6341:6357" placeholder="..." />
+            <marker date="1431052077221" expanded="true" signature="8207:8223" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/css/khaycake.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.769231">
-          <caret line="628" column="13" selection-start-line="628" selection-start-column="13" selection-end-line="628" selection-end-column="13" />
+        <state vertical-scroll-proportion="-205.3077">
+          <caret line="314" column="0" selection-start-line="314" selection-start-column="0" selection-end-line="314" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/khaycake.js">
+    <entry file="file://$PROJECT_DIR$/resources/css/admin.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32380953">
-          <caret line="545" column="27" selection-start-line="545" selection-start-column="27" selection-end-line="545" selection-end-column="27" />
-          <folding>
-            <element signature="e#186#772#0" expanded="false" />
-            <element signature="e#6471#7286#0" expanded="false" />
-            <element signature="e#7325#8102#0" expanded="false" />
-            <element signature="e#8137#8518#0" expanded="false" />
-            <element signature="e#8557#8608#0" expanded="false" />
-            <element signature="e#8648#8702#0" expanded="false" />
-            <element signature="e#8746#9688#0" expanded="false" />
-            <element signature="e#13141#14385#0" expanded="false" />
-            <element signature="e#14445#15351#0" expanded="false" />
-            <element signature="e#15413#16298#0" expanded="false" />
-            <element signature="e#17064#17807#0" expanded="false" />
-            <element signature="e#24417#24472#0" expanded="false" />
-            <element signature="e#24512#24520#0" expanded="false" />
-            <marker date="1430861904208" expanded="true" signature="19744:19754" placeholder="..." />
-            <marker date="1430861904208" expanded="true" signature="25478:25513" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="0.5779037">
+          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>

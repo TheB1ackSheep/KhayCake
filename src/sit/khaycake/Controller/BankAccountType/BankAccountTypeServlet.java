@@ -2,12 +2,16 @@ package sit.khaycake.Controller.BankAccountType;
 
 import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
+import sit.khaycake.model.Bank;
 import sit.khaycake.model.BankAccountType;
+import sit.khaycake.util.ErrorMessage;
+import sit.khaycake.util.SuccessMessage;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -16,29 +20,18 @@ import java.io.IOException;
 public class BankAccountTypeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        HttpSession session = request.getSession();
+        SuccessMessage success = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
+
         try {
-            Gson gson = new Gson();
-            String result = gson.toJson(SQL.findAll(BankAccountType.class));
-            response.getWriter().print(result);
-        } catch (Exception ex) {
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            success.setMessage(SQL.findAll(BankAccountType.class));
+        }catch (Exception ex){
+            error.setMessage(ex.getMessage());
         }
+
 
     }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        try {
-            BankAccountType bankAccountType = new BankAccountType();
-            bankAccountType.setName(request.getParameter("name"));
-            bankAccountType.save();
-
-            Gson gson = new Gson();
-            response.getWriter().print(gson.toJson(bankAccountType));
-        } catch (Exception ex) {
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-        }
-
-    }
 }

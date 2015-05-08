@@ -18,45 +18,9 @@ import java.util.List;
  */
 public class BankAccount implements ORM, CanFindByKeyword {
 
-    public enum Type {
-
-        SAVING(1),
-        CURRENT(2);
-
-        private BankAccountType type;
-        private int id;
-        private String name;
-
-        Type(int id) {
-            try {
-                this.id = id;
-                BankAccountType bt = (BankAccountType) SQL.findById(BankAccountType.class, id);
-                this.name = (bt == null) ? null : bt.getName();
-            } catch (Exception e) {
-                //must be caught or dec;ared to be thrown
-            }
-        }
-
-        public static Type getType(int id) {
-            switch (id) {
-                case 1:
-                    return SAVING;
-                case 2:
-                    return CURRENT;
-                default:
-                    return SAVING;
-            }
-        }
-
-        public int getId() {
-            return this.id;
-        }
-
-    }
-
     private int id;
-    private Bank.Branch branch;
-    private Type type;
+    private BankBranch branch;
+    private BankAccountType type;
     private String accNo;
     private String accName;
 
@@ -77,19 +41,19 @@ public class BankAccount implements ORM, CanFindByKeyword {
         this.id = id;
     }
 
-    public Bank.Branch getBranch() {
+    public BankBranch getBranch() {
         return branch;
     }
 
-    public void setBranch(Bank.Branch branch) {
+    public void setBranch(BankBranch branch) {
         this.branch = branch;
     }
 
-    public Type getType() {
+    public BankAccountType getType() {
         return type;
     }
 
-    public void setType(Type type) {
+    public void setType(BankAccountType type) {
         this.type = type;
     }
 
@@ -105,23 +69,23 @@ public class BankAccount implements ORM, CanFindByKeyword {
         return accName;
     }
 
-    public void setAccName(String acc_name) {
+    public void setAccName(String accName) {
         this.accName = accName;
     }
 
     public void orm(ResultSet rs) throws Exception {
         this.setId(rs.getInt(COLUMN_ID.getColumnName()));
-        this.setBranch((Bank.Branch) SQL.findById(Bank.Branch.class, rs.getInt(COLUMN_BABR_ID.getColumnName())));
-        this.setType(Type.getType(rs.getInt(COLUMN_BAAT_ID.getColumnName())));
         this.setAccNo(rs.getString(COLUMN_ACC_NO.getColumnName()));
         this.setAccName(rs.getString(COLUMN_ACC_NAME.getColumnName()));
+        this.setBranch(SQL.findById(BankBranch.class, rs.getInt(COLUMN_BABR_ID.getColumnName())));
+        this.setType(SQL.findById(BankAccountType.class, rs.getInt(COLUMN_BAAT_ID.getColumnName())));
     }
 
     public void save() throws Exception {
         SQL sql = new SQL();
         int id = sql
                 .insert()
-                .into(TABLE_NAME, COLUMN_ACC_NAME, COLUMN_ACC_NO, COLUMN_BAAT_ID, COLUMN_BAAT_ID, COLUMN_BABR_ID)
+                .into(TABLE_NAME, COLUMN_ACC_NAME, COLUMN_ACC_NO, COLUMN_BAAT_ID, COLUMN_BABR_ID)
                 .values(this.accName, this.accNo, this.type.getId(), this.branch.getId())
                 .exec();
         this.setId(id);

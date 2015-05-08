@@ -1,7 +1,8 @@
 package sit.khaycake.Controller.Cart;
 
 import sit.khaycake.Filter.request.CartRequest;
-import sit.khaycake.model.Cart;
+import sit.khaycake.database.SQL;
+import sit.khaycake.model.*;
 import sit.khaycake.util.ErrorMessage;
 import sit.khaycake.util.SuccessMessage;
 
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.Date;
 
 /**
  * Created by Pasuth on 19/4/2558.
@@ -50,6 +52,37 @@ public class PatternCartServlet extends HttpServlet {
                         session.setAttribute("cart", cart);
                         success.setMessage(cart);
                     }
+
+                }else if (method.equalsIgnoreCase("checkout")) {
+
+                    Cart cart = Cart.getCart(session);
+                    Customer cust = Customer.getCustomer(session);
+                    if(cust != null && cart.getItems().size() > 0 && cart.getShipmentAddress() != null && cart.getShipmentMethod() != null){
+                        Order order = new Order();
+                        order.setCustomer(cust);
+                        order.setOrderDate(new Date(System.currentTimeMillis()));
+                        order.setShipMethod(cart.getShipmentMethod());
+                        order.setShipAddress(cart.getShipmentAddress());
+                        order.setStatus(SQL.findById(OrderStatus.class, 1));
+                        order.setTotalPrice(cart.getTotalPrice()+cart.getShipmentMethod().getPrice());
+                        order.setTotalQty(cart.getTotalQty());
+                        order.save();
+
+                        for(Cart.Item i : cart.getItems()){
+                            OrderItem item = new OrderItem();
+                            item.setOrder(order);
+                            item.setAmount(i.getTotal());
+                            item.setQty(i.getQty());
+                            item.setProduct(i.getProduct());
+                            item.save();
+                        }
+                        session.removeAttribute("cart");
+                        success.setMessage(order);
+
+                    }else{
+                        error.setMessage("มีบางอย่างผิดพลาด");
+                    }
+
 
                 }
             }

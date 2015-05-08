@@ -53,30 +53,7 @@ public class PatternOrderItemServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String resource = request.getPathInfo().substring(request.getPathInfo().indexOf("/", 0) + 1);
-        OrderItem orderItem = null;
-        try {
-            orderItem = (OrderItem) SQL.findById(OrderItem.class, Integer.parseInt(resource));
-        } catch (Exception e) {
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-        }
-        if (orderItem != null) {
-            try {
-                orderItem.setAmount(Double.parseDouble(request.getParameter("AMOUNT")));
-                orderItem.setOrder((Order) SQL.findById(
-                        Order.class, Integer.parseInt(request.getParameter("ORDER_ID"))));
-                orderItem.setPriceUnit(Double.parseDouble(request.getParameter("PRICE_UNIT")));
-                orderItem.setProductSale((ProductSale) SQL.findById(
-                        ProductSale.class, Integer.parseInt(request.getParameter("PRSA_ID"))));
-                orderItem.setQty(Integer.parseInt(request.getParameter("QTY")));
-                orderItem.update();
 
-            } catch (Exception e) {
-                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            }
-        } else {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
-        }
 
     }
 

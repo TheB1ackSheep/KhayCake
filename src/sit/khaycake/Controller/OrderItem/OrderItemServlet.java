@@ -31,22 +31,6 @@ public class OrderItemServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            OrderItem orderItem = new OrderItem();
-            orderItem.setAmount(Double.parseDouble(request.getParameter("AMOUNT")));
-            orderItem.setOrder((Order) SQL.findById(
-                    Order.class, Integer.parseInt(request.getParameter("ORDER_ID"))));
-            orderItem.setPriceUnit(Double.parseDouble(request.getParameter("PRICE_UNIT")));
-            orderItem.setProductSale((ProductSale) SQL.findById(
-                    ProductSale.class, Integer.parseInt(request.getParameter("PRSA_ID"))));
-            orderItem.setQty(Integer.parseInt(request.getParameter("QTY")));
-            orderItem.save();
-
-            Gson gson = new Gson();
-            response.getWriter().print(gson.toJson(orderItem));
-        } catch (Exception ex) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
-        }
 
     }
 }

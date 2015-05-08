@@ -3,11 +3,14 @@ package sit.khaycake.Controller.Bank;
 import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
 import sit.khaycake.model.Bank;
+import sit.khaycake.util.ErrorMessage;
+import sit.khaycake.util.SuccessMessage;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -16,30 +19,17 @@ import java.io.IOException;
 public class BankServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            Gson gson = new Gson();
-            String result = gson.toJson(SQL.findAll(Bank.class));
-            response.getWriter().print(result);
-        } catch (Exception ex) {
 
+        HttpSession session = request.getSession();
+        SuccessMessage success = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
+
+        try {
+            success.setMessage(SQL.findAll(Bank.class));
+        }catch (Exception ex){
+            error.setMessage(ex.getMessage());
         }
 
     }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        try {
-            Bank bank = new Bank();
-            bank.setName(request.getParameter("NAME_TH"));
-            bank.save();
-
-            Gson gson = new Gson();
-            response.getWriter().print(gson.toJson(bank));
-        } catch (Exception ex) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            return;
-        }
-
-    }
 }

@@ -38,7 +38,7 @@ public class Product implements ORM, CanFindByKeyword {
     public static final Column COLUMN_PRICE = ORM.column(TABLE_NAME, "PRICE");
     public static final Column COLUMN_UNIT_ID = ORM.column(TABLE_NAME, "UNIT_ID");
     public static final List<Column> PRIMARY_KEY = ORM.columns(COLUMN_ID);
-    public static final List<Column> COLUMN_KEYWORD = ORM.columns(COLUMN_NAME);
+    public static final List<Column> COLUMN_KEYWORD = ORM.columns(COLUMN_NAME, COLUMN_DETAIL);
 
     public int getId() {
         return id;
@@ -170,6 +170,46 @@ public class Product implements ORM, CanFindByKeyword {
                 .where(ProductSale.COLUMN_PROD_ID, SQL.WhereClause.Operator.EQ, this.id)
                 .fetch(ProductSale.class);
         return result;
+    }
+
+    public static List<Product> find(Object... keywords) throws Exception {
+        SQL sql = new SQL();
+        String sqlCmd = "SELECT * FROM "+TABLE_NAME+" WHERE ";
+        for(int i=0;i<keywords.length;i++){
+            if(i<keywords.length-1) {
+                sqlCmd += "("+COLUMN_NAME+" LIKE ? OR "+COLUMN_DETAIL+" LIKE ?) AND ";
+                sql.addParam("%"+keywords[i]+"%");
+                sql.addParam("%"+keywords[i]+"%");
+            }
+            else {
+                sqlCmd += "("+COLUMN_NAME+" LIKE ? OR "+COLUMN_DETAIL+" LIKE ?)";
+                sql.addParam("%"+keywords[i]+"%");
+                sql.addParam("%"+keywords[i]+"%");
+            }
+        }
+        sql.setSql(sqlCmd);
+        return sql.fetch(Product.class);
+    }
+
+    public static List<Product> find(Object cat_id,Object... keywords) throws Exception {
+        SQL sql = new SQL();
+        String sqlCmd = "SELECT * FROM "+TABLE_NAME+" WHERE CAT_ID = ? AND (";
+        sql.addParam(cat_id);
+        for(int i=0;i<keywords.length;i++){
+            if(i<keywords.length-1) {
+                sqlCmd += "("+COLUMN_NAME+" LIKE ? OR "+COLUMN_DETAIL+" LIKE ?) AND ";
+                sql.addParam("%"+keywords[i]+"%");
+                sql.addParam("%"+keywords[i]+"%");
+            }
+            else {
+                sqlCmd += "("+COLUMN_NAME+" LIKE ? OR "+COLUMN_DETAIL+" LIKE ?)";
+                sql.addParam("%"+keywords[i]+"%");
+                sql.addParam("%"+keywords[i]+"%");
+            }
+        }
+        sqlCmd += ")";
+        sql.setSql(sqlCmd);
+        return sql.fetch(Product.class);
     }
 
 

@@ -9,6 +9,7 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import sit.khaycake.util.ErrorMessage;
+import sit.khaycake.util.SuccessMessage;
 import sit.khaycake.util.Util;
 
 import javax.servlet.ServletContext;
@@ -28,36 +29,39 @@ public class RequestValidation extends HttpServletRequestWrapper {
 
 
     public static FormAttribute attribute(String name, String nickname) {
-        return new FormAttribute(name, nickname, true, -1, -1, false, false, false);
+        return new FormAttribute(name, nickname, true, -1, -1, false, false, false, false);
     }
 
     public static FormAttribute attribute(String name, String nickname, boolean required) {
-        return new FormAttribute(name, nickname, required, -1, -1, false, false, false);
+        return new FormAttribute(name, nickname, required, -1, -1, false, false, false, false);
     }
 
     public static FormAttribute integerAttribute(String name, String nickname) {
-        return new FormAttribute(name, nickname, true, -1, -1, true, false, false);
+        return new FormAttribute(name, nickname, true, -1, -1, true, false, false, false);
     }
 
     public static FormAttribute integerAttribute(String name, String nickname, boolean required) {
-        return new FormAttribute(name, nickname, required, -1, -1, true, false, false);
+        return new FormAttribute(name, nickname, required, -1, -1, true, false, false, false);
     }
 
     public static FormAttribute floatAttribute(String name, String nickname) {
-        return new FormAttribute(name, nickname, true, -1, -1, false, true, false);
+        return new FormAttribute(name, nickname, true, -1, -1, false, true, false, false);
     }
 
     public static FormAttribute emailAttribute(String name, String nickname) {
-        return new FormAttribute(name, nickname, true, -1, -1, false, false, true);
+        return new FormAttribute(name, nickname, true, -1, -1, false, false, true, false);
     }
 
+    public static FormAttribute dateAttribute(String name, String nickname) {
+        return new FormAttribute(name, nickname, true, -1, -1, false, false, true, true);
+    }
 
     public RequestValidation(HttpServletRequest request) {
         super(request);
     }
 
     public boolean validate(FormAttribute... required) throws IOException {
-        ErrorMessage error = new ErrorMessage(this.getSession());
+        SuccessMessage error = new SuccessMessage(this.getSession());
         List<String> errors = new ArrayList<>();
         for (FormAttribute r : required) {
             String param = this.getRequest().getParameter(r.getName());

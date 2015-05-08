@@ -14,6 +14,47 @@ function toMoney(baht){
     return baht.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
 }
 
+function pagination(array,page,size){
+    var ren = {html: '', hasNext: false, data: array};
+    if(isInteger(page)) {
+        page = parseInt(page);
+        var link = window.location.hash.split("/").slice(0, -1).join("/");
+
+        if (array.slice) {
+            var startAt = ((page - 1) * size);
+            var endAt = startAt + size;
+            ren.total = Math.ceil(array.length / size);
+            ren.hasNext = (ren.total != 1) && (page <= ren.total);
+
+            if (ren.hasNext) {
+                ren.html = '<nav>' +
+                    '<ul class="pagination">';
+                if (page != 1)
+                    ren.html += '<li>' +
+                    '<a class="page-prev" href="#" aria-label="Previous">' +
+                    '<span aria-hidden="true">&laquo;</span>' +
+                    '</a>' +
+                    '</li>';
+                for (var i = 1; i <= ren.total; i++) {
+                    ren.html += '<li '+(page==i?'class="active"':'')+'><a class="page-button">' + i + '</a></li>';
+                }
+                if (page < ren.total)
+                    ren.html += '<li>' +
+                        '<a class="page-next" aria-label="Next">' +
+                        '<span aria-hidden="true">&raquo;</span>' +
+                        '</a>' +
+                        '</li>';
+                ren.html += '</ul>' +
+                    '</nav>';
+            }
+            ren.data = array.slice(startAt, endAt);
+        }
+        return ren;
+    }else{
+        return pagination(array,1,size);
+    }
+}
+
 var Ajax = Ajax || {};
 Ajax.onError = function(resp) {
     //TODO : add error notification for ajax request
@@ -106,8 +147,11 @@ Notify.alert = function(text){
 var Product = Product || {
         URL: "/product"
     };
-Product.all = function(fn) {
+Product.all = function(fn,q) {
+    if(!q)
     Ajax.GET(this.URL, fn);
+    else
+    Ajax.GET(this.URL + "?q=" + q, fn);
 };
 Product.find = function(id, fn) {
     if (id)
@@ -120,17 +164,29 @@ Product.byCategory = function(cat_id, fn) {
     if (isInteger(cat_id))
         Ajax.GET(this.URL + "?cat=" + cat_id, fn);
 };
-Product.cupcake = function(fn) {
-    Product.byCategory(1, fn);
+Product.cupcake = function(fn, q) {
+    if(!q)
+        Product.byCategory(1, fn);
+    else
+        Ajax.GET(this.URL + "?cat=1&q=" + q, fn);
 };
-Product.crapecake = function(fn) {
+Product.crapecake = function(fn, q) {
+    if(!q)
     Product.byCategory(2, fn);
+    else
+    Ajax.GET(this.URL + "?cat=2&q=" + q, fn);
 };
-Product.brownie = function(fn) {
+Product.brownie = function(fn, q) {
+    if(!q)
     Product.byCategory(3, fn);
+    else
+    Ajax.GET(this.URL + "?cat=3&q=" + q, fn);
 };
-Product.partycake = function(fn) {
+Product.partycake = function(fn, q) {
+    if(!q)
     Product.byCategory(4, fn);
+    else
+    Ajax.GET(this.URL + "?cat=4&q=" + q, fn);
 };
 Product.save = function(form, fn) {
     if (form && form.serialize) {
@@ -232,10 +288,10 @@ Product.form.picture = function(picture){
 Product.box = function(cake){
     if(!cake)
         cake = {};
-    return '<div class="col-md-3 col-xs-12">' +
+    return '<div class="col-md-3 col-sm-4 col-xs-6">' +
         '<div class="box inactive">' +
         '<div class="box-img">' +
-        '<img id="img-'+cake.id+'" src="'+HOST+'/product/'+cake.id+'/picture" alt=""/>' +
+            '<div id="box-img-'+cake.id+'" style="background-image:url(\''+HOST+'/product/'+cake.id+'/picture\')"></div>'+
         '</div>' +
         '<div class="box-name">' + cake.name + '</div>' +
         '<form class="cart-add" action="#!">' +
@@ -302,11 +358,15 @@ Cart.add = function(form,fn){
 Cart.all = function(fn){
     Ajax.GET(this.URL, fn);
 };
+Cart.checkout = function(fn){
+    Ajax.POST(this.URL +"/checkout", null, fn);
+};
 Cart.form = function(cart){
-    var items = cart.items;
+
     var html = ''
     var total = 0.0;
-    if(items && items.length > 0){
+    if(cart.items && cart.items.length > 0){
+        var items = cart.items;
         html += '<form id="user-cart"><div class="header row">'+
             '<div class="cell column-order">YOUR ORDER</div>'+
             '<div class="cell column-price">PRICE (&#3647;)</div>'+
@@ -352,6 +412,9 @@ Cart.item.form = function(item, idx){
 var Auth = Auth || {
         URL: "/auth"
     };
+Auth.logout = function(fn){
+    Ajax.GET(this.URL+"/logout", fn);
+};
 Auth.auth = function(form, fn){
     if(form && form.serialize)
         Ajax.POST(this.URL, form.serialize(), fn);
@@ -359,6 +422,27 @@ Auth.auth = function(form, fn){
 Auth.register = Auth.auth;
 Auth.get = function(fn){
     Ajax.GET(this.URL, fn);
+};
+Auth.order = {
+    URL: '/auth/order'
+};
+Auth.order.all = function(fn){
+  Ajax.GET(this.URL, fn);
+};
+Auth.order.find = function(id, fn){
+    Ajax.GET(this.URL+"/"+id, fn);
+};
+Auth.order.getItem = function(id, fn){
+  Ajax.GET(this.URL+"/"+id+"/item", fn);
+};
+Auth.payment = {
+    URL: '/auth/payment'
+};
+Auth.payment.all = function(fn){
+    Ajax.GET(this.URL, fn);
+};
+Auth.payment.find = function(id, fn){
+    Ajax.GET(this.URL+"/"+id, fn);
 };
 
 var Tumbon = Tumbon || {
@@ -400,3 +484,115 @@ Shipment.Address.update = function(id, form, fn){
     if(form && form.serialize)
         Ajax.POST(this.URL+"/"+id, form.serialize(), fn);
 };
+Shipment.Method = Shipment.Method || {
+      URL: "/shipment/method"
+    };
+Shipment.Method.set = function(form, fn){
+    if(form && form.serialize)
+        Ajax.POST(this.URL, form.serialize(), fn);
+};
+Shipment.Method.find = function(id, fn){
+    Ajax.GET(this.URL+"/"+id, fn);
+};
+Shipment.Method.all = function(fn){
+    Ajax.GET(this.URL, fn);
+};
+
+
+var Bank = Bank || {
+        URL: "/bank"
+    };
+Bank.all = function(fn){
+    Ajax.GET(this.URL, fn);
+};
+Bank.find = function(id, fn){
+    Ajax.GET(this.URL+"/"+id, fn);
+};
+
+var BankType = BankType || {
+        URL:"/bankaccounttype"
+    };
+BankType.all = function(fn){
+    Ajax.GET(this.URL, fn);
+};
+BankType.find = function(id, fn){
+    Ajax.GET(this.URL+"/"+id, fn);
+};
+
+var BankAccount = BankAccount || {
+        URL: "/bankaccount"
+    };
+BankAccount.all = function(fn){
+    Ajax.GET(this.URL, fn);
+};
+BankAccount.find = function(id, fn){
+    if(isInteger(id))
+        Ajax.GET(this.URL+"/"+id, fn);
+    else
+        Ajax.GET(this.URL+"/q/"+id, fn);
+};
+BankAccount.add = function(form, fn){
+    if(form && form.serialize)
+        Ajax.POST(this.URL, form.serialize(), fn);
+};
+
+var Payment = Payment || {
+        URL:"/payment"
+    };
+Payment.confirm = function(form, fn){
+    if(form && form.serialize)
+        Ajax.POST(this.URL, form.serialize(), fn);
+};
+Payment.approving = function(fn, q){
+    if(!q)
+        Ajax.GET(this.URL+"/approving", fn);
+    else
+        Ajax.GET(this.URL+"/approving?q="+q, fn);
+};
+Payment.find = function(id, fn){
+    Ajax.GET(this.URL+"/"+id, fn);
+};
+Payment.all = function(fn, q){
+    if(!q)
+        Ajax.GET(this.URL, fn);
+    else
+        Ajax.GET(this.URL+"?q="+q, fn);
+};
+Payment.accept = function(id, fn){
+    Ajax.GET(this.URL+"/"+id+"/accept", fn);
+};
+Payment.deny = function(id, fn){
+    Ajax.GET(this.URL+"/"+id+"/deny", fn);
+};
+
+var Order = Order || {
+        URL: "/order"
+    };
+Order.find = function(id, fn){
+  Ajax.GET(this.URL+"/"+id, fn);
+};
+Order.items = function(id, fn){
+    Ajax.GET(this.URL+"/"+id+"/item", fn);
+};
+Order.all = function(fn, q){
+    if(!q)
+        Ajax.GET(this.URL, fn);
+    else
+        Ajax.GET(this.URL+"?q="+q, fn);
+};
+Order.shipping = function(fn, q){
+    if(!q)
+        Ajax.GET(this.URL+"/shipping", fn);
+    else
+        Ajax.GET(this.URL+"/shipping?q="+q, fn);
+};
+Order.shipped = function(id, track_id, fn){
+    Ajax.GET(this.URL+"/"+id+"/shipped"+(track_id?'?track_id='+track_id:''), fn);
+};
+Order.paid = function(fn, q){
+    if(!q)
+        Ajax.GET(this.URL+"/paid", fn);
+    else
+        Ajax.GET(this.URL+"/paid?q="+q, fn);
+};
+

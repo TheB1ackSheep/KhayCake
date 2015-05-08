@@ -2,6 +2,7 @@ package sit.khaycake.Controller.ShipmentAddress;
 
 import sit.khaycake.Filter.request.ShipmentAddressRequest;
 import sit.khaycake.database.SQL;
+import sit.khaycake.model.Cart;
 import sit.khaycake.model.Customer;
 import sit.khaycake.model.ShipmentAddress;
 import sit.khaycake.model.Tumbon;
@@ -60,9 +61,15 @@ public class ShipmentAddressController extends HttpServlet {
                         s.setCustomer(user);
                         s.save(isNew);
                     }
+                    Cart cart = Cart.getCart(session);
+                    if(cart != null)
+                        cart.setShipmentAddress(s);
                     success.setMessage(s);
                 }else{
                     ShipmentAddress s = SQL.findById(ShipmentAddress.class, shad_id);
+                    Cart cart = Cart.getCart(session);
+                    if(cart != null)
+                        cart.setShipmentAddress(s);
                     success.setMessage(s);
                 }
 

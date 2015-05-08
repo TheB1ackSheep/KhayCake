@@ -11,8 +11,12 @@ public class Util {
         return str.matches("^[0-9]+$");
     }
 
+    public static boolean isDate(String str) {
+        return str.matches("^[0-9]{2}/[0-9]{2}/[0-9]{4}$");
+    }
+
     public static boolean isFloat(String str) {
-        return str.matches("^\\.[0-9]+$") || str.matches("^[0-9]+\\.[0-9]+$");
+        return isInteger(str) || str.matches("^\\.[0-9]+$") || str.matches("^[0-9]+\\.[0-9]+$");
     }
 
     public static boolean isEmail(String str){

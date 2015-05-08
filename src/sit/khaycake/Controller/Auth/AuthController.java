@@ -1,7 +1,9 @@
 package sit.khaycake.Controller.Auth;
 
 import sit.khaycake.Filter.request.CustomerRequest;
+import sit.khaycake.database.SQL;
 import sit.khaycake.model.Customer;
+import sit.khaycake.model.Order;
 import sit.khaycake.util.Encryption;
 import sit.khaycake.util.ErrorMessage;
 import sit.khaycake.util.SuccessMessage;
@@ -17,33 +19,83 @@ import java.io.IOException;
 /**
  * Created by Falook Glico on 5/5/2015.
  */
-@WebServlet(name = "AuthController", urlPatterns = "/auth")
+@WebServlet(name = "AuthController", urlPatterns = "/auth/*")
 public class AuthController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String[] resources = req.getRequestURI().split("/");
 
         HttpSession session = req.getSession();
         SuccessMessage success = new SuccessMessage(session);
         ErrorMessage error = new ErrorMessage(session);
-        Customer user = (Customer) session.getAttribute("user");
-        if(user != null)
-            success.setMessage(user);
-        else
-            success.setMessage("คุณยังไม่ได้ล็อกอิน");
+        Customer user = Customer.getCustomer(session);
+
+        String method = null,param = null,param2 = null;
+        if (resources.length >= 4)
+            method = resources[3];
+        if (resources.length >= 5)
+            param = resources[4];
+        if (resources.length >= 6)
+            param2 = resources[4];
+
+        try {
+
+            if (method == null) {
+
+                if (user != null)
+                    success.setMessage(user);
+                else
+                    success.setMessage(403);
+
+            } else {
+
+
+                if (user != null) {
+                    if (method.equals("order")) {
+                        if(param == null)
+                            success.setMessage(user.getOrders());
+                        else{
+                            Order order = SQL.findById(Order.class, param);
+                            if(order != null){
+                                if(param2 == null)
+                                    success.setMessage(order);
+                                else
+                                    success.setMessage(order.getItems());
+                            }else
+                                resp.sendError(HttpServletResponse.SC_NOT_FOUND);
+                        }
+
+                    }else if(method.equals("payment")){
+                        success.setMessage(user.getPayments());
+                    }else if(method.equals("logout"))
+                    {
+                        session.removeAttribute("user");
+                        success.setMessage("success");
+                    }
+                } else {
+                    success.setMessage(403);
+                }
+            }
+        } catch (Exception ex) {
+            error.setMessage(ex.getMessage());
+        }
 
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+
         HttpSession session = req.getSession();
         SuccessMessage success = new SuccessMessage(session);
         ErrorMessage error = new ErrorMessage(session);
 
-        CustomerRequest customerRequest = new CustomerRequest(req);
+        try {
 
-        if (customerRequest.validate()) {
-            try {
+            CustomerRequest customerRequest = new CustomerRequest(req);
+
+            if (customerRequest.validate()) {
+
                 String email = req.getParameter("email");
                 String password = req.getParameter("pwd");
                 String confirmPassword = req.getParameter("confirm-pwd");
@@ -59,7 +111,7 @@ public class AuthController extends HttpServlet {
                         success.setMessage(cust);
                         session.setAttribute("user", cust);
                     } else {
-                        error.setMessage("รหัสผ่านไม่ตรงกัน");
+                        success.setMessage("รหัสผ่านไม่ตรงกัน");
                     }
 
                 } else {
@@ -72,13 +124,17 @@ public class AuthController extends HttpServlet {
                         success.setMessage("อีเมล์หรือรหัสผ่านไม่ถูกต้อง");
                     }
                 }
-            } catch (Exception ex) {
-                error.setMessage(ex.getMessage());
+
+
+                if (error.getMessage() != null)
+                    session.removeAttribute("user");
             }
 
-            if (error.getMessage() != null)
-                session.removeAttribute("user");
+        }catch (Exception ex){
+            error.setMessage(ex.getMessage());
         }
+
+
 
     }
 }

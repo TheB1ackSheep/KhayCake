@@ -112,6 +112,16 @@ public class SQL {
         return con;
     }
 
+    public void setSql(String sql) {
+        this.sql = sql;
+    }
+
+    public void addParam(Object param){
+        if(this.params == null)
+            params = new ArrayList<>();
+        params.add(param);
+    };
+
     public SQL select() {
         this.sql = "SELECT * ";
         return this;
@@ -136,7 +146,7 @@ public class SQL {
         return this;
     }
 
-    public SQL from(String... tables) throws NoSuchFieldException, IllegalAccessException, SQLException, ClassNotFoundException {
+    public SQL from(String... tables) throws Exception {
         this.sql += "FROM ";
         for (int i = 0; i < tables.length; i++)
             this.sql += tables[i] + ((i < tables.length - 1) ? ", " : " ");
@@ -235,7 +245,7 @@ public class SQL {
         return this;
     }
 
-    public SQL into(String table, Column... columns) throws NoSuchFieldException, IllegalAccessException {
+    public SQL into(String table, Column... columns) throws Exception {
         this.sql += "INTO " + table + " (";
         for (int i = 0; i < columns.length; i++)
             this.sql += columns[i] + ((i < columns.length - 1) ? ", " : ") ");
@@ -257,7 +267,7 @@ public class SQL {
         return this;
     }
 
-    public SQL update(String table) throws NoSuchFieldException, IllegalAccessException {
+    public SQL update(String table) throws Exception {
         this.sql = "UPDATE " + table + " ";
         return this;
     }
@@ -281,7 +291,7 @@ public class SQL {
         return this;
     }
 
-    public int exec() throws ColumnValueMismatchException, SQLException, ClassNotFoundException, IllegalAccessException, NoSuchFieldException, InstantiationException {
+    public int exec() throws Exception {
         try (Connection conn = getConnection()) {
             PreparedStatement prep = conn.prepareStatement(this.sql, Statement.RETURN_GENERATED_KEYS);
             for (int i = 0; i < params.size(); i++)
@@ -329,7 +339,7 @@ public class SQL {
                     sql.where(candidateKeys.get(j), WhereClause.Operator.LIKE, "%" + keywords[i] + "%");
             }
             if (i < keywords.length - 1)
-                sql.appendSql(" OR ");
+                sql.appendSql(" AND ");
         }
         return sql.fetch(entity);
     }

@@ -11,6 +11,7 @@ import sit.khaycake.database.ORM;
 import sit.khaycake.database.SQL;
 import sit.khaycake.util.Encryption;
 
+import javax.servlet.http.HttpSession;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -188,6 +189,10 @@ public class Customer implements ORM, CanFindByKeyword {
         return null;
     }
 
+    public static Customer getCustomer(HttpSession session){
+        return (Customer)session.getAttribute("user");
+    }
+
     public List<ShipmentAddress> getAddresses() throws Exception {
         SQL sql = new SQL();
         List<ShipmentAddress> s = sql.select()
@@ -207,6 +212,26 @@ public class Customer implements ORM, CanFindByKeyword {
         if(s != null && s.size() > 0)
             return s.get(0);
         return null;
+    }
+
+    public List<Order> getOrders() throws Exception {
+        SQL sql = new SQL();
+        return sql.select()
+                .from(Order.TABLE_NAME)
+                .where(Order.COLUMN_CUST_ID, SQL.WhereClause.Operator.EQ, this.id)
+                .order(Order.COLUMN_ORDER_DATE, SQL.OrderClause.Operator.DESC)
+                .fetch(Order.class);
+    }
+
+    public List<Payment> getPayments() throws Exception {
+        SQL sql = new SQL();
+        return sql.select()
+                .from(Payment.TABLE_NAME)
+                .join(Order.TABLE_NAME)
+                .on(Payment.COLUMN_ORDER_ID, Order.COLUMN_ID)
+                .where(Order.COLUMN_CUST_ID, SQL.WhereClause.Operator.EQ, this.id)
+                .order(Payment.COLUMN_DATE_TIME, SQL.OrderClause.Operator.DESC)
+                .fetch(Payment.class);
     }
 
 

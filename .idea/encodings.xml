@@ -13,10 +13,16 @@
     <file url="file://$PROJECT_DIR$/web" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/web/admin.html" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/web/css" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/web/css/bootstrap-datepicker.min.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/css/bootstrap-timepicker.min.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/web/fonts" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/web/home.html" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/web/images" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/web/images/sad.png" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/images/spongebob.jpg" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/index.html" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/web/js" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/web/js/bootstrap-datepicker.min.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/js/bootstrap-timepicker.min.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/web/js/jquery.autocomplete.min.js" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>

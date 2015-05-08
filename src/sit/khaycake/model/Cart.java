@@ -3,6 +3,7 @@ package sit.khaycake.model;
 import sit.khaycake.database.SQL;
 
 import javax.servlet.http.HttpSession;
+import java.io.Serializable;
 import java.util.*;
 
 /**
@@ -11,8 +12,12 @@ import java.util.*;
 public class Cart {
     private transient HashMap<Integer, Item> itemsMap;
     private List<Item> items;
+    private ShipmentMethod shipmentMethod;
+    private ShipmentAddress shipmentAddress;
+    private double totalPrice;
+    private int totalQty;
 
-    class Item implements Comparable<Item> {
+    public class Item implements Comparable<Item>, Serializable {
         private Product product;
         private int qty;
         private double total;
@@ -91,19 +96,50 @@ public class Cart {
         }
     }
 
+    public ShipmentMethod getShipmentMethod() {
+        return shipmentMethod;
+    }
+
+    public void setShipmentMethod(ShipmentMethod shipmentMethod) {
+        this.shipmentMethod = shipmentMethod;
+    }
+
+    public ShipmentAddress getShipmentAddress() {
+        return shipmentAddress;
+    }
+
+    public void setShipmentAddress(ShipmentAddress shipmentAddress) {
+        this.shipmentAddress = shipmentAddress;
+    }
+
     public static Cart getCart(HttpSession session) {
         Cart cart = (Cart) session.getAttribute("cart");
         return cart != null ? cart : new Cart();
     }
 
     public List<Item> getItems() {
-        if(this.items == null)
-            this.items = new ArrayList<>();
+        this.items = new ArrayList<>();
         Collection c = itemsMap.values();
         Iterator<Item> it = c.iterator();
         while(it.hasNext())
             this.items.add(it.next());
         return this.items;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public int getTotalQty() {
+        return totalQty;
+    }
+
+    public void setTotalQty(int totalQty) {
+        this.totalQty = totalQty;
     }
 
     public void add(int id) throws Exception {
@@ -125,6 +161,12 @@ public class Cart {
             }
             this.items.addAll(this.itemsMap.values());
         }
+
+        this.totalQty = items.size();
+        double totalPrice = 0d;
+        for(Item i : this.items)
+            totalPrice += i.getTotal();
+        this.totalPrice = totalPrice;
     }
 
     public void set(int id, int qty) throws Exception {
@@ -141,6 +183,11 @@ public class Cart {
             }
             this.items.addAll(this.itemsMap.values());
         }
+        this.totalQty = items.size();
+        double totalPrice = 0d;
+        for(Item i : this.items)
+            totalPrice += i.getTotal();
+        this.totalPrice = totalPrice;
     }
 
     public int getSize() {

@@ -9,6 +9,7 @@ import sit.khaycake.database.Column;
 import sit.khaycake.database.ORM;
 import sit.khaycake.database.SQL;
 
+import java.io.Serializable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -16,7 +17,7 @@ import java.util.List;
 /**
  * @author -milk
  */
-public class OrderStatus implements ORM {
+public class OrderStatus implements ORM, Serializable {
     private int id;
     private String name;
 

@@ -391,7 +391,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>ShipmentMethodServler</servlet-name>
-        <url-pattern>/shipmentmethod</url-pattern>
+        <url-pattern>/shipment/method/*</url-pattern>
     </servlet-mapping>
 
     <servlet>

@@ -11,6 +11,7 @@ import sit.khaycake.database.SQL;
 
 import java.sql.Date;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -18,52 +19,11 @@ import java.util.List;
  */
 public class Payment implements ORM {
 
-    public enum Status {
-
-        COMPLETED(1),
-        CANCELED(2),
-        PENDING(3),
-        FAILED(4);
-
-        private PaymentStatus paymentStatus;
-        private int id;
-        private String name;
-
-        Status(int id) {
-            try {
-                this.id = id;
-                paymentStatus = (PaymentStatus) SQL.findById(PaymentStatus.class, id);
-                this.name = (paymentStatus == null) ? null : paymentStatus.getName();
-            } catch (Exception e) {
-                //must be caught or dec;ared to be thrown
-            }
-        }
-
-        public static Status getStatus(int id) {
-            switch (id) {
-                case 1:
-                    return COMPLETED;
-                case 2:
-                    return CANCELED;
-                case 3:
-                    return PENDING;
-                case 4:
-                    return FAILED;
-                default:
-                    return PENDING;
-            }
-        }
-
-        public int getId() {
-            return this.id;
-        }
-    }
-
     private int id;
     private Order order;
     private BankAccount baac;
-    private Status status;
-    private Date dateTime;
+    private PaymentStatus status;
+    private Timestamp dateTime;
     private double amount;
 
     public static final String TABLE_NAME = "PAYMENTS";
@@ -71,7 +31,7 @@ public class Payment implements ORM {
     public static final Column COLUMN_ORDER_ID = ORM.column(TABLE_NAME, "ORDER_ID");
     public static final Column COLUMN_BAAC_ID = ORM.column(TABLE_NAME, "BAAC_ID");
     public static final Column COLUMN_PAST_ID = ORM.column(TABLE_NAME, "PAST_ID");
-    public static final Column COLUMN_DATE_TIME = ORM.column(TABLE_NAME, "DATE_TIME");
+    public static final Column COLUMN_DATE_TIME = ORM.column(TABLE_NAME, "DATETIME");
     public static final Column COLUMN_AMOUNT = ORM.column(TABLE_NAME, "AMOUNT");
     public static final List<Column> PRIMARY_KEY = ORM.columns(COLUMN_ID);
 
@@ -91,27 +51,27 @@ public class Payment implements ORM {
         this.order = order;
     }
 
-    public BankAccount getBaac() {
+    public BankAccount getBankAccount() {
         return baac;
     }
 
-    public void setBaac(BankAccount baac) {
+    public void setBankAccount(BankAccount baac) {
         this.baac = baac;
     }
 
-    public Status getStatus() {
+    public PaymentStatus getStatus() {
         return status;
     }
 
-    public void setPast(Status status) {
+    public void setStatus(PaymentStatus status) {
         this.status = status;
     }
 
-    public Date getDateTime() {
+    public Timestamp getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(Date dateTime) {
+    public void setDateTime(Timestamp dateTime) {
         this.dateTime = dateTime;
     }
 
@@ -126,35 +86,30 @@ public class Payment implements ORM {
     public void orm(ResultSet rs) throws Exception {
 
         this.setId(rs.getInt(COLUMN_ID.getColumnName()));
-        this.setOrder((Order) SQL.findById(Order.class, rs.getInt(COLUMN_ORDER_ID.getColumnName())));
-        this.setBaac((BankAccount) SQL.findById(BankAccount.class, rs.getInt(COLUMN_BAAC_ID.getColumnName())));
-        this.setPast(Status.getStatus(rs.getInt(COLUMN_PAST_ID.getColumnName())));
-        this.setDateTime(rs.getDate(COLUMN_DATE_TIME.getColumnName()));
+        this.setDateTime(rs.getTimestamp(COLUMN_DATE_TIME.getColumnName()));
         this.setAmount(rs.getDouble(COLUMN_AMOUNT.getColumnName()));
+        this.setOrder(SQL.findById(Order.class, rs.getInt(COLUMN_ORDER_ID.getColumnName())));
+        this.setBankAccount(SQL.findById(BankAccount.class, rs.getInt(COLUMN_BAAC_ID.getColumnName())));
+        this.setStatus(SQL.findById(PaymentStatus.class, rs.getInt(COLUMN_PAST_ID.getColumnName())));
 
     }
 
     public void save() throws Exception {
         SQL sql = new SQL();
-        int id = sql
+        this.id = sql
                 .insert()
                 .into(Payment.TABLE_NAME, Payment.COLUMN_ORDER_ID, Payment.COLUMN_AMOUNT, Payment.COLUMN_BAAC_ID,
                         Payment.COLUMN_DATE_TIME, Payment.COLUMN_PAST_ID)
-                .values(this.getOrder(), this.getAmount(), this.getBaac(), this.getDateTime(), this.getStatus().getId())
+                .values(this.getOrder().getId(), this.getAmount(), this.getBankAccount().getId(), this.getDateTime(), this.getStatus().getId())
                 .exec();
-        this.setId(id);
     }
 
     public void update() throws Exception {
         SQL sql = new SQL();
         sql
-                .update(Payment.TABLE_NAME)
-                .set(Payment.COLUMN_ORDER_ID, this.getOrder())
-                .set(Payment.COLUMN_AMOUNT, this.getAmount())
-                .set(Payment.COLUMN_BAAC_ID, this.getBaac())
-                .set(Payment.COLUMN_DATE_TIME, this.getDateTime())
-                .set(Payment.COLUMN_PAST_ID, this.getStatus().getId())
-                .where(Payment.COLUMN_ID, SQL.WhereClause.Operator.EQ, this.getId())
+                .update(TABLE_NAME)
+                .set(COLUMN_PAST_ID, this.status.getId())
+                .where(COLUMN_ID, SQL.WhereClause.Operator.EQ, this.id)
                 .exec();
     }
 
@@ -165,5 +120,82 @@ public class Payment implements ORM {
                 .where(Payment.COLUMN_ID, SQL.WhereClause.Operator.EQ, PATM_ID)
                 .exec();
         return a;
+    }
+
+    public static List<Payment> findByKeyword(Object... q) throws Exception {
+        SQL sql = new SQL();
+        String sqlCmd = "SELECT "+COLUMN_ID+", "+COLUMN_PAST_ID+", "+COLUMN_DATE_TIME+", "+COLUMN_BAAC_ID+", "+COLUMN_ORDER_ID+", " +
+                COLUMN_AMOUNT+" FROM "+TABLE_NAME+" "+
+                "JOIN "+Order.TABLE_NAME+" ON "+COLUMN_ORDER_ID+" = "+Order.COLUMN_ID+" "+
+                "JOIN "+ShipmentAddress.TABLE_NAME+" ON "+Order.COLUMN_SHAD_ID+" = "+ShipmentAddress.COLUMN_ID+" "+
+                "JOIN "+Customer.TABLE_NAME+" ON "+Order.COLUMN_CUST_ID+" = "+Customer.COLUMN_ID+" WHERE ";
+        for(int i=0;i<q.length;i++){
+            sqlCmd +=  "("+Customer.COLUMN_PHONE+" LIKE ? OR "+Customer.COLUMN_EMAIL+" LIKE ? OR "+Customer.COLUMN_FNAME+" LIKE ? " +
+                    "OR "+Customer.COLUMN_LNAME+" LIKE ? OR "+ShipmentAddress.COLUMN_FNAME+" LIKE ? OR "+ShipmentAddress.COLUMN_LNAME+" LIKE ? OR "+Order.COLUMN_ID+" = ?)";
+            if(i < q.length-1)
+                sqlCmd += " AND ";
+            sql.addParam("%"+q[i]+"%");
+            sql.addParam("%"+q[i]+"%");
+            sql.addParam("%"+q[i]+"%");
+            sql.addParam("%"+q[i]+"%");
+            sql.addParam("%"+q[i]+"%");
+            sql.addParam("%"+q[i]+"%");
+            sql.addParam(q[i]);
+        }
+        sql.setSql(sqlCmd);
+        return  sql.fetch(Payment.class);
+    }
+
+    public static List<Payment> findByStatusAndKeyword(Object statudId,Object... q) throws Exception {
+        SQL sql = new SQL();
+        if(q == null)
+            return sql.select()
+                    .from(TABLE_NAME)
+                    .where(COLUMN_PAST_ID, SQL.WhereClause.Operator.EQ, statudId)
+                    .order(COLUMN_DATE_TIME, SQL.OrderClause.Operator.DESC)
+                    .fetch(Payment.class);
+        else{
+            String sqlCmd = "SELECT "+COLUMN_ID+", "+COLUMN_PAST_ID+", "+COLUMN_DATE_TIME+", "+COLUMN_BAAC_ID+", "+COLUMN_ORDER_ID+", " +
+                    COLUMN_AMOUNT+" FROM "+TABLE_NAME+" "+
+                    "JOIN "+Order.TABLE_NAME+" ON "+COLUMN_ORDER_ID+" = "+Order.COLUMN_ID+" "+
+                    "JOIN "+ShipmentAddress.TABLE_NAME+" ON "+Order.COLUMN_SHAD_ID+" = "+ShipmentAddress.COLUMN_ID+" "+
+                    "JOIN "+Customer.TABLE_NAME+" ON "+Order.COLUMN_CUST_ID+" = "+Customer.COLUMN_ID+" WHERE "+COLUMN_PAST_ID+" = "+statudId+" AND";
+            for(int i=0;i<q.length;i++){
+                sqlCmd +=  "("+Customer.COLUMN_PHONE+" LIKE ? OR "+Customer.COLUMN_EMAIL+" LIKE ? OR "+Customer.COLUMN_FNAME+" LIKE ? " +
+                        "OR "+Customer.COLUMN_LNAME+" LIKE ? OR "+ShipmentAddress.COLUMN_FNAME+" LIKE ? OR "+ShipmentAddress.COLUMN_LNAME+" LIKE ? OR "+Order.COLUMN_ID+" = ?)";
+                if(i < q.length-1)
+                    sqlCmd += " AND ";
+                sql.addParam("%"+q[i]+"%");
+                sql.addParam("%"+q[i]+"%");
+                sql.addParam("%"+q[i]+"%");
+                sql.addParam("%"+q[i]+"%");
+                sql.addParam("%"+q[i]+"%");
+                sql.addParam("%"+q[i]+"%");
+                sql.addParam(q[i]);
+            }
+            sql.setSql(sqlCmd);
+            return  sql.fetch(Payment.class);
+        }
+    }
+
+    public static List<Payment> getApprovingPayment(Object... q) throws Exception {
+        return findByStatusAndKeyword(1,q);
+    }
+
+    public static List<Payment> getApprovedPayment(Object... q) throws Exception {
+        return findByStatusAndKeyword(2,q);
+    }
+
+    public static List<Payment> getInvalidPayment(Object... q) throws Exception {
+        return findByStatusAndKeyword(3,q);
+    }
+
+    public static List<Payment> findAll() throws Exception {
+        SQL sql = new SQL();
+        return sql.select()
+                .from(TABLE_NAME)
+                .where(COLUMN_PAST_ID, SQL.WhereClause.Operator.EQ, 1)
+                .order(COLUMN_DATE_TIME, SQL.OrderClause.Operator.DESC)
+                .fetch(Payment.class);
     }
 }

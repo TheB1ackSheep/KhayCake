@@ -14,6 +14,7 @@ public class FormAttribute {
     private boolean isFloat;
     private boolean isFile;
     private boolean isEmail;
+    private boolean isDate;
 
     public boolean isEmail() {
         return isEmail;
@@ -95,7 +96,15 @@ public class FormAttribute {
         this.isFile = isFile;
     }
 
-    public FormAttribute(String name, String nickName, boolean required, int min, int max, boolean isInteger, boolean isFloat, boolean isEmail) {
+    public boolean isDate() {
+        return isDate;
+    }
+
+    public void setIsDate(boolean isDate) {
+        this.isDate = isDate;
+    }
+
+    public FormAttribute(String name, String nickName, boolean required, int min, int max, boolean isInteger, boolean isFloat, boolean isEmail,boolean isDate) {
         this.name = name;
         this.nickName = nickName;
         this.required = required;
@@ -104,6 +113,7 @@ public class FormAttribute {
         this.isInteger = isInteger;
         this.isFloat = isFloat;
         this.isEmail = isEmail;
+        this.isDate = isDate;
     }
 
 

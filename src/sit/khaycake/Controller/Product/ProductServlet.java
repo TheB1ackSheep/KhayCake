@@ -30,15 +30,13 @@ public class ProductServlet extends HttpServlet {
         String keyword = request.getParameter("q");
         try {
             if (cat_id != null && keyword != null) {
-                Set<Product> byCat = new HashSet<>(Product.findByCategory(cat_id));
-                Set<Product> byQ = new HashSet<>((List<Product>) SQL.findByKeyword(Product.class, keyword));
-                success.setMessage(byCat.retainAll(byQ));
+                success.setMessage(Product.find(cat_id, keyword.split("\\s")));
             } else if (cat_id != null || keyword != null) {
                 if (cat_id != null) {
                     List<Product> products = Product.findByCategory(cat_id);
                     success.setMessage(products);
                 } else if (keyword != null) {
-                    List<Product> products = (List<Product>) SQL.findByKeyword(Product.class, keyword);
+                    List<Product> products = Product.find(keyword.split("\\s"));
                     success.setMessage(products);
                 }
             } else {

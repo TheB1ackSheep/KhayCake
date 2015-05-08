@@ -36,7 +36,7 @@ public class PatternProductServlet extends HttpServlet {
 
         try {
 
-            Product product = (Product) SQL.findById(Product.class, id);
+            Product product = SQL.findById(Product.class, id);
             if (product != null) {
                 if (method != null) {
                     switch (method) {
@@ -48,7 +48,7 @@ public class PatternProductServlet extends HttpServlet {
                             success.setMessage(pictures);
                             break;
                         case "sales":
-                            List<ProductSale> productSales = product.getSales();
+                            List<ProductSale> productSales = product.getPrices();
                             success.setMessage(productSales);
                             break;
                         case "delete":

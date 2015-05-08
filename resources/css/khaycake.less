@@ -135,7 +135,33 @@ header{
 /*******************************************************************************/
 /*CAKE PRICE
 /*******************************************************************************/
+.box-img {
+  height: 250px;
+}
 
+.box-img div{
+  height: 100%;
+  background: no-repeat center center;
+  background-size: 250px;
+}
+@media (min-width: 768px){
+  .box-img {
+    height: 200px;
+  }
+  .box-img div {
+    background-size: 200px;
+
+  }
+}
+@media (min-width: 992px) {
+  .box-img {
+    height: 170px;
+  }
+  .box-img div {
+    background-size: 170px;
+
+  }
+}
 section.section-price{
   max-width: 1080px;
   min-height: 350px;
@@ -153,6 +179,7 @@ section.section-price{
         overflow: hidden;
         position: relative;
         margin: 20px 0 0 0;
+
         .box-name{
           font-weight: bold;
           text-align: center;
@@ -247,6 +274,8 @@ section.section-price{
   margin: 0 auto;
 }
 
+
+
 .cake .cake-box .cake-box-name{
   font-size: 210%;
   border-bottom: solid 1px #eae1de;
@@ -269,6 +298,7 @@ section.section-price{
 #clone{
   position: fixed;
   z-index: 998;
+  div{height: 100%; background-size: 100%;background-repeat: no-repeat;background-position: center center;}
 }
 
 /*******************************************************************************/
@@ -604,7 +634,7 @@ TABLE
   color: white;
 }
 
-#form-cart, #form-login, #form-register, #form-address{
+#form-cart, #form-login, #form-register, #form-address, #form-shipment{
   width: 400px;
   margin: 0 auto;
 }
@@ -614,7 +644,7 @@ TABLE
   table{
     td{
       vertical-align: top;
-      padding: 0 5px;
+      padding: 8px 5px;
     }
   }
 }
@@ -623,6 +653,16 @@ TABLE
   margin: 0 auto;
   padding: 10px;
   border: 1px solid #ddd;
+}
+
+
+.checkout-complete-img {
+  width: 150px;
+  margin: 0 auto;
+}
+
+.checkout-complete {
+  text-align: center;
 }
 
 /*
@@ -639,4 +679,48 @@ TABLE
   white-space: nowrap;
   overflow: hidden;
   z-index: 1;
+}
+
+
+
+/*
+/*BANK ACC
+*/
+.bank-acc {
+  text-align: center;
+  width: 200px;
+  padding: 10px;
+  font-size: 11px;
+  .bank-acc-img {
+    width: 150px;
+    margin: 0 auto;
+  }
+  .bank-acc-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 2px 5px;
+    .title {
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
+}
+
+/*
+/*MEMBER
+*/
+
+#form-order-payment{
+  .form-group div {
+    width: 250px;
+  }
+}
+
+/*
+/*PAGEINATION
+*/
+.page{
+  clear: both;
+  text-align: center;
 }

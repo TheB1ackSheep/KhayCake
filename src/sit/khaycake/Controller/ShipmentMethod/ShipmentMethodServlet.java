@@ -2,45 +2,84 @@ package sit.khaycake.Controller.ShipmentMethod;
 
 import com.google.gson.Gson;
 import sit.khaycake.database.SQL;
+import sit.khaycake.model.Cart;
+import sit.khaycake.model.Customer;
+import sit.khaycake.model.ShipmentAddress;
 import sit.khaycake.model.ShipmentMethod;
+import sit.khaycake.util.ErrorMessage;
+import sit.khaycake.util.SuccessMessage;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
  * Created by Pasuth on 19/4/2558.
  */
 public class ShipmentMethodServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+
+        HttpSession session = req.getSession();
+        SuccessMessage success = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
+
+        String[] resources = req.getRequestURI().split("/");
+
+        String id = null, method = null;
+        if (resources.length >= 5)
+            id = resources[4];
+        if (resources.length >= 6)
+            method = resources[5];
         try {
-            Gson gson = new Gson();
-            String result = gson.toJson(SQL.findAll(ShipmentMethod.class));
-            response.getWriter().print(result);
+
+            if (id == null) {
+                //request URL is /shipment/method
+                success.setMessage(SQL.findAll(ShipmentMethod.class));
+            } else {
+                //request URL is /shipment/method/*
+                ShipmentMethod shipmentMethod = SQL.findById(ShipmentMethod.class, id);
+                if (shipmentMethod != null)
+                    success.setMessage(shipmentMethod);
+                else
+                    resp.sendError(HttpServletResponse.SC_NOT_FOUND);
+            }
+
+
+
         } catch (Exception ex) {
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            error.setMessage(ex.getMessage());
         }
 
     }
 
-    /*@Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        try {
-            SQL sql = new SQL();
-            ShipmentMethod shipmentMethod = new ShipmentMethod();
-            shipmentMethod.setName(request.getParameter("name"));
-            shipmentMethod.setPrice(Double.parseDouble(request.getParameter("price")));
-            shipmentMethod.save();
 
-            Gson gson = new Gson();
-            response.getWriter().print(gson.toJson(shipmentMethod));
-        } catch (Exception ex) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+
+        HttpSession session = req.getSession();
+        SuccessMessage success = new SuccessMessage(session);
+        ErrorMessage error = new ErrorMessage(session);
+
+        try {
+
+            if(req.getParameter("shme_id") != null){
+                Cart cart = Cart.getCart(session);
+                if(cart != null)
+                    cart.setShipmentMethod(SQL.findById(ShipmentMethod.class, req.getParameter("shme_id")));
+                session.setAttribute("cart",cart);
+                success.setMessage(cart);
+            }else{
+
+            }
+
+        }catch (Exception ex){
+            error.setMessage(ex.getMessage());
         }
 
-    }*/
+    }
 }
