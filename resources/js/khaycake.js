@@ -1,23 +1,25 @@
 var K;
 $(document).ready(function () {
     var dialog = $(".dialog");
-    var section = $('.section-price');
+    var section = $('.section-content');
+   
+    var KhayCake = KhayCake || {};
 
-    var KhayCake = KhayCake || {
-            params: [],
-            getParam: function (name) {
-                return this.params[name];
-            },
-            setParam: function (name, value) {
-                this.params[name] = value;
-            },
-            isInteger: function (str) {
-                return str ? str.toString().match(/^[0-9]+$/) !== null : false;
-            },
-            isFloat: function (str) {
-                return str ? (this.isInteger(str.toString()) || str.toString().match(/^\.[0-9]+$/) || str.toString().match(/^[0-9]+\.[0-9]+$/)) !== null : false;
-            }
-        };
+    KhayCake.url = {};
+    KhayCake.url.parse = function(){
+		var obj = {};
+        var hash = window.location.hash.substr(2).split('?');
+		obj.resources = hash[0].split('/');
+		obj.params = {};
+		if(hash[1]){
+			var parameters = hash[1].split('&');
+                for(var idx in parameters) {
+                    var param = parameters[idx].split('=');
+                    obj.params[param[0]] = param[1];
+                }
+		}
+        return obj;
+	};
 
     KhayCake.home = function () {
         $(section).html('<div class="cake">' +
@@ -27,7 +29,7 @@ $(document).ready(function () {
         '</div>' +
         '<div class="cake-box-name font-lily">Cupcake</div>' +
         '<div class="cake-box-detail secondary-text">คัพเค้กนมสด คุณภาพล้นถ้วย อร่อยไปกับเนื้อเค้กนมสด และวิปครีมไขมันต่ำหลากรสให้ท่านได้เลือกสรร พร้อมเป็นของขวัญสำหรับคนที่คุณรัก</div>' +
-        '<div class="cake-box-buy"><a href="#!/cakes/cupcake" class="btn btn-primary">BUY NOW</a></div>' +
+        '<div class="cake-box-buy"><a href="#!/cake/cupcake" class="btn btn-primary">BUY NOW</a></div>' +
         '</div>' +
         '<div class="cake-box">' +
         '<div class="cake-box-img">' +
@@ -35,7 +37,7 @@ $(document).ready(function () {
         '</div>' +
         '<div class="cake-box-name font-lily">Crapecake</div>' +
         '<div class="cake-box-detail secondary-text">สัมผัสกับความนุ่มละมุนของชั้นแป้งเนยสดสลับกับชั้นครีมหอมหวานละลานในปาก ราดด้วยสตอเบอร์รี่ไซรัปที่ตัดกับรสเค้กอย่างลงตัว</div>' +
-        '<div class="cake-box-buy"><a href="#!/cakes/crapecake" class="btn btn-primary">BUY NOW</a></div>' +
+        '<div class="cake-box-buy"><a href="#!/cake/crapecake" class="btn btn-primary">BUY NOW</a></div>' +
         '</div>' +
         '<div class="cake-box">' +
         '<div class="cake-box-img">' +
@@ -43,7 +45,7 @@ $(document).ready(function () {
         '</div>' +
         '<div class="cake-box-name font-lily">Brownie</div>' +
         '<div class="cake-box-detail secondary-text">บราวนี่อุ่นๆจากเตา หอมกลุ่น กลมกล่อมไปกับรสช็อกโกแลตเข้มข้นที่โรยหน้าด้วยอัลมอนด์คัดสรรพิเศษ พร้อมเสิร์ฟให้คุณได้ลิ้มลองทุกวัน</div>' +
-        '<div class="cake-box-buy"><a href="#!/cakes/brownie" class="btn btn-primary">BUY NOW</a></div>' +
+        '<div class="cake-box-buy"><a href="#!/cake/brownie" class="btn btn-primary">BUY NOW</a></div>' +
         '</div>' +
         '<div class="cake-box">' +
         '<div class="cake-box-img">' +
@@ -51,124 +53,70 @@ $(document).ready(function () {
         '</div>' +
         '<div class="cake-box-name font-lily">Party Cake</div>' +
         '<div class="cake-box-detail secondary-text">ให้งานปาร์ตี้ของคุณหอมกรุ่นไปด้วยไอของขนมเค้กสุดพิเศษ ที่จะทำให้คุณและเพื่อน ๆ ในงานปาร์ตี้ของคุณไม่มีวันลืม ด้วยสีสันและรสชาติที่ไม่อาจลืม</div>' +
-        '<div class="cake-box-buy"><a  href="#!/cakes/partycake" class="btn btn-primary">BUY NOW</a></div>' +
+        '<div class="cake-box-buy"><a  href="#!/cake/partycake" class="btn btn-primary">BUY NOW</a></div>' +
         '</div>' +
         '</div>');
     };
 
-    KhayCake.cakes = function (cat, fn) {
-        var page = window.location.hash.split("/").splice(-1);
-        if(!isInteger(page)){
-            window.location.hash += "/1";
-            return;
-        }
-        $(section).html(KhayCake.cakes.container());
-        KhayCake.loadingMask($("#cake-container"));
+    KhayCake.cake = function () {
+        
+        var fetchCake = Product.all;
+        var url = KhayCake.url.parse();
+		var page = url.params.page;
+        var cat = url.resources[2];
 
-        var hash = window.location.hash.substr(2);
-        var resources = hash.split('/');
-        var keyword = null;
-        if(resources.length >= 5)
-            keyword = resources[4];
+        $(section).html(KhayCake.cake.container());
 
-        if(keyword)
-            $("#form-search-cake").find("#keyword").val(keyword);
+        KhayCake.loadingMask("#cake-container");
+		
+		$("li").removeClass("active");
+		$("li#"+cat).addClass("active");
+		
+		var query = url.params.query;
 
-        var cakeList = '';
-        switch (cat) {
-            case 'cupcake':
-                Product.cupcake(function (resp) {
-                    if (resp.message && resp.message.length > 0) {
-                        var cakes = pagination( resp.message,page,8);
-                        for (var idx in cakes.data) {
-                            var product = cakes.data[idx];
-                            cakeList += Product.box(product);
-                        }
-                        cakeList += '<div class="page">'+cakes.html+'</div>';
-                    } else {
-                        cakeList += '<div class="col-sm-12"><div class="box">ไม่มีสินค้าในระบบ</div></div>';
-                    }
-                    if (typeof(fn) === "function")
-                        fn(cakeList);
-                },keyword);
-                break;
-            case 'crapecake':
-                Product.crapecake(function (resp) {
-                    if (resp.message && resp.message.length > 0) {
-                        var cakes = pagination( resp.message,page,8);
-                        for (var idx in cakes.data) {
-                            var product = cakes.data[idx];
-                            cakeList += Product.box(product);
-                        }
-                        cakeList += '<div class="page">'+cakes.html+'</div>';
-                    } else {
-                        cakeList += '<div class="col-sm-12"><div class="box">ไม่มีสินค้าในระบบ</div></div>';
-                    }
-                    if (typeof(fn) === "function")
-                        fn(cakeList);
-                },keyword);
-                break;
-            case 'brownie':
-                Product.brownie(function (resp) {
-                    if (resp.message && resp.message.length > 0) {
-                        var cakes = pagination( resp.message,page,8);
-                        for (var idx in cakes.data) {
-                            var product = cakes.data[idx];
-                            cakeList += Product.box(product);
-                        }
-                        cakeList += '<div class="page">'+cakes.html+'</div>';
-                    } else {
-                        cakeList += '<div class="col-sm-12"><div class="box">ไม่มีสินค้าในระบบ</div></div>';
-                    }
-                    if (typeof(fn) === "function")
-                        fn(cakeList);
-                },keyword);
-                break;
-            case 'partycake':
-                Product.partycake(function (resp) {
-                    if (resp.message && resp.message.length > 0) {
-                        var cakes = pagination( resp.message,page,8);
-                        for (var idx in cakes.data) {
-                            var product = cakes.data[idx];
-                            cakeList += Product.box(product);
-                        }
-                        cakeList += '<div class="page">'+cakes.html+'</div>';
-                    } else {
-                        cakeList += '<div class="col-sm-12"><div class="box">ไม่มีสินค้าในระบบ</div></div>';
-                    }
-                    if (typeof(fn) === "function")
-                        fn(cakeList);
-                },keyword);
-                break;
-            default:
-                Product.all(function (resp) {
-                    if (resp.message && resp.message.length > 0) {
-                        var cakes = pagination( resp.message,page,8);
-                        for (var idx in cakes.data) {
-                            var product = cakes.data[idx];
-                            cakeList += Product.box(product);
-                        }
-                        cakeList += '<div class="page">'+cakes.html+'</div>';
-                    } else {
-                        cakeList += '<div class="col-sm-12"><div class="box">ไม่มีสินค้าในระบบ</div></div>';
-                    }
+        if(query)
+            $("#form-search-cake").find("#keyword").val(query);
 
+        if(cat == "cupcake")
+            fetchCake = Product.cupcake;
+        else if (cat == "crapecake")
+            fetchCake = Product.crapecake;
+        else if (cat == "brownie")
+            fetchCake = Product.brownie;
+        else if (cat == "partycake")
+            fetchCake = Product.partycake;	
+		else
+			fetchCake = Product.all;	
 
-                    if (typeof(fn) === "function")
-                        fn(cakeList);
-                },keyword);
-                break;
-        }
+        fetchCake(function (resp) {	
+			var html = '';
+            if (resp.message && resp.message.length > 0) {
+                var cakes = pagination( resp.message,page,8);                
+                for (var idx in cakes.data) {
+                    var product = cakes.data[idx];
+                    html += Product.box(product);
+                }
+                html += '<div class="page">'+cakes.html+'</div>'; 
+
+            } else {
+                html += '<div class="col-sm-12">ไม่มีสินค้าในระบบ</div>';
+            }
+			
+            $("#cake-container").html(html);
+            KhayCake.cake.bind();
+
+        },query);
+
     };
-    KhayCake.cakes.container = function () {
+    KhayCake.cake.container = function () {
         return '<div class="row">' +
             '<div class="col-sm-2">' +
             '<ul class="nav nav-pills nav-stacked">' +
-            '<li role="presentation" id="all"><a href="#!/cakes/all">All</a></li>' +
-            '<li role="presentation" id="cupcake"><a href="#!/cakes/cupcake">Cupcake</a></li>' +
-            '<li role="presentation" id="crapecake"><a href="#!/cakes/crapecake">Crape Cake</a></li>' +
-            '<li role="presentation" id="brownie"><a href="#!/cakes/brownie">Brownie</a></li>' +
-            '<li role="presentation" id="partycake"><a href="#!/cakes/partycake">Party Cake</a></li>' +
+            '<li role="presentation" id="all"><a href="#!/cake/all">ทั้งหมด</a></li>' +
+            '<li role="presentation" id="cupcake"><a href="#!/cake/cupcake">คัพเค้ก</a></li>' +
+            '<li role="presentation" id="crapecake"><a href="#!/cake/crapecake">เครปเค้ก</a></li>' +
+            '<li role="presentation" id="brownie"><a href="#!/cake/brownie">บราวนี้</a></li>' +
+            '<li role="presentation" id="partycake"><a href="#!/cake/partycake">ปาร์ตี้เค้ก</a></li>' +
             '</ul>' +
             '</div>' +
             '<div class="col-sm-10">' +
@@ -176,14 +124,11 @@ $(document).ready(function () {
             '<div id="cake-container" class="row"></div>' +
             '</div>' +
             '</div>';
-    }
-    KhayCake.cakes.bind = function () {
-        var hash = window.location.hash.substr(2);
-        var resources = hash.split('/');
-        var cat = null;
-        if (resources.length >= 3)
-            cat = resources[2];
-
+    };
+    KhayCake.cake.bind = function () {
+		var url = KhayCake.url.parse();
+        var cat = url.resources[2];
+		
         $(".section-price .nav li").removeClass("active");
         $(".section-price .nav li" + "#" + cat).addClass("active");
 
@@ -204,42 +149,32 @@ $(document).ready(function () {
             var url = "/product";
             switch(cat){
                 case 'cupcake':
-                    window.location.hash = "#!/cakes/cupcake/q/"+$(this).find("#keyword").val();
+					
+                    window.location.hash = "#!/cake/cupcake?query="+$(this).find("#keyword").val();
                   break;
                 case 'crapecake':
-                    window.location.hash = "#!/cakes/crapecake/q/"+$(this).find("#keyword").val();
+                    window.location.hash = "#!/cake/crapecake?query="+$(this).find("#keyword").val();
                     break;
                 case 'brownie':
-                    window.location.hash = "#!/cakes/brownie/q/"+$(this).find("#keyword").val();
+                    window.location.hash = "#!/cake/brownie?query="+$(this).find("#keyword").val();
                     break;
                 case 'partycake':
-                    window.location.hash = "#!/cakes/partycake/q/"+$(this).find("#keyword").val();
+                    window.location.hash = "#!/cake/partycake?query="+$(this).find("#keyword").val();
                     break;
                 default:
-                    window.location.hash = "#!/cakes/all/q/"+$(this).find("#keyword").val();
+                    window.location.hash = "#!/cake/all?query="+$(this).find("#keyword").val();
                     break;
-            };
-            KhayCake.loadingMask($("#cake-container"));
-            Ajax.GET(url, function(resp){
-                var html = '';
-                if (resp.message && resp.message.length > 0) {
-                    var cakes = pagination( resp.message,page,8);
-                    for (var idx in cakes.data) {
-                        var product = cakes.data[idx];
-                        html += Product.box(product);
-                    }
-                    html += '<div class="page">'+cakes.html+'</div>';
-                } else {
-                    html += '<div class="col-sm-12"><div class="box">ไม่มีสินค้าในระบบ</div></div>';
-                }
-
-            });
+            }
+			
             return false;
-        })
+        });
     };
-
-    KhayCake.member = function(sect){
-        KhayCake.loadingMask($(section));
+	
+    KhayCake.member = function(){
+		var url = KhayCake.url.parse();
+        var sect = url.resources[2];
+		
+        KhayCake.loadingMask(section);
 
         Auth.get(function(resp){
             if(resp.message){
@@ -270,11 +205,8 @@ $(document).ready(function () {
 
     };
     KhayCake.member.show = function(){
-        var hash = window.location.hash.substr(2);
-        var resources = hash.split('/');
-        var sect = null;
-        if (resources.length >= 3)
-            sect = resources[2];
+        var url = KhayCake.url.parse();
+		var sect = url.resources[2];
 
         $(section).html(KhayCake.member.container());
         $("ul li").removeClass("active");
@@ -291,7 +223,6 @@ $(document).ready(function () {
             case 'logout':
                 Auth.logout(function(resp){
                    if(resp.message){
-                       alert("ออกจากระบบเรียบร้อย");
                        window.location.hash = "#!/member";
                    }
                 });
@@ -320,7 +251,7 @@ $(document).ready(function () {
             '</li>' +
             '</ul></div>' +
             '<div class="col-md-10" id="member-container"></div>';
-    }
+    };
     KhayCake.member.bind = function(){
         $("#form-login").submit(KhayCake.member.login);
         $("#form-register").submit(KhayCake.member.register);
@@ -397,20 +328,15 @@ $(document).ready(function () {
     };
 
     KhayCake.member.order = function(){
-        var page = KhayCake.member.order.page;
-
 
         KhayCake.loadingMask($("#member-container"));
 
-        var hash = window.location.hash.substr(2);
-        var resources = hash.split('/');
-        var id = null,method = null;
-        if (resources.length >= 4)
-            id = resources[3];
-        if (resources.length >= 5)
-            method = resources[4];
+        var url = KhayCake.url.parse();
+		var page = url.params.page;
+        var id = url.resources[3];
+		var method = url.resources[4];
 
-        if(id == null){
+        if(!id){
             Auth.order.all(function(resp){
                 if(resp) {
                     var orders = pagination( resp.message,page,8);
@@ -453,7 +379,6 @@ $(document).ready(function () {
 
 
     };
-    KhayCake.member.order.page = 1;
     KhayCake.member.order.bind = function(){
         $("#form-order-payment").submit(KhayCake.member.order.confirm);
 
@@ -486,7 +411,7 @@ $(document).ready(function () {
     KhayCake.member.order.table = function(orders){
         var html = '<table class="table">';
         html += '<tr><th>เลขที่สั่งซื้อ</th><th>วันที่สั่งซื้อ</th><th>จำนวน (ชิ้น)</th><th>สถานะ</th><th class="text-right">ราคาทั้งหมด (บาท)</th></tr>';
-        if(orders.length > 0){
+        if(orders && orders.length > 0){
             for(var idx in orders) {
                 var order = orders[idx];
                 var color = '';
@@ -604,18 +529,17 @@ $(document).ready(function () {
             '<h3>กรุณาลองใหม่อีกครั้งภายหลัง</h3></div>';
     };
     KhayCake.member.payment = function(){
-        var page = KhayCake.member.payment.page;
+        var url = KhayCake.url.parse();
+		var page = url.params.page;
 
         KhayCake.loadingMask($("#member-container"));
 
         Auth.payment.all(function(resp){
-            if(resp.message){
-                var orders = pagination( resp.message,page,8);
+            var orders = pagination( resp.message,page,8);
                 var html = KhayCake.member.payment.table(orders.data);
                 if(orders.hasNext)
                     html += '<div class="page">'+orders.html+'</div>';
                 KhayCake.member.set(html);
-            }
             KhayCake.member.payment.bind();
         });
     };
@@ -638,11 +562,10 @@ $(document).ready(function () {
             return false;
         });
     };
-    KhayCake.member.payment.page = 1;
     KhayCake.member.payment.table = function(payments){
         var html = '<table class="table">';
         html += '<tr><th>เลขที่สั่งซื้อ</th><th>วันที่แจ้ง</th><th>โอนเข้าบัญชี</th><th>สถานะ</th><th class="text-right">ยอดที่แจ้ง (บาท)</th></tr>';
-        if(payments.length > 0){
+        if(payments && payments.length > 0){
             for(var idx in payments) {
                 var payment = payments[idx];
                 var color = '';
@@ -663,7 +586,6 @@ $(document).ready(function () {
         return html;
     }
 
-
     KhayCake.member.bankaccount = {};
     KhayCake.member.bankaccount.form = function(bankaccounts){
         var html = '<select class="form-control" name="bankacc_id">';
@@ -674,7 +596,6 @@ $(document).ready(function () {
         html += '</select>';
         return html;
     };
-
 
     KhayCake.cart = function () {
         Cart.all(function (resp) {
@@ -760,12 +681,9 @@ $(document).ready(function () {
         });
     };
 
-    KhayCake.checkout = function (step) {
-
-
-        KhayCake.cart.close();
-
-
+    KhayCake.checkout = function () {		
+		var url = KhayCake.url.parse();
+        var step = url.resources[2];       
 
         var html = KhayCake.checkout.header();
         $(section).html(html);
@@ -1197,7 +1115,7 @@ $(document).ready(function () {
     KhayCake.checkout.complete = function(order){
       var html = '<div class="checkout-complete"><h2>เย่! การสั่งซื้อเสร็จสมบูรณ์</h2><div class="checkout-complete-img"><img src="images/spongebob.jpg"></div>' +
           '<h3>กรุณาชำระเงินตามรายละเอียดด้านล่าง</h3><p>ท่านสามารถชำระเงินได้ โดยการโอนเงินเข้าบัญชีของทางร้านตามเลขบัญชีด้านล่าง หลังจากนั้น ท่านสามารถแจ้งชำระเงินได้ ในหน้า <a href="#!/member/order/'+order.id+'">สมาชิก</a> ครับ</p></div>';
-        html += '<div class="flex flex-center">'
+        html += '<div class="flex flex-center">';
         BankAccount.all(function(resp){
 
             if(resp.message){
@@ -1225,31 +1143,20 @@ $(document).ready(function () {
     };
 
     KhayCake.onHashChanged = function () {
-        var resources = window.location.hash.substr(2).split('/');
-        var method = resources[1];
+        var url = KhayCake.url.parse();
+        var method = url.resources[1];
+		
+		 KhayCake.cart.close();
 
         switch (method) {
-            case 'cakes':
-                var cat = null;
-                if (resources.length >= 3)
-                    cat = resources[2];
-                KhayCake.cakes(cat, function (cakeList) {
-                    $("#cake-container").html(cakeList);
-                    KhayCake.cakes.bind();
-                });
+            case 'cake':               
+                KhayCake.cake();
                 break;
-            case 'checkout':
-                var step = null;
-                if (resources.length >= 3)
-                    step = resources[2];
-                console.log(step);
-                KhayCake.checkout(step);
+            case 'checkout':                
+                KhayCake.checkout();
                 break;
             case 'member':
-                var sect = null;
-                if (resources.length >= 3)
-                    sect = resources[2];
-                KhayCake.member(sect);
+                KhayCake.member();
                 break;
             default:
                 KhayCake.home();

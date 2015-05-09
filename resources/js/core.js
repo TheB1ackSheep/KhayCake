@@ -14,13 +14,31 @@ function toMoney(baht){
     return baht.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
 }
 
+function urlParam(name,value){
+	var url = window.location.hash;
+	var fragment = url.split("?");
+	var inUrl = fragment[0];
+	var params = fragment[1];
+	if(params){
+		params = params.split("&");
+		for(var idx in params)
+			if(params[idx].indexOf(name) >= 0)
+				params[idx] = name+"="+value;
+		params = params.join("&");
+	}else{
+		params = name+"="+value;
+	}
+	return inUrl+"?"+params;
+}
+
 function pagination(array,page,size){
+	
     var ren = {html: '', hasNext: false, data: array};
     if(isInteger(page)) {
         page = parseInt(page);
         var link = window.location.hash.split("/").slice(0, -1).join("/");
 
-        if (array.slice) {
+        if (array && array.slice) {
             var startAt = ((page - 1) * size);
             var endAt = startAt + size;
             ren.total = Math.ceil(array.length / size);
@@ -31,16 +49,16 @@ function pagination(array,page,size){
                     '<ul class="pagination">';
                 if (page != 1)
                     ren.html += '<li>' +
-                    '<a class="page-prev" href="#" aria-label="Previous">' +
+                    '<a class="page-prev" href="'+urlParam("page",page-1)+'" aria-label="Previous">' +
                     '<span aria-hidden="true">&laquo;</span>' +
                     '</a>' +
                     '</li>';
                 for (var i = 1; i <= ren.total; i++) {
-                    ren.html += '<li '+(page==i?'class="active"':'')+'><a class="page-button">' + i + '</a></li>';
+                    ren.html += '<li '+(page==i?'class="active"':'')+'><a href="'+urlParam("page",i)+'" class="page-button">' + i + '</a></li>';
                 }
                 if (page < ren.total)
                     ren.html += '<li>' +
-                        '<a class="page-next" aria-label="Next">' +
+                        '<a href="'+urlParam("page",page+1)+'" class="page-next" aria-label="Next">' +
                         '<span aria-hidden="true">&raquo;</span>' +
                         '</a>' +
                         '</li>';
@@ -52,6 +70,27 @@ function pagination(array,page,size){
         return ren;
     }else{
         return pagination(array,1,size);
+    }
+}
+
+function setPage(obj, page){
+    if(typeof(obj) === "object")
+        if(obj && obj.page && isInteger(page))
+            obj.page = page;
+        else if(obj)
+            obj.page = 1;
+}
+
+function getPage(obj){
+    if(typeof(obj) === "object"){
+        if(obj.page && isInteger(obj.page)) {
+            return obj.page;
+        }else{
+            setPage(obj,1);
+            return getPage(obj);
+        }
+    }else {
+        return null;
     }
 }
 
@@ -67,8 +106,7 @@ Ajax.encodeUrl = function(url) {
     url = HOST + url + ((sessionID) ? ";jsessionid=" + sessionID : "") + ((query[1]) ? "?" + query[1] : "");
     return url;
 };
-Ajax.do =
-    function(method, url, data, success) {
+Ajax.do = function(method, url, data, success) {
         var ajax = $.ajax({
             type: method,
             data: data,
@@ -119,39 +157,15 @@ Ajax.UPLOAD = function(url, data, success) {
     });
 };
 
-var Notify = Notify || {};
-Notify.queue = [];
-Notify.alert = function(text){
-    Notify.queue.push(text);
-    var box = $('<div class="notify"></div>');
-    var len = Notify.queue.length;
-    $(box).text(text);
-    $(box).css({
-       top:'-100px'
-    });
-    $("body").append(box);
-    $(box).animate({
-        top:'px'
-    }, 350, function(){
-        setTimeout(function(){
-            $(box).animate({
-                top:'100px',
-                opacity:0
-            }, 350,function(){
-                $(box).remove();
-            })
-        },3000);
-    });
-};
 
 var Product = Product || {
         URL: "/product"
     };
 Product.all = function(fn,q) {
     if(!q)
-    Ajax.GET(this.URL, fn);
+    	Ajax.GET(Product.URL, fn);
     else
-    Ajax.GET(this.URL + "?q=" + q, fn);
+    	Ajax.GET(Product.URL + "?q=" + q, fn);
 };
 Product.find = function(id, fn) {
     if (id)
@@ -160,56 +174,43 @@ Product.find = function(id, fn) {
         else
             Ajax.GET(this.URL + "?q=" + id, fn);
 };
-Product.byCategory = function(cat_id, fn) {
+Product.byCategory = function(cat_id, q, fn) {
     if (isInteger(cat_id))
-        Ajax.GET(this.URL + "?cat=" + cat_id, fn);
+        Ajax.GET(Product.URL + "?cat=" + cat_id +(q?"&q="+q:""), fn);
 };
 Product.cupcake = function(fn, q) {
-    if(!q)
-        Product.byCategory(1, fn);
-    else
-        Ajax.GET(this.URL + "?cat=1&q=" + q, fn);
+	Product.byCategory(1, q, fn);
 };
 Product.crapecake = function(fn, q) {
-    if(!q)
-    Product.byCategory(2, fn);
-    else
-    Ajax.GET(this.URL + "?cat=2&q=" + q, fn);
+    Product.byCategory(2, q, fn);
 };
 Product.brownie = function(fn, q) {
-    if(!q)
-    Product.byCategory(3, fn);
-    else
-    Ajax.GET(this.URL + "?cat=3&q=" + q, fn);
+    Product.byCategory(3, q, fn);
 };
 Product.partycake = function(fn, q) {
-    if(!q)
-    Product.byCategory(4, fn);
-    else
-    Ajax.GET(this.URL + "?cat=4&q=" + q, fn);
+    Product.byCategory(4, q, fn);
 };
 Product.save = function(form, fn) {
     if (form && form.serialize) {
         var data = form.serialize();
-        Ajax.POST(this.URL, data, fn);
+        Ajax.POST(Product.URL, data, fn);
     }
 };
 Product.update = function(id, form, fn) {
     if (form && form.serialize) {
         var data = form.serialize();
-        Ajax.POST(this.URL+"/"+id, data, fn);
+        Ajax.POST(Product.URL+"/"+id, data, fn);
     }
 };
 Product.delete = function(id, fn){
-    Ajax.GET(this.URL+"/"+id+"/delete", fn);
+    Ajax.GET(Product.URL+"/"+id+"/delete", fn);
 };
 Product.pictures = function(id, fn){
-  Ajax.GET(this.URL+"/"+id+"/pictures",fn);
+  Ajax.GET(Product.URL+"/"+id+"/pictures",fn);
 };
 Product.sales = function(id, fn){
-    Ajax.GET(this.URL+"/"+id+"/sales",fn);
+    Ajax.GET(Product.URL+"/"+id+"/sales",fn);
 };
-
 Product.form = function(title,cake) {
     if(!cake)
         cake = {};
@@ -284,7 +285,6 @@ Product.form.picture = function(picture){
         picture = {};
     return '<div class="filename alert-dismissible" role="alert">' + (picture.filename?picture.filename:'') + '</div><input type="hidden" name="pic_id" value="' + (picture.id?picture.id:'') + '"/>';
 };
-
 Product.box = function(cake){
     if(!cake)
         cake = {};
@@ -310,10 +310,10 @@ var Unit = Unit || {
         URL: "/unit"
     };
 Unit.all = function(fn){
-    Ajax.GET(this.URL,fn);
+    Ajax.GET(Unit.URL,fn);
 };
 Unit.box = function(fn){
-    Ajax.GET(this.URL,function(resp){
+    Ajax.GET(Unit.URL,function(resp){
         var select = '<select class="form-control" name="unit_id">"';
         for (var idx in resp.message) {
             var unit = resp.message[idx];
@@ -329,10 +329,10 @@ var Category = Category || {
         URL: "/category"
     };
 Category.all = function(fn){
-    Ajax.GET(this.url,fn);
+    Ajax.GET(Category.url,fn);
 };
 Category.box = function(fn){
-    Ajax.GET(this.URL,function(resp){
+    Ajax.GET(Category.URL,function(resp){
         var select = '<select class="form-control" name="cat_id">"';
         for (var idx in resp.message) {
             var category = resp.message[idx];
@@ -349,21 +349,21 @@ var Cart = Cart || {
     };
 Cart.update = function(form,fn){
     if(form && form.serialize)
-        Ajax.POST(this.URL, form.serialize(), fn);
+        Ajax.POST(Cart.URL, form.serialize(), fn);
 };
 Cart.add = function(form,fn){
     if(form && form.serialize)
-        Ajax.POST(this.URL+"/add", form.serialize(), fn);
+        Ajax.POST(Cart.URL+"/add", form.serialize(), fn);
 };
 Cart.all = function(fn){
-    Ajax.GET(this.URL, fn);
+    Ajax.GET(Cart.URL, fn);
 };
 Cart.checkout = function(fn){
-    Ajax.POST(this.URL +"/checkout", null, fn);
+    Ajax.POST(Cart.URL +"/checkout", null, fn);
 };
 Cart.form = function(cart){
 
-    var html = ''
+    var html = '';
     var total = 0.0;
     if(cart.items && cart.items.length > 0){
         var items = cart.items;
@@ -413,57 +413,57 @@ var Auth = Auth || {
         URL: "/auth"
     };
 Auth.logout = function(fn){
-    Ajax.GET(this.URL+"/logout", fn);
+    Ajax.GET(Auth.URL+"/logout", fn);
 };
 Auth.auth = function(form, fn){
     if(form && form.serialize)
-        Ajax.POST(this.URL, form.serialize(), fn);
+        Ajax.POST(Auth.URL, form.serialize(), fn);
 };
 Auth.register = Auth.auth;
 Auth.get = function(fn){
-    Ajax.GET(this.URL, fn);
+    Ajax.GET(Auth.URL, fn);
 };
 Auth.order = {
     URL: '/auth/order'
 };
 Auth.order.all = function(fn){
-  Ajax.GET(this.URL, fn);
+  Ajax.GET(Auth.order.URL, fn);
 };
 Auth.order.find = function(id, fn){
-    Ajax.GET(this.URL+"/"+id, fn);
+    Ajax.GET(Auth.order.URL+"/"+id, fn);
 };
 Auth.order.getItem = function(id, fn){
-  Ajax.GET(this.URL+"/"+id+"/item", fn);
+  Ajax.GET(Auth.order.URL+"/"+id+"/item", fn);
 };
 Auth.payment = {
     URL: '/auth/payment'
 };
 Auth.payment.all = function(fn){
-    Ajax.GET(this.URL, fn);
+    Ajax.GET(Auth.payment.URL, fn);
 };
 Auth.payment.find = function(id, fn){
-    Ajax.GET(this.URL+"/"+id, fn);
+    Ajax.GET(Auth.payment.URL+"/"+id, fn);
 };
 
 var Tumbon = Tumbon || {
         URL: "/tumbon"
     };
 Tumbon.find = function(q, fn){
-    Ajax.GET(this.URL+(isInteger(q)?'/'+q:(q?'?q='+q:'')), fn);
+    Ajax.GET(Tumbon.URL+(isInteger(q)?'/'+q:(q?'?q='+q:'')), fn);
 };
 
 var Amphur = Amphur ||{
       URL: "/amphur"
     };
 Amphur.find = function(q, fn){
-    Ajax.GET(this.URL+(isInteger(q)?'/'+q:(q?'?q='+q:'')), fn);
+    Ajax.GET(Amphur.URL+(isInteger(q)?'/'+q:(q?'?q='+q:'')), fn);
 };
 
 var Province = Province ||{
         URL: "/province"
     };
 Province.find = function(q, fn){
-    Ajax.GET(this.URL+(isInteger(q)?'/'+q:(q?'?q='+q:'')), fn);
+    Ajax.GET(Province.URL+(isInteger(q)?'/'+q:(q?'?q='+q:'')), fn);
 };
 
 var Shipment = Shipment || {};
@@ -471,31 +471,31 @@ Shipment.Address = Shipment.Address || {
       URL: "/shipment/address"
     };
 Shipment.Address.find = function(id, fn){
-  Ajax.GET(this.URL+"/"+id, fn);
+  Ajax.GET(Shipment.Address.URL+"/"+id, fn);
 };
 Shipment.Address.all = function(fn){
-  Ajax.GET(this.URL, fn);
+  Ajax.GET(Shipment.Address.URL, fn);
 };
 Shipment.Address.add = function(form, fn){
     if(form && form.serialize)
-        Ajax.POST(this.URL, form.serialize(), fn);
+        Ajax.POST(Shipment.Address.URL, form.serialize(), fn);
 };
 Shipment.Address.update = function(id, form, fn){
     if(form && form.serialize)
-        Ajax.POST(this.URL+"/"+id, form.serialize(), fn);
+        Ajax.POST(Shipment.Address.URL+"/"+id, form.serialize(), fn);
 };
 Shipment.Method = Shipment.Method || {
       URL: "/shipment/method"
     };
 Shipment.Method.set = function(form, fn){
     if(form && form.serialize)
-        Ajax.POST(this.URL, form.serialize(), fn);
+        Ajax.POST(Shipment.Method.URL, form.serialize(), fn);
 };
 Shipment.Method.find = function(id, fn){
-    Ajax.GET(this.URL+"/"+id, fn);
+    Ajax.GET(Shipment.Method.URL+"/"+id, fn);
 };
 Shipment.Method.all = function(fn){
-    Ajax.GET(this.URL, fn);
+    Ajax.GET(Shipment.Method.URL, fn);
 };
 
 
@@ -503,37 +503,37 @@ var Bank = Bank || {
         URL: "/bank"
     };
 Bank.all = function(fn){
-    Ajax.GET(this.URL, fn);
+    Ajax.GET(Bank.URL, fn);
 };
 Bank.find = function(id, fn){
-    Ajax.GET(this.URL+"/"+id, fn);
+    Ajax.GET(Bank.URL+"/"+id, fn);
 };
 
 var BankType = BankType || {
         URL:"/bankaccounttype"
     };
 BankType.all = function(fn){
-    Ajax.GET(this.URL, fn);
+    Ajax.GET(BankType.URL, fn);
 };
 BankType.find = function(id, fn){
-    Ajax.GET(this.URL+"/"+id, fn);
+    Ajax.GET(BankType.URL+"/"+id, fn);
 };
 
 var BankAccount = BankAccount || {
         URL: "/bankaccount"
     };
 BankAccount.all = function(fn){
-    Ajax.GET(this.URL, fn);
+    Ajax.GET(BankAccount.URL, fn);
 };
 BankAccount.find = function(id, fn){
     if(isInteger(id))
-        Ajax.GET(this.URL+"/"+id, fn);
+        Ajax.GET(BankAccount.URL+"/"+id, fn);
     else
-        Ajax.GET(this.URL+"/q/"+id, fn);
+        Ajax.GET(BankAccount.URL+"/q/"+id, fn);
 };
 BankAccount.add = function(form, fn){
     if(form && form.serialize)
-        Ajax.POST(this.URL, form.serialize(), fn);
+        Ajax.POST(BankAccount.URL, form.serialize(), fn);
 };
 
 var Payment = Payment || {
@@ -541,58 +541,58 @@ var Payment = Payment || {
     };
 Payment.confirm = function(form, fn){
     if(form && form.serialize)
-        Ajax.POST(this.URL, form.serialize(), fn);
+        Ajax.POST(Payment.URL, form.serialize(), fn);
 };
 Payment.approving = function(fn, q){
     if(!q)
-        Ajax.GET(this.URL+"/approving", fn);
+        Ajax.GET(Payment.URL+"/approving", fn);
     else
-        Ajax.GET(this.URL+"/approving?q="+q, fn);
+        Ajax.GET(Payment.URL+"/approving?q="+q, fn);
 };
 Payment.find = function(id, fn){
-    Ajax.GET(this.URL+"/"+id, fn);
+    Ajax.GET(Payment.URL+"/"+id, fn);
 };
 Payment.all = function(fn, q){
     if(!q)
-        Ajax.GET(this.URL, fn);
+        Ajax.GET(Payment.URL, fn);
     else
-        Ajax.GET(this.URL+"?q="+q, fn);
+        Ajax.GET(Payment.URL+"?q="+q, fn);
 };
 Payment.accept = function(id, fn){
-    Ajax.GET(this.URL+"/"+id+"/accept", fn);
+    Ajax.GET(Payment.URL+"/"+id+"/accept", fn);
 };
 Payment.deny = function(id, fn){
-    Ajax.GET(this.URL+"/"+id+"/deny", fn);
+    Ajax.GET(Payment.URL+"/"+id+"/deny", fn);
 };
 
 var Order = Order || {
         URL: "/order"
     };
 Order.find = function(id, fn){
-  Ajax.GET(this.URL+"/"+id, fn);
+  Ajax.GET(Order.URL+"/"+id, fn);
 };
 Order.items = function(id, fn){
-    Ajax.GET(this.URL+"/"+id+"/item", fn);
+    Ajax.GET(Order.URL+"/"+id+"/item", fn);
 };
 Order.all = function(fn, q){
     if(!q)
-        Ajax.GET(this.URL, fn);
+        Ajax.GET(Order.URL, fn);
     else
-        Ajax.GET(this.URL+"?q="+q, fn);
+        Ajax.GET(Order.URL+"?q="+q, fn);
 };
 Order.shipping = function(fn, q){
     if(!q)
-        Ajax.GET(this.URL+"/shipping", fn);
+        Ajax.GET(Order.URL+"/shipping", fn);
     else
-        Ajax.GET(this.URL+"/shipping?q="+q, fn);
+        Ajax.GET(Order.URL+"/shipping?q="+q, fn);
 };
 Order.shipped = function(id, track_id, fn){
-    Ajax.GET(this.URL+"/"+id+"/shipped"+(track_id?'?track_id='+track_id:''), fn);
+    Ajax.GET(Order.URL+"/"+id+"/shipped"+(track_id?'?track_id='+track_id:''), fn);
 };
 Order.paid = function(fn, q){
     if(!q)
-        Ajax.GET(this.URL+"/paid", fn);
+        Ajax.GET(Order.URL+"/paid", fn);
     else
-        Ajax.GET(this.URL+"/paid?q="+q, fn);
+        Ajax.GET(Order.URL+"/paid?q="+q, fn);
 };
 
