@@ -1,5 +1,5 @@
-var HOST = 'http://jsp.falook.me/khaycake';
-//var HOST = 'http://localhost:8080/khaycake';
+//var HOST = 'http://jsp.falook.me/khaycake';
+var HOST = 'http://localhost:8080/khaycake';
 var sessionID = '';
 
 function isInteger(str) {
@@ -15,28 +15,50 @@ function toMoney(baht){
 }
 
 function urlParam(name,value){
-	var url = window.location.hash;
-	var fragment = url.split("?");
-	var inUrl = fragment[0];
-	var params = fragment[1];
-	if(params){
-		params = params.split("&");
-		for(var idx in params)
-			if(params[idx].indexOf(name) >= 0)
-				params[idx] = name+"="+value;
-		params = params.join("&");
-	}else{
-		params = name+"="+value;
-	}
-	return inUrl+"?"+params;
+    if(name && value) {
+        var url = window.location.hash;
+        var fragment = url.split("?");
+        var inUrl = fragment[0];
+        var params = fragment[1];
+        if (params) {
+            console.log("params");
+            params = params.split("&");
+            var hasParam = false;
+            for (var idx in params)
+                if (params[idx].indexOf(name) >= 0) {
+                    hasParam = true;
+                    params[idx] = name + "=" + value;
+                }
+            if(!hasParam)
+                params.push(name+"="+value);
+            params = params.join("&");
+        } else {
+            console.log("no params");
+            params = name + "=" + value;
+        }
+        return inUrl + "?" + params;
+    }else return window.location.hash;
 }
 
-function pagination(array,page,size){
-	
+function getParameter(name){
+    var url = window.location.hash;
+    var fragment = url.split("?");
+    var params = fragment[1];
+    if(params){
+        params = params.split("&");
+        for(var idx in params)
+            if(params[idx].indexOf(name) >= 0)
+            {
+                return params[idx].split("=")[1];
+            }
+    }
+}
+
+function pagination(array,page,size,name){
+	console.log(name?name:"page");
     var ren = {html: '', hasNext: false, data: array};
     if(isInteger(page)) {
         page = parseInt(page);
-        var link = window.location.hash.split("/").slice(0, -1).join("/");
 
         if (array && array.slice) {
             var startAt = ((page - 1) * size);
@@ -45,53 +67,59 @@ function pagination(array,page,size){
             ren.hasNext = (ren.total != 1) && (page <= ren.total);
 
             if (ren.hasNext) {
-                ren.html = '<nav>' +
+                ren.html = '<div class="page"><nav>' +
                     '<ul class="pagination">';
                 if (page != 1)
                     ren.html += '<li>' +
-                    '<a class="page-prev" href="'+urlParam("page",page-1)+'" aria-label="Previous">' +
+                    '<a class="page-prev" href="'+urlParam(name?name:"page",page-1)+'" aria-label="Previous">' +
                     '<span aria-hidden="true">&laquo;</span>' +
                     '</a>' +
                     '</li>';
                 for (var i = 1; i <= ren.total; i++) {
-                    ren.html += '<li '+(page==i?'class="active"':'')+'><a href="'+urlParam("page",i)+'" class="page-button">' + i + '</a></li>';
+                    ren.html += '<li '+(page==i?'class="active"':'')+'><a href="'+urlParam(name?name:"page",i)+'" class="page-button">' + i + '</a></li>';
                 }
                 if (page < ren.total)
                     ren.html += '<li>' +
-                        '<a href="'+urlParam("page",page+1)+'" class="page-next" aria-label="Next">' +
+                        '<a href="'+urlParam(name?name:"page",page+1)+'" class="page-next" aria-label="Next">' +
                         '<span aria-hidden="true">&raquo;</span>' +
                         '</a>' +
                         '</li>';
                 ren.html += '</ul>' +
-                    '</nav>';
+                    '</nav></div>';
             }
             ren.data = array.slice(startAt, endAt);
         }
         return ren;
     }else{
-        return pagination(array,1,size);
+        return pagination(array,1,size, name);
     }
 }
 
-function setPage(obj, page){
-    if(typeof(obj) === "object")
-        if(obj && obj.page && isInteger(page))
-            obj.page = page;
-        else if(obj)
-            obj.page = 1;
-}
-
-function getPage(obj){
-    if(typeof(obj) === "object"){
-        if(obj.page && isInteger(obj.page)) {
-            return obj.page;
-        }else{
-            setPage(obj,1);
-            return getPage(obj);
+function urlParse(){
+    var obj = {};
+    var hash = window.location.hash.substr(2).split('?');
+    obj.resources = hash[0].split('/');
+    obj.params = {};
+    if(hash[1]){
+        var parameters = hash[1].split('&');
+        for(var idx in parameters) {
+            var param = parameters[idx].split('=');
+            obj.params[param[0]] = param[1];
         }
-    }else {
-        return null;
     }
+    return obj;
+}
+
+function isCookieEnable(){
+    var cookieEnabled=(navigator.cookieEnabled)? true : false
+
+    //if not IE4+ nor NS6+
+    if (typeof navigator.cookieEnabled=="undefined" && !cookieEnabled){
+        document.cookie="t"
+        cookieEnabled=(document.cookie.indexOf("t")!=-1)? true : false
+    }
+
+    return cookieEnabled;
 }
 
 var Ajax = Ajax || {};
@@ -100,23 +128,19 @@ Ajax.onError = function(resp) {
 };
 Ajax.encodeUrl = function(url) {
     var query = url.split("?");
-    if (query.length > 1) {
+    if (query.length > 1)
         url = query[0];
-    }
-    url = HOST + url + ((sessionID) ? ";jsessionid=" + sessionID : "") + ((query[1]) ? "?" + query[1] : "");
+    url = HOST + url + ((sessionID && !isCookieEnable()) ? ";jsessionid=" + sessionID : "") + ((query[1]) ? "?" + query[1] : "");
     return url;
 };
 Ajax.do = function(method, url, data, success) {
-        var ajax = $.ajax({
+        $.ajax({
             type: method,
             data: data,
             url: Ajax.encodeUrl(url),
             success: function(resp) {
-                if (resp.success) {
-                    if (typeof(success) === "function")
-                        success(resp);
-                } else
-                    Ajax.onError(resp);
+                if (typeof(success) === "function")
+                    success(resp);
                 if (resp.sessionId)
                     sessionID = resp.sessionId;
             },
@@ -134,18 +158,15 @@ Ajax.POST = function(url, data, success) {
     Ajax.do("POST", url, data, success);
 };
 Ajax.UPLOAD = function(url, data, success) {
-    var ajax = $.ajax({
+    $.ajax({
         type: "POST",
         url: Ajax.encodeUrl(url),
         data: data,
         processData: false,
         contentType: false,
         success: function(resp) {
-            if (resp.success) {
-                if (typeof(success) === "function")
-                    success(resp);
-            } else
-                Ajax.onError(resp);
+            if (typeof(success) === "function")
+                success(resp);
             if (resp.sessionId)
                 sessionID = resp.sessionId;
         },

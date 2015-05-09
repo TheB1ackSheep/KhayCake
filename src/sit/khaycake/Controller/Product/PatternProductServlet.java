@@ -41,7 +41,7 @@ public class PatternProductServlet extends HttpServlet {
                 if (method != null) {
                     switch (method) {
                         case "picture":
-                            response.sendRedirect(request.getContextPath() + "/images/" + product.getPictures().get(0).getFilename());
+                            response.sendRedirect(request.getContextPath() + "/images/product/" + product.getPictures().get(0).getFilename());
                             break;
                         case "pictures":
                             List<Picture> pictures = product.getPictures();

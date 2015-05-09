@@ -186,41 +186,54 @@ public class Order implements ORM {
     }
 
     public static List<Order> findByKeyword(Object... q) throws Exception {
-        SQL sql = new SQL();
-        String sqlCmd = "SELECT * FROM "+TABLE_NAME+" "+
-                "JOIN "+ShipmentAddress.TABLE_NAME+" ON "+Order.COLUMN_SHAD_ID+" = "+ShipmentAddress.COLUMN_ID+" "+
-                "JOIN "+Customer.TABLE_NAME+" ON "+Order.COLUMN_CUST_ID+" = "+Customer.COLUMN_ID+" WHERE ";
-        for(int i=0;i<q.length;i++){
-            sqlCmd +=  "("+Customer.COLUMN_PHONE+" LIKE ? OR "+Customer.COLUMN_EMAIL+" LIKE ? OR "+Customer.COLUMN_FNAME+" LIKE ? " +
-                    "OR "+Customer.COLUMN_LNAME+" LIKE ? OR "+ShipmentAddress.COLUMN_FNAME+" LIKE ? OR "+ShipmentAddress.COLUMN_LNAME+" LIKE ? OR "+Order.COLUMN_ID+" = ?)";
-            if(i < q.length-1)
-                sqlCmd += " AND ";
-            sql.addParam("%"+q[i]+"%");
-            sql.addParam("%"+q[i]+"%");
-            sql.addParam("%"+q[i]+"%");
-            sql.addParam("%"+q[i]+"%");
-            sql.addParam("%"+q[i]+"%");
-            sql.addParam("%"+q[i]+"%");
-            sql.addParam(q[i]);
-        }
-        sql.setSql(sqlCmd);
-        return  sql.fetch(Order.class);
+        return findByStatusAndKeyword(null, q);
     }
 
     public static List<Order> findByStatusAndKeyword(Object statusId, Object... q) throws Exception {
         SQL sql = new SQL();
         if(q == null) {
-            String sqlCmd = "SELECT * FROM khaycake.orders WHERE ORDER_DATE > DATE_SUB(NOW(), INTERVAL 7 DAY) AND ORST_ID="+statusId+" ORDER BY ORDER_DATE DESC";
+            String sqlCmd = "SELECT * FROM khaycake.orders WHERE ORDER_DATE > DATE_SUB(NOW(), INTERVAL 7 DAY) AND "+(statusId!=null?COLUMN_ORST_ID+"="+statusId:"")+" ORDER BY "+COLUMN_ORDER_DATE+" DESC";
             return new SQL(sqlCmd).fetch(Order.class);
         }else {
             String sqlCmd = "SELECT * FROM " + TABLE_NAME + " " +
-                    "JOIN " + ShipmentAddress.TABLE_NAME + " ON " + Order.COLUMN_SHAD_ID + " = " + ShipmentAddress.COLUMN_ID + " " +
-                    "JOIN " + Customer.TABLE_NAME + " ON " + Order.COLUMN_CUST_ID + " = " + Customer.COLUMN_ID + " WHERE " + COLUMN_ORST_ID + " = " + statusId + " AND ";
+                    "JOIN " + ShipmentAddress.TABLE_NAME +  " ON " + Order.COLUMN_SHAD_ID +         " = " + ShipmentAddress.COLUMN_ID + " " +
+                    "JOIN " + Customer.TABLE_NAME +         " ON " + Order.COLUMN_CUST_ID +         " = " + Customer.COLUMN_ID  + " " +
+                    "JOIN " + OrderItem.TABLE_NAME +        " ON " + OrderItem.COLUMN_ORDER_ID +    " = " + Order.COLUMN_ID + " " +
+                    "JOIN " + Product.TABLE_NAME +          " ON " + OrderItem.COLUMN_PROD_ID +     " = " + Product.COLUMN_ID  + " " +
+                    "JOIN " + OrderStatus.TABLE_NAME +      " ON " + OrderStatus.COLUMN_ID +        " = " + Order.COLUMN_ORST_ID + " " +
+                    "JOIN " + Payment.TABLE_NAME +          " ON " + Payment.COLUMN_ORDER_ID +      " = " + Order.COLUMN_ID +" "+
+                    "JOIN " + PaymentStatus.TABLE_NAME +    " ON " + PaymentStatus.COLUMN_ID +      " = " + Payment.COLUMN_PAST_ID+ " "+
+                    "WHERE ";
             for (int i = 0; i < q.length; i++) {
-                sqlCmd += "(" + Customer.COLUMN_PHONE + " LIKE ? OR " + Customer.COLUMN_EMAIL + " LIKE ? OR " + Customer.COLUMN_FNAME + " LIKE ? " +
-                        "OR " + Customer.COLUMN_LNAME + " LIKE ? OR " + ShipmentAddress.COLUMN_FNAME + " LIKE ? OR " + ShipmentAddress.COLUMN_LNAME + " LIKE ? OR "+Order.COLUMN_ID+" = ?)";
+                sqlCmd += "(" + Customer.COLUMN_PHONE + " LIKE ? OR " +
+                        Customer.COLUMN_EMAIL + " LIKE ? OR " +
+                        Customer.COLUMN_FNAME + " LIKE ? OR " +
+                        Customer.COLUMN_LNAME + " LIKE ? OR " +
+                        ShipmentAddress.COLUMN_FNAME + " LIKE ? OR " +
+                        ShipmentAddress.COLUMN_LNAME + " LIKE ? OR "+
+                        Product.COLUMN_NAME + " LIKE ? OR "+
+                        OrderStatus.COLUMN_NAME + " LIKE ? OR "+
+                        Order.COLUMN_TOTAL_QTY + " LIKE ? OR "+
+                        OrderItem.COLUMN_QTY+ " LIKE ? OR "+
+                        PaymentStatus.COLUMN_NAME+ " LIKE ? OR "+
+                        "DAY("+Payment.COLUMN_DATE_TIME+ ") = ? OR "+
+                        "MONTH("+Payment.COLUMN_DATE_TIME+ ") = ? OR "+
+                        "YEAR("+Payment.COLUMN_DATE_TIME+ ") = ? OR "+
+                        "DAY("+Order.COLUMN_ORDER_DATE+ ") = ? OR "+
+                        "MONTH("+Order.COLUMN_ORDER_DATE+ ") = ? OR "+
+                        "YEAR("+Order.COLUMN_ORDER_DATE+ ") = ? OR "+
+                        Order.COLUMN_TOTAL_PRICE + " = ? OR "+
+                        Payment.COLUMN_AMOUNT+" = ? OR "+
+                        Payment.COLUMN_ID+" = ? OR "+
+                        Order.COLUMN_ID+" = ?) ";
+
                 if (i < q.length - 1)
-                    sqlCmd += " AND ";
+                    sqlCmd += "AND ";
+                sql.addParam("%" + q[i] + "%");
+                sql.addParam("%" + q[i] + "%");
+                sql.addParam("%" + q[i] + "%");
+                sql.addParam("%" + q[i] + "%");
+                sql.addParam("%" + q[i] + "%");
                 sql.addParam("%" + q[i] + "%");
                 sql.addParam("%" + q[i] + "%");
                 sql.addParam("%" + q[i] + "%");
@@ -228,7 +241,21 @@ public class Order implements ORM {
                 sql.addParam("%" + q[i] + "%");
                 sql.addParam("%" + q[i] + "%");
                 sql.addParam(q[i]);
+                sql.addParam(q[i]);
+                sql.addParam(q[i]);
+                sql.addParam(q[i]);
+                sql.addParam(q[i]);
+                sql.addParam(q[i]);
+                sql.addParam(q[i]);
+                sql.addParam(q[i]);
+                sql.addParam(q[i]);
+                sql.addParam(q[i]);
             }
+            if(statusId != null) {
+                sqlCmd += " AND " + COLUMN_ORST_ID + " = ? ";
+                sql.addParam(statusId);
+            }
+            sqlCmd += "GROUP BY "+Order.COLUMN_ID;
             sql.setSql(sqlCmd);
             return sql.fetch(Order.class);
         }

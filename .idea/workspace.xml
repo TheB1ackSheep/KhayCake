@@ -8,131 +8,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d27d28aa-e1da-498a-bb26-aef4211214da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/images/sad.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/images/spongebob.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/BankAccountRequest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/BankBranch.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/sit/khaycake/Filter/request/PaymentRequest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/css/bootstrap-datepicker.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/css/bootstrap-timepicker.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/bootstrap-timepicker.min.js" />
-      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\Bank$Branch.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\BankAccount$Type.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\Order$ShipMethod.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\Order$Status.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\out\artifacts\KhayCake_war_exploded\WEB-INF\classes\sit\khaycake\model\Payment$Status.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\out\artifacts\KhayCake_war_exploded\home.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\out\artifacts\KhayCake_war_exploded\index.jsp" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\target\classes\sit\khaycake\model\Bank$Branch.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\target\classes\sit\khaycake\model\BankAccount$Type.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\target\classes\sit\khaycake\model\Order$ShipMethod.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\target\classes\sit\khaycake\model\Order$Status.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\target\classes\sit\khaycake\model\Payment$Status.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\web\images\1499431_382742111871675_1224582147_n_2303874750157589462.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\web\images\1499431_382742111871675_1224582147_n_3746893655043373117.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\web\images\1499431_382742111871675_1224582147_n_4571941475252952566.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\web\images\1499431_382742111871675_1224582147_n_5198870594937399816.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\web\images\1499431_382742111871675_1224582147_n_5784348181927910135.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\web\images\1499431_382742111871675_1224582147_n_6255008347071092418.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\web\images\1499431_382742111871675_1224582147_n_6941604982263180658.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\web\images\image.html" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\web\index.jsp" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\Falook Glico\Downloads\KhayCake-DevServlet (1)\KhayCake-DevServlet\web\home.html" afterPath="$PROJECT_DIR$/web/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Bank.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Bank.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Bank.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Bank.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/BankAccount.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/BankAccount.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/BankAccount.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/BankAccount.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/BankAccount/BankAccountServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/BankAccount/BankAccountServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/BankAccount/BankAccountServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/BankAccount/BankAccountServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/BankAccountType/BankAccountTypeServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/BankAccountType/BankAccountTypeServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/BankAccountType/BankAccountTypeServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/BankAccountType/BankAccountTypeServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Bank/BankServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Bank/BankServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Bank/BankServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Bank/BankServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Cart$Item.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Cart$Item.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Cart$Item.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Cart$Item.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Cart.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Cart.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Cart.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Cart.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Customer.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Customer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Customer.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Customer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Filter/FormAttribute.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Filter/FormAttribute.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Filter/FormAttribute.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Filter/FormAttribute.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Order.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Order.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Order.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Order.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/OrderItem.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/OrderItem.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/OrderItem.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/OrderItem.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/OrderItem/OrderItemServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/OrderItem/OrderItemServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/OrderItem/OrderItemServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/OrderItem/OrderItemServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Order/OrderServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Order/OrderServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Order/OrderServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Order/OrderServlet.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/OrderStatus.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/OrderStatus.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/OrderStatus.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/OrderStatus.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/BankAccount/PatternBankAccountServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/BankAccount/PatternBankAccountServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/BankAccount/PatternBankAccountServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/BankAccount/PatternBankAccountServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/BankAccountType/PatternBankAccountTypeServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/BankAccountType/PatternBankAccountTypeServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/BankAccountType/PatternBankAccountTypeServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/BankAccountType/PatternBankAccountTypeServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Bank/PatternBankServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Bank/PatternBankServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Bank/PatternBankServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Bank/PatternBankServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Cart/PatternCartServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Cart/PatternCartServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Cart/PatternCartServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Cart/PatternCartServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/OrderItem/PatternOrderItemServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/OrderItem/PatternOrderItemServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/OrderItem/PatternOrderItemServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/OrderItem/PatternOrderItemServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Order/PatternOrderServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Order/PatternOrderServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Order/PatternOrderServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Order/PatternOrderServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Payment/PatternPaymentServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Payment/PatternPaymentServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Payment/PatternPaymentServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Payment/PatternPaymentServlet.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Product/PatternProductServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Product/PatternProductServlet.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Product/PatternProductServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Product/PatternProductServlet.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Payment.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Payment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Payment.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Payment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Payment/PaymentServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Payment/PaymentServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Payment/PaymentServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Payment/PaymentServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Product.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/model/Product.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Product.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/model/Product.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Product/ProductServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Product/ProductServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Product/ProductServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Product/ProductServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Filter/RequestValidation.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Filter/RequestValidation.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Filter/RequestValidation.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Filter/RequestValidation.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/database/SQL.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/database/SQL.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/database/SQL.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/database/SQL.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/ShipmentMethod/ShipmentMethodServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/ShipmentMethod/ShipmentMethodServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/ShipmentMethod/ShipmentMethodServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/ShipmentMethod/ShipmentMethodServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/util/Util.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/util/Util.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/util/Util.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/util/Util.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/images/slider-1.jpg" afterPath="$PROJECT_DIR$/web/images/slider-1.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Auth/AuthController.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Auth/AuthController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/Bank.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/Bank.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/BankAccount.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/BankAccount.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/BankAccount/BankAccountServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/BankAccount/BankAccountServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/BankAccountType/BankAccountTypeServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/BankAccountType/BankAccountTypeServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Bank/BankServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Bank/BankServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/Cart.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/Cart.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/Customer.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/Customer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Filter/FormAttribute.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Filter/FormAttribute.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Picture/PictureServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/classes/sit/khaycake/Controller/Picture/PictureServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Picture/PictureServlet.class" afterPath="$PROJECT_DIR$/target/classes/sit/khaycake/Controller/Picture/PictureServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/KhayCake.iml" afterPath="$PROJECT_DIR$/KhayCake.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/Order.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/Order.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/OrderItem.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/OrderItem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/OrderItem/OrderItemServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/OrderItem/OrderItemServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Order/OrderServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Order/OrderServlet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/OrderStatus.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/OrderStatus.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/BankAccount/PatternBankAccountServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/BankAccount/PatternBankAccountServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/BankAccountType/PatternBankAccountTypeServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/BankAccountType/PatternBankAccountTypeServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Bank/PatternBankServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Bank/PatternBankServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Cart/PatternCartServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Cart/PatternCartServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/OrderItem/PatternOrderItemServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/OrderItem/PatternOrderItemServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Order/PatternOrderServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Order/PatternOrderServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Payment/PatternPaymentServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Payment/PatternPaymentServlet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Product/PatternProductServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Product/PatternProductServlet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/Payment.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/Payment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Payment/PaymentServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Payment/PaymentServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/model/Product.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/model/Product.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Product/ProductServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Product/ProductServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Filter/RequestValidation.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Filter/RequestValidation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/database/SQL.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/database/SQL.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/ShipmentAddress/ShipmentAddressController.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/ShipmentAddress/ShipmentAddressController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/ShipmentMethod/ShipmentMethodServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/ShipmentMethod/ShipmentMethodServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/util/Util.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/util/Util.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/admin.html" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/admin.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/admin.html" afterPath="$PROJECT_DIR$/web/admin.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sit/khaycake/Controller/Picture/PictureServlet.java" afterPath="$PROJECT_DIR$/src/sit/khaycake/Controller/Picture/PictureServlet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/admin.js" afterPath="$PROJECT_DIR$/resources/js/admin.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/css/admin.less" afterPath="$PROJECT_DIR$/resources/css/admin.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/css/admin.min.css" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/css/admin.min.css" />
@@ -143,16 +34,11 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/js/core.min.js" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/js/core.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/core.min.js" afterPath="$PROJECT_DIR$/web/js/core.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gruntfile.js" afterPath="$PROJECT_DIR$/gruntfile.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/js/khaycake.js" afterPath="$PROJECT_DIR$/resources/js/khaycake.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/css/khaycake.less" afterPath="$PROJECT_DIR$/resources/css/khaycake.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/css/khaycake.min.css" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/css/khaycake.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/khaycake.min.css" afterPath="$PROJECT_DIR$/web/css/khaycake.min.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/js/khaycake.min.js" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/js/khaycake.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/khaycake.min.js" afterPath="$PROJECT_DIR$/web/js/khaycake.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/css/mixin.less" afterPath="$PROJECT_DIR$/resources/css/mixin.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/css/theme-coffee.less" afterPath="$PROJECT_DIR$/resources/css/theme-coffee.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/out/artifacts/KhayCake_war_exploded/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="47a0f455-aeee-494a-9b6c-32752d8a22e1" name="Failed commit: Default" comment="Cart done, working on checkout" />
@@ -212,156 +98,203 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="khaycake.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/khaycake.js">
+      <file leaf-file-name="SQL.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sit/khaycake/database/SQL.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="291" column="27" selection-start-line="291" selection-start-column="27" selection-end-line="291" selection-end-column="27" />
+              <caret line="215" column="0" selection-start-line="215" selection-start-column="0" selection-end-line="215" selection-end-column="0" />
               <folding>
-                <element signature="e#141#727#0" expanded="false" />
-                <element signature="e#205#262#0" expanded="false" />
-                <element signature="e#309#367#0" expanded="false" />
-                <element signature="e#407#502#0" expanded="false" />
-                <element signature="e#540#717#0" expanded="false" />
-                <element signature="e#4477#5161#0" expanded="false" />
-                <element signature="e#4544#4916#0" expanded="false" />
-                <element signature="e#4922#5054#0" expanded="false" />
-                <element signature="e#5271#5955#0" expanded="false" />
-                <element signature="e#5716#5848#0" expanded="false" />
-                <element signature="e#6069#6753#0" expanded="false" />
-                <element signature="e#6514#6646#0" expanded="false" />
-                <element signature="e#6852#7538#0" expanded="false" />
-                <element signature="e#9343#9522#0" expanded="false" />
-                <element signature="e#9379#9508#0" expanded="false" />
-                <element signature="e#11541#11632#0" expanded="false" />
-                <element signature="e#11636#11738#0" expanded="false" />
-                <element signature="e#12064#12161#0" expanded="false" />
-                <element signature="e#13537#14204#0" expanded="false" />
-                <element signature="e#14242#14367#0" expanded="false" />
-                <element signature="e#14407#14847#0" expanded="false" />
-                <element signature="e#14548#14817#0" expanded="false" />
-                <element signature="e#14600#14667#0" expanded="false" />
-                <element signature="e#14671#14807#0" expanded="false" />
-                <element signature="e#14905#15793#0" expanded="false" />
-                <element signature="e#15836#16283#0" expanded="false" />
-                <element signature="e#15981#16253#0" expanded="false" />
-                <element signature="e#16033#16100#0" expanded="false" />
-                <element signature="e#16104#16243#0" expanded="false" />
-                <element signature="e#16343#17421#0" expanded="false" />
-                <element signature="e#17463#17543#0" expanded="false" />
-                <element signature="e#17584#19648#0" expanded="false" />
-                <element signature="e#19729#20504#0" expanded="false" />
-                <element signature="e#20556#21714#0" expanded="false" />
-                <element signature="e#21777#23834#0" expanded="false" />
-                <element signature="e#22543#23435#0" expanded="false" />
-                <element signature="e#23004#23281#0" expanded="false" />
-                <element signature="e#23882#24293#0" expanded="false" />
-                <element signature="e#24351#26250#0" expanded="false" />
-                <element signature="e#26307#26520#0" expanded="false" />
-                <element signature="e#26579#26797#0" expanded="false" />
-                <element signature="e#28044#29212#0" expanded="false" />
-                <element signature="e#29314#29644#0" expanded="false" />
-                <element signature="e#29680#30061#0" expanded="false" />
-                <element signature="e#29715#30053#0" expanded="false" />
-                <element signature="e#29802#30043#0" expanded="false" />
-                <element signature="e#30100#30418#0" expanded="false" />
-                <element signature="e#30458#30512#0" expanded="false" />
-                <element signature="e#30556#31606#0" expanded="false" />
-                <element signature="e#31645#32195#0" expanded="false" />
-                <element signature="e#32238#34627#0" expanded="false" />
-                <element signature="e#34673#34790#0" expanded="false" />
-                <element signature="e#34833#39698#0" expanded="false" />
-                <element signature="e#39743#40143#0" expanded="false" />
-                <element signature="e#40187#40409#0" expanded="false" />
-                <element signature="e#40458#41201#0" expanded="false" />
-                <element signature="e#41248#41477#0" expanded="false" />
-                <element signature="e#41529#42450#0" expanded="false" />
-                <element signature="e#42497#42710#0" expanded="false" />
-                <element signature="e#42770#45894#0" expanded="false" />
-                <element signature="e#46006#46666#0" expanded="false" />
-                <element signature="e#46751#48234#0" expanded="false" />
-                <element signature="e#48278#48285#0" expanded="false" />
-                <element signature="e#48338#50404#0" expanded="false" />
-                <element signature="e#50455#51268#0" expanded="false" />
-                <marker date="1431051835642" expanded="true" signature="8410:8430" placeholder="..." />
-                <marker date="1431051835642" expanded="true" signature="21361:21367" placeholder="..." />
-                <marker date="1431051835642" expanded="true" signature="28747:28761" placeholder="..." />
-                <marker date="1431051835642" expanded="true" signature="28927:28933" placeholder="..." />
-                <marker date="1431051835642" expanded="false" signature="43035:43045" placeholder="..." />
-                <marker date="1431051835642" expanded="false" signature="43564:43576" placeholder="..." />
-                <marker date="1431051835642" expanded="false" signature="53082:53117" placeholder="..." />
+                <element signature="imports" expanded="false" />
+                <element signature="e#902#903#0" expanded="false" />
+                <element signature="e#952#953#0" expanded="false" />
+                <element signature="e#1014#1015#0" expanded="false" />
+                <element signature="e#1058#1059#0" expanded="false" />
+                <element signature="e#1623#1624#0" expanded="false" />
+                <element signature="e#1673#1674#0" expanded="false" />
+                <element signature="e#1735#1736#0" expanded="false" />
+                <element signature="e#1779#1780#0" expanded="false" />
+                <element signature="e#2343#2344#0" expanded="false" />
+                <element signature="e#2367#2368#0" expanded="false" />
+                <element signature="e#2397#2398#0" expanded="false" />
+                <element signature="e#2427#2428#0" expanded="false" />
+                <element signature="e#3122#3123#0" expanded="false" />
+                <element signature="e#3152#3153#0" expanded="false" />
+                <element signature="e#10908#10909#0" expanded="false" />
+                <element signature="e#10939#10940#0" expanded="false" />
+                <element signature="e#10980#10981#0" expanded="false" />
+                <element signature="e#11011#11012#0" expanded="false" />
+                <element signature="e#11057#11058#0" expanded="false" />
+                <element signature="e#11088#11089#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AuthController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Auth/AuthController.java">
+      <file leaf-file-name="khaycake.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/khaycake.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="71" column="53" selection-start-line="71" selection-start-column="53" selection-end-line="71" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/admin.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="484" column="0" selection-start-line="484" selection-start-column="0" selection-end-line="484" selection-end-column="0" />
+              <caret line="516" column="39" selection-start-line="516" selection-start-column="39" selection-end-line="516" selection-end-column="39" />
               <folding>
-                <element signature="e#388#969#0" expanded="false" />
-                <element signature="e#998#1531#0" expanded="false" />
-                <element signature="e#1571#2534#0" expanded="false" />
-                <element signature="e#3162#4396#0" expanded="false" />
-                <element signature="e#4469#4653#0" expanded="false" />
-                <element signature="e#4776#6111#0" expanded="false" />
-                <element signature="e#8040#10161#0" expanded="false" />
-                <element signature="e#10422#11495#0" expanded="false" />
-                <element signature="e#11549#13954#0" expanded="false" />
-                <element signature="e#13148#13425#0" expanded="false" />
-                <element signature="e#13990#16658#0" expanded="false" />
-                <element signature="e#16698#16879#0" expanded="false" />
-                <element signature="e#16928#18086#0" expanded="false" />
-                <element signature="e#18133#21340#0" expanded="false" />
-                <element signature="e#21377#23706#0" expanded="false" />
-                <element signature="e#23747#24416#0" expanded="false" />
-                <element signature="e#24471#25770#0" expanded="false" />
-                <element signature="e#25827#28891#0" expanded="false" />
-                <element signature="e#28083#28360#0" expanded="false" />
-                <element signature="e#28925#33947#0" expanded="false" />
-                <element signature="e#33991#36188#0" expanded="false" />
-                <element signature="e#39510#41602#0" expanded="false" />
-                <element signature="e#41652#43744#0" expanded="false" />
-                <element signature="e#43799#45292#0" expanded="false" />
-                <element signature="e#45368#45639#0" expanded="false" />
-                <element signature="e#45726#46018#0" expanded="false" />
-                <element signature="e#46055#48243#0" expanded="false" />
-                <marker date="1431050158769" expanded="true" signature="2701:2717" placeholder="..." />
-                <marker date="1431050158769" expanded="true" signature="3604:3620" placeholder="..." />
-                <marker date="1431050158769" expanded="true" signature="7511:7525" placeholder="..." />
-                <marker date="1431050158769" expanded="true" signature="8164:8180" placeholder="..." />
-                <marker date="1431050158769" expanded="true" signature="9481:9497" placeholder="..." />
-                <marker date="1431050158769" expanded="true" signature="11212:11218" placeholder="..." />
-                <marker date="1431050158769" expanded="true" signature="11703:11714" placeholder="..." />
-                <marker date="1431050158769" expanded="true" signature="12441:12447" placeholder="..." />
-                <marker date="1431050158769" expanded="true" signature="14116:14132" placeholder="..." />
-                <marker date="1431050158769" expanded="true" signature="15971:15987" placeholder="..." />
-                <marker date="1431050158769" expanded="true" signature="17621:17635" placeholder="..." />
-                <marker date="1431050158769" expanded="true" signature="17801:17807" placeholder="..." />
-                <marker date="1431050158769" expanded="true" signature="19006:19012" placeholder="..." />
-                <marker date="1431050158769" expanded="true" signature="19469:19480" placeholder="..." />
-                <marker date="1431050158769" expanded="true" signature="21504:21520" placeholder="..." />
-                <marker date="1431050158769" expanded="true" signature="23017:23033" placeholder="..." />
-                <marker date="1431050158769" expanded="true" signature="26025:26036" placeholder="..." />
-                <marker date="1431050158769" expanded="true" signature="26770:26776" placeholder="..." />
-                <marker date="1431050158769" expanded="true" signature="29299:29315" placeholder="..." />
-                <marker date="1431050158769" expanded="true" signature="33374:33390" placeholder="..." />
-                <marker date="1431050158769" expanded="true" signature="34183:34193" placeholder="..." />
-                <marker date="1431050158769" expanded="true" signature="39877:39893" placeholder="..." />
-                <marker date="1431050158769" expanded="true" signature="41794:41804" placeholder="..." />
-                <marker date="1431050158769" expanded="true" signature="44167:44183" placeholder="..." />
+                <element signature="e#242#2435#0" expanded="false" />
+                <element signature="e#3430#3992#0" expanded="false" />
+                <element signature="e#3632#3752#0" expanded="false" />
+                <element signature="e#4051#5204#0" expanded="false" />
+                <element signature="e#5243#6871#0" expanded="false" />
+                <element signature="e#5512#5901#0" expanded="false" />
+                <element signature="e#5649#5828#0" expanded="false" />
+                <element signature="e#5685#5814#0" expanded="false" />
+                <element signature="e#6001#6823#0" expanded="false" />
+                <element signature="e#7363#7465#0" expanded="false" />
+                <element signature="e#7708#7787#0" expanded="false" />
+                <element signature="e#7791#7888#0" expanded="false" />
+                <element signature="e#8045#8966#0" expanded="false" />
+                <element signature="e#8689#8770#0" expanded="false" />
+                <element signature="e#9005#9105#0" expanded="false" />
+                <element signature="e#9149#9816#0" expanded="false" />
+                <element signature="e#9855#9980#0" expanded="false" />
+                <element signature="e#10020#10457#0" expanded="false" />
+                <element signature="e#10158#10427#0" expanded="false" />
+                <element signature="e#10210#10277#0" expanded="false" />
+                <element signature="e#10281#10417#0" expanded="false" />
+                <element signature="e#10515#11403#0" expanded="false" />
+                <element signature="e#11446#11890#0" expanded="false" />
+                <element signature="e#11588#11860#0" expanded="false" />
+                <element signature="e#11640#11707#0" expanded="false" />
+                <element signature="e#11711#11850#0" expanded="false" />
+                <element signature="e#11950#13028#0" expanded="false" />
+                <element signature="e#13070#13150#0" expanded="false" />
+                <element signature="e#14525#14914#0" expanded="false" />
+                <element signature="e#14588#14889#0" expanded="false" />
+                <element signature="e#15085#15345#0" expanded="false" />
+                <element signature="e#15190#15263#0" expanded="false" />
+                <element signature="e#15397#16565#0" expanded="false" />
+                <element signature="e#15637#16422#0" expanded="false" />
+                <element signature="e#15674#16411#0" expanded="false" />
+                <element signature="e#16426#16510#0" expanded="false" />
+                <element signature="e#16628#18685#0" expanded="false" />
+                <element signature="e#16716#17177#0" expanded="false" />
+                <element signature="e#17394#18286#0" expanded="false" />
+                <element signature="e#17496#17821#0" expanded="false" />
+                <element signature="e#17855#18132#0" expanded="false" />
+                <element signature="e#18292#18376#0" expanded="false" />
+                <element signature="e#18733#19144#0" expanded="false" />
+                <element signature="e#18877#19114#0" expanded="false" />
+                <element signature="e#18910#19004#0" expanded="false" />
+                <element signature="e#19008#19104#0" expanded="false" />
+                <element signature="e#19202#21101#0" expanded="false" />
+                <element signature="e#21158#21371#0" expanded="false" />
+                <element signature="e#21430#21648#0" expanded="false" />
+                <element signature="e#22178#23358#0" expanded="false" />
+                <element signature="e#22417#23211#0" expanded="false" />
+                <element signature="e#22456#23201#0" expanded="false" />
+                <element signature="e#23215#23303#0" expanded="false" />
+                <element signature="e#23459#23789#0" expanded="false" />
+                <element signature="e#23567#23733#0" expanded="false" />
+                <element signature="e#23824#24205#0" expanded="false" />
+                <element signature="e#24244#24562#0" expanded="false" />
+                <element signature="e#24371#24554#0" expanded="false" />
+                <element signature="e#24602#24656#0" expanded="false" />
+                <element signature="e#24700#25750#0" expanded="false" />
+                <element signature="e#25103#25281#0" expanded="false" />
+                <element signature="e#25307#25431#0" expanded="false" />
+                <element signature="e#25789#26339#0" expanded="false" />
+                <element signature="e#25932#25973#0" expanded="false" />
+                <element signature="e#26088#26287#0" expanded="false" />
+                <element signature="e#26128#26269#0" expanded="false" />
+                <element signature="e#26378#28812#0" expanded="false" />
+                <element signature="e#26847#28802#0" expanded="false" />
+                <element signature="e#26890#28789#0" expanded="false" />
+                <element signature="e#27121#27290#0" expanded="false" />
+                <element signature="e#27425#27534#0" expanded="false" />
+                <element signature="e#27574#27668#0" expanded="false" />
+                <element signature="e#27707#27814#0" expanded="false" />
+                <element signature="e#27853#28057#0" expanded="false" />
+                <element signature="e#27916#28036#0" expanded="false" />
+                <element signature="e#28111#28346#0" expanded="false" />
+                <element signature="e#28171#28326#0" expanded="false" />
+                <element signature="e#28414#28524#0" expanded="false" />
+                <element signature="e#28592#28661#0" expanded="false" />
+                <element signature="e#28666#28773#0" expanded="false" />
+                <element signature="e#28858#28975#0" expanded="false" />
+                <element signature="e#29018#33883#0" expanded="false" />
+                <element signature="e#29071#29178#0" expanded="false" />
+                <element signature="e#29229#29333#0" expanded="false" />
+                <element signature="e#29387#29463#0" expanded="false" />
+                <element signature="e#29520#29599#0" expanded="false" />
+                <element signature="e#29652#29731#0" expanded="false" />
+                <element signature="e#29792#31036#0" expanded="false" />
+                <element signature="e#29913#30513#0" expanded="false" />
+                <element signature="e#29992#30456#0" expanded="false" />
+                <element signature="e#30087#30433#0" expanded="false" />
+                <element signature="e#30124#30406#0" expanded="false" />
+                <element signature="e#30559#31026#0" expanded="false" />
+                <element signature="e#30651#31010#0" expanded="false" />
+                <element signature="e#30775#30992#0" expanded="false" />
+                <element signature="e#31096#32002#0" expanded="false" />
+                <element signature="e#31217#31607#0" expanded="false" />
+                <element signature="e#31296#31550#0" expanded="false" />
+                <element signature="e#31391#31527#0" expanded="false" />
+                <element signature="e#31653#31992#0" expanded="false" />
+                <element signature="e#31745#31976#0" expanded="false" />
+                <element signature="e#31869#31958#0" expanded="false" />
+                <element signature="e#32064#32949#0" expanded="false" />
+                <element signature="e#32187#32546#0" expanded="false" />
+                <element signature="e#32266#32489#0" expanded="false" />
+                <element signature="e#32361#32466#0" expanded="false" />
+                <element signature="e#32592#32939#0" expanded="false" />
+                <element signature="e#32686#32923#0" expanded="false" />
+                <element signature="e#32814#32905#0" expanded="false" />
+                <element signature="e#32999#33317#0" expanded="false" />
+                <element signature="e#33068#33279#0" expanded="false" />
+                <element signature="e#33103#33265#0" expanded="false" />
+                <element signature="e#33393#33574#0" expanded="false" />
+                <element signature="e#33625#33873#0" expanded="false" />
+                <element signature="e#33727#33835#0" expanded="false" />
+                <element signature="e#33928#34328#0" expanded="false" />
+                <element signature="e#34372#34594#0" expanded="false" />
+                <element signature="e#34451#34586#0" expanded="false" />
+                <element signature="e#34505#34576#0" expanded="false" />
+                <element signature="e#34643#35386#0" expanded="false" />
+                <element signature="e#35433#35662#0" expanded="false" />
+                <element signature="e#35519#35654#0" expanded="false" />
+                <element signature="e#35573#35644#0" expanded="false" />
+                <element signature="e#35714#36635#0" expanded="false" />
+                <element signature="e#36682#36895#0" expanded="false" />
+                <element signature="e#36774#36887#0" expanded="false" />
+                <element signature="e#36806#36877#0" expanded="false" />
+                <element signature="e#37105#37536#0" expanded="false" />
+                <element signature="e#40191#40851#0" expanded="false" />
+                <element signature="e#40367#40692#0" expanded="false" />
+                <element signature="e#40936#42419#0" expanded="false" />
+                <element signature="e#41164#42094#0" expanded="false" />
+                <element signature="e#41294#41617#0" expanded="false" />
+                <element signature="e#41654#41940#0" expanded="false" />
+                <element signature="e#42100#42184#0" expanded="false" />
+                <element signature="e#42463#42470#0" expanded="false" />
+                <element signature="e#42523#44589#0" expanded="false" />
+                <element signature="e#42614#43118#0" expanded="false" />
+                <element signature="e#43356#44258#0" expanded="false" />
+                <element signature="e#43458#43781#0" expanded="false" />
+                <element signature="e#43818#44104#0" expanded="false" />
+                <element signature="e#44264#44348#0" expanded="false" />
+                <element signature="e#44640#45454#0" expanded="false" />
+                <element signature="e#45136#45443#0" expanded="false" />
+                <element signature="e#45167#45362#0" expanded="false" />
+                <element signature="e#45213#45348#0" expanded="false" />
+                <element signature="e#45535#46112#0" expanded="false" />
+                <element signature="e#46267#46486#0" expanded="false" />
+                <element signature="e#46530#46920#0" expanded="false" />
+                <element signature="e#47225#47256#0" expanded="false" />
+                <element signature="e#47304#47345#0" expanded="false" />
+                <element signature="e#47492#47530#0" expanded="false" />
+                <marker date="1431163889369" expanded="false" signature="4827:4847" placeholder="..." />
+                <marker date="1431163889369" expanded="false" signature="16212:16218" placeholder="..." />
+                <marker date="1431163889369" expanded="false" signature="22893:22907" placeholder="..." />
+                <marker date="1431163889369" expanded="false" signature="23073:23079" placeholder="..." />
+                <marker date="1431163889369" expanded="false" signature="37220:37230" placeholder="..." />
+                <marker date="1431163889369" expanded="false" signature="37749:37761" placeholder="..." />
+                <marker date="1431163889369" expanded="false" signature="47069:47104" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -370,81 +303,120 @@
       <file leaf-file-name="core.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/core.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.5862069">
-              <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="184" column="0" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
               <folding>
-                <element signature="e#10714#10742#0" expanded="false" />
-                <marker date="1431052077221" expanded="true" signature="6341:6357" placeholder="..." />
-                <marker date="1431052077221" expanded="true" signature="8207:8223" placeholder="..." />
+                <element signature="n#!!block;n#isFloat#0" expanded="false" />
+                <element signature="n#!!block;n#urlParam#0" expanded="false" />
+                <element signature="n#!!block;n#getParameter#0" expanded="false" />
+                <element signature="e#1799#3249#0" expanded="false" />
+                <element signature="e#3484#3680#0" expanded="false" />
+                <element signature="e#3566#3674#0" expanded="false" />
+                <element signature="n#!!block;n#isCookieEnable#0" expanded="false" />
+                <element signature="e#4166#4397#0" expanded="false" />
+                <element signature="e#5000#5043#0" expanded="false" />
+                <element signature="e#5086#5130#0" expanded="false" />
+                <element signature="e#5175#5681#0" expanded="false" />
+                <element signature="e#5710#5741#0" expanded="false" />
+                <marker date="1431164864351" expanded="true" signature="7348:7364" placeholder="..." />
+                <marker date="1431164864351" expanded="true" signature="9214:9230" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="khaycake.less" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/css/khaycake.less">
+      <file leaf-file-name="admin.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/js/admin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-205.3077">
-              <caret line="314" column="0" selection-start-line="314" selection-start-column="0" selection-end-line="314" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.24827586">
+              <caret line="693" column="17" selection-start-line="693" selection-start-column="17" selection-end-line="693" selection-end-column="17" />
+              <folding>
+                <element signature="e#388#969#0" expanded="false" />
+                <element signature="e#998#1531#0" expanded="false" />
+                <element signature="e#4868#5052#0" expanded="false" />
+                <element signature="e#5175#6510#0" expanded="false" />
+                <element signature="e#6642#8405#0" expanded="false" />
+                <element signature="e#9112#9777#0" expanded="false" />
+                <element signature="e#11029#11212#0" expanded="false" />
+                <element signature="e#11257#12330#0" expanded="false" />
+                <element signature="e#12384#14844#0" expanded="false" />
+                <element signature="e#14038#14315#0" expanded="false" />
+                <element signature="e#15505#16583#0" expanded="false" />
+                <element signature="e#15836#16143#0" expanded="false" />
+                <element signature="e#16165#16470#0" expanded="false" />
+                <element signature="e#16222#16450#0" expanded="false" />
+                <element signature="e#16474#16558#0" expanded="false" />
+                <element signature="e#17848#18032#0" expanded="false" />
+                <element signature="e#18081#19239#0" expanded="false" />
+                <element signature="e#19286#22493#0" expanded="false" />
+                <element signature="e#25161#25832#0" expanded="false" />
+                <element signature="e#25887#27186#0" expanded="false" />
+                <element signature="e#27243#30307#0" expanded="false" />
+                <element signature="e#29499#29776#0" expanded="false" />
+                <element signature="e#32427#34279#0" expanded="false" />
+                <element signature="e#34345#35022#0" expanded="false" />
+                <element signature="e#35097#37284#0" expanded="false" />
+                <element signature="e#37324#40562#0" expanded="false" />
+                <element signature="e#37414#37654#0" expanded="false" />
+                <element signature="e#37702#37748#0" expanded="false" />
+                <element signature="e#37983#38369#0" expanded="false" />
+                <element signature="e#38423#38491#0" expanded="false" />
+                <element signature="e#38549#38800#0" expanded="false" />
+                <element signature="e#38860#39116#0" expanded="false" />
+                <element signature="e#39175#39789#0" expanded="false" />
+                <element signature="e#39853#40554#0" expanded="false" />
+                <element signature="e#40595#42687#0" expanded="false" />
+                <element signature="e#42737#44829#0" expanded="false" />
+                <element signature="e#44884#46377#0" expanded="false" />
+                <element signature="e#46453#46724#0" expanded="false" />
+                <element signature="e#46811#47103#0" expanded="false" />
+                <element signature="e#47140#49328#0" expanded="false" />
+                <marker date="1431165848507" expanded="true" signature="2674:2690" placeholder="..." />
+                <marker date="1431165848507" expanded="true" signature="3670:3686" placeholder="..." />
+                <marker date="1431165848507" expanded="true" signature="7910:7924" placeholder="..." />
+                <marker date="1431165848507" expanded="true" signature="8563:8579" placeholder="..." />
+                <marker date="1431165848507" expanded="true" signature="10107:10123" placeholder="..." />
+                <marker date="1431165848507" expanded="true" signature="12047:12053" placeholder="..." />
+                <marker date="1431165848507" expanded="true" signature="12538:12549" placeholder="..." />
+                <marker date="1431165848507" expanded="true" signature="13276:13282" placeholder="..." />
+                <marker date="1431165848507" expanded="true" signature="15006:15022" placeholder="..." />
+                <marker date="1431165848507" expanded="true" signature="16907:16923" placeholder="..." />
+                <marker date="1431165848507" expanded="true" signature="18774:18788" placeholder="..." />
+                <marker date="1431165848507" expanded="true" signature="18954:18960" placeholder="..." />
+                <marker date="1431165848507" expanded="true" signature="20159:20165" placeholder="..." />
+                <marker date="1431165848507" expanded="true" signature="20622:20633" placeholder="..." />
+                <marker date="1431165848507" expanded="true" signature="22657:22673" placeholder="..." />
+                <marker date="1431165848507" expanded="true" signature="24216:24232" placeholder="..." />
+                <marker date="1431165848507" expanded="true" signature="27441:27452" placeholder="..." />
+                <marker date="1431165848507" expanded="true" signature="28186:28192" placeholder="..." />
+                <marker date="1431165848507" expanded="true" signature="30715:30731" placeholder="..." />
+                <marker date="1431165848507" expanded="true" signature="31332:31348" placeholder="..." />
+                <marker date="1431165848507" expanded="true" signature="35289:35299" placeholder="..." />
+                <marker date="1431165848507" expanded="true" signature="40962:40978" placeholder="..." />
+                <marker date="1431165848507" expanded="true" signature="42879:42889" placeholder="..." />
+                <marker date="1431165848507" expanded="true" signature="45252:45268" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin.less" pinned="false" current-in-tab="true">
+      <file leaf-file-name="admin.less" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/css/admin.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5779037">
-              <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+            <state vertical-scroll-proportion="-6.923077">
+              <caret line="196" column="25" selection-start-line="196" selection-start-column="25" selection-end-line="196" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PatternCustomerServlet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Customer/PatternCustomerServlet.java">
+      <file leaf-file-name="PictureServlet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Picture/PictureServlet.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="64" column="65" selection-start-line="64" selection-start-column="65" selection-end-line="64" selection-end-column="65" />
+              <caret line="46" column="70" selection-start-line="46" selection-start-column="70" selection-end-line="46" selection-end-column="70" />
               <folding>
                 <element signature="imports" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Payment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/Payment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="173" column="29" selection-start-line="173" selection-start-column="29" selection-end-line="173" selection-end-column="29" />
-              <folding>
-                <element signature="e#0#7719#0" expanded="false" />
-                <element signature="imports" expanded="false" />
-                <element signature="e#1304#1305#0" expanded="false" />
-                <element signature="e#1329#1330#0" expanded="false" />
-                <element signature="e#1362#1363#0" expanded="false" />
-                <element signature="e#1390#1391#0" expanded="false" />
-                <element signature="e#1421#1422#0" expanded="false" />
-                <element signature="e#1449#1450#0" expanded="false" />
-                <element signature="e#1490#1491#0" expanded="false" />
-                <element signature="e#1524#1525#0" expanded="false" />
-                <element signature="e#1567#1568#0" expanded="false" />
-                <element signature="e#1594#1595#0" expanded="false" />
-                <element signature="e#1646#1647#0" expanded="false" />
-                <element signature="e#1678#1679#0" expanded="false" />
-                <element signature="e#1718#1719#0" expanded="false" />
-                <element signature="e#1747#1748#0" expanded="false" />
-                <element signature="e#1798#1799#0" expanded="false" />
-                <element signature="e#1834#1835#0" expanded="false" />
-                <element signature="e#1872#1873#0" expanded="false" />
-                <element signature="e#1903#1904#0" expanded="false" />
-                <element signature="e#1954#1955#0" expanded="false" />
-                <element signature="e#1994#1995#0" expanded="false" />
-                <element signature="e#2027#2028#0" expanded="false" />
-                <element signature="e#2056#2057#0" expanded="false" />
-                <element signature="e#2100#2101#0" expanded="false" />
-                <element signature="e#2136#2137#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -454,9 +426,9 @@
         <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/Order.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="206" column="0" selection-start-line="206" selection-start-column="0" selection-end-line="206" selection-end-column="0" />
+              <caret line="221" column="67" selection-start-line="221" selection-start-column="67" selection-end-line="221" selection-end-column="67" />
               <folding>
-                <element signature="e#0#9105#0" expanded="false" />
+                <element signature="e#0#10599#0" expanded="false" />
                 <element signature="imports" expanded="false" />
                 <element signature="e#1671#1672#0" expanded="false" />
                 <element signature="e#1696#1697#0" expanded="false" />
@@ -497,18 +469,65 @@
                 <element signature="method#getItems#1;class#Order#0" expanded="false" />
                 <element signature="method#getPayments#0;class#Order#0" expanded="false" />
                 <element signature="method#findAll#0;class#Order#0" expanded="false" />
+                <element signature="method#findByKeyword#0;class#Order#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OrderServlet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Order/OrderServlet.java">
+      <file leaf-file-name="Payment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/Payment.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="33" column="54" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="54" />
+              <caret line="157" column="70" selection-start-line="155" selection-start-column="23" selection-end-line="157" selection-end-column="70" />
               <folding>
+                <element signature="e#0#8758#0" expanded="false" />
                 <element signature="imports" expanded="false" />
+                <element signature="e#1304#1305#0" expanded="false" />
+                <element signature="e#1329#1330#0" expanded="false" />
+                <element signature="e#1362#1363#0" expanded="false" />
+                <element signature="e#1390#1391#0" expanded="false" />
+                <element signature="e#1421#1422#0" expanded="false" />
+                <element signature="e#1449#1450#0" expanded="false" />
+                <element signature="e#1490#1491#0" expanded="false" />
+                <element signature="e#1524#1525#0" expanded="false" />
+                <element signature="e#1567#1568#0" expanded="false" />
+                <element signature="e#1594#1595#0" expanded="false" />
+                <element signature="e#1646#1647#0" expanded="false" />
+                <element signature="e#1678#1679#0" expanded="false" />
+                <element signature="e#1718#1719#0" expanded="false" />
+                <element signature="e#1747#1748#0" expanded="false" />
+                <element signature="e#1798#1799#0" expanded="false" />
+                <element signature="e#1834#1835#0" expanded="false" />
+                <element signature="e#1872#1873#0" expanded="false" />
+                <element signature="e#1903#1904#0" expanded="false" />
+                <element signature="e#1954#1955#0" expanded="false" />
+                <element signature="e#1994#1995#0" expanded="false" />
+                <element signature="e#2027#2028#0" expanded="false" />
+                <element signature="e#2056#2057#0" expanded="false" />
+                <element signature="e#2100#2101#0" expanded="false" />
+                <element signature="e#2136#2137#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderStatus.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/OrderStatus.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="26" column="73" selection-start-line="26" selection-start-column="73" selection-end-line="26" selection-end-column="73" />
+              <folding>
+                <element signature="e#0#2249#0" expanded="false" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#948#949#0" expanded="false" />
+                <element signature="e#973#974#0" expanded="false" />
+                <element signature="e#1006#1007#0" expanded="false" />
+                <element signature="e#1034#1035#0" expanded="false" />
+                <element signature="e#1065#1066#0" expanded="false" />
+                <element signature="e#1092#1093#0" expanded="false" />
+                <element signature="e#1132#1133#0" expanded="false" />
+                <element signature="e#1164#1165#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -547,8 +566,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/sit/khaycake/Filter/Auth.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/model/ShipmentAddress.java" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/Filter/request/ShipmentAddressRequest.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/ShipmentMethod/ShipmentMethodServlet.java" />
@@ -556,7 +573,6 @@
         <option value="$PROJECT_DIR$/src/sit/khaycake/model/ShipmentStatus.java" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/OrderItem/OrderItemServlet.java" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/OrderItem/PatternOrderItemServlet.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/model/OrderStatus.java" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/Bank/BankServlet.java" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/BankAccountType/BankAccountTypeServlet.java" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/BankAccountType/PatternBankAccountTypeServlet.java" />
@@ -580,7 +596,6 @@
         <option value="$PROJECT_DIR$/src/sit/khaycake/util/Util.java" />
         <option value="$PROJECT_DIR$/resources/css/khaycake.less" />
         <option value="$PROJECT_DIR$/resources/css/theme-coffee.less" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/Product/PatternProductServlet.java" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/Product/ProductServlet.java" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/database/SQL.java" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/model/Product.java" />
@@ -591,13 +606,17 @@
         <option value="$PROJECT_DIR$/web/admin.html" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/Order/PatternOrderServlet.java" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/model/Customer.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/model/Order.java" />
-        <option value="$PROJECT_DIR$/src/sit/khaycake/model/Payment.java" />
-        <option value="$PROJECT_DIR$/resources/js/admin.js" />
         <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/Auth/AuthController.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/Product/PatternProductServlet.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/Controller/Picture/PictureServlet.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/model/OrderStatus.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/model/Payment.java" />
+        <option value="$PROJECT_DIR$/src/sit/khaycake/model/Order.java" />
         <option value="$PROJECT_DIR$/resources/js/khaycake.js" />
         <option value="$PROJECT_DIR$/resources/js/core.js" />
+        <option value="$PROJECT_DIR$/gruntfile.js" />
         <option value="$PROJECT_DIR$/resources/css/admin.less" />
+        <option value="$PROJECT_DIR$/resources/js/admin.js" />
       </list>
     </option>
   </component>
@@ -647,7 +666,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -658,45 +677,7 @@
       <autoscrollFromSource />
       <sortByType />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KhayCake" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KhayCake" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KhayCake-DevServlet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KhayCake" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KhayCake-DevServlet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="aspect.path.notification.shown" value="true" />
@@ -1290,6 +1271,9 @@
       <workItem from="1431045051077" duration="2524000" />
       <workItem from="1431047724856" duration="3088000" />
       <workItem from="1431050993250" duration="1192000" />
+      <workItem from="1431151570662" duration="10913000" />
+      <workItem from="1431162742896" duration="1497000" />
+      <workItem from="1431164341618" duration="1748000" />
     </task>
     <task id="LOCAL-00001" summary="2nd Push">
       <created>1428785948768</created>
@@ -1487,7 +1471,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="433833000" />
+    <option name="totallyTimeSpent" value="447991000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1507,21 +1491,21 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.317817" sideWeight="0.36081696" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34565917" sideWeight="0.47806355" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34510434" sideWeight="0.48108926" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279743" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.49092284" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26205787" sideWeight="0.40015128" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31993568" sideWeight="0.46066564" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.255627" sideWeight="0.46066564" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22844176" sideWeight="0.5945946" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22844176" sideWeight="0.58747995" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.49909255" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17246597" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22844176" sideWeight="0.4054054" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34565917" sideWeight="0.5219365" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22844176" sideWeight="0.41252005" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34565917" sideWeight="0.51891077" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1538,7 +1522,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35691318" sideWeight="0.5249622" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34510434" sideWeight="0.48108926" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279743" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1547,23 +1531,23 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44051448" sideWeight="0.4750378" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34510434" sideWeight="0.51891077" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.4969743" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31993568" sideWeight="0.41149774" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.317817" sideWeight="0.36081696" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.49092284" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27974278" sideWeight="0.48184568" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26205787" sideWeight="0.40015128" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32636657" sideWeight="0.48184568" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31993568" sideWeight="0.46066564" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38424438" sideWeight="0.5338542" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25455928" sideWeight="0.5106383" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22844176" sideWeight="0.4893617" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22844176" sideWeight="0.5833333" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.49909255" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279743" sideWeight="0.48865354" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279743" sideWeight="0.48562783" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22844176" sideWeight="0.41666666" order="5" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1604,10 +1588,18 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/sit/khaycake/Controller/Picture/PictureServlet.java</url>
+          <line>47</line>
+          <properties />
+          <option name="timeStamp" value="280" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="276" />
+      <option name="time" value="298" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="GlassfishConfiguration">
@@ -1627,20 +1619,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/css/mixin.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/css/mixin.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8725">
-          <caret line="133" column="18" selection-start-line="133" selection-start-column="18" selection-end-line="133" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/css/theme-light.less">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.28301886">
@@ -1793,7 +1771,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1801,14 +1778,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding>
-            <element signature="e#356#357#0" expanded="false" />
-            <element signature="e#386#387#0" expanded="false" />
-            <element signature="e#421#422#0" expanded="false" />
-            <element signature="e#456#457#0" expanded="false" />
-            <element signature="e#503#504#0" expanded="false" />
-            <element signature="e#541#542#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1823,26 +1792,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.653846">
           <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Product/PatternProductServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.6340326">
-          <caret line="32" column="30" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/database/SQL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="116" column="5" selection-start-line="116" selection-start-column="5" selection-end-line="116" selection-end-column="5" />
-          <folding>
-            <element signature="e#2343#2344#0" expanded="false" />
-            <element signature="e#2367#2368#0" expanded="false" />
-            <element signature="e#3122#3123#0" expanded="false" />
-            <element signature="e#3152#3153#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1864,17 +1813,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
-          <folding>
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Picture/PictureServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1917,9 +1855,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="49" column="21" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
-          <folding>
-            <element signature="n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1927,9 +1862,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="54" column="76" selection-start-line="54" selection-start-column="76" selection-end-line="54" selection-end-column="76" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1937,9 +1869,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="64" column="65" selection-start-line="64" selection-start-column="65" selection-end-line="64" selection-end-column="65" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1947,9 +1876,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="33" column="54" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1957,16 +1883,98 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="216" column="19" selection-start-line="216" selection-start-column="19" selection-end-line="216" selection-end-column="19" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/css/khaycake.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="314" column="0" selection-start-line="314" selection-start-column="0" selection-end-line="314" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Auth/AuthController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="71" column="53" selection-start-line="71" selection-start-column="53" selection-end-line="71" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Product/PatternProductServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="94" selection-start-line="43" selection-start-column="94" selection-end-line="43" selection-end-column="94" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Picture/PictureServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="70" selection-start-line="46" selection-start-column="70" selection-end-line="46" selection-end-column="70" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/database/SQL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="215" column="0" selection-start-line="215" selection-start-column="0" selection-end-line="215" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#902#903#0" expanded="false" />
+            <element signature="e#952#953#0" expanded="false" />
+            <element signature="e#1014#1015#0" expanded="false" />
+            <element signature="e#1058#1059#0" expanded="false" />
+            <element signature="e#1623#1624#0" expanded="false" />
+            <element signature="e#1673#1674#0" expanded="false" />
+            <element signature="e#1735#1736#0" expanded="false" />
+            <element signature="e#1779#1780#0" expanded="false" />
+            <element signature="e#2343#2344#0" expanded="false" />
+            <element signature="e#2367#2368#0" expanded="false" />
+            <element signature="e#2397#2398#0" expanded="false" />
+            <element signature="e#2427#2428#0" expanded="false" />
+            <element signature="e#3122#3123#0" expanded="false" />
+            <element signature="e#3152#3153#0" expanded="false" />
+            <element signature="e#10908#10909#0" expanded="false" />
+            <element signature="e#10939#10940#0" expanded="false" />
+            <element signature="e#10980#10981#0" expanded="false" />
+            <element signature="e#11011#11012#0" expanded="false" />
+            <element signature="e#11057#11058#0" expanded="false" />
+            <element signature="e#11088#11089#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/OrderStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="73" selection-start-line="26" selection-start-column="73" selection-end-line="26" selection-end-column="73" />
+          <folding>
+            <element signature="e#0#2249#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#948#949#0" expanded="false" />
+            <element signature="e#973#974#0" expanded="false" />
+            <element signature="e#1006#1007#0" expanded="false" />
+            <element signature="e#1034#1035#0" expanded="false" />
+            <element signature="e#1065#1066#0" expanded="false" />
+            <element signature="e#1092#1093#0" expanded="false" />
+            <element signature="e#1132#1133#0" expanded="false" />
+            <element signature="e#1164#1165#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/Payment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="173" column="29" selection-start-line="173" selection-start-column="29" selection-end-line="173" selection-end-column="29" />
+          <caret line="157" column="70" selection-start-line="155" selection-start-column="23" selection-end-line="157" selection-end-column="70" />
           <folding>
-            <element signature="e#0#7719#0" expanded="false" />
+            <element signature="e#0#8758#0" expanded="false" />
             <element signature="imports" expanded="false" />
             <element signature="e#1304#1305#0" expanded="false" />
             <element signature="e#1329#1330#0" expanded="false" />
@@ -1999,9 +2007,9 @@
     <entry file="file://$PROJECT_DIR$/src/sit/khaycake/model/Order.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="206" column="0" selection-start-line="206" selection-start-column="0" selection-end-line="206" selection-end-column="0" />
+          <caret line="221" column="67" selection-start-line="221" selection-start-column="67" selection-end-line="221" selection-end-column="67" />
           <folding>
-            <element signature="e#0#9105#0" expanded="false" />
+            <element signature="e#0#10599#0" expanded="false" />
             <element signature="imports" expanded="false" />
             <element signature="e#1671#1672#0" expanded="false" />
             <element signature="e#1696#1697#0" expanded="false" />
@@ -2042,66 +2050,7 @@
             <element signature="method#getItems#1;class#Order#0" expanded="false" />
             <element signature="method#getPayments#0;class#Order#0" expanded="false" />
             <element signature="method#findAll#0;class#Order#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/admin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="484" column="0" selection-start-line="484" selection-start-column="0" selection-end-line="484" selection-end-column="0" />
-          <folding>
-            <element signature="e#388#969#0" expanded="false" />
-            <element signature="e#998#1531#0" expanded="false" />
-            <element signature="e#1571#2534#0" expanded="false" />
-            <element signature="e#3162#4396#0" expanded="false" />
-            <element signature="e#4469#4653#0" expanded="false" />
-            <element signature="e#4776#6111#0" expanded="false" />
-            <element signature="e#8040#10161#0" expanded="false" />
-            <element signature="e#10422#11495#0" expanded="false" />
-            <element signature="e#11549#13954#0" expanded="false" />
-            <element signature="e#13148#13425#0" expanded="false" />
-            <element signature="e#13990#16658#0" expanded="false" />
-            <element signature="e#16698#16879#0" expanded="false" />
-            <element signature="e#16928#18086#0" expanded="false" />
-            <element signature="e#18133#21340#0" expanded="false" />
-            <element signature="e#21377#23706#0" expanded="false" />
-            <element signature="e#23747#24416#0" expanded="false" />
-            <element signature="e#24471#25770#0" expanded="false" />
-            <element signature="e#25827#28891#0" expanded="false" />
-            <element signature="e#28083#28360#0" expanded="false" />
-            <element signature="e#28925#33947#0" expanded="false" />
-            <element signature="e#33991#36188#0" expanded="false" />
-            <element signature="e#39510#41602#0" expanded="false" />
-            <element signature="e#41652#43744#0" expanded="false" />
-            <element signature="e#43799#45292#0" expanded="false" />
-            <element signature="e#45368#45639#0" expanded="false" />
-            <element signature="e#45726#46018#0" expanded="false" />
-            <element signature="e#46055#48243#0" expanded="false" />
-            <marker date="1431050158769" expanded="true" signature="2701:2717" placeholder="..." />
-            <marker date="1431050158769" expanded="true" signature="3604:3620" placeholder="..." />
-            <marker date="1431050158769" expanded="true" signature="7511:7525" placeholder="..." />
-            <marker date="1431050158769" expanded="true" signature="8164:8180" placeholder="..." />
-            <marker date="1431050158769" expanded="true" signature="9481:9497" placeholder="..." />
-            <marker date="1431050158769" expanded="true" signature="11212:11218" placeholder="..." />
-            <marker date="1431050158769" expanded="true" signature="11703:11714" placeholder="..." />
-            <marker date="1431050158769" expanded="true" signature="12441:12447" placeholder="..." />
-            <marker date="1431050158769" expanded="true" signature="14116:14132" placeholder="..." />
-            <marker date="1431050158769" expanded="true" signature="15971:15987" placeholder="..." />
-            <marker date="1431050158769" expanded="true" signature="17621:17635" placeholder="..." />
-            <marker date="1431050158769" expanded="true" signature="17801:17807" placeholder="..." />
-            <marker date="1431050158769" expanded="true" signature="19006:19012" placeholder="..." />
-            <marker date="1431050158769" expanded="true" signature="19469:19480" placeholder="..." />
-            <marker date="1431050158769" expanded="true" signature="21504:21520" placeholder="..." />
-            <marker date="1431050158769" expanded="true" signature="23017:23033" placeholder="..." />
-            <marker date="1431050158769" expanded="true" signature="26025:26036" placeholder="..." />
-            <marker date="1431050158769" expanded="true" signature="26770:26776" placeholder="..." />
-            <marker date="1431050158769" expanded="true" signature="29299:29315" placeholder="..." />
-            <marker date="1431050158769" expanded="true" signature="33374:33390" placeholder="..." />
-            <marker date="1431050158769" expanded="true" signature="34183:34193" placeholder="..." />
-            <marker date="1431050158769" expanded="true" signature="39877:39893" placeholder="..." />
-            <marker date="1431050158769" expanded="true" signature="41794:41804" placeholder="..." />
-            <marker date="1431050158769" expanded="true" signature="44167:44183" placeholder="..." />
+            <element signature="method#findByKeyword#0;class#Order#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2109,117 +2058,280 @@
     <entry file="file://$PROJECT_DIR$/resources/js/khaycake.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="291" column="27" selection-start-line="291" selection-start-column="27" selection-end-line="291" selection-end-column="27" />
+          <caret line="516" column="39" selection-start-line="516" selection-start-column="39" selection-end-line="516" selection-end-column="39" />
           <folding>
-            <element signature="e#141#727#0" expanded="false" />
-            <element signature="e#205#262#0" expanded="false" />
-            <element signature="e#309#367#0" expanded="false" />
-            <element signature="e#407#502#0" expanded="false" />
-            <element signature="e#540#717#0" expanded="false" />
-            <element signature="e#4477#5161#0" expanded="false" />
-            <element signature="e#4544#4916#0" expanded="false" />
-            <element signature="e#4922#5054#0" expanded="false" />
-            <element signature="e#5271#5955#0" expanded="false" />
-            <element signature="e#5716#5848#0" expanded="false" />
-            <element signature="e#6069#6753#0" expanded="false" />
-            <element signature="e#6514#6646#0" expanded="false" />
-            <element signature="e#6852#7538#0" expanded="false" />
-            <element signature="e#9343#9522#0" expanded="false" />
-            <element signature="e#9379#9508#0" expanded="false" />
-            <element signature="e#11541#11632#0" expanded="false" />
-            <element signature="e#11636#11738#0" expanded="false" />
-            <element signature="e#12064#12161#0" expanded="false" />
-            <element signature="e#13537#14204#0" expanded="false" />
-            <element signature="e#14242#14367#0" expanded="false" />
-            <element signature="e#14407#14847#0" expanded="false" />
-            <element signature="e#14548#14817#0" expanded="false" />
-            <element signature="e#14600#14667#0" expanded="false" />
-            <element signature="e#14671#14807#0" expanded="false" />
-            <element signature="e#14905#15793#0" expanded="false" />
-            <element signature="e#15836#16283#0" expanded="false" />
-            <element signature="e#15981#16253#0" expanded="false" />
-            <element signature="e#16033#16100#0" expanded="false" />
-            <element signature="e#16104#16243#0" expanded="false" />
-            <element signature="e#16343#17421#0" expanded="false" />
-            <element signature="e#17463#17543#0" expanded="false" />
-            <element signature="e#17584#19648#0" expanded="false" />
-            <element signature="e#19729#20504#0" expanded="false" />
-            <element signature="e#20556#21714#0" expanded="false" />
-            <element signature="e#21777#23834#0" expanded="false" />
-            <element signature="e#22543#23435#0" expanded="false" />
-            <element signature="e#23004#23281#0" expanded="false" />
-            <element signature="e#23882#24293#0" expanded="false" />
-            <element signature="e#24351#26250#0" expanded="false" />
-            <element signature="e#26307#26520#0" expanded="false" />
-            <element signature="e#26579#26797#0" expanded="false" />
-            <element signature="e#28044#29212#0" expanded="false" />
-            <element signature="e#29314#29644#0" expanded="false" />
-            <element signature="e#29680#30061#0" expanded="false" />
-            <element signature="e#29715#30053#0" expanded="false" />
-            <element signature="e#29802#30043#0" expanded="false" />
-            <element signature="e#30100#30418#0" expanded="false" />
-            <element signature="e#30458#30512#0" expanded="false" />
-            <element signature="e#30556#31606#0" expanded="false" />
-            <element signature="e#31645#32195#0" expanded="false" />
-            <element signature="e#32238#34627#0" expanded="false" />
-            <element signature="e#34673#34790#0" expanded="false" />
-            <element signature="e#34833#39698#0" expanded="false" />
-            <element signature="e#39743#40143#0" expanded="false" />
-            <element signature="e#40187#40409#0" expanded="false" />
-            <element signature="e#40458#41201#0" expanded="false" />
-            <element signature="e#41248#41477#0" expanded="false" />
-            <element signature="e#41529#42450#0" expanded="false" />
-            <element signature="e#42497#42710#0" expanded="false" />
-            <element signature="e#42770#45894#0" expanded="false" />
-            <element signature="e#46006#46666#0" expanded="false" />
-            <element signature="e#46751#48234#0" expanded="false" />
-            <element signature="e#48278#48285#0" expanded="false" />
-            <element signature="e#48338#50404#0" expanded="false" />
-            <element signature="e#50455#51268#0" expanded="false" />
-            <marker date="1431051835642" expanded="true" signature="8410:8430" placeholder="..." />
-            <marker date="1431051835642" expanded="true" signature="21361:21367" placeholder="..." />
-            <marker date="1431051835642" expanded="true" signature="28747:28761" placeholder="..." />
-            <marker date="1431051835642" expanded="true" signature="28927:28933" placeholder="..." />
-            <marker date="1431051835642" expanded="false" signature="43035:43045" placeholder="..." />
-            <marker date="1431051835642" expanded="false" signature="43564:43576" placeholder="..." />
-            <marker date="1431051835642" expanded="false" signature="53082:53117" placeholder="..." />
+            <element signature="e#242#2435#0" expanded="false" />
+            <element signature="e#3430#3992#0" expanded="false" />
+            <element signature="e#3632#3752#0" expanded="false" />
+            <element signature="e#4051#5204#0" expanded="false" />
+            <element signature="e#5243#6871#0" expanded="false" />
+            <element signature="e#5512#5901#0" expanded="false" />
+            <element signature="e#5649#5828#0" expanded="false" />
+            <element signature="e#5685#5814#0" expanded="false" />
+            <element signature="e#6001#6823#0" expanded="false" />
+            <element signature="e#7363#7465#0" expanded="false" />
+            <element signature="e#7708#7787#0" expanded="false" />
+            <element signature="e#7791#7888#0" expanded="false" />
+            <element signature="e#8045#8966#0" expanded="false" />
+            <element signature="e#8689#8770#0" expanded="false" />
+            <element signature="e#9005#9105#0" expanded="false" />
+            <element signature="e#9149#9816#0" expanded="false" />
+            <element signature="e#9855#9980#0" expanded="false" />
+            <element signature="e#10020#10457#0" expanded="false" />
+            <element signature="e#10158#10427#0" expanded="false" />
+            <element signature="e#10210#10277#0" expanded="false" />
+            <element signature="e#10281#10417#0" expanded="false" />
+            <element signature="e#10515#11403#0" expanded="false" />
+            <element signature="e#11446#11890#0" expanded="false" />
+            <element signature="e#11588#11860#0" expanded="false" />
+            <element signature="e#11640#11707#0" expanded="false" />
+            <element signature="e#11711#11850#0" expanded="false" />
+            <element signature="e#11950#13028#0" expanded="false" />
+            <element signature="e#13070#13150#0" expanded="false" />
+            <element signature="e#14525#14914#0" expanded="false" />
+            <element signature="e#14588#14889#0" expanded="false" />
+            <element signature="e#15085#15345#0" expanded="false" />
+            <element signature="e#15190#15263#0" expanded="false" />
+            <element signature="e#15397#16565#0" expanded="false" />
+            <element signature="e#15637#16422#0" expanded="false" />
+            <element signature="e#15674#16411#0" expanded="false" />
+            <element signature="e#16426#16510#0" expanded="false" />
+            <element signature="e#16628#18685#0" expanded="false" />
+            <element signature="e#16716#17177#0" expanded="false" />
+            <element signature="e#17394#18286#0" expanded="false" />
+            <element signature="e#17496#17821#0" expanded="false" />
+            <element signature="e#17855#18132#0" expanded="false" />
+            <element signature="e#18292#18376#0" expanded="false" />
+            <element signature="e#18733#19144#0" expanded="false" />
+            <element signature="e#18877#19114#0" expanded="false" />
+            <element signature="e#18910#19004#0" expanded="false" />
+            <element signature="e#19008#19104#0" expanded="false" />
+            <element signature="e#19202#21101#0" expanded="false" />
+            <element signature="e#21158#21371#0" expanded="false" />
+            <element signature="e#21430#21648#0" expanded="false" />
+            <element signature="e#22178#23358#0" expanded="false" />
+            <element signature="e#22417#23211#0" expanded="false" />
+            <element signature="e#22456#23201#0" expanded="false" />
+            <element signature="e#23215#23303#0" expanded="false" />
+            <element signature="e#23459#23789#0" expanded="false" />
+            <element signature="e#23567#23733#0" expanded="false" />
+            <element signature="e#23824#24205#0" expanded="false" />
+            <element signature="e#24244#24562#0" expanded="false" />
+            <element signature="e#24371#24554#0" expanded="false" />
+            <element signature="e#24602#24656#0" expanded="false" />
+            <element signature="e#24700#25750#0" expanded="false" />
+            <element signature="e#25103#25281#0" expanded="false" />
+            <element signature="e#25307#25431#0" expanded="false" />
+            <element signature="e#25789#26339#0" expanded="false" />
+            <element signature="e#25932#25973#0" expanded="false" />
+            <element signature="e#26088#26287#0" expanded="false" />
+            <element signature="e#26128#26269#0" expanded="false" />
+            <element signature="e#26378#28812#0" expanded="false" />
+            <element signature="e#26847#28802#0" expanded="false" />
+            <element signature="e#26890#28789#0" expanded="false" />
+            <element signature="e#27121#27290#0" expanded="false" />
+            <element signature="e#27425#27534#0" expanded="false" />
+            <element signature="e#27574#27668#0" expanded="false" />
+            <element signature="e#27707#27814#0" expanded="false" />
+            <element signature="e#27853#28057#0" expanded="false" />
+            <element signature="e#27916#28036#0" expanded="false" />
+            <element signature="e#28111#28346#0" expanded="false" />
+            <element signature="e#28171#28326#0" expanded="false" />
+            <element signature="e#28414#28524#0" expanded="false" />
+            <element signature="e#28592#28661#0" expanded="false" />
+            <element signature="e#28666#28773#0" expanded="false" />
+            <element signature="e#28858#28975#0" expanded="false" />
+            <element signature="e#29018#33883#0" expanded="false" />
+            <element signature="e#29071#29178#0" expanded="false" />
+            <element signature="e#29229#29333#0" expanded="false" />
+            <element signature="e#29387#29463#0" expanded="false" />
+            <element signature="e#29520#29599#0" expanded="false" />
+            <element signature="e#29652#29731#0" expanded="false" />
+            <element signature="e#29792#31036#0" expanded="false" />
+            <element signature="e#29913#30513#0" expanded="false" />
+            <element signature="e#29992#30456#0" expanded="false" />
+            <element signature="e#30087#30433#0" expanded="false" />
+            <element signature="e#30124#30406#0" expanded="false" />
+            <element signature="e#30559#31026#0" expanded="false" />
+            <element signature="e#30651#31010#0" expanded="false" />
+            <element signature="e#30775#30992#0" expanded="false" />
+            <element signature="e#31096#32002#0" expanded="false" />
+            <element signature="e#31217#31607#0" expanded="false" />
+            <element signature="e#31296#31550#0" expanded="false" />
+            <element signature="e#31391#31527#0" expanded="false" />
+            <element signature="e#31653#31992#0" expanded="false" />
+            <element signature="e#31745#31976#0" expanded="false" />
+            <element signature="e#31869#31958#0" expanded="false" />
+            <element signature="e#32064#32949#0" expanded="false" />
+            <element signature="e#32187#32546#0" expanded="false" />
+            <element signature="e#32266#32489#0" expanded="false" />
+            <element signature="e#32361#32466#0" expanded="false" />
+            <element signature="e#32592#32939#0" expanded="false" />
+            <element signature="e#32686#32923#0" expanded="false" />
+            <element signature="e#32814#32905#0" expanded="false" />
+            <element signature="e#32999#33317#0" expanded="false" />
+            <element signature="e#33068#33279#0" expanded="false" />
+            <element signature="e#33103#33265#0" expanded="false" />
+            <element signature="e#33393#33574#0" expanded="false" />
+            <element signature="e#33625#33873#0" expanded="false" />
+            <element signature="e#33727#33835#0" expanded="false" />
+            <element signature="e#33928#34328#0" expanded="false" />
+            <element signature="e#34372#34594#0" expanded="false" />
+            <element signature="e#34451#34586#0" expanded="false" />
+            <element signature="e#34505#34576#0" expanded="false" />
+            <element signature="e#34643#35386#0" expanded="false" />
+            <element signature="e#35433#35662#0" expanded="false" />
+            <element signature="e#35519#35654#0" expanded="false" />
+            <element signature="e#35573#35644#0" expanded="false" />
+            <element signature="e#35714#36635#0" expanded="false" />
+            <element signature="e#36682#36895#0" expanded="false" />
+            <element signature="e#36774#36887#0" expanded="false" />
+            <element signature="e#36806#36877#0" expanded="false" />
+            <element signature="e#37105#37536#0" expanded="false" />
+            <element signature="e#40191#40851#0" expanded="false" />
+            <element signature="e#40367#40692#0" expanded="false" />
+            <element signature="e#40936#42419#0" expanded="false" />
+            <element signature="e#41164#42094#0" expanded="false" />
+            <element signature="e#41294#41617#0" expanded="false" />
+            <element signature="e#41654#41940#0" expanded="false" />
+            <element signature="e#42100#42184#0" expanded="false" />
+            <element signature="e#42463#42470#0" expanded="false" />
+            <element signature="e#42523#44589#0" expanded="false" />
+            <element signature="e#42614#43118#0" expanded="false" />
+            <element signature="e#43356#44258#0" expanded="false" />
+            <element signature="e#43458#43781#0" expanded="false" />
+            <element signature="e#43818#44104#0" expanded="false" />
+            <element signature="e#44264#44348#0" expanded="false" />
+            <element signature="e#44640#45454#0" expanded="false" />
+            <element signature="e#45136#45443#0" expanded="false" />
+            <element signature="e#45167#45362#0" expanded="false" />
+            <element signature="e#45213#45348#0" expanded="false" />
+            <element signature="e#45535#46112#0" expanded="false" />
+            <element signature="e#46267#46486#0" expanded="false" />
+            <element signature="e#46530#46920#0" expanded="false" />
+            <element signature="e#47225#47256#0" expanded="false" />
+            <element signature="e#47304#47345#0" expanded="false" />
+            <element signature="e#47492#47530#0" expanded="false" />
+            <marker date="1431163889369" expanded="false" signature="4827:4847" placeholder="..." />
+            <marker date="1431163889369" expanded="false" signature="16212:16218" placeholder="..." />
+            <marker date="1431163889369" expanded="false" signature="22893:22907" placeholder="..." />
+            <marker date="1431163889369" expanded="false" signature="23073:23079" placeholder="..." />
+            <marker date="1431163889369" expanded="false" signature="37220:37230" placeholder="..." />
+            <marker date="1431163889369" expanded="false" signature="37749:37761" placeholder="..." />
+            <marker date="1431163889369" expanded="false" signature="47069:47104" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sit/khaycake/Controller/Auth/AuthController.java">
+    <entry file="file://$PROJECT_DIR$/gruntfile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="71" column="53" selection-start-line="71" selection-start-column="53" selection-end-line="71" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/core.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.5862069">
-          <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
-          <folding>
-            <element signature="e#10714#10742#0" expanded="false" />
-            <marker date="1431052077221" expanded="true" signature="6341:6357" placeholder="..." />
-            <marker date="1431052077221" expanded="true" signature="8207:8223" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/css/khaycake.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-205.3077">
-          <caret line="314" column="0" selection-start-line="314" selection-start-column="0" selection-end-line="314" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.62528735">
+          <caret line="25" column="60" selection-start-line="25" selection-start-column="60" selection-end-line="25" selection-end-column="60" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/css/admin.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5779037">
-          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+        <state vertical-scroll-proportion="-6.923077">
+          <caret line="196" column="25" selection-start-line="196" selection-start-column="25" selection-end-line="196" selection-end-column="25" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/core.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="184" column="0" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!block;n#isFloat#0" expanded="false" />
+            <element signature="n#!!block;n#urlParam#0" expanded="false" />
+            <element signature="n#!!block;n#getParameter#0" expanded="false" />
+            <element signature="e#1799#3249#0" expanded="false" />
+            <element signature="e#3484#3680#0" expanded="false" />
+            <element signature="e#3566#3674#0" expanded="false" />
+            <element signature="n#!!block;n#isCookieEnable#0" expanded="false" />
+            <element signature="e#4166#4397#0" expanded="false" />
+            <element signature="e#5000#5043#0" expanded="false" />
+            <element signature="e#5086#5130#0" expanded="false" />
+            <element signature="e#5175#5681#0" expanded="false" />
+            <element signature="e#5710#5741#0" expanded="false" />
+            <marker date="1431164864351" expanded="true" signature="7348:7364" placeholder="..." />
+            <marker date="1431164864351" expanded="true" signature="9214:9230" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24827586">
+          <caret line="693" column="17" selection-start-line="693" selection-start-column="17" selection-end-line="693" selection-end-column="17" />
+          <folding>
+            <element signature="e#388#969#0" expanded="false" />
+            <element signature="e#998#1531#0" expanded="false" />
+            <element signature="e#4868#5052#0" expanded="false" />
+            <element signature="e#5175#6510#0" expanded="false" />
+            <element signature="e#6642#8405#0" expanded="false" />
+            <element signature="e#9112#9777#0" expanded="false" />
+            <element signature="e#11029#11212#0" expanded="false" />
+            <element signature="e#11257#12330#0" expanded="false" />
+            <element signature="e#12384#14844#0" expanded="false" />
+            <element signature="e#14038#14315#0" expanded="false" />
+            <element signature="e#15505#16583#0" expanded="false" />
+            <element signature="e#15836#16143#0" expanded="false" />
+            <element signature="e#16165#16470#0" expanded="false" />
+            <element signature="e#16222#16450#0" expanded="false" />
+            <element signature="e#16474#16558#0" expanded="false" />
+            <element signature="e#17848#18032#0" expanded="false" />
+            <element signature="e#18081#19239#0" expanded="false" />
+            <element signature="e#19286#22493#0" expanded="false" />
+            <element signature="e#25161#25832#0" expanded="false" />
+            <element signature="e#25887#27186#0" expanded="false" />
+            <element signature="e#27243#30307#0" expanded="false" />
+            <element signature="e#29499#29776#0" expanded="false" />
+            <element signature="e#32427#34279#0" expanded="false" />
+            <element signature="e#34345#35022#0" expanded="false" />
+            <element signature="e#35097#37284#0" expanded="false" />
+            <element signature="e#37324#40562#0" expanded="false" />
+            <element signature="e#37414#37654#0" expanded="false" />
+            <element signature="e#37702#37748#0" expanded="false" />
+            <element signature="e#37983#38369#0" expanded="false" />
+            <element signature="e#38423#38491#0" expanded="false" />
+            <element signature="e#38549#38800#0" expanded="false" />
+            <element signature="e#38860#39116#0" expanded="false" />
+            <element signature="e#39175#39789#0" expanded="false" />
+            <element signature="e#39853#40554#0" expanded="false" />
+            <element signature="e#40595#42687#0" expanded="false" />
+            <element signature="e#42737#44829#0" expanded="false" />
+            <element signature="e#44884#46377#0" expanded="false" />
+            <element signature="e#46453#46724#0" expanded="false" />
+            <element signature="e#46811#47103#0" expanded="false" />
+            <element signature="e#47140#49328#0" expanded="false" />
+            <marker date="1431165848507" expanded="true" signature="2674:2690" placeholder="..." />
+            <marker date="1431165848507" expanded="true" signature="3670:3686" placeholder="..." />
+            <marker date="1431165848507" expanded="true" signature="7910:7924" placeholder="..." />
+            <marker date="1431165848507" expanded="true" signature="8563:8579" placeholder="..." />
+            <marker date="1431165848507" expanded="true" signature="10107:10123" placeholder="..." />
+            <marker date="1431165848507" expanded="true" signature="12047:12053" placeholder="..." />
+            <marker date="1431165848507" expanded="true" signature="12538:12549" placeholder="..." />
+            <marker date="1431165848507" expanded="true" signature="13276:13282" placeholder="..." />
+            <marker date="1431165848507" expanded="true" signature="15006:15022" placeholder="..." />
+            <marker date="1431165848507" expanded="true" signature="16907:16923" placeholder="..." />
+            <marker date="1431165848507" expanded="true" signature="18774:18788" placeholder="..." />
+            <marker date="1431165848507" expanded="true" signature="18954:18960" placeholder="..." />
+            <marker date="1431165848507" expanded="true" signature="20159:20165" placeholder="..." />
+            <marker date="1431165848507" expanded="true" signature="20622:20633" placeholder="..." />
+            <marker date="1431165848507" expanded="true" signature="22657:22673" placeholder="..." />
+            <marker date="1431165848507" expanded="true" signature="24216:24232" placeholder="..." />
+            <marker date="1431165848507" expanded="true" signature="27441:27452" placeholder="..." />
+            <marker date="1431165848507" expanded="true" signature="28186:28192" placeholder="..." />
+            <marker date="1431165848507" expanded="true" signature="30715:30731" placeholder="..." />
+            <marker date="1431165848507" expanded="true" signature="31332:31348" placeholder="..." />
+            <marker date="1431165848507" expanded="true" signature="35289:35299" placeholder="..." />
+            <marker date="1431165848507" expanded="true" signature="40962:40978" placeholder="..." />
+            <marker date="1431165848507" expanded="true" signature="42879:42889" placeholder="..." />
+            <marker date="1431165848507" expanded="true" signature="45252:45268" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

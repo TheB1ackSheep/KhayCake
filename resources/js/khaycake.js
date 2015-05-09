@@ -6,20 +6,7 @@ $(document).ready(function () {
     var KhayCake = KhayCake || {};
 
     KhayCake.url = {};
-    KhayCake.url.parse = function(){
-		var obj = {};
-        var hash = window.location.hash.substr(2).split('?');
-		obj.resources = hash[0].split('/');
-		obj.params = {};
-		if(hash[1]){
-			var parameters = hash[1].split('&');
-                for(var idx in parameters) {
-                    var param = parameters[idx].split('=');
-                    obj.params[param[0]] = param[1];
-                }
-		}
-        return obj;
-	};
+    KhayCake.url.parse = urlParse;
 
     KhayCake.home = function () {
         $(section).html('<div class="cake">' +
@@ -65,7 +52,9 @@ $(document).ready(function () {
 		var page = url.params.page;
         var cat = url.resources[2];
 
-        $(section).html(KhayCake.cake.container());
+        if(!$("#cake-container").length > 0) {
+            $(section).html(KhayCake.cake.container());
+        }
 
         KhayCake.loadingMask("#cake-container");
 		
@@ -76,6 +65,8 @@ $(document).ready(function () {
 
         if(query)
             $("#form-search-cake").find("#keyword").val(query);
+        else
+            $("#form-search-cake").find("#keyword").val('');
 
         if(cat == "cupcake")
             fetchCake = Product.cupcake;
@@ -96,7 +87,7 @@ $(document).ready(function () {
                     var product = cakes.data[idx];
                     html += Product.box(product);
                 }
-                html += '<div class="page">'+cakes.html+'</div>'; 
+                html += cakes.html;
 
             } else {
                 html += '<div class="col-sm-12">ไม่มีสินค้าในระบบ</div>';
@@ -173,7 +164,7 @@ $(document).ready(function () {
     KhayCake.member = function(){
 		var url = KhayCake.url.parse();
         var sect = url.resources[2];
-		
+
         KhayCake.loadingMask(section);
 
         Auth.get(function(resp){
@@ -208,7 +199,9 @@ $(document).ready(function () {
         var url = KhayCake.url.parse();
 		var sect = url.resources[2];
 
-        $(section).html(KhayCake.member.container());
+        if(!$("#member-container").length > 0)
+            $(section).html(KhayCake.member.container());
+
         $("ul li").removeClass("active");
 
         switch (sect){
@@ -257,7 +250,7 @@ $(document).ready(function () {
         $("#form-register").submit(KhayCake.member.register);
     };
     KhayCake.member.login = function(){
-        KhayCake.loadingMask($(section));
+        KhayCake.loadingMask(section);
         var data = {email:$(this).find("#email").val()};
         Auth.auth($(this),function(resp){
             if(resp.message && resp.message.email){
@@ -288,7 +281,7 @@ $(document).ready(function () {
             '</form>';
     };
     KhayCake.member.register = function(){
-        KhayCake.loadingMask($(section));
+        KhayCake.loadingMask(section);
         var data = {email:$(this).find("#email").val()};
         Auth.register($(this),function(resp){
             if(resp.message && resp.message.email){
@@ -329,7 +322,7 @@ $(document).ready(function () {
 
     KhayCake.member.order = function(){
 
-        KhayCake.loadingMask($("#member-container"));
+        KhayCake.loadingMask("#member-container");
 
         var url = KhayCake.url.parse();
 		var page = url.params.page;
@@ -342,7 +335,7 @@ $(document).ready(function () {
                     var orders = pagination( resp.message,page,8);
                     var html = KhayCake.member.order.table(orders.data);
                     if(orders.hasNext)
-                        html += '<div class="page">'+orders.html+'</div>';
+                        html += orders.html;
                     KhayCake.member.set(html);
 
                 }
@@ -390,23 +383,6 @@ $(document).ready(function () {
         $("#time").timepicker({showMeridian:false,showSeconds:false});
 
 
-        $(".page-prev").click(function(){
-            KhayCake.member.order.page -= 1;
-            KhayCake.onHashChanged();
-            return false;
-        });
-
-        $(".page-button").click(function(){
-            KhayCake.member.order.page = parseInt($(this).text());
-            KhayCake.onHashChanged();
-            return false;
-        });
-
-        $(".page-next").click(function(){
-            KhayCake.member.order.page += 1;
-            KhayCake.onHashChanged();
-            return false;
-        });
     };
     KhayCake.member.order.table = function(orders){
         var html = '<table class="table">';
@@ -532,34 +508,14 @@ $(document).ready(function () {
         var url = KhayCake.url.parse();
 		var page = url.params.page;
 
-        KhayCake.loadingMask($("#member-container"));
+        KhayCake.loadingMask("#member-container");
 
         Auth.payment.all(function(resp){
             var orders = pagination( resp.message,page,8);
                 var html = KhayCake.member.payment.table(orders.data);
                 if(orders.hasNext)
-                    html += '<div class="page">'+orders.html+'</div>';
+                    html += orders.html;
                 KhayCake.member.set(html);
-            KhayCake.member.payment.bind();
-        });
-    };
-    KhayCake.member.payment.bind = function(){
-        $(".page-prev").click(function(){
-            KhayCake.member.payment.page -= 1;
-            KhayCake.onHashChanged();
-            return false;
-        });
-
-        $(".page-button").click(function(){
-            KhayCake.member.payment.page = parseInt($(this).text());
-            KhayCake.onHashChanged();
-            return false;
-        });
-
-        $(".page-next").click(function(){
-            KhayCake.member.payment.page += 1;
-            KhayCake.onHashChanged();
-            return false;
         });
     };
     KhayCake.member.payment.table = function(payments){
@@ -1145,8 +1101,16 @@ $(document).ready(function () {
     KhayCake.onHashChanged = function () {
         var url = KhayCake.url.parse();
         var method = url.resources[1];
+
+        if(!isCookieEnable()){
+            var session = getParameter("session");
+            if(session)
+                sessionID = session;
+            if(sessionID)
+                window.location.hash = urlParam("session",sessionID);
+        }
 		
-		 KhayCake.cart.close();
+        KhayCake.cart.close();
 
         switch (method) {
             case 'cake':               
@@ -1165,6 +1129,7 @@ $(document).ready(function () {
     };
 
     KhayCake.loadingMask = function (el) {
+        $(el).css({minHeight:$(el).height()});
         $(el).html("<div class='col-sm-12' style='text-align: center;overflow: hidden'><span class='loader'><span class='loader-inner'></span></span></div>");
     };
     KhayCake.loadedMask = function (el) {
@@ -1175,10 +1140,6 @@ $(document).ready(function () {
         KhayCake.onHashChanged();
     });
 
-    if (window.location.hash) {
-        KhayCake.onHashChanged();
-    }
-
     $(".cart-button .cart-open").click(function () {
         KhayCake.cart.open();
     });
@@ -1187,5 +1148,6 @@ $(document).ready(function () {
         KhayCake.cart.close();
     });
 
+    KhayCake.onHashChanged();
     KhayCake.cart();
 });

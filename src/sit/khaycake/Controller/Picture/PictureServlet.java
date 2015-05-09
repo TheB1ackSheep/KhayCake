@@ -44,7 +44,7 @@ public class PictureServlet extends HttpServlet {
                 // constructs path of the directory to save uploaded file
                 Context ctx = new InitialContext();
                 String path = (String) ctx.lookup("resource/uploadImageUrl");
-                File savePath = new File(path);//"/usr/share/glassfish4/glassfish/domains/jsp.falook.me/applications/khaycake/images");
+                File savePath = new File(path+File.separator+"product");//"/usr/share/glassfish4/glassfish/domains/jsp.falook.me/applications/khaycake/images");
                 List<Picture> pictures = new ArrayList<>();
 
 

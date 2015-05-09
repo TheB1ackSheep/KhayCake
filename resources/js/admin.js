@@ -55,10 +55,10 @@ $(document).ready(function() {
         };
 
     Admin.onHashChanged = function() {
-        var hash = window.location.hash.substr(2);
-        var section = hash.split('/')[1];
-        var method = hash.split('/')[2];
-        var param = hash.split('/')[3];
+        var url = urlParse();
+        var section = url.resources[1];
+        var method = url.resources[2];
+        var param = url.resources[3];
 
         switch (section) {
             case "cakes":
@@ -94,9 +94,14 @@ $(document).ready(function() {
         Admin.loadingMask();
 
         var actionBarContent = '<form id="form-search-dashboard"><div class="input-group" style="max-width: 400px"><input type="text" name="q" id="keyword" class="form-control" placeholder="ค้นหาโดยเบอร์โทรศัพท์, อีเมล์, ชื่อ-นามสกุล" required=""><span class="input-group-btn"><button class="btn btn-default" id="search-dashboard" type="submit">ค้นหา</button></span></div></form>';
-        var hash = window.location.hash.substr(2);
-        var method = hash.split('/')[2];
-        var param = hash.split('/')[3];
+
+        var url = urlParse();
+        var method = url.resources[2];
+        var param = url.resources[3];
+        var query = url.params.query;
+        var spage = getParameter("spage");
+        var ppage = getParameter("ppage");
+
 
 
         Order.shipping(function(orderResp){
@@ -106,25 +111,33 @@ $(document).ready(function() {
                 if(!paymentResp.message)
                     paymentResp.message = {};
 
-                if(method == "q")
+                if(query)
                     actionBarContent = '<div class="el"><a class="btn btn-default" href="#!/dashboard">กลับ</a></div><form id="form-search-dashboard"><div class="input-group" style="max-width: 400px"><input type="text" name="q" id="keyword" class="form-control" placeholder="ค้นหาโดยเบอร์โทรศัพท์, อีเมล์, ชื่อ-นามสกุล" required=""><span class="input-group-btn"><button class="btn btn-default" id="search-dashboard" type="submit">ค้นหา</button></span></div></form>';
 
                 $(actionBar).html(actionBarContent);
 
-                if(method == "q")
-                    $("#form-search-dashboard").find("#keyword").val(param);
+                if(query)
+                    $("#form-search-dashboard").find("#keyword").val(query);
+                else
+                    $("#form-search-dashboard").find("#keyword").val('');
 
-                var html = Admin.tabDashboard.shippingOrder.table(orderResp.message);
-                html += Admin.tabDashboard.approvingPayment.table(paymentResp.message);
+                var ships = pagination(orderResp.message,spage,5,"spage");
+                var pays = pagination(paymentResp.message,ppage,5,"ppage");
+                var html = Admin.tabDashboard.shippingOrder.table(ships.data);
+                if(ships.hasNext)
+                    html += ships.html;
+                html += Admin.tabDashboard.approvingPayment.table(pays.data);
+                if(pays.hasNext)
+                    html += pays.html;
                 $(content).html(html);
                 Admin.tabDashboard.bind();
                 Admin.loadedMask();
-            },method=="q"?param:null);
-        },method=="q"?param:null);
+            },query);
+        },query);
     };
     Admin.tabDashboard.bind = function(){
         $("#form-search-dashboard").submit(function(){
-            window.location.hash = "#!/dashboard/q/"+$(this).find("#keyword").val();
+            window.location.hash = urlParam("query",$(this).find("#keyword").val());
             return false;
         })
     };
@@ -194,9 +207,11 @@ $(document).ready(function() {
     Admin.tabOrder = function(){
         Admin.loadingMask();
         var actionBarContent = '<form id="form-search-order"><div class="input-group" style="max-width: 400px"><input type="text" name="q" id="keyword" class="form-control" placeholder="ค้นหาโดยเบอร์โทรศัพท์, อีเมล์, ชื่อ-นามสกุล" required=""><span class="input-group-btn"><button class="btn btn-default" id="search-order" type="submit">ค้นหา</button></span></div></form>';
-        var hash = window.location.hash.substr(2);
-        var method = hash.split('/')[2];
-        var param = hash.split('/')[3];
+        var url = urlParse();
+        var method = url.resources[2];
+        var param = url.resources[3];
+        var query = url.params.query;
+        var page = getParameter("page");
 
         if(isInteger(method)){
             Order.find(method, function(orderResp){
@@ -206,7 +221,10 @@ $(document).ready(function() {
                     if(!itemResp.message)
                         itemResp.message = {};
                     $(actionBar).html('');
-                    var html = Admin.tabOrder.form(orderResp.message,itemResp.message);
+                    var orders = pagination(orderResp.message,page,10);
+                    var html = Admin.tabOrder.form(orders.data,itemResp.message);
+                    if(orders.hasNext)
+                        html += '<div class="page">'+orders.html+'</div>';
                     $(content).html(html);
                     Admin.loadedMask();
                 });
@@ -215,20 +233,26 @@ $(document).ready(function() {
             Order.all(function(resp){
                 if(!resp.message)
                     resp.message = {};
-                if(method == "q")
+
+                if(query)
                     actionBarContent = '<div class="el"><a class="btn btn-default" href="#!/order">กลับ</a></div><form id="form-search-order"><div class="input-group" style="max-width: 400px"><input type="text" name="q" id="keyword" class="form-control" placeholder="ค้นหาโดยเบอร์โทรศัพท์, อีเมล์, ชื่อ-นามสกุล" required=""><span class="input-group-btn"><button class="btn btn-default" id="search-order" type="submit">ค้นหา</button></span></div></form>';
 
                 $(actionBar).html(actionBarContent);
 
-                if(method == "q")
-                    $("#form-search-order").find("#keyword").val(param);
+                if(query)
+                    $("#form-search-order").find("#keyword").val(query);
+                else
+                    $("#form-search-order").find("#keyword").val('');
 
-                var html = Admin.tabOrder.table(resp.message);
+                var orders = pagination(resp.message,page,10);
+                var html = Admin.tabOrder.table(orders.data);
+                if(orders.hasNext)
+                    html += orders.html;
                 $(content).html(html);
                 Admin.tabOrder.bind();
                 Admin.loadedMask();
 
-            },method=="q"?param:null);
+            },query);
         }
 
 
@@ -237,7 +261,7 @@ $(document).ready(function() {
     };
     Admin.tabOrder.bind = function(){
         $("#form-search-order").submit(function(){
-            window.location.hash = "#!/order/q/"+$(this).find("#keyword").val();
+            window.location.hash = urlParam("query",+$(this).find("#keyword").val());
             return false;
         });
 
@@ -288,7 +312,7 @@ $(document).ready(function() {
             color = "red";
 
         html += '<h3>สถานะ</h3>';
-        html += '<p><span style="color:'+color+'">'+order.status.name+'</span></p>';
+        html += '<p><span style="color:'+color+'">'+order.status.name+' '+(order.status.id==3?'เลขติดตาม '+order.trackId:'')+'</span></p>';
 
         html += '<h3>รายการสินค้า</h3>';
 
@@ -326,9 +350,11 @@ $(document).ready(function() {
     Admin.tabPayment = function(){
         Admin.loadingMask();
         var actionBarContent = '<form id="form-search-payment"><div class="input-group" style="max-width: 400px"><input type="text" name="q" id="keyword" class="form-control" placeholder="ค้นหาโดยเบอร์โทรศัพท์, อีเมล์, ชื่อ-นามสกุล" required=""><span class="input-group-btn"><button class="btn btn-default" id="search-payment" type="submit">ค้นหา</button></span></div></form>';
-        var hash = window.location.hash.substr(2);
-        var method = hash.split('/')[2];
-        var param = hash.split('/')[3];
+        var url = urlParse();
+        var method = url.resources[2];
+        var param = url.resources[3];
+        var query = url.params.query;
+        var page = getParameter("page");
 
         if(isInteger(method)){
             $(actionBar).html('');
@@ -364,20 +390,25 @@ $(document).ready(function() {
                 if(!resp.message)
                     resp.message = {};
 
-                if(method == "q")
+                if(query)
                     actionBarContent = '<div class="el"><a class="btn btn-default" href="#!/payment">กลับ</a></div><form id="form-search-payment"><div class="input-group" style="max-width: 400px"><input type="text" name="q" id="keyword" class="form-control" placeholder="ค้นหาโดยเบอร์โทรศัพท์, อีเมล์, ชื่อ-นามสกุล" required=""><span class="input-group-btn"><button class="btn btn-default" id="search-payment" type="submit">ค้นหา</button></span></div></form>';
 
                 $(actionBar).html(actionBarContent);
 
-                if(method == "q")
-                    $("#form-search-payment").find("#keyword").val(param);
+                if(query)
+                    $("#form-search-payment").find("#keyword").val(query);
+                else
+                    $("#form-search-payment").find("#keyword").val('');
 
-                var html = Admin.tabPayment.table(resp.message);
+                var payments = pagination(resp.message,page,10);
+                var html = Admin.tabPayment.table(payments.data);
+                if(payments.hasNext)
+                    html += payments.html;
                 $(content).html(html);
                 Admin.tabPayment.bind();
                 Admin.loadedMask();
 
-            },method=="q"?param:null);
+            },query);
         }
 
 
@@ -385,7 +416,7 @@ $(document).ready(function() {
     };
     Admin.tabPayment.bind = function(){
         $("#form-search-payment").submit(function(){
-            window.location.hash = "#!/payment/q/"+$(this).find("#keyword").val();
+            window.location.hash = urlParam("query",+$(this).find("#keyword").val());
             return false;
         });
     };
@@ -486,9 +517,11 @@ $(document).ready(function() {
     Admin.tabShipment = function(){
         Admin.loadingMask();
         var actionBarContent = '<form id="form-search-shipment"><div class="input-group" style="max-width: 400px"><input type="text" name="q" id="keyword" class="form-control" placeholder="ค้นหาโดยเบอร์โทรศัพท์, อีเมล์, ชื่อ-นามสกุล" required=""><span class="input-group-btn"><button class="btn btn-default" id="search-shipment" type="submit">ค้นหา</button></span></div></form>';
-        var hash = window.location.hash.substr(2);
-        var method = hash.split('/')[2];
-        var param = hash.split('/')[3];
+        var url = urlParse();
+        var method = url.resources[2];
+        var param = url.resources[3];
+        var query = url.params.query;
+        var page = getParameter("page");
 
         if(isInteger(method)){
             $(actionBar).html('');
@@ -515,26 +548,31 @@ $(document).ready(function() {
                 if(!resp.message)
                     resp.message = {};
 
-                if(method == "q")
+                if(query)
                     actionBarContent = '<div class="el"><a class="btn btn-default" href="#!/shipment">กลับ</a></div><form id="form-search-shipment"><div class="input-group" style="max-width: 400px"><input type="text" name="q" id="keyword" class="form-control" placeholder="ค้นหาโดยเบอร์โทรศัพท์, อีเมล์, ชื่อ-นามสกุล" required=""><span class="input-group-btn"><button class="btn btn-default" id="search-shipment" type="submit">ค้นหา</button></span></div></form>';
 
                 $(actionBar).html(actionBarContent);
 
-                if(method == "q")
-                    $("#form-search-shipment").find("#keyword").val(param);
+                if(query)
+                    $("#form-search-shipment").find("#keyword").val(query);
+                else
+                    $("#form-search-shipment").find("#keyword").val('');
 
-                var html = Admin.tabShipment.table(resp.message);
+                var shipment = pagination(resp.message,page,10);
+                var html = Admin.tabShipment.table(shipment.data);
+                if(shipment.hasNext)
+                    html += shipment.html;
                 $(content).html(html);
                 Admin.tabShipment.bind();
                 Admin.loadedMask();
 
-            },method=="q"?param:null);
+            },query);
         }
 
     };
     Admin.tabShipment.bind = function(){
         $("#form-search-shipment").submit(function(){
-            window.location.hash = "#!/shipment/q/"+$(this).find("#keyword").val();
+            window.location.hash = urlParam("query",+$(this).find("#keyword").val());
             return false;
         });
 
@@ -650,26 +688,29 @@ $(document).ready(function() {
     Admin.tabCake = function() {
         var actionBarContent = '<div class="el"><button class="btn btn-default" id="refresh-cake">รีเฟรช</button></div><div class="el btn-group"><a href="#!/cakes/create" class="btn btn-primary" id="add-cake">เพิ่มเค้ก</a><button class="btn btn-danger disabled" id="delete-cake">ลบ</button></div><div class="el"><form id="form-search-cake"><div class="input-group" style="max-width: 400px"><input type="text" name="q" id="keyword" class="form-control" placeholder="ค้นหาตามชื่อเค้ก, คำอธิบาย" required><span class="input-group-btn"><button class="btn btn-default" id="search-cake" type="submit">ค้นหา</button></span></div></form></div>';
 
-        var hash = window.location.hash.substr(2);
-        var resources = hash.split('/');
-        var method, param;
-        if (resources) {
-            if (resources.length >= 3)
-                method = resources[2];
-            if (resources.length >= 4)
-                param = resources[3];
-        }
+        var url = urlParse();
+        var method = url.resources[2], param = url.resources[3], query = url.params.query, page = getParameter("page");
+
+        if(query)
+            actionBarContent = '<div class="el"><a href="#!/cakes" class="btn btn-default">กลับ</a></div><div class="el"><form id="form-search-cake"><div class="input-group" style="max-width: 400px"><input type="text" name="q" id="keyword" class="form-control" placeholder="ค้นหาตามชื่อเค้ก, คำอธิบาย" required><span class="input-group-btn"><button class="btn btn-default" id="search-cake" type="submit">ค้นหา</button></span></div></form></div>';
 
 
         Admin.loadingMask();
-        if (!(method)) { //list all cake
-
+        if (!(method)) { //list all cake or search
             Product.all(function(resp) {
                 $(actionBar).html(actionBarContent);
-                Admin.tabCake.table(resp.message);
+                if(query)
+                    $("#form-search-cake").find("#keyword").val(query);
+                else
+                    $("#form-search-cake").find("#keyword").val('');
+                var cakes = pagination(resp.message,page,10);
+                var html = Admin.tabCake.table(cakes.data);
+                if(cakes.hasNext)
+                    html += cakes.html;
+                $(content).html(html);
                 Admin.tabCake.bind();
                 Admin.loadedMask();
-            });
+            },query);
         } else if (method) {
             if (isInteger(method)) { //get cake by id
                 Product.find(method,function(resp) {
@@ -722,17 +763,6 @@ $(document).ready(function() {
                         });
                     });
 
-
-
-                } else if (method === "search") {
-                    Product.find(param, function(resp) {
-                        actionBarContent = '<div class="el"><a href="#!/cakes" class="btn btn-default">กลับ</a></div><div class="el btn-group"><a href="#!/cakes/create" class="btn btn-primary" id="add-cake">เพิ่มเค้ก</a><button class="btn btn-danger disabled" id="delete-cake">ลบ</button></div><div class="el"><form id="form-search-cake"><div class="input-group" style="max-width: 400px"><input type="text" name="q" id="keyword" class="form-control" placeholder="ค้นหาตามชื่อเค้ก, คำอธิบาย" required><span class="input-group-btn"><button class="btn btn-default" id="search-cake" type="submit">ค้นหา</button></span></div></form></div>';
-                        $(actionBar).html(actionBarContent);
-                        $("#form-search-cake #keyword").val(param);
-                        Admin.tabCake.table(resp.message);
-                        Admin.tabCake.bind();
-
-                    });
                 }
             }
         }
@@ -780,7 +810,7 @@ $(document).ready(function() {
             cakeTable += '<tr><td colspan="5">ไม่มีเค้กใด ๆ ในระบบ</td></tr>';
         }
         cakeTable += '</table>';
-        $(content).html(cakeTable);
+        return cakeTable;
     };
     Admin.tabCake.bind = function(id) {
         Admin.loadedMask();
@@ -797,7 +827,7 @@ $(document).ready(function() {
         });
 
         $("#form-search-cake").submit(function(ev) {
-            window.location.hash = "#!/cakes/search/" + ($("#form-search-cake #keyword").val());
+            window.location.hash =  urlParam("query",$(this).find("#keyword").val());
             return false;
         });
 

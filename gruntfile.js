@@ -23,7 +23,7 @@ module.exports = function(grunt) {
                     compress: true
                 },
                 files: {"web/css/<%= pkg.name %>.min.css": "resources/css/<%= pkg.name %>.less",
-                    "web/css/admin.min.css": "resources/admin.less"}
+                    "web/css/admin.min.css": "resources/css/admin.less"}
             }
         },
         watch: {

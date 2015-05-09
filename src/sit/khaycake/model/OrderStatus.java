@@ -24,6 +24,7 @@ public class OrderStatus implements ORM, Serializable {
     public static final String TABLE_NAME = "ORDER_STATUS";
     public static final Column COLUMN_ID = ORM.column(TABLE_NAME, "ORST_ID");
     public static final Column COLUMN_NAME = ORM.column(TABLE_NAME, "NAME");
+    public static final Column COLUMN_SLUG = ORM.column(TABLE_NAME, "SLUG");
     public static final List<Column> PRIMARY_KEY = ORM.columns(COLUMN_ID);
 
     public int getId() {

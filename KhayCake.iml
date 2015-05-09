@@ -43,5 +43,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
+    <orderEntry type="library" name="KhayCake node_modules" level="project" />
   </component>
 </module>
